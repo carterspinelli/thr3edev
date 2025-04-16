@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,72 +29,70 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  const navItems = [
+    { href: "#inicio", label: "Inicio" },
+    { href: "#servicios", label: "Servicios" },
+    { href: "#portafolio", label: "Portafolio" },
+    { href: "#nosotros", label: "Nosotros" },
+    { href: "#contacto", label: "Contacto" }
+  ];
+
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-zinc-900/90 backdrop-blur-md border-b border-zinc-800' : 'bg-transparent'}`}>
-      <nav className="container mx-auto px-6 py-5 flex justify-between items-center">
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-zinc-900' : 'bg-transparent'}`}>
+      <motion.nav 
+        className="container mx-auto px-6 py-5 flex justify-between items-center"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
         <Link href="/" className="text-2xl font-medium tracking-tight">
           <span className="text-white">Diseño</span>
-          <span className="text-teal-500">Web</span>
+          <span className="text-[#FF4D2B]">Web</span>
         </Link>
         
         {/* Desktop Navigation */}
         {!isMobile && (
           <div className="flex space-x-10">
-            <a 
-              href="#inicio" 
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              onMouseEnter={() => setCursorVariant("sm")}
-              onMouseLeave={() => setCursorVariant("default")}
-            >
-              Inicio
-            </a>
-            <a 
-              href="#servicios" 
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              onMouseEnter={() => setCursorVariant("sm")}
-              onMouseLeave={() => setCursorVariant("default")}
-            >
-              Servicios
-            </a>
-            <a 
-              href="#portafolio" 
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              onMouseEnter={() => setCursorVariant("sm")}
-              onMouseLeave={() => setCursorVariant("default")}
-            >
-              Portafolio
-            </a>
-            <a 
-              href="#nosotros" 
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              onMouseEnter={() => setCursorVariant("sm")}
-              onMouseLeave={() => setCursorVariant("default")}
-            >
-              Nosotros
-            </a>
-            <a 
-              href="#contacto" 
-              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
-              onMouseEnter={() => setCursorVariant("sm")}
-              onMouseLeave={() => setCursorVariant("default")}
-            >
-              Contacto
-            </a>
+            {navItems.map((item, index) => (
+              <motion.a 
+                key={index}
+                href={item.href} 
+                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors relative group"
+                onMouseEnter={() => setCursorVariant("sm")}
+                onMouseLeave={() => setCursorVariant("default")}
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+              >
+                {item.label}
+                <motion.div 
+                  className="absolute -bottom-1 left-0 h-0.5 bg-[#FF4D2B] w-0 group-hover:w-full transition-all duration-300"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                />
+              </motion.a>
+            ))}
           </div>
         )}
         
         {/* Contact Button - Desktop */}
         {!isMobile && (
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="rounded-full border-zinc-700 text-white hover:border-zinc-600 hover:bg-zinc-800"
-            asChild
-            onMouseEnter={() => setCursorVariant("sm")}
-            onMouseLeave={() => setCursorVariant("default")}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
           >
-            <a href="#contacto">Contactar</a>
-          </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="rounded-full border-zinc-800 text-white hover:border-[#FF4D2B] hover:bg-[#FF4D2B]/10"
+              asChild
+              onMouseEnter={() => setCursorVariant("sm")}
+              onMouseLeave={() => setCursorVariant("default")}
+            >
+              <a href="#contacto">Contactar</a>
+            </Button>
+          </motion.div>
         )}
         
         {/* Mobile Menu Button */}
@@ -108,49 +107,45 @@ export default function Header() {
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         )}
-      </nav>
+      </motion.nav>
       
       {/* Mobile Navigation Menu */}
-      {isMobile && isMobileMenuOpen && (
-        <div className="bg-zinc-900/95 backdrop-blur-md border-b border-zinc-800 absolute w-full">
+      {isMobile && (
+        <motion.div 
+          className={`bg-black/95 backdrop-blur-md border-b border-zinc-900 absolute w-full overflow-hidden ${!isMobileMenuOpen && 'pointer-events-none'}`}
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ 
+            height: isMobileMenuOpen ? 'auto' : 0,
+            opacity: isMobileMenuOpen ? 1 : 0
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
           <div className="container mx-auto px-6 py-4 flex flex-col space-y-5">
-            <a 
-              href="#inicio" 
-              className="font-medium text-zinc-400 hover:text-white transition-colors"
-              onClick={closeMobileMenu}
-            >
-              Inicio
-            </a>
-            <a 
-              href="#servicios" 
-              className="font-medium text-zinc-400 hover:text-white transition-colors"
-              onClick={closeMobileMenu}
-            >
-              Servicios
-            </a>
-            <a 
-              href="#portafolio" 
-              className="font-medium text-zinc-400 hover:text-white transition-colors"
-              onClick={closeMobileMenu}
-            >
-              Portafolio
-            </a>
-            <a 
-              href="#nosotros" 
-              className="font-medium text-zinc-400 hover:text-white transition-colors"
-              onClick={closeMobileMenu}
-            >
-              Nosotros
-            </a>
-            <a 
+            {navItems.map((item, index) => (
+              <motion.a 
+                key={index}
+                href={item.href} 
+                className="font-medium text-zinc-400 hover:text-white transition-colors"
+                onClick={closeMobileMenu}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: isMobileMenuOpen ? 0 : -20, opacity: isMobileMenuOpen ? 1 : 0 }}
+                transition={{ delay: index * 0.05, duration: 0.3 }}
+              >
+                {item.label}
+              </motion.a>
+            ))}
+            <motion.a 
               href="#contacto" 
-              className="font-medium text-zinc-400 hover:text-white transition-colors py-2 px-4 bg-zinc-800 rounded-full inline-block w-full text-center"
+              className="font-medium text-zinc-200 py-2 px-6 bg-[#FF4D2B] hover:bg-[#e03e1f] transition-colors rounded-full inline-block w-full text-center"
               onClick={closeMobileMenu}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: isMobileMenuOpen ? 0 : 10, opacity: isMobileMenuOpen ? 1 : 0 }}
+              transition={{ delay: 0.25, duration: 0.3 }}
             >
               Contactar
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
       )}
     </header>
   );

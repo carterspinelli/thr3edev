@@ -1,49 +1,36 @@
-import { 
-  PencilRuler, 
-  Smartphone, 
-  Gauge,
-  ArrowRight
-} from "lucide-react";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
+import { ColorBlock } from "@/components/ui/color-block";
+import { StrategyIcon, DesignIcon, DevelopmentIcon, SpeedIcon } from "@/components/ui/service-icons";
+import { motion } from "framer-motion";
 
-const services = [
-  {
-    icon: <PencilRuler className="h-6 w-6 text-teal-500" />,
-    title: "Diseño Minimalista",
-    description: "Diseños limpios y elegantes que destacan el contenido importante y reflejan la identidad de tu marca."
-  },
-  {
-    icon: <Smartphone className="h-6 w-6 text-teal-500" />,
-    title: "Adaptable a Todo Dispositivo",
-    description: "Tu sitio se verá impecable en cualquier dispositivo, desde teléfonos móviles hasta pantallas de escritorio."
-  },
-  {
-    icon: <Gauge className="h-6 w-6 text-teal-500" />,
-    title: "Optimización SEO",
-    description: "Implementamos las mejores prácticas para mejorar tu visibilidad en los motores de búsqueda."
-  }
-];
-
-const processSteps = [
+const serviceBlocks = [
   {
     number: "01",
-    title: "Consulta Inicial",
-    description: "Entendemos tu visión y objetivos en una breve reunión."
+    title: "Estrategia",
+    description: "Analizamos tu negocio y definimos la mejor estrategia para convertir visitantes en clientes.",
+    color: "red" as const,
+    icon: <StrategyIcon />
   },
   {
     number: "02",
     title: "Diseño",
-    description: "Creamos un diseño elegante basado en tus requerimientos."
+    description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.",
+    color: "yellow" as const,
+    icon: <DesignIcon />
   },
   {
     number: "03",
     title: "Desarrollo",
-    description: "Construimos tu sitio con código limpio y optimizado."
+    description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.",
+    color: "green" as const,
+    icon: <DevelopmentIcon />
   },
   {
     number: "04",
-    title: "Lanzamiento",
-    description: "Tu sitio estará online en solo 3 días."
+    title: "Velocidad",
+    description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
+    color: "red" as const,
+    icon: <SpeedIcon />
   }
 ];
 
@@ -51,68 +38,62 @@ export default function Services() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   
   return (
-    <section id="servicios" className="py-20 md:py-28 bg-zinc-900">
+    <section id="servicios" className="py-20 md:py-28 bg-black">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-teal-500 text-sm font-medium mb-2 tracking-wide">NUESTROS SERVICIOS</p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-4 text-white">Enfoque limpio y efectivo</h2>
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="text-[#FF4D2B] text-sm font-medium mb-2 tracking-wide">NUESTROS SERVICIOS</p>
+          <h2 className="text-3xl md:text-4xl font-medium mb-4 text-white">Creamos experiencias impactantes</h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Creamos landing pages que convierten visitantes en clientes mediante un diseño minimalista y un proceso simplificado.
+            Diseñamos landing pages que convierten visitantes en clientes mediante un proceso perfeccionado y entregas ultrarrápidas.
           </p>
-        </div>
+        </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-          {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="bg-zinc-800 border border-zinc-700 rounded-md p-8 transition-all hover:border-zinc-600 hover:bg-zinc-800/80"
-              onMouseEnter={() => setCursorText("Servicio")}
-              onMouseLeave={() => setCursorText("")}
-            >
-              <div className="w-12 h-12 rounded-md bg-zinc-700 flex items-center justify-center mb-6">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-medium mb-3 text-white">{service.title}</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {serviceBlocks.map((block, index) => (
+            <ColorBlock
+              key={index}
+              number={block.number}
+              title={block.title}
+              description={block.description}
+              color={block.color}
+              icon={block.icon}
+              className={index === 1 ? "md:row-span-2 md:h-full" : ""}
+            />
           ))}
         </div>
         
-        {/* Process Steps */}
-        <div className="mt-24">
-          <div className="text-center mb-16">
-            <p className="text-teal-500 text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
-            <h3 className="text-3xl font-medium mb-4 text-white">Simple y Eficiente</h3>
-            <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-              Hemos optimizado cada paso para entregar resultados excepcionales en tiempo récord.
-            </p>
+        <motion.div 
+          className="mt-24 p-8 rounded-lg bg-zinc-900 border border-zinc-800"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          onMouseEnter={() => setCursorText("3 días")}
+          onMouseLeave={() => setCursorText("")}
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="md:w-2/3 mb-8 md:mb-0 md:pr-10">
+              <h3 className="text-2xl md:text-3xl font-medium mb-4 text-white">
+                De la idea al lanzamiento <span className="text-[#FF4D2B]">en 3 días</span>
+              </h3>
+              <p className="text-zinc-400 text-base">
+                Hemos perfeccionado nuestro proceso para entregar landing pages de alta calidad en tiempo récord. 
+                Sin complicaciones, sin costos ocultos, solo resultados excepcionales a un precio fijo de $18,000 MXN.
+              </p>
+            </div>
+            <div className="flex space-x-3 items-center">
+              <div className="w-3 h-3 rounded-full bg-[#FF4D2B]"></div>
+              <div className="w-3 h-3 rounded-full bg-[#FFC229]"></div>
+              <div className="w-3 h-3 rounded-full bg-[#26D9A3]"></div>
+            </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-            {processSteps.map((step, index) => (
-              <div 
-                key={index} 
-                className="relative"
-                onMouseEnter={() => setCursorVariant("sm")}
-                onMouseLeave={() => setCursorVariant("default")}
-              >
-                <div className="flex flex-col">
-                  <span className="text-zinc-700 text-4xl font-bold mb-6">{step.number}</span>
-                  <h4 className="font-medium text-lg mb-2 text-white">{step.title}</h4>
-                  <p className="text-zinc-400 text-sm">{step.description}</p>
-                  
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute -right-5 top-4">
-                      <ArrowRight className="text-zinc-700 h-5 w-5" />
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
