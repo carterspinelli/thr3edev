@@ -20,7 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 export default function ContactForm() {
   const { toast } = useToast();
@@ -63,127 +63,138 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contacto" className="py-16 md:py-24 bg-white">
+    <section id="contacto" className="py-20 md:py-28 bg-neutral-50">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row">
-          <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Contáctanos</h2>
-            <p className="text-gray-600 text-lg mb-8">
-              Estamos listos para crear tu sitio web. Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-primary text-sm font-medium mb-2 tracking-wide">CONTACTO</p>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-neutral-900">¿Listo para comenzar?</h2>
+            <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
+              Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
             </p>
-            
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-primary mr-4">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-gray-600">contacto@disenorapido.mx</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-primary mr-4">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Teléfono</h3>
-                  <p className="text-gray-600">+52 (55) 1234-5678</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-primary mr-4">
-                  <MapPin className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Ubicación</h3>
-                  <p className="text-gray-600">Ciudad de México, México</p>
-                </div>
-              </div>
-            </div>
           </div>
           
-          <div className="md:w-1/2">
-            <Form {...form}>
-              <form 
-                onSubmit={form.handleSubmit(onSubmit)} 
-                className="bg-gray-50 p-8 rounded-lg"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <FormField
-                    control={form.control}
-                    name="nombre"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Nombre</FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="empresa"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Empresa</FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+          <div className="flex flex-col md:flex-row bg-white border border-neutral-100 rounded-lg overflow-hidden shadow-sm">
+            <div className="md:w-2/5 bg-neutral-900 text-white p-10 md:p-12">
+              <h3 className="text-xl font-semibold mb-6">Información de contacto</h3>
+              
+              <div className="space-y-8 mb-12">
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center mr-4 flex-shrink-0">
+                    <Mail className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-neutral-300 mb-1">Email</h4>
+                    <p className="text-white">contacto@disenorapido.mx</p>
+                  </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input type="email" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="telefono"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Teléfono</FormLabel>
-                        <FormControl>
-                          <Input type="tel" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center mr-4 flex-shrink-0">
+                    <Phone className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-neutral-300 mb-1">Teléfono</h4>
+                    <p className="text-white">+52 (55) 1234-5678</p>
+                  </div>
                 </div>
                 
-                <div className="mb-6">
+                <div className="flex items-start">
+                  <div className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center mr-4 flex-shrink-0">
+                    <MapPin className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-neutral-300 mb-1">Ubicación</h4>
+                    <p className="text-white">Ciudad de México, México</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="pt-8 border-t border-neutral-800">
+                <p className="text-neutral-400 text-sm">
+                  Horario de atención: Lunes a Viernes de 9:00 AM a 6:00 PM
+                </p>
+              </div>
+            </div>
+            
+            <div className="md:w-3/5 p-10 md:p-12">
+              <Form {...form}>
+                <form 
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-6"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="nombre"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-neutral-700">Nombre</FormLabel>
+                          <FormControl>
+                            <Input {...field} className="border-neutral-200 focus:border-primary" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="empresa"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-neutral-700">Empresa</FormLabel>
+                          <FormControl>
+                            <Input {...field} className="border-neutral-200 focus:border-primary" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-neutral-700">Email</FormLabel>
+                          <FormControl>
+                            <Input type="email" {...field} className="border-neutral-200 focus:border-primary" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="telefono"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-neutral-700">Teléfono</FormLabel>
+                          <FormControl>
+                            <Input type="tel" {...field} className="border-neutral-200 focus:border-primary" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  
                   <FormField
                     control={form.control}
                     name="tipoProyecto"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Tipo de Proyecto</FormLabel>
+                        <FormLabel className="text-neutral-700">Tipo de Proyecto</FormLabel>
                         <Select 
                           onValueChange={field.onChange} 
                           defaultValue={field.value}
                         >
                           <FormControl>
-                            <SelectTrigger>
+                            <SelectTrigger className="border-neutral-200 focus:border-primary">
                               <SelectValue placeholder="Selecciona una opción" />
                             </SelectTrigger>
                           </FormControl>
@@ -198,33 +209,40 @@ export default function ContactForm() {
                       </FormItem>
                     )}
                   />
-                </div>
-                
-                <div className="mb-6">
+                  
                   <FormField
                     control={form.control}
                     name="mensaje"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Mensaje</FormLabel>
+                        <FormLabel className="text-neutral-700">Mensaje</FormLabel>
                         <FormControl>
-                          <Textarea rows={4} {...field} />
+                          <Textarea 
+                            rows={4} 
+                            {...field} 
+                            className="resize-none border-neutral-200 focus:border-primary" 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary hover:bg-blue-600"
-                  disabled={isPending}
-                >
-                  {isPending ? "Enviando..." : "Enviar Mensaje"}
-                </Button>
-              </form>
-            </Form>
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-neutral-900 hover:bg-black text-white font-medium h-12"
+                    disabled={isPending}
+                  >
+                    {isPending ? "Enviando..." : (
+                      <span className="flex items-center">
+                        Enviar mensaje
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </span>
+                    )}
+                  </Button>
+                </form>
+              </Form>
+            </div>
           </div>
         </div>
       </div>
