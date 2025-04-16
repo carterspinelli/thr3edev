@@ -1,6 +1,6 @@
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { ColorBlock } from "@/components/ui/color-block";
-import { StrategyIcon, DesignIcon, DevelopmentIcon, SpeedIcon } from "@/components/ui/service-icons";
+import { FeatureIcons } from "@/components/ui/feature-icons";
 import { motion } from "framer-motion";
 
 const serviceBlocks = [
@@ -9,28 +9,28 @@ const serviceBlocks = [
     title: "Estrategia",
     description: "Analizamos tu negocio y definimos la mejor estrategia para convertir visitantes en clientes.",
     color: "red" as const,
-    icon: <StrategyIcon />
+    icon: <FeatureIcons.Knight />
   },
   {
     number: "02",
     title: "Diseño",
     description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.",
     color: "yellow" as const,
-    icon: <DesignIcon />
+    icon: <FeatureIcons.Pencil />
   },
   {
     number: "03",
     title: "Desarrollo",
     description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.",
     color: "green" as const,
-    icon: <DevelopmentIcon />
+    icon: <FeatureIcons.Laptop />
   },
   {
     number: "04",
     title: "Velocidad",
     description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
     color: "red" as const,
-    icon: <SpeedIcon />
+    icon: <FeatureIcons.Speedometer />
   }
 ];
 
