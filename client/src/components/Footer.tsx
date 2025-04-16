@@ -1,83 +1,177 @@
 import { Link } from "wouter";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useSetCursorVariant } from "@/components/ui/custom-cursor";
+import { FooterIcons } from "@/components/ui/footer-icons";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+const navigation = {
+  categories: [
+    {
+      id: "main",
+      sections: [
+        {
+          id: "menu",
+          items: [
+            { name: "Inicio", href: "#inicio" },
+            { name: "Servicios", href: "#servicios" },
+            { name: "Portafolio", href: "#portafolio" },
+          ],
+        },
+        {
+          id: "servicios",
+          items: [
+            { name: "Landing Pages", href: "#servicios" },
+            { name: "Sitios Corporativos", href: "#servicios" },
+            { name: "Tiendas Online", href: "#servicios" },
+          ],
+        },
+        {
+          id: "about",
+          items: [
+            { name: "Nosotros", href: "#nosotros" },
+            { name: "Precios", href: "#precios" },
+            { name: "Contacto", href: "#contacto" },
+          ],
+        },
+        {
+          id: "info",
+          items: [
+            { name: "FAQs", href: "#" },
+            { name: "Términos", href: "#" },
+            { name: "Privacidad", href: "#" },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const socialLinks = [
+  { icon: <FooterIcons.Mail className="h-5 w-5" />, href: "mailto:contacto@disenorapido.mx", label: "Email" },
+  { icon: <FooterIcons.Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },
+  { icon: <FooterIcons.X className="h-5 w-5" />, href: "#", label: "Twitter" },
+  { icon: <FooterIcons.Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
+  { icon: <FooterIcons.Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
+  { icon: <FooterIcons.Github className="h-5 w-5" />, href: "#", label: "GitHub" },
+];
 
 export default function Footer() {
+  const { setCursorVariant, setCursorText } = useSetCursorVariant();
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+  
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-black border-t border-zinc-900">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between mb-10">
-          <div className="mb-10 md:mb-0 md:w-1/3">
-            <Link href="/" className="text-2xl font-bold mb-4 inline-block">
-              <span className="text-primary">Diseño</span>
-              <span className="text-orange-500">Rápido</span>
-            </Link>
-            <p className="text-gray-400 mb-6">
-              Sitios web profesionales en 3 días. Diseño, desarrollo y lanzamiento rápido a un precio fijo.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary">
-                <Linkedin className="h-5 w-5" />
-              </a>
+        <motion.div 
+          className="py-10 flex flex-col md:flex-row items-center justify-between border-b border-dotted border-zinc-800"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href="/">
+            <motion.div 
+              className="flex items-center cursor-pointer mb-6 md:mb-0"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+              onMouseEnter={() => setCursorVariant("sm")}
+              onMouseLeave={() => setCursorVariant("default")}
+            >
+              <FooterIcons.Designali className="h-8 w-8 text-[#FF4D2B]" />
+              <span className="ml-2 text-xl font-medium text-white">Diseño<span className="text-[#FF4D2B]">Web</span></span>
+            </motion.div>
+          </Link>
+          <p className="text-center md:text-left text-xs leading-relaxed text-zinc-500 max-w-xl">
+            Transformamos ideas en experiencias digitales impactantes. Creamos landing pages optimizadas para conversión en tiempo récord. Nuestro enfoque minimalista y orientado a resultados asegura que cada proyecto sea entregado en solo 3 días con la máxima calidad.
+          </p>
+        </motion.div>
+        
+        <div className="py-10">
+          {navigation.categories.map((category) => (
+            <div
+              key={category.id}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6"
+            >
+              {category.sections.map((section, sectionIndex) => (
+                <div key={section.id}>
+                  <ul className="flex flex-col space-y-3">
+                    {section.items.map((item, index) => (
+                      <motion.li 
+                        key={item.name} 
+                        initial={{ opacity: 0, y: 5 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.05 + sectionIndex * 0.1 }}
+                      >
+                        <a
+                          href={item.href}
+                          className="text-sm text-zinc-500 hover:text-white transition-colors duration-300"
+                          onMouseEnter={() => setCursorVariant("sm")}
+                          onMouseLeave={() => setCursorVariant("default")}
+                        >
+                          {item.name}
+                        </a>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
-          </div>
-          
-          <div className="mb-10 md:mb-0 md:w-1/4">
-            <h3 className="font-semibold text-lg mb-4">Enlaces Rápidos</h3>
-            <ul className="space-y-2">
-              <li><a href="#inicio" className="text-gray-400 hover:text-primary">Inicio</a></li>
-              <li><a href="#servicios" className="text-gray-400 hover:text-primary">Servicios</a></li>
-              <li><a href="#portafolio" className="text-gray-400 hover:text-primary">Portafolio</a></li>
-              <li><a href="#nosotros" className="text-gray-400 hover:text-primary">Nosotros</a></li>
-              <li><a href="#contacto" className="text-gray-400 hover:text-primary">Contacto</a></li>
-            </ul>
-          </div>
-          
-          <div className="mb-10 md:mb-0 md:w-1/4">
-            <h3 className="font-semibold text-lg mb-4">Servicios</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-primary">Landing Pages</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary">Sitios Corporativos</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary">Tiendas en Línea</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary">Mantenimiento Web</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-primary">Hosting & Dominios</a></li>
-            </ul>
-          </div>
-          
-          <div className="md:w-1/5">
-            <h3 className="font-semibold text-lg mb-4">Contacto</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <Mail className="text-primary h-5 w-5 mt-1 mr-3" />
-                <span className="text-gray-400">contacto@disenorapido.mx</span>
-              </li>
-              <li className="flex items-start">
-                <Phone className="text-primary h-5 w-5 mt-1 mr-3" />
-                <span className="text-gray-400">+52 (55) 1234-5678</span>
-              </li>
-              <li className="flex items-start">
-                <MapPin className="text-primary h-5 w-5 mt-1 mr-3" />
-                <span className="text-gray-400">Ciudad de México, México</span>
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
         
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} DiseñoRápido. Todos los derechos reservados.
-          </p>
-          <div className="flex space-x-6">
-            <a href="#" className="text-gray-500 hover:text-gray-400">Términos y Condiciones</a>
-            <a href="#" className="text-gray-500 hover:text-gray-400">Política de Privacidad</a>
+        <div className="border-t border-dotted border-zinc-800 py-10">
+          <div className="flex flex-wrap justify-center gap-y-6">
+            <div className="flex flex-wrap items-center justify-center gap-4 px-6 mb-8">
+              {socialLinks.map((link, index) => (
+                <motion.a
+                  key={index}
+                  aria-label={link.label}
+                  href={link.href}
+                  rel="noreferrer"
+                  target="_blank"
+                  className="hover:-translate-y-1 border border-dotted border-zinc-800 rounded-xl p-2.5 transition-transform text-zinc-500 hover:text-white"
+                  onMouseEnter={() => setCursorVariant("sm")}
+                  onMouseLeave={() => setCursorVariant("default")}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  {link.icon}
+                </motion.a>
+              ))}
+            </div>
+            
+            <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+          </div>
+          
+          <div className="flex flex-col justify-between text-center text-xs mt-8">
+            <motion.div 
+              className="flex flex-row items-center justify-center gap-1 text-zinc-600"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <span>©</span>
+              <span>{new Date().getFullYear()}</span>
+              <span>Hecho con</span>
+              <FooterIcons.Heart className="text-[#FF4D2B] mx-1 h-4 w-4 animate-pulse" />
+              <span>por</span>
+              <motion.span 
+                className="cursor-pointer text-white font-medium"
+                whileHover={{ color: "#FF4D2B" }}
+              >
+                <Link href="/">DiseñoWeb</Link>
+              </motion.span>
+            </motion.div>
           </div>
         </div>
       </div>
