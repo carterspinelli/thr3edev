@@ -6,7 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
-import logoImg from "@assets/thr3edev_logo.png";
+import { Logo } from "@/components/ui/logo";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +49,7 @@ export default function Header() {
         transition={{ duration: 0.4 }}
       >
         <Link href="/" className="flex items-center">
-          <img src={logoImg} alt="thr3e.dev" className="h-20 md:h-24" />
+          <Logo textSize="lg" />
         </Link>
         
         {/* Desktop Navigation */}

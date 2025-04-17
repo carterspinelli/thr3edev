@@ -5,7 +5,7 @@ import { FooterIcons } from "@/components/ui/footer-icons";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
-import logoImg from "@assets/thr3edev_logo.png";
+import { Logo } from "@/components/ui/logo";
 
 const navigation = {
   categories: [
@@ -81,7 +81,7 @@ export default function Footer() {
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              <img src={logoImg} alt="thr3e.dev" className="h-20 md:h-24" />
+              <Logo textSize="lg" />
             </motion.div>
           </Link>
           <p className="text-center md:text-left text-xs leading-relaxed text-zinc-500 max-w-xl">
