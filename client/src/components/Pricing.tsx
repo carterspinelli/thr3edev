@@ -75,17 +75,19 @@ export default function Pricing() {
                   </ul>
                 </div>
                 
-                <div className="md:w-5/12 w-full md:border-l md:border-zinc-800 md:pl-10 flex flex-col items-center md:items-start">
+                <div className={`md:w-5/12 w-full md:border-l md:pl-10 flex flex-col items-center md:items-start ${
+                  theme === 'dark' ? 'md:border-zinc-800' : 'md:border-zinc-300'
+                }`}>
                   <motion.div 
                     className="mb-2"
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span className="text-5xl font-bold text-white">$18,000</span>
-                    <span className="text-zinc-400 ml-1">MXN</span>
+                    <span className={`text-5xl font-bold ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>$18,000</span>
+                    <span className={`ml-1 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>MXN</span>
                   </motion.div>
-                  <p className="text-zinc-400 text-sm mb-8">Precio único, sin cargos adicionales</p>
+                  <p className={`text-sm mb-8 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>Precio único, sin cargos adicionales</p>
                   
                   <div className="mb-8 w-full">
                     <div className="py-3 px-4 bg-[#FFC229]/10 rounded-md border border-[#FFC229]/30 text-center">

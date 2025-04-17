@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/hooks/use-theme";
 
 interface ColorBlockProps {
   number: string;
@@ -19,16 +20,31 @@ export function ColorBlock({
   icon,
   className
 }: ColorBlockProps) {
+  const { theme } = useTheme();
+  
   const getBgColor = () => {
-    switch (color) {
-      case "red":
-        return "bg-[#1A0D0A]";
-      case "yellow":
-        return "bg-[#1A1505]";
-      case "green":
-        return "bg-[#061A10]";
-      default:
-        return "bg-zinc-900";
+    if (theme === 'dark') {
+      switch (color) {
+        case "red":
+          return "bg-[#1A0D0A]";
+        case "yellow":
+          return "bg-[#1A1505]";
+        case "green":
+          return "bg-[#061A10]";
+        default:
+          return "bg-zinc-900";
+      }
+    } else {
+      switch (color) {
+        case "red":
+          return "bg-red-50";
+        case "yellow":
+          return "bg-amber-50";
+        case "green":
+          return "bg-emerald-50";
+        default:
+          return "bg-zinc-100";
+      }
     }
   };
 
@@ -41,7 +57,7 @@ export function ColorBlock({
       case "green":
         return "text-[#26D9A3]";
       default:
-        return "text-white";
+        return theme === 'dark' ? "text-white" : "text-zinc-900";
     }
   };
 
@@ -88,7 +104,7 @@ export function ColorBlock({
             {title}
           </motion.h3>
           <motion.p 
-            className="text-zinc-400 text-sm md:text-base"
+            className={`text-sm md:text-base ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}
             initial={{ opacity: 0.8 }}
             animate={isHovered ? { opacity: 1 } : { opacity: 0.8 }}
             transition={{ duration: 0.3 }}
