@@ -3,6 +3,15 @@ import { ColorBlock } from "@/components/ui/color-block";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { ChessKnightIcon, PencilIcon, LaptopIcon, SpeedometerIcon } from "@/components/ui/service-custom-icons";
+import {
+  Stepper,
+  StepperDescription,
+  StepperIndicator,
+  StepperItem,
+  StepperSeparator,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper";
 
 const serviceBlocks = [
   {
@@ -49,18 +58,74 @@ export default function Services() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {serviceBlocks.map((block, index) => (
-            <ColorBlock
-              key={index}
-              number={block.number}
-              title={block.title}
-              description={block.description}
-              color={block.color}
-              icon={block.icon}
-              className=""
-            />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="md:pr-8">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+              {serviceBlocks.map((block, index) => (
+                <ColorBlock
+                  key={index}
+                  number={block.number}
+                  title={block.title}
+                  description={block.description}
+                  color={block.color}
+                  icon={block.icon}
+                  className=""
+                />
+              ))}
+            </div>
+          </div>
+          
+          <motion.div
+            className={`p-6 md:p-8 rounded-lg ${theme === 'dark' ? 'bg-zinc-900/50' : 'bg-zinc-50'} border ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-200'}`}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="flex items-center mb-8">
+              <div className="w-2 h-12 bg-[#0e62fe] rounded-full mr-4"></div>
+              <h3 className={`text-xl md:text-2xl font-medium ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
+                Nuestro <span className="text-[#0e62fe]">proceso</span>
+              </h3>
+            </div>
+            
+            <Stepper defaultValue={2} orientation="vertical" className="ml-3">
+              {serviceBlocks.map((block, index) => (
+                <StepperItem
+                  key={index}
+                  step={index + 1}
+                  className="relative items-start pb-12 last:pb-0"
+                  completed={index < 2}
+                >
+                  <StepperTrigger 
+                    className="items-start hover:scale-105 transition-transform" 
+                    onMouseEnter={() => setCursorVariant("sm")}
+                    onMouseLeave={() => setCursorVariant("default")}
+                  >
+                    <StepperIndicator className="h-10 w-10 text-base" />
+                    <div className="mt-0.5 px-4 text-left">
+                      <StepperTitle className={`text-lg font-medium ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
+                        {block.title}
+                      </StepperTitle>
+                      <StepperDescription className={`text-sm mt-1 leading-relaxed ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                        {block.description}
+                      </StepperDescription>
+                    </div>
+                  </StepperTrigger>
+                  
+                  {index < serviceBlocks.length - 1 && (
+                    <StepperSeparator className="absolute inset-y-0 left-4 top-10 -order-1 m-0 -translate-x-1/2 h-[calc(100%-2.5rem)]" />
+                  )}
+                </StepperItem>
+              ))}
+            </Stepper>
+            
+            <div className="mt-8 pl-16">
+              <p className={`text-sm ${theme === 'dark' ? 'text-zinc-500' : 'text-zinc-500'}`}>
+                <span className="text-[#0e62fe] font-medium">*</span> Nuestro objetivo es entregar un producto de calidad en tiempo récord.
+              </p>
+            </div>
+          </motion.div>
         </div>
         
         <motion.div 
