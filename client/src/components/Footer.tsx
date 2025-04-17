@@ -4,7 +4,7 @@ import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { FooterIcons } from "@/components/ui/footer-icons";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useTheme } from "@/hooks/use-theme";
 import logoImg from "@assets/thr3edev_logo.png";
 
 const navigation = {
@@ -60,11 +60,8 @@ const socialLinks = [
 
 export default function Footer() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const { theme, toggleTheme } = useTheme();
+  const isDarkMode = theme === 'dark';
   
   return (
     <footer className="bg-black border-t border-zinc-900">
@@ -149,7 +146,7 @@ export default function Footer() {
               ))}
             </div>
             
-            <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+            <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleTheme} />
           </div>
           
           <div className="flex flex-col justify-between text-center text-xs mt-8">

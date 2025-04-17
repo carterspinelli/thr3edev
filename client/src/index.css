@@ -3,11 +3,59 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #333333;
+    
+    --card-background: #f5f5f5;
+    --card-foreground: #333333;
+    
+    --header-background: rgba(255, 255, 255, 0.9);
+    --accent-color: #FF4D2B;
+    --accent-hover: #e03e1f;
+    
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+    
+    --border-light: #e0e0e0;
+    --border-normal: #cccccc;
+    
+    --bg-red: #FFF5F2;
+    --bg-yellow: #FFFAF0;
+    --bg-green: #F0FFF4;
+  }
+
+  .dark {
+    --background: #000000;
+    --foreground: #ffffff;
+    
+    --card-background: #111111;
+    --card-foreground: #ffffff;
+    
+    --header-background: rgba(0, 0, 0, 0.9);
+    --accent-color: #FF4D2B;
+    --accent-hover: #e03e1f;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --text-tertiary: #666666;
+    
+    --border-light: #333333;
+    --border-normal: #444444;
+    
+    --bg-red: #1A0D0A;
+    --bg-yellow: #1A1505;
+    --bg-green: #061A10;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
