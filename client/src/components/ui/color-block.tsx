@@ -26,7 +26,7 @@ export function ColorBlock({
     if (theme === 'dark') {
       switch (color) {
         case "red":
-          return "bg-[#1A0D0A]";
+          return "bg-[#071330]";
         case "yellow":
           return "bg-[#1A1505]";
         case "green":
@@ -37,7 +37,7 @@ export function ColorBlock({
     } else {
       switch (color) {
         case "red":
-          return "bg-red-50";
+          return "bg-blue-50";
         case "yellow":
           return "bg-amber-50";
         case "green":
@@ -51,7 +51,7 @@ export function ColorBlock({
   const getTextColor = () => {
     switch (color) {
       case "red":
-        return "text-[#FF4D2B]";
+        return "text-[#0e62fe]";
       case "yellow":
         return "text-[#FFC229]";
       case "green":

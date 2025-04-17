@@ -94,7 +94,7 @@ export default function Services() {
               </p>
             </div>
             <div className="flex space-x-3 items-center">
-              <div className="w-3 h-3 rounded-full bg-[#FF4D2B]"></div>
+              <div className="w-3 h-3 rounded-full bg-[#0e62fe]"></div>
               <div className="w-3 h-3 rounded-full bg-[#FFC229]"></div>
               <div className="w-3 h-3 rounded-full bg-[#26D9A3]"></div>
             </div>
