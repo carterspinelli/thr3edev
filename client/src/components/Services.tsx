@@ -9,7 +9,7 @@ const serviceBlocks = [
     title: "Estrategia",
     description: "Analizamos tu negocio y definimos la mejor estrategia para convertir visitantes en clientes.",
     color: "red" as const,
-    icon: <FeatureIcons.Knight />
+    icon: <FeatureIcons.PlanningBoard />
   },
   {
     number: "02",
@@ -30,7 +30,7 @@ const serviceBlocks = [
     title: "Velocidad",
     description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
     color: "red" as const,
-    icon: <FeatureIcons.Speedometer />
+    icon: <FeatureIcons.Runner />
   }
 ];
 
