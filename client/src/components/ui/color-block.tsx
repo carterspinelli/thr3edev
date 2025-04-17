@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
-import { Meteors } from "@/components/ui/meteors";
 
 interface ColorBlockProps {
   number: string;
@@ -71,12 +70,8 @@ export function ColorBlock({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={{ boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
     >
-      {/* Fondo con gradiente */}
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-[#0e62fe]/10 to-transparent transform scale-150 opacity-50 blur-xl" />
-      
-      <div className="relative z-10 flex flex-col h-full">
+      <div className="flex flex-col h-full">
         <div className="flex justify-between items-start mb-8">
           <span className={cn("text-2xl md:text-3xl font-medium opacity-70", getTextColor())}>
             {number}
@@ -119,9 +114,6 @@ export function ColorBlock({
           transition={{ duration: 0.5 }}
         />
       </div>
-      
-      {/* Efecto de meteoros */}
-      <Meteors number={15} className="opacity-50" />
     </motion.div>
   );
 }
