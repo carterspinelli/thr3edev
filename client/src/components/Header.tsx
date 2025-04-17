@@ -68,7 +68,7 @@ export default function Header() {
               >
                 {item.label}
                 <motion.div 
-                  className="absolute -bottom-1 left-0 h-0.5 bg-[#FF4D2B] w-0 group-hover:w-full transition-all duration-300"
+                  className="absolute -bottom-1 left-0 h-0.5 bg-[#0e62fe] w-0 group-hover:w-full transition-all duration-300"
                   initial={{ width: 0 }}
                   whileHover={{ width: "100%" }}
                 />
@@ -88,8 +88,8 @@ export default function Header() {
               variant="outline" 
               size="sm" 
               className={`rounded-full ${theme === 'dark' 
-                ? 'border-zinc-800 text-white hover:border-[#FF4D2B] hover:bg-[#FF4D2B]/10' 
-                : 'border-zinc-300 text-zinc-900 hover:border-[#FF4D2B] hover:bg-[#FF4D2B]/10 hover:text-[#FF4D2B]'}`}
+                ? 'border-zinc-800 text-white hover:border-[#0e62fe] hover:bg-[#0e62fe]/10' 
+                : 'border-zinc-300 text-zinc-900 hover:border-[#0e62fe] hover:bg-[#0e62fe]/10 hover:text-[#0e62fe]'}`}
               asChild
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
@@ -145,7 +145,7 @@ export default function Header() {
             ))}
             <motion.a 
               href="#contacto" 
-              className="font-medium text-zinc-200 py-2 px-6 bg-[#FF4D2B] hover:bg-[#e03e1f] transition-colors rounded-full inline-block w-full text-center"
+              className="font-medium text-zinc-200 py-2 px-6 bg-[#0e62fe] hover:bg-[#0952d3] transition-colors rounded-full inline-block w-full text-center"
               onClick={closeMobileMenu}
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: isMobileMenuOpen ? 0 : 10, opacity: isMobileMenuOpen ? 1 : 0 }}

@@ -168,11 +168,11 @@ export default function Footer() {
               <span>©</span>
               <span>{new Date().getFullYear()}</span>
               <span>Hecho con</span>
-              <FooterIcons.Heart className="text-[#FF4D2B] mx-1 h-4 w-4 animate-pulse" />
+              <FooterIcons.Heart className="text-[#0e62fe] mx-1 h-4 w-4 animate-pulse" />
               <span>por</span>
               <motion.span 
                 className={`cursor-pointer font-medium ${theme === 'dark' ? 'text-white' : 'text-black'}`}
-                whileHover={{ color: "#FF4D2B" }}
+                whileHover={{ color: "#0e62fe" }}
               >
                 <Link href="/">thr3e.dev</Link>
               </motion.span>
