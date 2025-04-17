@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
 import { Logo } from "@/components/ui/logo";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 const navigation = {
   categories: [
@@ -64,122 +65,124 @@ export default function Footer() {
   const isDarkMode = theme === 'dark';
   
   return (
-    <footer className={theme === 'dark' ? "bg-black border-t border-zinc-900" : "bg-zinc-100 border-t border-zinc-200"}>
-      <div className="container mx-auto px-6">
-        <motion.div 
-          className={`py-10 flex flex-col md:flex-row items-center justify-between border-b border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'}`}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Link href="/">
-            <motion.div 
-              className="flex items-center cursor-pointer mb-6 md:mb-0"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-              onMouseEnter={() => setCursorVariant("sm")}
-              onMouseLeave={() => setCursorVariant("default")}
-            >
-              <Logo textSize="lg" />
-            </motion.div>
-          </Link>
-          <p className="text-center md:text-left text-xs leading-relaxed text-zinc-500 max-w-xl">
-            Transformamos ideas en experiencias digitales impactantes. Creamos landing pages optimizadas para conversión en tiempo récord. Nuestro enfoque minimalista y orientado a resultados asegura que cada proyecto sea entregado en solo 3 días con la máxima calidad.
-          </p>
-        </motion.div>
-        
-        <div className="py-10">
-          {navigation.categories.map((category) => (
-            <div
-              key={category.id}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6"
-            >
-              {category.sections.map((section, sectionIndex) => (
-                <div key={section.id}>
-                  <ul className="flex flex-col space-y-3">
-                    {section.items.map((item, index) => (
-                      <motion.li 
-                        key={item.name} 
-                        initial={{ opacity: 0, y: 5 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.3, delay: index * 0.05 + sectionIndex * 0.1 }}
-                      >
-                        <a
-                          href={item.href}
-                          className={`text-sm transition-colors duration-300 ${
-                            theme === 'dark' 
-                              ? 'text-zinc-500 hover:text-white' 
-                              : 'text-zinc-600 hover:text-black'
-                          }`}
-                          onMouseEnter={() => setCursorVariant("sm")}
-                          onMouseLeave={() => setCursorVariant("default")}
+    <BackgroundBeamsWithCollision className={`h-auto ${theme === 'dark' ? 'dark' : ''}`}>
+      <div className="relative z-10 w-full">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            className={`py-10 flex flex-col md:flex-row items-center justify-between border-b border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'}`}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <Link href="/">
+              <motion.div 
+                className="flex items-center cursor-pointer mb-6 md:mb-0"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                onMouseEnter={() => setCursorVariant("sm")}
+                onMouseLeave={() => setCursorVariant("default")}
+              >
+                <Logo textSize="lg" />
+              </motion.div>
+            </Link>
+            <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
+              Transformamos ideas en experiencias digitales impactantes. Creamos landing pages optimizadas para conversión en tiempo récord. Nuestro enfoque minimalista y orientado a resultados asegura que cada proyecto sea entregado en solo 3 días con la máxima calidad.
+            </p>
+          </motion.div>
+          
+          <div className="py-10">
+            {navigation.categories.map((category) => (
+              <div
+                key={category.id}
+                className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6"
+              >
+                {category.sections.map((section, sectionIndex) => (
+                  <div key={section.id}>
+                    <ul className="flex flex-col space-y-3">
+                      {section.items.map((item, index) => (
+                        <motion.li 
+                          key={item.name} 
+                          initial={{ opacity: 0, y: 5 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.3, delay: index * 0.05 + sectionIndex * 0.1 }}
                         >
-                          {item.name}
-                        </a>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-        
-        <div className={`border-t border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'} py-10`}>
-          <div className="flex flex-wrap justify-center gap-y-6">
-            <div className="flex flex-wrap items-center justify-center gap-4 px-6 mb-8">
-              {socialLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  aria-label={link.label}
-                  href={link.href}
-                  rel="noreferrer"
-                  target="_blank"
-                  className={`hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform ${
-                    theme === 'dark'
-                      ? 'border-zinc-800 text-zinc-500 hover:text-white'
-                      : 'border-zinc-300 text-zinc-500 hover:text-black'
-                  }`}
-                  onMouseEnter={() => setCursorVariant("sm")}
-                  onMouseLeave={() => setCursorVariant("default")}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  {link.icon}
-                </motion.a>
-              ))}
-            </div>
-            
-            <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleTheme} />
+                          <a
+                            href={item.href}
+                            className={`text-sm transition-colors duration-300 ${
+                              theme === 'dark' 
+                                ? 'text-zinc-500 hover:text-white' 
+                                : 'text-zinc-600 hover:text-black'
+                            }`}
+                            onMouseEnter={() => setCursorVariant("sm")}
+                            onMouseLeave={() => setCursorVariant("default")}
+                          >
+                            {item.name}
+                          </a>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
           
-          <div className="flex flex-col justify-between text-center text-xs mt-8">
-            <motion.div 
-              className="flex flex-row items-center justify-center gap-1 text-zinc-600"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <span>©</span>
-              <span>{new Date().getFullYear()}</span>
-              <span>Hecho con</span>
-              <FooterIcons.Heart className="text-[#0e62fe] mx-1 h-4 w-4 animate-pulse" />
-              <span>por</span>
-              <motion.span 
-                className={`cursor-pointer font-medium ${theme === 'dark' ? 'text-white' : 'text-black'}`}
-                whileHover={{ color: "#0e62fe" }}
+          <div className={`border-t border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'} py-10`}>
+            <div className="flex flex-wrap justify-center gap-y-6">
+              <div className="flex flex-wrap items-center justify-center gap-4 px-6 mb-8">
+                {socialLinks.map((link, index) => (
+                  <motion.a
+                    key={index}
+                    aria-label={link.label}
+                    href={link.href}
+                    rel="noreferrer"
+                    target="_blank"
+                    className={`hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform ${
+                      theme === 'dark'
+                        ? 'border-zinc-800 text-zinc-500 hover:text-white'
+                        : 'border-zinc-300 text-zinc-500 hover:text-black'
+                    }`}
+                    onMouseEnter={() => setCursorVariant("sm")}
+                    onMouseLeave={() => setCursorVariant("default")}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                  >
+                    {link.icon}
+                  </motion.a>
+                ))}
+              </div>
+              
+              <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleTheme} />
+            </div>
+            
+            <div className="flex flex-col justify-between text-center text-xs mt-8">
+              <motion.div 
+                className="flex flex-row items-center justify-center gap-1 text-zinc-600"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <Link href="/">thr3e.dev</Link>
-              </motion.span>
-            </motion.div>
+                <span>©</span>
+                <span>{new Date().getFullYear()}</span>
+                <span>Hecho con</span>
+                <FooterIcons.Heart className="text-[#0e62fe] mx-1 h-4 w-4 animate-pulse" />
+                <span>por</span>
+                <motion.span 
+                  className={`cursor-pointer font-medium ${theme === 'dark' ? 'text-white' : 'text-black'}`}
+                  whileHover={{ color: "#0e62fe" }}
+                >
+                  <Link href="/">thr3e.dev</Link>
+                </motion.span>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+    </BackgroundBeamsWithCollision>
   );
 }
