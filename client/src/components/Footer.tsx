@@ -84,7 +84,7 @@ export default function Footer() {
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              <img src={logoImg} alt="thr3e.dev" className="h-14 md:h-16" />
+              <img src={logoImg} alt="thr3e.dev" className="h-20 md:h-24" />
             </motion.div>
           </Link>
           <p className="text-center md:text-left text-xs leading-relaxed text-zinc-500 max-w-xl">

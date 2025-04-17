@@ -41,13 +41,13 @@ export default function Header() {
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-zinc-900' : 'bg-transparent'}`}>
       <motion.nav 
-        className="container mx-auto px-6 py-5 flex justify-between items-center"
+        className="container mx-auto px-6 py-6 md:py-8 flex justify-between items-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
         <Link href="/" className="flex items-center">
-          <img src={logoImg} alt="thr3e.dev" className="h-14 md:h-16" />
+          <img src={logoImg} alt="thr3e.dev" className="h-20 md:h-24" />
         </Link>
         
         {/* Desktop Navigation */}
