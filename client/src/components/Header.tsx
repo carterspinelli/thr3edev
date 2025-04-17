@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
+import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import logoImg from "@assets/thr3edev_logo.png";
 
@@ -12,6 +13,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
   const { setCursorVariant } = useSetCursorVariant();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +41,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-zinc-900' : 'bg-transparent'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? (theme === 'dark' ? 'bg-black/90 backdrop-blur-md border-b border-zinc-900' : 'bg-white/90 backdrop-blur-md border-b border-zinc-200') : 'bg-transparent'}`}>
       <motion.nav 
         className="container mx-auto px-6 py-6 md:py-8 flex justify-between items-center"
         initial={{ opacity: 0, y: -10 }}
@@ -57,7 +59,7 @@ export default function Header() {
               <motion.a 
                 key={index}
                 href={item.href} 
-                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors relative group"
+                className={`text-sm font-medium transition-colors relative group ${theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'}`}
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
                 initial={{ opacity: 0, y: -5 }}
@@ -85,7 +87,9 @@ export default function Header() {
             <Button 
               variant="outline" 
               size="sm" 
-              className="rounded-full border-zinc-800 text-white hover:border-[#FF4D2B] hover:bg-[#FF4D2B]/10"
+              className={`rounded-full ${theme === 'dark' 
+                ? 'border-zinc-800 text-white hover:border-[#FF4D2B] hover:bg-[#FF4D2B]/10' 
+                : 'border-zinc-300 text-zinc-900 hover:border-[#FF4D2B] hover:bg-[#FF4D2B]/10 hover:text-[#FF4D2B]'}`}
               asChild
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
@@ -102,7 +106,7 @@ export default function Header() {
             size="icon" 
             onClick={toggleMobileMenu}
             aria-label="Menu"
-            className="text-white"
+            className={theme === 'dark' ? 'text-white' : 'text-zinc-900'}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
@@ -112,7 +116,10 @@ export default function Header() {
       {/* Mobile Navigation Menu */}
       {isMobile && (
         <motion.div 
-          className={`bg-black/95 backdrop-blur-md border-b border-zinc-900 absolute w-full overflow-hidden ${!isMobileMenuOpen && 'pointer-events-none'}`}
+          className={`${theme === 'dark' 
+              ? 'bg-black/95 backdrop-blur-md border-b border-zinc-900' 
+              : 'bg-white/95 backdrop-blur-md border-b border-zinc-200'} 
+            absolute w-full overflow-hidden ${!isMobileMenuOpen && 'pointer-events-none'}`}
           initial={{ height: 0, opacity: 0 }}
           animate={{ 
             height: isMobileMenuOpen ? 'auto' : 0,
@@ -125,7 +132,9 @@ export default function Header() {
               <motion.a 
                 key={index}
                 href={item.href} 
-                className="font-medium text-zinc-400 hover:text-white transition-colors"
+                className={`font-medium transition-colors ${theme === 'dark' 
+                  ? 'text-zinc-400 hover:text-white' 
+                  : 'text-zinc-600 hover:text-black'}`}
                 onClick={closeMobileMenu}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: isMobileMenuOpen ? 0 : -20, opacity: isMobileMenuOpen ? 1 : 0 }}

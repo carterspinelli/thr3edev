@@ -64,10 +64,10 @@ export default function Footer() {
   const isDarkMode = theme === 'dark';
   
   return (
-    <footer className="bg-black border-t border-zinc-900">
+    <footer className={theme === 'dark' ? "bg-black border-t border-zinc-900" : "bg-zinc-100 border-t border-zinc-200"}>
       <div className="container mx-auto px-6">
         <motion.div 
-          className="py-10 flex flex-col md:flex-row items-center justify-between border-b border-dotted border-zinc-800"
+          className={`py-10 flex flex-col md:flex-row items-center justify-between border-b border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'}`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -108,7 +108,11 @@ export default function Footer() {
                       >
                         <a
                           href={item.href}
-                          className="text-sm text-zinc-500 hover:text-white transition-colors duration-300"
+                          className={`text-sm transition-colors duration-300 ${
+                            theme === 'dark' 
+                              ? 'text-zinc-500 hover:text-white' 
+                              : 'text-zinc-600 hover:text-black'
+                          }`}
                           onMouseEnter={() => setCursorVariant("sm")}
                           onMouseLeave={() => setCursorVariant("default")}
                         >
