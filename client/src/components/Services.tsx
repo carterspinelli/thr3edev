@@ -18,19 +18,19 @@ const steps = [
     step: 0,
     title: "Diseño Atractivo",
     description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.",
-    icon: <PencilIcon className="h-12 w-12 text-[#0e62fe]" />
+    icon: <PencilIcon />
   },
   {
     step: 1,
     title: "Desarrollo Optimizado",
     description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.",
-    icon: <LaptopIcon className="h-12 w-12 text-[#0e62fe]" />
+    icon: <LaptopIcon />
   },
   {
     step: 2,
     title: "Entrega Ultrarrápida",
     description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
-    icon: <SpeedometerIcon className="h-12 w-12 text-[#0e62fe]" />
+    icon: <SpeedometerIcon />
   },
 ];
 

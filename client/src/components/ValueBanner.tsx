@@ -1,36 +1,62 @@
+import React, { useState } from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { Clock, DollarSign, Star } from "lucide-react";
+import { Meteors } from "@/components/ui/meteors";
+import { cn } from "@/lib/utils";
+import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 
-interface ValueCardProps {
+interface MeteorCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
   color: string;
 }
 
-const ValueCard = ({ icon, title, description, color }: ValueCardProps) => {
+const MeteorCard = ({ icon, title, description, color }: MeteorCardProps) => {
   const { theme } = useTheme();
+  const { setCursorVariant } = useSetCursorVariant();
+  const [mouseEnter, setMouseEnter] = useState(false);
   
   return (
     <motion.div
-      className={`flex flex-col items-center p-8 rounded-xl ${theme === 'dark' ? 'bg-zinc-900' : 'bg-white'} 
-                  shadow-lg border ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-100'} text-center`}
+      className="w-full relative"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={{ y: -5, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
+      onMouseEnter={() => {
+        setMouseEnter(true);
+        setCursorVariant("sm");
+      }}
+      onMouseLeave={() => {
+        setMouseEnter(false);
+        setCursorVariant("default");
+      }}
     >
-      <motion.div 
-        className="w-16 h-16 rounded-full flex items-center justify-center mb-6 bg-[#0e62fe]/10"
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.3 }}
-      >
-        {icon}
-      </motion.div>
-      <h3 className="text-xl font-semibold mb-3" style={{ color }}>{title}</h3>
-      <p className={`text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>{description}</p>
+      <div className={`absolute inset-0 h-full w-full scale-[0.80] rounded-full blur-3xl ${mouseEnter ? 'opacity-70' : 'opacity-40'} transition-opacity duration-500`} 
+        style={{ background: `radial-gradient(circle at center, ${color}, transparent 70%)` }} />
+        
+      <div className={cn(
+        "relative shadow-xl px-6 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start",
+        theme === 'dark' ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-zinc-200',
+        "border"
+      )}>
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border mb-6 text-[#0e62fe]"
+          style={{ borderColor: `${color}40` }}>
+          {icon}
+        </div>
+
+        <h3 className={`font-bold text-xl mb-3 relative z-50 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
+          {title}
+        </h3>
+
+        <p className={`text-base mb-6 relative z-50 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
+          {description}
+        </p>
+
+        <Meteors number={mouseEnter ? 20 : 10} className={mouseEnter ? 'opacity-100' : 'opacity-30'} />
+      </div>
     </motion.div>
   );
 };
@@ -40,21 +66,21 @@ export default function ValueBanner() {
   
   const valueItems = [
     {
-      icon: <Clock className="size-6 text-[#0e62fe]" />,
+      icon: <Clock className="size-6" />,
       title: "Entrega en 3 días",
-      description: "De la idea al lanzamiento en tiempo récord",
+      description: "De la idea al lanzamiento en tiempo récord. Nos comprometemos con plazos definidos para que tu negocio no espere.",
       color: "#0e62fe"
     },
     {
-      icon: <DollarSign className="size-6 text-[#0e62fe]" />,
+      icon: <DollarSign className="size-6" />,
       title: "Precio fijo: $18,000 MXN",
-      description: "Sin costos ocultos ni sorpresas",
+      description: "Sin costos ocultos ni sorpresas. Trabajamos con un presupuesto claro para que puedas planificar con seguridad.",
       color: "#0e62fe"
     },
     {
-      icon: <Star className="size-6 text-[#0e62fe]" />,
+      icon: <Star className="size-6" />,
       title: "Diseño minimalista",
-      description: "Sitios elegantes optimizados para conversión",
+      description: "Sitios elegantes optimizados para conversión. Creamos diseños que mantienen la atención en lo que realmente importa.",
       color: "#0e62fe"
     }
   ];
@@ -79,7 +105,7 @@ export default function ValueBanner() {
       
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {valueItems.map((item, index) => (
-            <ValueCard
+            <MeteorCard
               key={index}
               icon={item.icon}
               title={item.title}
