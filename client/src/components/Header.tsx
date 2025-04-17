@@ -47,7 +47,7 @@ export default function Header() {
         transition={{ duration: 0.4 }}
       >
         <Link href="/" className="flex items-center">
-          <img src={logoImg} alt="thr3e.dev" className="h-10" />
+          <img src={logoImg} alt="thr3e.dev" className="h-14 md:h-16" />
         </Link>
         
         {/* Desktop Navigation */}
