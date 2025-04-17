@@ -1,5 +1,6 @@
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { ColorBlock } from "@/components/ui/color-block";
+import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { ChessKnightIcon, PencilIcon, LaptopIcon, SpeedometerIcon } from "@/components/ui/service-custom-icons";
 
@@ -36,9 +37,10 @@ const serviceBlocks = [
 
 export default function Services() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
+  const { theme } = useTheme();
   
   return (
-    <section id="servicios" className="py-20 md:py-28 bg-black">
+    <section id="servicios" className={`py-20 md:py-28 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -48,8 +50,8 @@ export default function Services() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-[#FF4D2B] text-sm font-medium mb-2 tracking-wide">NUESTROS SERVICIOS</p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-4 text-white">Creamos experiencias impactantes</h2>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+          <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>Creamos experiencias impactantes</h2>
+          <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
             Diseñamos landing pages que convierten visitantes en clientes mediante un proceso perfeccionado y entregas ultrarrápidas.
           </p>
         </motion.div>
@@ -69,7 +71,11 @@ export default function Services() {
         </div>
         
         <motion.div 
-          className="mt-24 p-8 rounded-lg bg-zinc-900 border border-zinc-800"
+          className={`mt-24 p-8 rounded-lg ${
+            theme === 'dark' 
+              ? 'bg-zinc-900 border border-zinc-800' 
+              : 'bg-zinc-100 border border-zinc-200'
+          }`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -79,10 +85,10 @@ export default function Services() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="md:w-2/3 mb-8 md:mb-0 md:pr-10">
-              <h3 className="text-2xl md:text-3xl font-medium mb-4 text-white">
+              <h3 className={`text-2xl md:text-3xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
                 De la idea al lanzamiento <span className="text-[#FF4D2B]">en 3 días</span>
               </h3>
-              <p className="text-zinc-400 text-base">
+              <p className={`text-base ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                 Hemos perfeccionado nuestro proceso para entregar landing pages de alta calidad en tiempo récord. 
                 Sin complicaciones, sin costos ocultos, solo resultados excepcionales a un precio fijo de $18,000 MXN.
               </p>
