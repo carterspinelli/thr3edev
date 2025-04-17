@@ -1,31 +1,37 @@
+import React from "react";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
-import { ColorBlock } from "@/components/ui/color-block";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
-import { ChessKnightIcon, PencilIcon, LaptopIcon, SpeedometerIcon } from "@/components/ui/service-custom-icons";
+import { PencilIcon, LaptopIcon, SpeedometerIcon } from "@/components/ui/service-custom-icons";
+import {
+  Stepper,
+  StepperDescription,
+  StepperIndicator,
+  StepperItem,
+  StepperSeparator,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper";
 
-const serviceBlocks = [
+const steps = [
   {
-    number: "01",
-    title: "Diseño",
+    step: 0,
+    title: "Diseño Atractivo",
     description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.",
-    color: "yellow" as const,
-    icon: <PencilIcon />
+    icon: <PencilIcon className="h-12 w-12 text-[#0e62fe]" />
   },
   {
-    number: "02",
-    title: "Desarrollo",
+    step: 1,
+    title: "Desarrollo Optimizado",
     description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.",
-    color: "green" as const,
-    icon: <LaptopIcon />
+    icon: <LaptopIcon className="h-12 w-12 text-[#0e62fe]" />
   },
   {
-    number: "03",
-    title: "Velocidad",
+    step: 2,
+    title: "Entrega Ultrarrápida",
     description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
-    color: "red" as const,
-    icon: <SpeedometerIcon />
-  }
+    icon: <SpeedometerIcon className="h-12 w-12 text-[#0e62fe]" />
+  },
 ];
 
 export default function Services() {
@@ -42,26 +48,54 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTROS SERVICIOS</p>
-          <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>Creamos experiencias impactantes</h2>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
+          <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
+            De la idea al lanzamiento <span className="text-[#0e62fe]">en 3 pasos</span>
+          </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
             Diseñamos landing pages que convierten visitantes en clientes mediante un proceso perfeccionado y entregas ultrarrápidas.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {serviceBlocks.map((block, index) => (
-            <ColorBlock
-              key={index}
-              number={block.number}
-              title={block.title}
-              description={block.description}
-              color={block.color}
-              icon={block.icon}
-              className=""
-            />
-          ))}
-        </div>
+        <motion.div
+          className="max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Stepper defaultValue={2} orientation="vertical" className="w-full">
+            {steps.map(({ step, title, description, icon }) => (
+              <StepperItem 
+                key={step} 
+                step={step}
+                className="relative items-start pb-10 [&:not(:last-child)]:flex-1"
+                completed={true}
+              >
+                <StepperTrigger className="items-start text-left w-full">
+                  <div className="flex items-start gap-6 w-full">
+                    <StepperIndicator className="mt-1" />
+                    <div className={`flex flex-1 flex-col ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
+                      <div className="flex items-center justify-between">
+                        <StepperTitle className="text-xl md:text-2xl font-bold mb-2">{title}</StepperTitle>
+                        <div className="hidden md:block">
+                          {icon}
+                        </div>
+                      </div>
+                      <StepperDescription className={`text-base ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                        {description}
+                      </StepperDescription>
+                      <div className="block md:hidden mt-4">{icon}</div>
+                    </div>
+                  </div>
+                </StepperTrigger>
+                {step < steps.length - 1 && (
+                  <StepperSeparator className="absolute inset-y-0 left-3 top-12 -order-1 m-0 -translate-x-1/2 h-full" />
+                )}
+              </StepperItem>
+            ))}
+          </Stepper>
+        </motion.div>
         
         <motion.div 
           className={`mt-24 p-8 rounded-lg ${
