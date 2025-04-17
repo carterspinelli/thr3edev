@@ -27,7 +27,7 @@ export function ThemeToggle({ isDarkMode, toggleDarkMode }: ThemeToggleProps) {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={toggleDarkMode}
-          className={`${isDarkMode ? 'bg-transparent text-white' : 'bg-[#FF4D2B] text-white'} mr-3 rounded-full p-2 transition-all duration-300`}
+          className={`${isDarkMode ? 'bg-transparent text-white' : 'bg-[#0e62fe] text-white'} mr-3 rounded-full p-2 transition-all duration-300`}
           aria-label="Activar modo claro"
         >
           <FooterIcons.Sun className="h-5 w-5" strokeWidth={1.5} />
@@ -50,7 +50,7 @@ export function ThemeToggle({ isDarkMode, toggleDarkMode }: ThemeToggleProps) {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={toggleDarkMode}
-          className={`${isDarkMode ? 'bg-[#FF4D2B] text-white' : 'bg-transparent text-black'} ml-3 rounded-full p-2 transition-all duration-300`}
+          className={`${isDarkMode ? 'bg-[#0e62fe] text-white' : 'bg-transparent text-black'} ml-3 rounded-full p-2 transition-all duration-300`}
           aria-label="Activar modo oscuro"
         >
           <FooterIcons.Moon className="h-5 w-5" strokeWidth={1.5} />

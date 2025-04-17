@@ -112,7 +112,7 @@ export function PricingCard({
               <motion.div className="mt-6 space-y-4" variants={itemVariants}>
                 <div className="flex items-baseline">
                   <span className={`text-5xl font-extrabold ${
-                    theme === 'dark' ? 'text-[#FFC229]' : 'text-[#FFC229]'
+                    theme === 'dark' ? 'text-[#0e62fe]' : 'text-[#0e62fe]'
                   }`}>${price}</span>
                   {originalPrice && (
                     <span className={`ml-2 text-xl line-through ${
@@ -131,7 +131,7 @@ export function PricingCard({
             </div>
             <motion.div className="mt-8" variants={itemVariants}>
               <Button 
-                className="w-full py-6 bg-[#FFC229] hover:bg-[#e6af25] text-black font-medium rounded-full" 
+                className="w-full py-6 bg-[#0e62fe] hover:bg-[#0952d3] text-white font-medium rounded-full" 
                 size="lg" 
                 onClick={onButtonClick}
               >
@@ -162,8 +162,8 @@ export function PricingCard({
                         variants={listItemVariants}
                         custom={index + featureIndex * feature.items.length}
                       >
-                        <div className="mr-2 h-5 w-5 rounded-full bg-[#FFC229]/20 flex items-center justify-center flex-shrink-0">
-                          <Check className="h-3 w-3 text-[#FFC229]" />
+                        <div className="mr-2 h-5 w-5 rounded-full bg-[#0e62fe]/20 flex items-center justify-center flex-shrink-0">
+                          <Check className="h-3 w-3 text-[#0e62fe]" />
                         </div>
                         <span className={`text-sm ${
                           theme === 'dark' ? 'text-zinc-300' : 'text-zinc-700'

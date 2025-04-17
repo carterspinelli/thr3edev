@@ -46,7 +46,7 @@ export default function Pricing() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#FFC229] text-sm font-medium mb-2 tracking-wide">PRECIOS TRANSPARENTES</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">PRECIOS TRANSPARENTES</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>Un precio fijo, sin sorpresas</h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
             Sin presupuestos complicados ni costos ocultos. Solo una tarifa simple y predecible.
