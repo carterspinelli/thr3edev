@@ -5,6 +5,7 @@ import { FooterIcons } from "@/components/ui/footer-icons";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import logoImg from "@assets/thr3edev_logo.png";
 
 const navigation = {
   categories: [
@@ -49,7 +50,7 @@ const navigation = {
 };
 
 const socialLinks = [
-  { icon: <FooterIcons.Mail className="h-5 w-5" />, href: "mailto:contacto@disenorapido.mx", label: "Email" },
+  { icon: <FooterIcons.Mail className="h-5 w-5" />, href: "mailto:contacto@thr3e.dev", label: "Email" },
   { icon: <FooterIcons.Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },
   { icon: <FooterIcons.X className="h-5 w-5" />, href: "#", label: "Twitter" },
   { icon: <FooterIcons.Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
@@ -83,8 +84,7 @@ export default function Footer() {
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              <FooterIcons.Designali className="h-8 w-8 text-[#FF4D2B]" />
-              <span className="ml-2 text-xl font-medium text-white">Diseño<span className="text-[#FF4D2B]">Web</span></span>
+              <img src={logoImg} alt="thr3e.dev" className="h-10" />
             </motion.div>
           </Link>
           <p className="text-center md:text-left text-xs leading-relaxed text-zinc-500 max-w-xl">
@@ -169,7 +169,7 @@ export default function Footer() {
                 className="cursor-pointer text-white font-medium"
                 whileHover={{ color: "#FF4D2B" }}
               >
-                <Link href="/">DiseñoWeb</Link>
+                <Link href="/">thr3e.dev</Link>
               </motion.span>
             </motion.div>
           </div>

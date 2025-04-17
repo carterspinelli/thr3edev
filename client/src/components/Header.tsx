@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { motion } from "framer-motion";
+import logoImg from "@assets/thr3edev_logo.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,9 +46,8 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <Link href="/" className="text-2xl font-medium tracking-tight">
-          <span className="text-white">Diseño</span>
-          <span className="text-[#FF4D2B]">Web</span>
+        <Link href="/" className="flex items-center">
+          <img src={logoImg} alt="thr3e.dev" className="h-10" />
         </Link>
         
         {/* Desktop Navigation */}
