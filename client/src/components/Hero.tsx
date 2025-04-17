@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto relative">
             {/* Background gradient blobs */}
-            <div className="absolute -top-40 -left-20 w-72 h-72 bg-[#FF4D2B] rounded-full filter blur-[120px] opacity-10"></div>
+            <div className="absolute -top-40 -left-20 w-72 h-72 bg-[#0e62fe] rounded-full filter blur-[120px] opacity-10"></div>
             <div className="absolute -bottom-40 -right-20 w-72 h-72 bg-[#26D9A3] rounded-full filter blur-[120px] opacity-10"></div>
 
             <motion.div
@@ -34,7 +34,7 @@ export default function Hero() {
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
                 Creamos sitios web <br />
-                <span className="text-[#FF4D2B]">increíbles</span> a{" "}
+                <span className="text-[#0e62fe]">innovadores</span> a{" "}
                 <Cover>velocidad supersónica</Cover>
               </h1>
 
@@ -43,7 +43,7 @@ export default function Hero() {
               >
                 Landing pages profesionales en{" "}
                 <span className="font-medium">solo 3 días</span> por
-                <span className="font-medium text-[#FF4D2B] ml-2">
+                <span className="font-medium text-[#0e62fe] ml-2">
                   $18,000 MXN
                 </span>
                 . Diseño minimalista, desarrollo eficiente, resultados
@@ -59,7 +59,7 @@ export default function Hero() {
             >
               <Button
                 size="lg"
-                className="rounded-full px-10 py-6 bg-[#FF4D2B] hover:bg-[#e03e1f] text-white font-medium"
+                className="rounded-full px-10 py-6 bg-[#0e62fe] hover:bg-[#0952d3] text-white font-medium"
                 asChild
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
@@ -89,7 +89,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-[#FF4D2B]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#0e62fe]"></div>
                 <span
                   className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"}`}
                 >
