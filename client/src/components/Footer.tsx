@@ -127,7 +127,7 @@ export default function Footer() {
           ))}
         </div>
         
-        <div className="border-t border-dotted border-zinc-800 py-10">
+        <div className={`border-t border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'} py-10`}>
           <div className="flex flex-wrap justify-center gap-y-6">
             <div className="flex flex-wrap items-center justify-center gap-4 px-6 mb-8">
               {socialLinks.map((link, index) => (
@@ -137,7 +137,11 @@ export default function Footer() {
                   href={link.href}
                   rel="noreferrer"
                   target="_blank"
-                  className="hover:-translate-y-1 border border-dotted border-zinc-800 rounded-xl p-2.5 transition-transform text-zinc-500 hover:text-white"
+                  className={`hover:-translate-y-1 border border-dotted rounded-xl p-2.5 transition-transform ${
+                    theme === 'dark'
+                      ? 'border-zinc-800 text-zinc-500 hover:text-white'
+                      : 'border-zinc-300 text-zinc-500 hover:text-black'
+                  }`}
                   onMouseEnter={() => setCursorVariant("sm")}
                   onMouseLeave={() => setCursorVariant("default")}
                   initial={{ opacity: 0, y: 10 }}
@@ -167,7 +171,7 @@ export default function Footer() {
               <FooterIcons.Heart className="text-[#FF4D2B] mx-1 h-4 w-4 animate-pulse" />
               <span>por</span>
               <motion.span 
-                className="cursor-pointer text-white font-medium"
+                className={`cursor-pointer font-medium ${theme === 'dark' ? 'text-white' : 'text-black'}`}
                 whileHover={{ color: "#FF4D2B" }}
               >
                 <Link href="/">thr3e.dev</Link>
