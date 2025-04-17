@@ -29,11 +29,6 @@ const technologies = [
     url: "https://www.typescriptlang.org/",
   },
   {
-    name: "Three.js",
-    description: "Biblioteca 3D para crear experiencias web inmersivas.",
-    url: "https://threejs.org/",
-  },
-  {
     name: "Node.js",
     description: "Entorno de ejecución de JavaScript del lado del servidor.",
     url: "https://nodejs.org/",

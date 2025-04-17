@@ -38,11 +38,11 @@ const MeteorCard = ({ icon, title, description, color }: MeteorCardProps) => {
         style={{ background: `radial-gradient(circle at center, ${color}, transparent 70%)` }} />
         
       <div className={cn(
-        "relative shadow-xl px-6 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start",
+        "relative shadow-xl px-6 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-center text-center",
         theme === 'dark' ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-zinc-200',
         "border"
       )}>
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border mb-6 text-[#0e62fe]"
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border mb-6 text-[#0e62fe] mx-auto"
           style={{ borderColor: `${color}40` }}>
           {icon}
         </div>

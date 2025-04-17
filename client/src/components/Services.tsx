@@ -2,7 +2,7 @@ import React from "react";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
-import { PencilIcon, LaptopIcon, SpeedometerIcon } from "@/components/ui/service-custom-icons";
+
 import {
   Stepper,
   StepperDescription,
@@ -17,20 +17,17 @@ const steps = [
   {
     step: 0,
     title: "Diseño Atractivo",
-    description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.",
-    icon: <PencilIcon />
+    description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca."
   },
   {
     step: 1,
     title: "Desarrollo Optimizado",
-    description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.",
-    icon: <LaptopIcon />
+    description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado."
   },
   {
     step: 2,
     title: "Entrega Ultrarrápida",
-    description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
-    icon: <SpeedometerIcon />
+    description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN."
   },
 ];
 
@@ -65,7 +62,7 @@ export default function Services() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Stepper defaultValue={2} orientation="vertical" className="w-full">
-            {steps.map(({ step, title, description, icon }) => (
+            {steps.map(({ step, title, description }) => (
               <StepperItem 
                 key={step} 
                 step={step}
@@ -78,14 +75,10 @@ export default function Services() {
                     <div className={`flex flex-1 flex-col ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
                       <div className="flex items-center justify-between">
                         <StepperTitle className="text-xl md:text-2xl font-bold mb-2">{title}</StepperTitle>
-                        <div className="hidden md:block">
-                          {icon}
-                        </div>
                       </div>
                       <StepperDescription className={`text-base ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
                         {description}
                       </StepperDescription>
-                      <div className="block md:hidden mt-4">{icon}</div>
                     </div>
                   </div>
                 </StepperTrigger>
@@ -97,36 +90,7 @@ export default function Services() {
           </Stepper>
         </motion.div>
         
-        <motion.div 
-          className={`mt-24 p-8 rounded-lg ${
-            theme === 'dark' 
-              ? 'bg-zinc-900 border border-zinc-800' 
-              : 'bg-zinc-100 border border-zinc-200'
-          }`}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          onMouseEnter={() => setCursorText("3 días")}
-          onMouseLeave={() => setCursorText("")}
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="md:w-2/3 mb-8 md:mb-0 md:pr-10">
-              <h3 className={`text-2xl md:text-3xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-                De la idea al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
-              </h3>
-              <p className={`text-base ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                Hemos perfeccionado nuestro proceso para entregar landing pages de alta calidad en tiempo récord. 
-                Sin complicaciones, sin costos ocultos, solo resultados excepcionales a un precio fijo de $18,000 MXN.
-              </p>
-            </div>
-            <div className="flex space-x-3 items-center">
-              <div className="w-3 h-3 rounded-full bg-[#0e62fe]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#0e62fe] opacity-70"></div>
-              <div className="w-3 h-3 rounded-full bg-[#0e62fe] opacity-40"></div>
-            </div>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
