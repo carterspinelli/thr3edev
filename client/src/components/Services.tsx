@@ -1,100 +1,114 @@
+
+import React from "react";
+import { motion } from "framer-motion";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { ColorBlock } from "@/components/ui/color-block";
-import { motion } from "framer-motion";
-import { ChessKnightIcon, PencilIcon, LaptopIcon, SpeedometerIcon } from "@/components/ui/service-custom-icons";
+import { 
+  ChessKnightIcon, 
+  PencilIcon, 
+  LaptopIcon, 
+  SpeedometerIcon 
+} from "@/components/ui/service-custom-icons";
 
-const serviceBlocks = [
-  {
-    number: "01",
-    title: "Estrategia",
-    description: "Analizamos tu negocio y definimos la mejor estrategia para convertir visitantes en clientes.",
-    color: "red" as const,
-    icon: <ChessKnightIcon />
-  },
-  {
-    number: "02",
-    title: "Diseño",
-    description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.",
-    color: "yellow" as const,
-    icon: <PencilIcon />
-  },
-  {
-    number: "03",
-    title: "Desarrollo",
-    description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.",
-    color: "green" as const,
-    icon: <LaptopIcon />
-  },
-  {
-    number: "04",
-    title: "Velocidad",
-    description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
-    color: "red" as const,
-    icon: <SpeedometerIcon />
-  }
-];
+const Services = () => {
+  const setCursorVariant = useSetCursorVariant();
 
-export default function Services() {
-  const { setCursorVariant, setCursorText } = useSetCursorVariant();
-  
   return (
-    <section id="servicios" className="py-20 md:py-28 bg-black">
-      <div className="container mx-auto px-6">
+    <section className="w-full relative px-6 py-24 md:py-36 overflow-hidden" id="services">
+      <div className="max-w-7xl mx-auto">
         <motion.div 
-          className="text-center mb-16"
+          className="mb-20 max-w-3xl" 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
-          <p className="text-[#FF4D2B] text-sm font-medium mb-2 tracking-wide">NUESTROS SERVICIOS</p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-4 text-white">Creamos experiencias impactantes</h2>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Diseñamos landing pages que convierten visitantes en clientes mediante un proceso perfeccionado y entregas ultrarrápidas.
+          <h2 className="text-3xl md:text-4xl font-semibold mb-5">Nuestros Servicios</h2>
+          <p className="text-lg text-zinc-400">
+            Cada landing page está diseñada para impulsar las conversiones con un enfoque metódico y probado.
           </p>
         </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {serviceBlocks.map((block, index) => (
-            <ColorBlock
-              key={index}
-              number={block.number}
-              title={block.title}
-              description={block.description}
-              color={block.color}
-              icon={block.icon}
-              className={index === 1 ? "md:row-span-2 md:h-full" : ""}
-            />
-          ))}
-        </div>
-        
-        <motion.div 
-          className="mt-24 p-8 rounded-lg bg-zinc-900 border border-zinc-800"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          onMouseEnter={() => setCursorText("3 días")}
-          onMouseLeave={() => setCursorText("")}
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="md:w-2/3 mb-8 md:mb-0 md:pr-10">
-              <h3 className="text-2xl md:text-3xl font-medium mb-4 text-white">
-                De la idea al lanzamiento <span className="text-[#FF4D2B]">en 3 días</span>
-              </h3>
-              <p className="text-zinc-400 text-base">
-                Hemos perfeccionado nuestro proceso para entregar landing pages de alta calidad en tiempo récord. 
-                Sin complicaciones, sin costos ocultos, solo resultados excepcionales a un precio fijo de $18,000 MXN.
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <ColorBlock 
+            className="p-12 rounded-3xl flex flex-col justify-between"
+            backgroundColor="#1A0F0F"
+            textColor="#FF5252"
+            initialColor="#190C0C"
+            animationDelay={0.1}
+          >
+            <div className="flex justify-between items-start mb-16">
+              <span className="text-6xl font-bold">01</span>
+              <ChessKnightIcon />
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Estrategia</h3>
+              <p className="text-zinc-400">
+                Analizamos tu negocio y definimos la mejor estrategia para convertir visitantes en clientes.
               </p>
             </div>
-            <div className="flex space-x-3 items-center">
-              <div className="w-3 h-3 rounded-full bg-[#FF4D2B]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#FFC229]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#26D9A3]"></div>
+          </ColorBlock>
+
+          <ColorBlock 
+            className="p-12 rounded-3xl flex flex-col justify-between"
+            backgroundColor="#1A1700"
+            textColor="#FFD600"
+            initialColor="#151300"
+            animationDelay={0.2}
+          >
+            <div className="flex justify-between items-start mb-16">
+              <span className="text-6xl font-bold">02</span>
+              <PencilIcon />
             </div>
-          </div>
-        </motion.div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Diseño</h3>
+              <p className="text-zinc-400">
+                Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.
+              </p>
+            </div>
+          </ColorBlock>
+
+          <ColorBlock 
+            className="p-12 rounded-3xl flex flex-col justify-between"
+            backgroundColor="#0F1A14"
+            textColor="#4ADE80"
+            initialColor="#0C150E"
+            animationDelay={0.3}
+          >
+            <div className="flex justify-between items-start mb-16">
+              <span className="text-6xl font-bold">03</span>
+              <LaptopIcon />
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Desarrollo</h3>
+              <p className="text-zinc-400">
+                Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.
+              </p>
+            </div>
+          </ColorBlock>
+
+          <ColorBlock 
+            className="p-12 rounded-3xl flex flex-col justify-between"
+            backgroundColor="#1A0F00"
+            textColor="#FF5C00"
+            initialColor="#150D00"
+            animationDelay={0.4}
+          >
+            <div className="flex justify-between items-start mb-16">
+              <span className="text-6xl font-bold">04</span>
+              <SpeedometerIcon />
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-4">Velocidad</h3>
+              <p className="text-zinc-400">
+                Optimizamos cada aspecto para asegurar tiempos de carga ultrarrápidos y una experiencia fluida.
+              </p>
+            </div>
+          </ColorBlock>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Services;
