@@ -26,22 +26,18 @@ export function ColorBlock({
     if (theme === 'dark') {
       switch (color) {
         case "red":
-          return "bg-[#071330]";
         case "yellow":
-          return "bg-[#1A1505]";
         case "green":
-          return "bg-[#061A10]";
+          return "bg-[#071330]";
         default:
           return "bg-zinc-900";
       }
     } else {
       switch (color) {
         case "red":
-          return "bg-blue-50";
         case "yellow":
-          return "bg-amber-50";
         case "green":
-          return "bg-emerald-50";
+          return "bg-blue-50";
         default:
           return "bg-zinc-100";
       }
@@ -51,11 +47,9 @@ export function ColorBlock({
   const getTextColor = () => {
     switch (color) {
       case "red":
-        return "text-[#0e62fe]";
       case "yellow":
-        return "text-[#FFC229]";
       case "green":
-        return "text-[#26D9A3]";
+        return "text-[#0e62fe]";
       default:
         return theme === 'dark' ? "text-white" : "text-zinc-900";
     }

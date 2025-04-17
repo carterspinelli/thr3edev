@@ -88,8 +88,8 @@ export default function Services() {
             </div>
             <div className="flex space-x-3 items-center">
               <div className="w-3 h-3 rounded-full bg-[#0e62fe]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#FFC229]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#26D9A3]"></div>
+              <div className="w-3 h-3 rounded-full bg-[#0e62fe] opacity-70"></div>
+              <div className="w-3 h-3 rounded-full bg-[#0e62fe] opacity-40"></div>
             </div>
           </div>
         </motion.div>
