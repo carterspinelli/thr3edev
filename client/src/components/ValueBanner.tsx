@@ -21,15 +21,22 @@ const ValueCard = ({ icon, title, description, color }: ValueCardProps) => {
       transition={{ duration: 0.5 }}
     >
       <motion.div 
-        className="w-16 h-16 rounded-full flex items-center justify-center mb-4"
-        style={{ backgroundColor: theme === 'dark' ? 'rgba(30, 30, 30, 0.5)' : 'rgba(240, 240, 240, 0.8)' }}
-        whileHover={{ scale: 1.1 }}
+        className="w-24 h-24 rounded-full flex items-center justify-center mb-5"
+        style={{ 
+          backgroundColor: theme === 'dark' 
+            ? 'rgba(30, 30, 30, 0.5)' 
+            : 'rgba(245, 245, 245, 0.9)',
+          boxShadow: theme === 'dark'
+            ? '0 4px 6px rgba(0, 0, 0, 0.2)' 
+            : '0 4px 6px rgba(0, 0, 0, 0.05)'
+        }}
+        whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3 }}
       >
         {icon}
       </motion.div>
-      <h3 className="text-xl font-medium mb-2" style={{ color }}>{title}</h3>
-      <p className={`text-sm ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>{description}</p>
+      <h3 className="text-xl font-medium mb-3" style={{ color }}>{title}</h3>
+      <p className={`text-sm max-w-64 mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>{description}</p>
     </motion.div>
   );
 };
@@ -39,19 +46,19 @@ export default function ValueBanner() {
   
   const valueItems = [
     {
-      icon: <Clock className="size-6 text-[#FF4D2B]" />,
+      icon: <Clock className="size-8 text-[#FF4D2B]" />,
       title: "Entrega en 3 días",
       description: "De la idea al lanzamiento en tiempo récord",
       color: "#FF4D2B"
     },
     {
-      icon: <DollarSign className="size-6 text-[#FFC229]" />,
+      icon: <DollarSign className="size-8 text-[#FFC229]" />,
       title: "Precio fijo: $18,000 MXN",
       description: "Sin costos ocultos ni sorpresas",
       color: "#FFC229"
     },
     {
-      icon: <Star className="size-6 text-[#26D9A3]" />,
+      icon: <Star className="size-8 text-[#26D9A3]" />,
       title: "Diseño minimalista",
       description: "Sitios elegantes optimizados para conversión",
       color: "#26D9A3"
@@ -59,9 +66,9 @@ export default function ValueBanner() {
   ];
 
   return (
-    <section className={`py-16 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
+    <section className={`py-20 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-4xl mx-auto">
           {valueItems.map((item, index) => (
             <ValueCard
               key={index}
