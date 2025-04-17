@@ -7,27 +7,20 @@ import { ChessKnightIcon, PencilIcon, LaptopIcon, SpeedometerIcon } from "@/comp
 const serviceBlocks = [
   {
     number: "01",
-    title: "Estrategia",
-    description: "Analizamos tu negocio y definimos la mejor estrategia para convertir visitantes en clientes.",
-    color: "red" as const,
-    icon: <ChessKnightIcon />
-  },
-  {
-    number: "02",
     title: "Diseño",
     description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca.",
     color: "yellow" as const,
     icon: <PencilIcon />
   },
   {
-    number: "03",
+    number: "02",
     title: "Desarrollo",
     description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado.",
     color: "green" as const,
     icon: <LaptopIcon />
   },
   {
-    number: "04",
+    number: "03",
     title: "Velocidad",
     description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN.",
     color: "red" as const,
@@ -56,7 +49,7 @@ export default function Services() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {serviceBlocks.map((block, index) => (
             <ColorBlock
               key={index}
@@ -65,7 +58,7 @@ export default function Services() {
               description={block.description}
               color={block.color}
               icon={block.icon}
-              className={index === 1 ? "md:row-span-2 md:h-full" : ""}
+              className=""
             />
           ))}
         </div>
