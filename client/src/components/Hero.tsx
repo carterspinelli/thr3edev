@@ -33,9 +33,9 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                Landing pages <br />
+                Landing pages <br className="mb-4" />
                 <span className="text-[#0e62fe]">profesionales</span> en{" "}
-                <Cover>solo 3 días</Cover>
+                <Cover className="mt-3 inline-block">solo 3 días</Cover>
               </h1>
 
               <p
@@ -82,35 +82,103 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="flex justify-center space-x-8 z-10"
+              className="flex justify-center space-x-10 z-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-[#0e62fe]"></div>
+              <motion.div 
+                className="flex items-center space-x-2 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                onMouseEnter={() => setCursorVariant("sm")}
+                onMouseLeave={() => setCursorVariant("default")}
+              >
+                <motion.div 
+                  className="w-8 h-8 rounded-full bg-[#0e62fe] flex items-center justify-center text-white"
+                  animate={{ 
+                    rotate: [0, -10, 10, -10, 0],
+                    scale: [1, 1.1, 1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 3, 
+                    ease: "easeInOut",
+                    repeatDelay: 2
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                    <path d="M4 11v8h12v-8"/>
+                    <path d="M4 15h12"/>
+                    <path d="M10 11V3H4v8h6z"/>
+                    <path d="M4 7h6"/>
+                    <path d="M15 7h2"/>
+                    <path d="M15 4h5v3h-5z"/>
+                  </svg>
+                </motion.div>
                 <span
-                  className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"}`}
+                  className={`text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"}`}
                 >
                   Diseño
                 </span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-[#FFC229]"></div>
+              </motion.div>
+
+              <motion.div 
+                className="flex items-center space-x-2 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                onMouseEnter={() => setCursorVariant("sm")}
+                onMouseLeave={() => setCursorVariant("default")}
+              >
+                <motion.div 
+                  className="w-8 h-8 rounded-full bg-[#FFC229] flex items-center justify-center text-white"
+                  animate={{ 
+                    x: [0, 5, 0, -5, 0],
+                    scale: [1, 1.2, 1, 1.2, 1]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 1.5, 
+                    ease: "easeInOut" 
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                </motion.div>
                 <span
-                  className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"}`}
+                  className={`text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"}`}
                 >
                   Velocidad
                 </span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-[#26D9A3]"></div>
+              </motion.div>
+
+              <motion.div 
+                className="flex items-center space-x-2 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                onMouseEnter={() => setCursorVariant("sm")}
+                onMouseLeave={() => setCursorVariant("default")}
+              >
+                <motion.div 
+                  className="w-8 h-8 rounded-full bg-[#26D9A3] flex items-center justify-center text-white"
+                  animate={{ 
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 2, 
+                    ease: "easeOut" 
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </motion.div>
                 <span
-                  className={`text-sm ${theme === "dark" ? "text-zinc-500" : "text-zinc-600"}`}
+                  className={`text-sm font-medium ${theme === "dark" ? "text-zinc-300" : "text-zinc-700"}`}
                 >
                   Resultados
                 </span>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
