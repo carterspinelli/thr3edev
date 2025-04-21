@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
+import { Meteors } from "@/components/ui/meteors";
 
 export default function Hero() {
   const { cursorVariant, setCursorVariant, cursorText, setCursorText } =
@@ -18,13 +19,16 @@ export default function Hero() {
 
       <section
         id="inicio"
-        className={`pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden ${theme === "dark" ? "bg-black text-white" : "bg-white text-zinc-900"}`}
+        className={`pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden relative ${theme === "dark" ? "bg-zinc-950 text-white" : "bg-zinc-50 text-zinc-900"}`}
       >
-        <div className="container mx-auto px-6">
+        {/* Efecto de Meteoros que se muestra siempre (modo claro y oscuro) */}
+        <Meteors number={theme === "dark" ? 20 : 10} className={theme === "dark" ? "opacity-100" : "opacity-40"} />
+        
+        <div className="container mx-auto px-6 relative z-10">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto relative">
             {/* Background gradient blobs */}
-            <div className="absolute -top-40 -left-20 w-72 h-72 bg-[#0e62fe] rounded-full filter blur-[120px] opacity-10"></div>
-            <div className="absolute -bottom-40 -right-20 w-72 h-72 bg-[#26D9A3] rounded-full filter blur-[120px] opacity-10"></div>
+            <div className="absolute -top-40 -left-20 w-72 h-72 bg-[#0e62fe] rounded-full filter blur-[120px] opacity-20"></div>
+            <div className="absolute -bottom-40 -right-20 w-72 h-72 bg-[#26D9A3] rounded-full filter blur-[120px] opacity-20"></div>
 
             <motion.div
               className="relative z-10"
