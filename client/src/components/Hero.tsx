@@ -22,9 +22,7 @@ export default function Hero() {
       >
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto relative">
-            {/* Background gradient blobs */}
-            <div className="absolute -top-40 -left-20 w-72 h-72 bg-[#0e62fe] rounded-full filter blur-[120px] opacity-10"></div>
-            <div className="absolute -bottom-40 -right-20 w-72 h-72 bg-[#26D9A3] rounded-full filter blur-[120px] opacity-10"></div>
+            {/* Background elements removed */}
 
             <motion.div
               className="relative z-10"
