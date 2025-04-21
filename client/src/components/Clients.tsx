@@ -6,42 +6,40 @@ import { ShootingStars } from "@/components/ui/shooting-stars";
 
 // Logo paths
 const clientLogos = [
-  {
-    id: 1,
-    name: "IBM",
-    src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+  { 
+    id: 1, 
+    name: "IBM", 
+    src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
   },
-  {
-    id: 2,
-    name: "Udemy",
-    src: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg",
+  { 
+    id: 2, 
+    name: "Udemy", 
+    src: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg" 
   },
-  {
-    id: 3,
-    name: "Docusaurus",
-    src: "https://docusaurus.io/img/docusaurus.svg",
+  { 
+    id: 3, 
+    name: "Docusaurus", 
+    src: "https://docusaurus.io/img/docusaurus.svg" 
   },
-  {
-    id: 4,
-    name: "Metamask",
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg",
-  },
+  { 
+    id: 4, 
+    name: "Metamask", 
+    src: "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" 
+  }
 ];
 
 export default function Clients() {
   const { theme } = useTheme();
-  const isDark = theme === "dark";
+  const isDark = theme === 'dark';
 
   return (
-    <section
-      className={`py-16 relative overflow-hidden ${isDark ? "bg-[#050715]" : "bg-zinc-50"}`}
-    >
+    <section className={`py-16 relative overflow-hidden ${isDark ? 'bg-[#050715]' : 'bg-zinc-50'}`}>
       {/* Fondo de estrellas (visible solo en modo oscuro) */}
       {isDark && (
         <>
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
           <div className="stars absolute inset-0" />
-
+          
           {/* Múltiples capas de estrellas fugaces con diferentes colores y velocidades */}
           <ShootingStars
             starColor="#0e62fe"
@@ -78,40 +76,31 @@ export default function Clients() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
-            CLIENTES DESTACADOS
-          </p>
-          <h2
-            className={`text-3xl md:text-4xl font-medium mb-2 ${isDark ? "text-white" : "text-zinc-900"}`}
-          >
-            Confían en nosotros
+          <p className="text-[#0e62fe] text-sm font-medium tracking-wide">CLIENTES DESTACADOS</p>
+          <h2 className={`text-3xl md:text-4xl font-medium mb-2 ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+            Marcas que confían en nosotros
           </h2>
-          <p
-            className={`text-lg max-w-2xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
-          >
-            Diseñamos experiencias web para empresas líderes que buscan destacar
-            en el mercado digital.
+          <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
+            Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital
           </p>
         </motion.div>
 
         <LogoCarousel logos={clientLogos} columns={2} />
-
-        <motion.div
+        
+        <motion.div 
           className="text-center mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <p
-            className={`text-base max-w-2xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
-          >
-            Nos especializamos en la creación de landing pages de alto impacto
-            con tiempos de entrega récord de solo 3 días y a un precio fijo de
-            $18,000 MXN.
+          <p className={`text-base max-w-2xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
+            Nos especializamos en la creación de landing pages de alto impacto con tiempos de entrega récord de solo 3 días y a un precio fijo de $18,000 MXN.
           </p>
         </motion.div>
       </div>
+
+
     </section>
   );
 }

@@ -133,7 +133,7 @@ export default function ValueBanner() {
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
             Un servicio completo de diseño y desarrollo de landing pages con
-            plazos y costos predecibles.
+            plazos y costos predecibles
           </p>
         </motion.div>
 
