@@ -122,48 +122,13 @@ export default function Clients() {
   const isDark = theme === 'dark';
 
   return (
-    <section className="relative">
-      {/* Título de la sección sobre el componente de comparación */}
-      <motion.div
-        className={`pt-16 text-center ${isDark ? 'bg-[#050715] text-white' : 'bg-zinc-50 text-zinc-900'}`}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-6">
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">COMPARACIÓN DE TEMAS</p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-2">
-            Desliza para comparar modos
-          </h2>
-          <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'} mb-8`}>
-            Explora nuestra sección de clientes destacados en modo claro y oscuro
-          </p>
-        </div>
-      </motion.div>
-
+    <section className={`relative ${isDark ? 'bg-[#050715]' : 'bg-zinc-50'}`}>
       {/* Componente de comparación de temas */}
       <ThemeComparison
         lightModeContent={<LightModeContent />}
         darkModeContent={<DarkModeContent />}
         className="w-full aspect-[16/10] md:aspect-[21/9]"
       />
-      
-      {/* Texto adicional debajo de la comparación */}
-      <motion.div
-        className={`py-16 text-center ${isDark ? 'bg-[#050715] text-white' : 'bg-zinc-50 text-zinc-900'}`}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <div className="container mx-auto px-6">
-          <p className={`text-base max-w-2xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Ofrecemos experiencias web adaptadas tanto para interfaces claras como oscuras, con efectos visuales 
-            optimizados para cada modo, garantizando la mejor apariencia en cualquier contexto.
-          </p>
-        </div>
-      </motion.div>
     </section>
   );
 }
