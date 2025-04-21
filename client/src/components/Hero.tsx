@@ -33,21 +33,20 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                Creamos sitios web <br />
-                <span className="text-[#0e62fe]">innovadores</span> a{" "}
-                <Cover>velocidad supersónica</Cover>
+                Landing pages <br />
+                <span className="text-[#0e62fe]">profesionales</span> en{" "}
+                <Cover>solo 3 días</Cover>
               </h1>
 
               <p
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Landing pages profesionales en{" "}
-                <span className="font-medium">solo 3 días</span> por
-                <span className="font-medium text-[#0e62fe] ml-2">
+                Diseño, desarrollo y hosting completo por{" "}
+                <span className="font-medium text-[#0e62fe]">
                   $18,000 MXN
                 </span>
-                . Diseño minimalista, desarrollo eficiente, resultados
-                garantizados.
+                {" "}precio fijo. Del concepto al lanzamiento en tres días, incluyendo
+                entrega del código fuente.
               </p>
             </motion.div>
 

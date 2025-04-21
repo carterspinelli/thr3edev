@@ -16,18 +16,18 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Diseño Atractivo",
-    description: "Creamos experiencias digitales que cautivan a tu audiencia y reflejan la identidad de tu marca."
+    title: "Reunión Inicial (30 min)",
+    description: "Empezamos con una reunión breve para comprender tu negocio y los objetivos específicos de tu landing page."
   },
   {
     step: 1,
-    title: "Desarrollo Optimizado",
-    description: "Construimos landing pages optimizadas con las mejores tecnologías y prácticas del mercado."
+    title: "Diseño y Desarrollo",
+    description: "Utilizamos las mejores tecnologías actuales para crear una landing page optimizada que refleje la identidad de tu marca."
   },
   {
     step: 2,
-    title: "Entrega Ultrarrápida",
-    description: "Entregamos tu landing page lista para usar en solo 3 días a un precio fijo de $18,000 MXN."
+    title: "Entrega Completa",
+    description: "En solo 3 días recibes tu sitio web listo y alojado, junto con el código fuente completo por $18,000 MXN precio fijo."
   },
 ];
 
@@ -47,10 +47,10 @@ export default function Services() {
         >
           <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            De la idea al lanzamiento <span className="text-[#0e62fe]">en 3 pasos</span>
+            Del concepto al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Diseñamos landing pages que convierten visitantes en clientes mediante un proceso perfeccionado y entregas ultrarrápidas.
+            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos con las mejores tecnologías, y entregamos todo en solo 3 días.
           </p>
         </motion.div>
         

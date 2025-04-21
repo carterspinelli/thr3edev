@@ -12,10 +12,10 @@ export default function Cta() {
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
-            ¿Listo para lanzar tu sitio web en tiempo récord?
+            ¿Necesitas una landing page profesional de inmediato?
           </h2>
           <p className="text-xl text-neutral-300 mb-12 leading-relaxed">
-            En solo 3 días tendrás una landing page elegante y minimalista por $18,000 MXN.
+            Una reunión de 30 minutos y 3 días después tu sitio está listo. Diseño, desarrollo y hosting incluidos por $18,000 MXN, con entrega completa del código.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Button 

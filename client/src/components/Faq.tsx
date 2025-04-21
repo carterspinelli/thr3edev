@@ -9,23 +9,24 @@ import {
 const faqItems = [
   {
     id: "faq-1",
-    question: "¿Realmente pueden entregar un sitio web en 3 días?",
-    answer: "Sí, nuestro proceso está optimizado para entregar landing pages profesionales en 3 días hábiles. Esto es posible gracias a nuestro flujo de trabajo estructurado y a que nos especializamos en un tipo específico de sitio web. Si tu proyecto requiere funcionalidades más complejas, podríamos necesitar tiempo adicional."
+    question: "¿Cómo funciona exactamente el proceso de 3 días?",
+    answer: "El proceso comienza con una reunión inicial de 30 minutos para entender tu negocio y necesidades. Inmediatamente después, diseñamos y desarrollamos tu landing page utilizando las mejores tecnologías disponibles. Al tercer día, entregamos el sitio completamente funcional junto con el código fuente."
   },
   {
     id: "faq-2",
     question: "¿Qué incluye exactamente el precio de $18,000 MXN?",
-    answer: "El precio incluye diseño personalizado, desarrollo completo, optimización para dispositivos móviles, formulario de contacto funcional, SEO básico y 1 mes de soporte técnico gratuito. También incluye el alojamiento por el primer año. No hay costos ocultos ni cargos adicionales."
+    answer: "El precio fijo incluye diseño personalizado, desarrollo completo, optimización para dispositivos móviles, formulario de contacto funcional, SEO básico, hospedaje por un año, entrega del código fuente completo y 1 mes de soporte técnico. No hay costos ocultos ni cargos adicionales."
   },
   {
     id: "faq-3",
     question: "¿Qué necesitan de mi parte para comenzar?",
-    answer: "Para comenzar, necesitamos información básica sobre tu negocio, los objetivos de tu sitio web, cualquier preferencia de diseño o color, y tus contenidos (textos, logotipo e imágenes). También un anticipo del 50% del precio total."
+    answer: "Para comenzar solo necesitamos 30 minutos de tu tiempo para la reunión inicial, información básica sobre tu negocio, cualquier preferencia de diseño, y tus contenidos (textos, logotipo e imágenes). También un anticipo del 50% del precio total."
   },
   {
     id: "faq-4",
-    question: "¿Qué pasa si necesito cambios después de la entrega?",
-    answer: "Incluimos una ronda de cambios menores sin costo adicional. Para modificaciones más extensas o funcionalidades adicionales, ofrecemos tarifas por hora muy accesibles o paquetes de mantenimiento mensuales."
+    question: "¿Por qué entregan el código fuente completo?",
+    answer: "Creemos en la transparencia y en darte control total sobre tu sitio web. Al entregar el código fuente, garantizamos que puedas modificarlo en el futuro con tu propio equipo técnico si así lo deseas, o seguir trabajando con nosotros para actualizaciones y mejoras."
+  }s."
   },
   {
     id: "faq-5",
