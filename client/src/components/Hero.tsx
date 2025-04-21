@@ -18,17 +18,9 @@ export default function Hero() {
 
       <section
         id="inicio"
-        className={`pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden relative ${theme === "dark" ? "bg-[#050715] text-white" : "bg-zinc-50 text-zinc-900"}`}
+        className={`pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden ${theme === "dark" ? "bg-black text-white" : "bg-white text-zinc-900"}`}
       >
-        {/* Fondo de estrellas (visible solo en modo oscuro) */}
-        {theme === "dark" && (
-          <>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
-            <div className="stars absolute inset-0" />
-          </>
-        )}
-        
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto relative">
             {/* Background gradient blobs */}
             <div className="absolute -top-40 -left-20 w-72 h-72 bg-[#0e62fe] rounded-full filter blur-[120px] opacity-10"></div>
