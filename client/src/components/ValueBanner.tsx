@@ -1,7 +1,8 @@
+
 import React, { useState } from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
-import { Clock, DollarSign, Star } from "lucide-react";
+import { Clock, DollarSign, Code, DownloadCloud } from "lucide-react";
 import { Meteors } from "@/components/ui/meteors";
 import { cn } from "@/lib/utils";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
@@ -68,19 +69,25 @@ export default function ValueBanner() {
     {
       icon: <Clock className="size-6" />,
       title: "Entrega en 3 días",
-      description: "De la idea al lanzamiento en tiempo récord. Nos comprometemos con plazos definidos para que tu negocio no espere.",
+      description: "Desde la conversación inicial hasta el sitio web completo en solo 72 horas. Tu presencia online lista en tiempo récord.",
       color: "#0e62fe"
     },
     {
       icon: <DollarSign className="size-6" />,
       title: "Precio fijo: $18,000 MXN",
-      description: "Sin costos ocultos ni sorpresas. Trabajamos con un presupuesto claro para que puedas planificar con seguridad.",
+      description: "Precio transparente que incluye diseño, desarrollo y entrega del código. Sin sorpresas ni costos adicionales.",
       color: "#0e62fe"
     },
     {
-      icon: <Star className="size-6" />,
-      title: "Diseño minimalista",
-      description: "Sitios elegantes optimizados para conversión. Creamos diseños que mantienen la atención en lo que realmente importa.",
+      icon: <Code className="size-6" />,
+      title: "Tecnologías modernas",
+      description: "Utilizamos las mejores tecnologías para crear landing pages rápidas, seguras y optimizadas para conversión.",
+      color: "#0e62fe"
+    },
+    {
+      icon: <DownloadCloud className="size-6" />,
+      title: "Código entregable",
+      description: "Recibes el código fuente de tu sitio al finalizar el proyecto, dándote total control sobre tu inversión.",
       color: "#0e62fe"
     }
   ];
@@ -96,14 +103,14 @@ export default function ValueBanner() {
           transition={{ duration: 0.5 }}
         >
           <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Nuestros <span className="text-[#0e62fe]">valores principales</span>
+            Lo que <span className="text-[#0e62fe]">ofrecemos</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Entregamos sitios web de alta calidad con un proceso claro y predecible
+            Un servicio completo de diseño y desarrollo de landing pages con plazos y costos predecibles
           </p>
         </motion.div>
       
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {valueItems.map((item, index) => (
             <MeteorCard
               key={index}
