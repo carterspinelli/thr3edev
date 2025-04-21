@@ -26,7 +26,6 @@ const faqItems = [
     id: "faq-4",
     question: "¿Por qué entregan el código fuente completo?",
     answer: "Creemos en la transparencia y en darte control total sobre tu sitio web. Al entregar el código fuente, garantizamos que puedas modificarlo en el futuro con tu propio equipo técnico si así lo deseas, o seguir trabajando con nosotros para actualizaciones y mejoras."
-  }s."
   },
   {
     id: "faq-5",
@@ -37,7 +36,7 @@ const faqItems = [
 
 export default function Faq() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-white"> {/* Changed background to white for consistency */}
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Preguntas Frecuentes</h2>
@@ -45,7 +44,7 @@ export default function Faq() {
             Respuestas a las dudas más comunes sobre nuestro servicio.
           </p>
         </div>
-        
+
         <div className="max-w-4xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((item) => (

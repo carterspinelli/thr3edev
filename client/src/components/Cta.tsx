@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Cta() {
   return (
-    <section className="py-20 md:py-32 bg-neutral-900 relative overflow-hidden">
+    <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: 'var(--background)' }}>
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
         <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary rounded-full filter blur-3xl"></div>

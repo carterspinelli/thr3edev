@@ -34,7 +34,7 @@ const steps = [
 export default function Services() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   const { theme } = useTheme();
-  
+
   return (
     <section id="servicios" className={`py-20 md:py-28 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
@@ -53,7 +53,7 @@ export default function Services() {
             Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos con las mejores tecnologías, y entregamos todo en solo 3 días.
           </p>
         </motion.div>
-        
+
         <motion.div
           className="max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export default function Services() {
             ))}
           </Stepper>
         </motion.div>
-        
+
 
       </div>
     </section>

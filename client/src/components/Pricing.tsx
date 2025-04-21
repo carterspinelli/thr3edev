@@ -6,7 +6,7 @@ import { PricingCard } from "@/components/ui/pricing-card";
 export default function Pricing() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   const { theme } = useTheme();
-  
+
   const pricingFeatures = [
     {
       title: "Incluye",
@@ -35,7 +35,7 @@ export default function Pricing() {
       ]
     }
   ];
-  
+
   return (
     <section className={`py-20 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
@@ -52,7 +52,7 @@ export default function Pricing() {
             Sin presupuestos complicados ni costos ocultos. Solo una tarifa simple y predecible.
           </p>
         </motion.div>
-        
+
         <PricingCard 
           title="Landing Page Profesional"
           description="Todo lo que necesitas para establecer tu presencia web"
@@ -63,7 +63,7 @@ export default function Pricing() {
             window.location.href = "#contacto";
           }}
         />
-        
+
         <motion.div 
           className="mt-6 text-center text-zinc-500 text-sm"
           initial={{ opacity: 0 }}

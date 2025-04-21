@@ -42,9 +42,12 @@ const technologies = [
 
 export default function Technologies() {
   const { theme } = useTheme();
-  
+
   return (
-    <section className={`py-20 md:py-28 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
+    <section 
+      id="tecnologias"
+      className={`py-24 overflow-hidden ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}
+    >
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -61,7 +64,7 @@ export default function Technologies() {
             Utilizamos las tecnologías más innovadoras y eficientes para crear sitios web de alto rendimiento.
           </p>
         </motion.div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {technologies.map((tech, index) => (
             <motion.div
