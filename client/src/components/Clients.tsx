@@ -3,6 +3,7 @@ import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { ShootingStars } from "@/components/ui/shooting-stars";
+import { ThemeComparison } from "@/components/ui/theme-comparison";
 
 // Logo paths
 const clientLogos = [
@@ -28,79 +29,141 @@ const clientLogos = [
   }
 ];
 
+// Componente para mostrar el contenido en modo claro
+const LightModeContent = () => {
+  return (
+    <div className="py-16 bg-zinc-50 min-h-[500px] flex flex-col">
+      <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
+        <div className="text-center space-y-4 mb-8">
+          <p className="text-[#0e62fe] text-sm font-medium tracking-wide">CLIENTES DESTACADOS</p>
+          <h2 className="text-3xl md:text-4xl font-medium mb-2 text-zinc-900">
+            Marcas que confían en nosotros
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto text-zinc-600">
+            Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital
+          </p>
+        </div>
+
+        <div className="flex-1 flex flex-col justify-center">
+          <LogoCarousel logos={clientLogos} columns={2} />
+        </div>
+        
+        <div className="text-center mt-12">
+          <p className="text-base max-w-2xl mx-auto text-zinc-600">
+            Nos especializamos en la creación de landing pages de alto impacto con tiempos de entrega récord de solo 3 días y a un precio fijo de $18,000 MXN.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Componente para mostrar el contenido en modo oscuro con efectos
+const DarkModeContent = () => {
+  return (
+    <div className="py-16 bg-[#050715] min-h-[500px] relative overflow-hidden flex flex-col">
+      {/* Fondo con efectos para el modo oscuro */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
+      <div className="stars absolute inset-0" />
+      
+      {/* Múltiples capas de estrellas fugaces con diferentes colores y velocidades */}
+      <ShootingStars
+        starColor="#0e62fe"
+        trailColor="#2EB9DF"
+        minSpeed={15}
+        maxSpeed={35}
+        minDelay={1000}
+        maxDelay={3000}
+      />
+      <ShootingStars
+        starColor="#3b82f6"
+        trailColor="#0e62fe"
+        minSpeed={10}
+        maxSpeed={25}
+        minDelay={2000}
+        maxDelay={4000}
+      />
+      <ShootingStars
+        starColor="#60a5fa"
+        trailColor="#2563eb"
+        minSpeed={20}
+        maxSpeed={40}
+        minDelay={1500}
+        maxDelay={3500}
+      />
+
+      <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
+        <div className="text-center space-y-4 mb-8">
+          <p className="text-[#0e62fe] text-sm font-medium tracking-wide">CLIENTES DESTACADOS</p>
+          <h2 className="text-3xl md:text-4xl font-medium mb-2 text-white">
+            Marcas que confían en nosotros
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto text-zinc-400">
+            Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital
+          </p>
+        </div>
+
+        <div className="flex-1 flex flex-col justify-center">
+          <LogoCarousel logos={clientLogos} columns={2} />
+        </div>
+        
+        <div className="text-center mt-12">
+          <p className="text-base max-w-2xl mx-auto text-zinc-400">
+            Nos especializamos en la creación de landing pages de alto impacto con tiempos de entrega récord de solo 3 días y a un precio fijo de $18,000 MXN.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Clients() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
   return (
-    <section className={`py-16 relative overflow-hidden ${isDark ? 'bg-[#050715]' : 'bg-zinc-50'}`}>
-      {/* Fondo de estrellas (visible solo en modo oscuro) */}
-      {isDark && (
-        <>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
-          <div className="stars absolute inset-0" />
-          
-          {/* Múltiples capas de estrellas fugaces con diferentes colores y velocidades */}
-          <ShootingStars
-            starColor="#0e62fe"
-            trailColor="#2EB9DF"
-            minSpeed={15}
-            maxSpeed={35}
-            minDelay={1000}
-            maxDelay={3000}
-          />
-          <ShootingStars
-            starColor="#3b82f6"
-            trailColor="#0e62fe"
-            minSpeed={10}
-            maxSpeed={25}
-            minDelay={2000}
-            maxDelay={4000}
-          />
-          <ShootingStars
-            starColor="#60a5fa"
-            trailColor="#2563eb"
-            minSpeed={20}
-            maxSpeed={40}
-            minDelay={1500}
-            maxDelay={3500}
-          />
-        </>
-      )}
-
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          className="text-center space-y-4 mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide">CLIENTES DESTACADOS</p>
-          <h2 className={`text-3xl md:text-4xl font-medium mb-2 ${isDark ? 'text-white' : 'text-zinc-900'}`}>
-            Marcas que confían en nosotros
+    <section className="relative">
+      {/* Título de la sección sobre el componente de comparación */}
+      <motion.div
+        className={`pt-16 text-center ${isDark ? 'bg-[#050715] text-white' : 'bg-zinc-50 text-zinc-900'}`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="container mx-auto px-6">
+          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">COMPARACIÓN DE TEMAS</p>
+          <h2 className="text-3xl md:text-4xl font-medium mb-2">
+            Desliza para comparar modos
           </h2>
-          <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital
+          <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'} mb-8`}>
+            Explora nuestra sección de clientes destacados en modo claro y oscuro
           </p>
-        </motion.div>
+        </div>
+      </motion.div>
 
-        <LogoCarousel logos={clientLogos} columns={2} />
-        
-        <motion.div 
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
+      {/* Componente de comparación de temas */}
+      <ThemeComparison
+        lightModeContent={<LightModeContent />}
+        darkModeContent={<DarkModeContent />}
+        className="w-full aspect-[16/10] md:aspect-[21/9]"
+      />
+      
+      {/* Texto adicional debajo de la comparación */}
+      <motion.div
+        className={`py-16 text-center ${isDark ? 'bg-[#050715] text-white' : 'bg-zinc-50 text-zinc-900'}`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <div className="container mx-auto px-6">
           <p className={`text-base max-w-2xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Nos especializamos en la creación de landing pages de alto impacto con tiempos de entrega récord de solo 3 días y a un precio fijo de $18,000 MXN.
+            Ofrecemos experiencias web adaptadas tanto para interfaces claras como oscuras, con efectos visuales 
+            optimizados para cada modo, garantizando la mejor apariencia en cualquier contexto.
           </p>
-        </motion.div>
-      </div>
-
-
+        </div>
+      </motion.div>
     </section>
   );
 }
