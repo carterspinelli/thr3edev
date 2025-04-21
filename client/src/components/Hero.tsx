@@ -33,7 +33,7 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                Landing pages <br />
+                Landing pages <br className="mb-2" />
                 <span className="text-[#0e62fe]">profesionales</span> en{" "}
                 <Cover>solo 3 días</Cover>
               </h1>
