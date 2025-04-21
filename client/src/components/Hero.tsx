@@ -60,146 +60,97 @@ const FloatingParticles = ({ color }: { color: string }) => {
   );
 };
 
-// Componente para la tarjeta de característica expandible
+// Componente para la tarjeta de característica con hover
 interface FeatureCardProps {
   icon: React.ReactNode;
   text: string;
   color: string;
-  hoverColor: string;
-  bgColor: string;
   isDarkMode: boolean;
-  description: string;
-  stats: {
-    value: string;
-    label: string;
-  }[];
+  caption: string;
 }
 
 const FeatureCard = ({ 
   icon, 
   text, 
   color, 
-  hoverColor,
-  bgColor,
   isDarkMode,
-  description,
-  stats
+  caption
 }: FeatureCardProps) => {
-  const [expanded, setExpanded] = useState(false);
   const [hovered, setHovered] = useState(false);
   
   return (
     <motion.div 
-      className={`relative group overflow-hidden ${expanded ? 'z-20' : 'z-10'}`}
-      initial={false}
-      animate={{ width: expanded ? 'auto' : 'auto' }}
+      className="relative"
       onMouseEnter={() => setHovered(true)} 
       onMouseLeave={() => setHovered(false)}
+      whileHover={{ scale: 1.05 }}
     >
-      {/* Contenedor principal */}
       <motion.div
-        className={`rounded-xl cursor-pointer transition-all duration-300 flex flex-col overflow-hidden`}
+        className="w-32 h-28 flex flex-col items-center justify-center rounded-xl border transition-all duration-300"
         style={{
-          backgroundColor: expanded ? `${bgColor}20` : (hovered ? `${bgColor}15` : 'transparent'),
-          boxShadow: (expanded || hovered) ? `0 0 25px 0 ${bgColor}30` : 'none',
-          border: `1px solid ${expanded ? bgColor : 'transparent'}`
+          backgroundColor: hovered ? `${color}15` : (isDarkMode ? 'rgba(24, 24, 27, 0.4)' : 'rgba(244, 244, 245, 0.7)'),
+          borderColor: hovered ? color : (isDarkMode ? 'rgba(63, 63, 70, 0.4)' : 'rgba(212, 212, 216, 0.4)'),
+          boxShadow: hovered ? `0 4px 20px 0 ${color}40` : 'none'
         }}
-        animate={{ 
-          width: expanded ? '100%' : 'auto',
-          height: expanded ? 'auto' : 'auto',
-          borderRadius: expanded ? 16 : 50
-        }}
-        onClick={() => setExpanded(!expanded)}
-        layout
       >
-        {/* Cabecera - Siempre visible */}
         <motion.div 
-          className="flex items-center space-x-3 px-4 py-3"
-          layout="position"
+          className="mb-2 rounded-full p-2 flex items-center justify-center"
+          animate={{ 
+            scale: hovered ? [1, 1.15, 1] : 1,
+            rotateY: hovered ? [0, 180, 360] : 0
+          }}
+          transition={{ 
+            duration: 0.8,
+            ease: "easeInOut"
+          }}
+          style={{
+            backgroundColor: color,
+            boxShadow: hovered ? `0 0 15px 0 ${color}70` : 'none'
+          }}
         >
-          <motion.div 
-            className="rounded-full p-1.5 flex items-center justify-center"
-            style={{ backgroundColor: color }}
-            animate={{ 
-              rotate: (expanded || hovered) ? [0, 5, -5, 0] : 0,
-              scale: (expanded || hovered) ? [1, 1.1, 1] : 1
-            }}
-            transition={{ 
-              duration: 0.5,
-              ease: "easeInOut"
-            }}
-            layout="position"
-          >
-            {icon}
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col"
-            layout="position"
-          >
-            <motion.span
-              className={`text-sm font-medium transition-colors duration-300`}
-              style={{
-                color: (expanded || hovered) ? hoverColor : (isDarkMode ? "#a1a1aa" : "#52525b")
-              }}
-              layout="position"
-            >
-              {text}
-            </motion.span>
-            
-            {expanded && (
-              <motion.span
-                className={`text-xs ${isDarkMode ? "text-zinc-400" : "text-zinc-500"}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 }}
-              >
-                Haz clic para {expanded ? 'cerrar' : 'abrir'}
-              </motion.span>
-            )}
-          </motion.div>
+          {icon}
         </motion.div>
 
-        {/* Contenido expandido */}
-        {expanded && (
-          <motion.div
-            className="px-4 pb-4"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.p 
-              className={`text-xs mb-3 ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              {description}
-            </motion.p>
-            
-            <motion.div 
-              className="grid grid-cols-2 gap-2"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              {stats.map((stat, index) => (
-                <div key={index} className="flex flex-col">
-                  <span className="text-sm font-semibold" style={{ color }}>
-                    {stat.value}
-                  </span>
-                  <span className={`text-xs ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}>
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-        )}
+        <motion.span
+          className="text-sm font-medium mb-0.5"
+          animate={{ 
+            y: hovered ? [0, -3, 0] : 0
+          }}
+          transition={{ duration: 0.5 }}
+          style={{
+            color: hovered ? color : (isDarkMode ? '#fff' : '#18181b')
+          }}
+        >
+          {text}
+        </motion.span>
+        
+        <motion.span
+          className="text-xs text-center px-2"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ 
+            opacity: hovered ? 1 : 0,
+            y: hovered ? 0 : -5
+          }}
+          transition={{ duration: 0.3 }}
+          style={{
+            color: isDarkMode ? '#a1a1aa' : '#71717a' 
+          }}
+        >
+          {caption}
+        </motion.span>
       </motion.div>
       
-      {/* Partículas flotantes */}
-      {(expanded || hovered) && <FloatingParticles color={color} />}
+      {/* Partículas de fondo */}
+      {hovered && (
+        <motion.div
+          className="absolute inset-0 -z-10 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <FloatingParticles color={color} />
+        </motion.div>
+      )}
     </motion.div>
   );
 };
@@ -278,57 +229,33 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap justify-center gap-4 z-10 md:gap-6"
+              className="flex justify-center gap-6 z-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <FeatureCard 
-                icon={<Brush size={14} className="text-white" />} 
+                icon={<Brush size={16} className="text-white" />} 
                 text="Diseño" 
                 color="#0e62fe"
-                hoverColor="#0e62fe"
-                bgColor="#0e62fe"
                 isDarkMode={isDark}
-                description="Creamos diseños profesionales, modernos y optimizados que reflejen la identidad de tu marca y generen confianza en tus usuarios."
-                stats={[
-                  { value: "100%", label: "Personalizado" },
-                  { value: "UI/UX", label: "Profesional" },
-                  { value: "Figma", label: "Prototipos" },
-                  { value: "Responsive", label: "En todo dispositivo" },
-                ]}
+                caption="UI/UX Profesional"
               />
               
               <FeatureCard 
-                icon={<Zap size={14} className="text-black" />} 
+                icon={<Zap size={16} className="text-black" />} 
                 text="Velocidad" 
                 color="#FFC229"
-                hoverColor="#c79300"
-                bgColor="#FFC229"
                 isDarkMode={isDark}
-                description="Entregamos tu landing page completa en solo 3 días, sin sacrificar calidad. Un proceso optimizado que minimiza esperas y maximiza resultados."
-                stats={[
-                  { value: "3 días", label: "Entrega garantizada" },
-                  { value: "24h", label: "Primera versión" },
-                  { value: "48h", label: "Revisiones" },
-                  { value: "72h", label: "Lanzamiento" },
-                ]}
+                caption="Entrega en 3 días"
               />
               
               <FeatureCard 
-                icon={<BarChart3 size={14} className="text-black" />} 
+                icon={<BarChart3 size={16} className="text-black" />} 
                 text="Resultados" 
                 color="#26D9A3"
-                hoverColor="#1ba077"
-                bgColor="#26D9A3"
                 isDarkMode={isDark}
-                description="Diseñamos pensando en la conversión. Cada elemento de tu landing page está optimizado para captar leads y generar ventas efectivas."
-                stats={[
-                  { value: "+40%", label: "Conversión promedio" },
-                  { value: "95/100", label: "Rendimiento web" },
-                  { value: "SEO", label: "Optimizado" },
-                  { value: "Analytics", label: "Incluido" },
-                ]}
+                caption="Optimizado para conversión"
               />
             </motion.div>
           </div>
