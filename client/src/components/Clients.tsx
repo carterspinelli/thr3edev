@@ -85,9 +85,7 @@ export default function Clients() {
           </p>
         </motion.div>
 
-        <div className={`rounded-xl p-8 ${isDark ? 'bg-zinc-900/80 backdrop-blur-sm' : 'bg-white'} border ${isDark ? 'border-zinc-800' : 'border-zinc-200'}`}>
-          <LogoCarousel logos={clientLogos} columns={2} />
-        </div>
+        <LogoCarousel logos={clientLogos} columns={2} />
         
         <motion.div 
           className="text-center mt-12"
