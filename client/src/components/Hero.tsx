@@ -6,9 +6,6 @@ import {
 } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Brush, Zap, BarChart3 } from "lucide-react";
-import CanvasRevealCard from "@/components/ui/canvas-reveal-card";
 
 export default function Hero() {
   const { cursorVariant, setCursorVariant, cursorText, setCursorText } =
@@ -26,8 +23,6 @@ export default function Hero() {
       >
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto relative">
-            {/* Background elements removed */}
-
             <motion.div
               className="relative z-10"
               initial={{ opacity: 0, y: 20 }}
@@ -53,7 +48,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.div
-              className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mb-12 z-10"
+              className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mb-6 z-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -81,34 +76,6 @@ export default function Hero() {
               >
                 <a href="#servicios">Nuestros servicios</a>
               </Button>
-            </motion.div>
-
-            <motion.div
-              className="flex flex-col md:flex-row justify-center gap-6 z-10 mt-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <CanvasRevealCard 
-                icon={<Brush size={20} className="text-white" />} 
-                title="Diseño"
-                description="Interfaces modernas y atractivas creadas por profesionales de UI/UX, optimizadas para dispositivos móviles y desktop."
-                color="rgb(14, 98, 254)"
-              />
-              
-              <CanvasRevealCard 
-                icon={<Zap size={20} className="text-black" />} 
-                title="Velocidad"
-                description="Del concepto al lanzamiento en solo 3 días. Un proceso optimizado que minimiza esperas y maximiza resultados."
-                color="rgb(255, 194, 41)"
-              />
-              
-              <CanvasRevealCard 
-                icon={<BarChart3 size={20} className="text-black" />} 
-                title="Resultados"
-                description="Diseñamos para convertir. Cada elemento está optimizado para generar leads y ventas efectivas para tu negocio."
-                color="rgb(38, 217, 163)"
-              />
             </motion.div>
           </div>
         </div>
