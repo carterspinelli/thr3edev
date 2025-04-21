@@ -4,7 +4,6 @@ import ValueBanner from "@/components/ValueBanner";
 import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
 import Technologies from "@/components/Technologies";
-import Clients from "@/components/Clients";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
         <Hero />
         <ValueBanner />
         <Services />
-        <Clients />
         <Technologies />
         <Pricing />
       </main>
