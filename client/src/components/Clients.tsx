@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { ShootingStars } from "@/components/ui/shooting-stars";
-import { ThemeComparison } from "@/components/ui/theme-comparison";
 
 // Logo paths
 const clientLogos = [
@@ -29,75 +28,46 @@ const clientLogos = [
   }
 ];
 
-// Componente de tema claro
-const LightThemeSection = () => {
-  return (
-    <div className="bg-white w-full h-full flex items-center justify-center py-16 rounded-xl">
-      <div className="w-full px-6">
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
-            Modo claro
-          </div>
-        </div>
-        <LogoCarousel logos={clientLogos} columns={2} />
-      </div>
-    </div>
-  );
-};
-
-// Componente de tema oscuro con estrellas
-const DarkThemeSection = () => {
-  return (
-    <div className="bg-[#050715] w-full h-full relative overflow-hidden rounded-xl">
-      {/* Fondo de estrellas */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
-      <div className="stars absolute inset-0" />
-      
-      {/* Múltiples capas de estrellas fugaces */}
-      <ShootingStars
-        starColor="#0e62fe"
-        trailColor="#2EB9DF"
-        minSpeed={15}
-        maxSpeed={35}
-        minDelay={1000}
-        maxDelay={3000}
-      />
-      <ShootingStars
-        starColor="#3b82f6"
-        trailColor="#0e62fe"
-        minSpeed={10}
-        maxSpeed={25}
-        minDelay={2000}
-        maxDelay={4000}
-      />
-      <ShootingStars
-        starColor="#60a5fa"
-        trailColor="#2563eb"
-        minSpeed={20}
-        maxSpeed={40}
-        minDelay={1500}
-        maxDelay={3500}
-      />
-      
-      {/* Contenido */}
-      <div className="w-full px-6 py-16 relative z-10">
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-900 text-blue-100">
-            Modo oscuro
-          </div>
-        </div>
-        <LogoCarousel logos={clientLogos} columns={2} />
-      </div>
-    </div>
-  );
-};
-
 export default function Clients() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
   return (
     <section className={`py-16 relative overflow-hidden ${isDark ? 'bg-[#050715]' : 'bg-zinc-50'}`}>
+      {/* Fondo de estrellas (visible solo en modo oscuro) */}
+      {isDark && (
+        <>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
+          <div className="stars absolute inset-0" />
+          
+          {/* Múltiples capas de estrellas fugaces con diferentes colores y velocidades */}
+          <ShootingStars
+            starColor="#0e62fe"
+            trailColor="#2EB9DF"
+            minSpeed={15}
+            maxSpeed={35}
+            minDelay={1000}
+            maxDelay={3000}
+          />
+          <ShootingStars
+            starColor="#3b82f6"
+            trailColor="#0e62fe"
+            minSpeed={10}
+            maxSpeed={25}
+            minDelay={2000}
+            maxDelay={4000}
+          />
+          <ShootingStars
+            starColor="#60a5fa"
+            trailColor="#2563eb"
+            minSpeed={20}
+            maxSpeed={40}
+            minDelay={1500}
+            maxDelay={3500}
+          />
+        </>
+      )}
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="text-center space-y-4 mb-8"
@@ -115,16 +85,7 @@ export default function Clients() {
           </p>
         </motion.div>
 
-        <div className="mt-4 mb-8">
-          <ThemeComparison 
-            lightComponent={<LightThemeSection />}
-            darkComponent={<DarkThemeSection />}
-            label="Modo claro / oscuro"
-            title="Experimenta las dos modalidades de diseño"
-            description="Desliza el control central de izquierda a derecha para comparar nuestros diseños en modo claro y oscuro. El modo oscuro incluye efectos especiales de estrellas fugaces para crear una experiencia única."
-            className="rounded-xl"
-          />
-        </div>
+        <LogoCarousel logos={clientLogos} columns={2} />
         
         <motion.div 
           className="text-center mt-12"
@@ -138,6 +99,8 @@ export default function Clients() {
           </p>
         </motion.div>
       </div>
+
+
     </section>
   );
 }
