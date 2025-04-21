@@ -16,17 +16,17 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Reunión Inicial (30 min)",
+    title: "Reunión inicial (30 min)",
     description: "Empezamos con una reunión breve para comprender tu negocio y los objetivos específicos de tu landing page."
   },
   {
     step: 1,
-    title: "Diseño y Desarrollo",
+    title: "Diseño y desarrollo",
     description: "Utilizamos las mejores tecnologías actuales para crear una landing page optimizada que refleje la identidad de tu marca."
   },
   {
     step: 2,
-    title: "Entrega Completa",
+    title: "Entrega completa",
     description: "En solo 3 días recibes tu sitio web listo y alojado, junto con el código fuente completo por $18,000 MXN precio fijo."
   },
 ];
