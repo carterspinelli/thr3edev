@@ -51,13 +51,7 @@ const LightModeContent = () => {
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-base max-w-2xl mx-auto text-zinc-600">
-            Nos especializamos en la creación de landing pages de alto impacto
-            con tiempos de entrega récord de solo 3 días y a un precio fijo de
-            $18,000 MXN.
-          </p>
-        </div>
+        {/* Text removed */}
       </div>
     </div>
   );
@@ -115,13 +109,7 @@ const DarkModeContent = () => {
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-base max-w-2xl mx-auto text-zinc-400">
-            Nos especializamos en la creación de landing pages de alto impacto
-            con tiempos de entrega récord de solo 3 días y a un precio fijo de
-            $18,000 MXN.
-          </p>
-        </div>
+        {/* Text removed */}
       </div>
     </div>
   );
