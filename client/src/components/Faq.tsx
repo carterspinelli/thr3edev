@@ -2,11 +2,20 @@ import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
 
+// Importamos la interfaz FAQItem para nuestros datos
+interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+  icon?: string;
+  iconPosition?: "left" | "right";
+}
+
 // Iconos en emojis para las preguntas
 const icons = ["⏱️", "💵", "📋", "📝", "🌐"];
 
 // Datos formatados para nuestro nuevo componente
-const faqData = [
+const faqData: FAQItem[] = [
   {
     id: 1,
     question: "¿Cómo funciona exactamente el proceso de 3 días?",
