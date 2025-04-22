@@ -110,10 +110,10 @@ export function PricingCard({
                 </div>
               </CardHeader>
               <motion.div className="mt-6 space-y-4" variants={itemVariants}>
-                <div className="flex items-baseline">
+                <div className="inline-flex items-baseline">
                   <span className={`text-5xl font-extrabold ${
                     theme === 'dark' ? 'text-[#0e62fe]' : 'text-[#0e62fe]'
-                  }`}>${price}</span>
+                  }`}>${price.toLocaleString()} MXN</span>
                   {originalPrice && (
                     <span className={`ml-2 text-xl line-through ${
                       theme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'
@@ -122,11 +122,6 @@ export function PricingCard({
                     </span>
                   )}
                 </div>
-                <span className={`block text-sm ${
-                  theme === 'dark' ? 'text-zinc-500' : 'text-zinc-500'
-                }`}>
-                  Precio único
-                </span>
               </motion.div>
             </div>
             <motion.div className="mt-8" variants={itemVariants}>

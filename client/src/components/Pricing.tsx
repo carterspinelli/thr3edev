@@ -57,6 +57,7 @@ export default function Pricing() {
           title="Landing Page Profesional"
           description="Todo lo que necesitas para establecer tu presencia web"
           price={18000}
+          priceSuffix=" MXN"
           features={pricingFeatures}
           buttonText="Solicitar mi sitio web"
           onButtonClick={() => {
