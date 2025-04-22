@@ -26,7 +26,7 @@ const faqData: FAQItem[] = [
   {
     id: 2,
     question: "¿Qué incluye exactamente el precio de $18,000 MXN?",
-    answer: "El precio fijo incluye diseño personalizado, desarrollo completo, optimización para dispositivos móviles, formulario de contacto funcional, hosting por un año, entrega del código fuente completo y 1 mes de soporte técnico. No hay costos ocultos ni cargos adicionales.",
+    answer: "El precio fijo incluye diseño personalizado, desarrollo completo, optimización para dispositivos móviles, hosting por un año y entrega del código fuente completo. No hay costos ocultos ni cargos adicionales.",
     icon: icons[1],
     iconPosition: "right"
   },

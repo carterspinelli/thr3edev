@@ -14,9 +14,7 @@ export default function Pricing() {
         "Diseño minimalista y elegante",
         "Entrega en solo 3 días",
         "Adaptado a todos los dispositivos",
-        "Formulario de contacto funcional",
         "Dominio personalizado",
-        "1 mes de soporte técnico",
         "Integración de redes sociales"
       ]
     },
