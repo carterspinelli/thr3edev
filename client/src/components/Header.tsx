@@ -7,6 +7,7 @@ import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
+import { StackingNavbar } from "@/components/ui/stacking-navbar";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,26 +55,8 @@ export default function Header() {
         
         {/* Desktop Navigation */}
         {!isMobile && (
-          <div className="flex space-x-10">
-            {navItems.map((item, index) => (
-              <motion.a 
-                key={index}
-                href={item.href} 
-                className={`text-sm font-medium transition-colors relative group ${theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'}`}
-                onMouseEnter={() => setCursorVariant("sm")}
-                onMouseLeave={() => setCursorVariant("default")}
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                {item.label}
-                <motion.div 
-                  className="absolute -bottom-1 left-0 h-0.5 bg-[#0e62fe] w-0 group-hover:w-full transition-all duration-300"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                />
-              </motion.a>
-            ))}
+          <div className="flex items-center">
+            <StackingNavbar />
           </div>
         )}
         
