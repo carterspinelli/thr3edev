@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Pricing from "@/components/Pricing";
 import Technologies from "@/components/Technologies";
 import Clients from "@/components/Clients";
+import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Clients />
         <Technologies />
         <Pricing />
+        <Faq />
       </main>
       <Footer />
     </div>
