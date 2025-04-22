@@ -100,7 +100,7 @@ const DarkModeContent = () => {
             Marcas que confían en nosotros
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-zinc-400">
-            Diseñamos experiencias web para empresas líderes que buscan destacar
+            Diseñamos tu landing page para que tu empresa destaque
             en el mercado digital
           </p>
         </div>

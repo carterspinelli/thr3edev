@@ -19,7 +19,7 @@ const faqData: FAQItem[] = [
   {
     id: 1,
     question: "¿Cómo funciona exactamente el proceso de 3 días?",
-    answer: "El proceso comienza con una reunión inicial de 30 minutos para entender tu negocio y necesidades. Inmediatamente después, diseñamos y desarrollamos tu landing page utilizando las mejores tecnologías disponibles. Al tercer día, entregamos el sitio completamente funcional junto con el código fuente.",
+    answer: "El proceso comienza con una reunión inicial de 30 minutos para entender tu negocio y necesidades. Inmediatamente después, diseñamos y desarrollamos tu landing page utilizando las mejores tecnologías disponibles. Al tercer día, entregamos tu sitio completamente funcional junto con el código fuente.",
     icon: icons[0],
     iconPosition: "left"
   },

@@ -50,7 +50,7 @@ export default function Services() {
             Del concepto al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos con las mejores tecnologías, y entregamos todo en solo 3 días.
+            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos tu landing page con las mejores tecnologías, y entregamos todo en solo 3 días.
           </p>
         </motion.div>
 
