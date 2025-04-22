@@ -35,7 +35,7 @@ export default function Header() {
   const navItems = [
     { href: "#inicio", label: "Inicio" },
     { href: "#servicios", label: "Servicios" },
-    { href: "#nosotros", label: "Lo que ofrecemos" }
+    { href: "#lo-que-ofrecemos", label: "Nosotros" }
   ];
 
   return (
