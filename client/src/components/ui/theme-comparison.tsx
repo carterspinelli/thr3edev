@@ -78,24 +78,7 @@ export function ThemeComparison({
         {lightModeContent}
       </div>
       
-      {/* Etiquetas de Modo */}
-      <div className="absolute top-4 left-4 z-30 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium shadow-sm text-zinc-800 border border-zinc-200"
-        style={{
-          opacity: inset < 15 ? 0 : 1,
-          transition: "opacity 0.3s ease"
-        }}
-      >
-        Modo Claro
-      </div>
-      
-      <div className="absolute top-4 right-4 z-30 bg-zinc-900/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium shadow-sm text-white border border-zinc-700"
-        style={{
-          opacity: inset > 85 ? 0 : 1,
-          transition: "opacity 0.3s ease"
-        }}
-      >
-        Modo Oscuro
-      </div>
+      {/* Mode labels removed */}
     </div>
   );
 }
