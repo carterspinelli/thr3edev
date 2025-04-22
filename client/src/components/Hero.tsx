@@ -39,7 +39,7 @@ export default function Hero() {
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
                 Diseño, desarrollo y hosting completo por{" "}
-                <span className="font-medium text-[#0e62fe]">
+                <span className="font-medium text-[#0e62fe] text-sm">
                   $18,000 MXN
                 </span>
                 {" "}precio fijo. Del concepto al lanzamiento en tres días, incluyendo
