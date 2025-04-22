@@ -55,7 +55,7 @@ export default function Pricing() {
 
         <PricingCard 
           title="Landing Page Profesional"
-          description="Todo lo que necesitas para establecer tu presencia web"
+          description="Todo lo que necesitas para establecer tu presencia web."
           price={18000}
           priceSuffix=" MXN"
           features={pricingFeatures}
@@ -72,7 +72,7 @@ export default function Pricing() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          * Las integraciones adicionales pueden tener un costo extra según su complejidad
+          * Las integraciones adicionales pueden tener un costo extra según su complejidad.
         </motion.div>
       </div>
     </section>
