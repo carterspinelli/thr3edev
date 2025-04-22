@@ -109,7 +109,8 @@ export default function ValueBanner() {
 
   return (
     <section
-      className={`py-20 ${theme === "dark" ? "bg-black" : "bg-white"}`}
+      id="lo-que-ofrecemos"
+      className={`py-20 ${theme === "dark" ? "bg-[#050715]" : "bg-white"}`}
     >
       <div className="container mx-auto px-6">
         <motion.div

@@ -35,9 +35,7 @@ export default function Header() {
   const navItems = [
     { href: "#inicio", label: "Inicio" },
     { href: "#servicios", label: "Servicios" },
-    { href: "#portafolio", label: "Portafolio" },
-    { href: "#nosotros", label: "Nosotros" },
-    { href: "#contacto", label: "Contacto" }
+    { href: "#nosotros", label: "Lo que ofrecemos" }
   ];
 
   return (
@@ -51,7 +49,7 @@ export default function Header() {
         <Link href="/" className="flex items-center">
           <Logo textSize="lg" />
         </Link>
-        
+
         {/* Desktop Navigation */}
         {!isMobile && (
           <div className="flex space-x-10">
@@ -76,7 +74,7 @@ export default function Header() {
             ))}
           </div>
         )}
-        
+
         {/* Contact Button - Desktop */}
         {!isMobile && (
           <motion.div
@@ -94,11 +92,11 @@ export default function Header() {
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              <a href="#contacto">Contactar</a>
+              <a href="mailto:contacto@thr3e.dev">Contactar</a>
             </Button>
           </motion.div>
         )}
-        
+
         {/* Mobile Menu Button */}
         {isMobile && (
           <Button 
@@ -112,7 +110,7 @@ export default function Header() {
           </Button>
         )}
       </motion.nav>
-      
+
       {/* Mobile Navigation Menu */}
       {isMobile && (
         <motion.div 
@@ -144,7 +142,7 @@ export default function Header() {
               </motion.a>
             ))}
             <motion.a 
-              href="#contacto" 
+              href="mailto:contacto@thr3e.dev" 
               className="font-medium text-zinc-200 py-2 px-6 bg-[#0e62fe] hover:bg-[#0952d3] transition-colors rounded-full inline-block w-full text-center"
               onClick={closeMobileMenu}
               initial={{ y: 10, opacity: 0 }}
