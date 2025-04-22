@@ -111,7 +111,7 @@ export function PricingCard({
               </CardHeader>
               <motion.div className="mt-6 space-y-4" variants={itemVariants}>
                 <div className="inline-flex items-baseline">
-                  <span className={`text-3xl font-extrabold ${
+                  <span className={`text-5xl font-extrabold ${
                     theme === 'dark' ? 'text-[#0e62fe]' : 'text-[#0e62fe]'
                   }`}>${price.toLocaleString()} MXN</span>
                   {originalPrice && (
