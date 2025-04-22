@@ -100,7 +100,7 @@ export default function ValueBanner() {
       icon: <Code className="size-6" />,
       title: "Tecnologías modernas",
       description:
-        "Utilizamos las mejores tecnologías para crear landing pages rápidas, seguras y optimizadas para conversión.",
+        "Utilizamos las mejores tecnologías para crear landing pages rápidas y seguras con excelente rendimiento.",
       color: "#0e62fe",
     },
     {
