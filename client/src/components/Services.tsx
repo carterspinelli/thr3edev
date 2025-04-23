@@ -16,18 +16,18 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Reunión inicial (30 min)",
-    description: "Empezamos con una reunión breve para comprender tu negocio y los objetivos específicos de tu landing page."
+    title: "Discusión de ideas y requisitos",
+    description: "Colaboramos contigo para entender tus objetivos, público objetivo y alcance del proyecto. Todo en una reunión de solo 30 minutos."
   },
   {
     step: 1,
-    title: "Diseño y desarrollo",
-    description: "Utilizamos las mejores tecnologías actuales para crear una landing page optimizada que refleje la identidad de tu marca."
+    title: "Del concepto al diseño final",
+    description: "Transformamos tu visión en conceptos impactantes con tu participación activa, iterando hasta lograr un diseño impecable que resuene con tu audiencia."
   },
   {
     step: 2,
-    title: "Entrega completa",
-    description: "En solo 3 días recibes tu sitio web listo y alojado, junto con el código fuente completo por $18,000 MXN precio fijo."
+    title: "Desarrollo, pruebas y lanzamiento",
+    description: "Convertimos el diseño en una experiencia digital perfecta, probamos rigurosamente en todas las plataformas y celebramos tu éxito con un lanzamiento impecable."
   },
 ];
 
@@ -45,12 +45,13 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTROS SERVICIOS</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Del concepto al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
+            Único. Digital. <span className="text-[#0e62fe]">De primera clase.</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos tu landing page con las mejores tecnologías, y entregamos todo en solo 3 días.
+            Creamos landing pages impresionantes que desafían la forma en que los clientes navegan e interactúan en línea.
+            Todo en un proceso de solo 3 días.
           </p>
         </motion.div>
 

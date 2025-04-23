@@ -79,30 +79,30 @@ export default function ValueBanner() {
   const valueItems = [
     {
       icon: <Clock className="size-6" />,
-      title: "Entrega en 3 días",
+      title: "Excelencia creativa",
       description:
-        "Desde la conversación inicial hasta el sitio web completo en solo 72 horas. Tu presencia online lista en tiempo récord.",
+        "Experimenta la experiencia creativa de nuestro equipo en soluciones de diseño innovadoras y convincentes que capturan la esencia de tu marca.",
       color: "#0e62fe",
     },
     {
       icon: <DollarSign className="size-6" />,
-      title: "Precio fijo",
+      title: "Soluciones personalizadas",
       description:
-        "Precio transparente que incluye diseño, desarrollo y entrega del código. Sin sorpresas ni costos adicionales.",
+        "Personalizamos nuestros servicios para tus necesidades empresariales únicas con un toque personal que garantiza resultados a medida.",
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
-      title: "Tecnologías modernas",
+      title: "Experiencia integral",
       description:
-        "Utilizamos las mejores tecnologías para crear landing pages rápidas y seguras con excelente rendimiento.",
+        "Un equipo, todas tus necesidades. Desarrollo, diseño y todo lo demás incluido en nuestro servicio de 3 días a precio fijo.",
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
-      title: "Código entregable",
+      title: "Comunicación transparente",
       description:
-        "Recibes el código fuente de tu sitio al finalizar el proyecto, dándote total control sobre tu inversión.",
+        "Mantente informado e involucrado con una comunicación clara y abierta durante todo el proyecto, sin sorpresas ni complicaciones.",
       color: "#0e62fe",
     },
   ];
@@ -120,16 +120,17 @@ export default function ValueBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">DESTACADOS</p>
           <h2
-            className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+            className={`text-3xl md:text-4xl font-medium mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Lo que <span className="text-[#0e62fe]">ofrecemos</span>
+            Números que <span className="text-[#0e62fe]">hablan por sí solos</span>
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Un servicio completo de diseño y desarrollo de tu landing page con
-            plazos y costos predecibles
+            Priorizamos un servicio excepcional, satisfaciendo las necesidades de cada cliente 
+            durante todo el proceso de diseño y desarrollo
           </p>
         </motion.div>
 
