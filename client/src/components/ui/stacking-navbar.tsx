@@ -8,11 +8,9 @@ const StackingNavbar = () => {
   const [expanded, setExpanded] = useState(false);
 
   const items = [
-    { href: "#inicio", label: "Inicio" },
+    { href: "#portafolio", label: "Portafolio" },
     { href: "#servicios", label: "Servicios" },
-    { href: "#clientes", label: "Clientes" },
-    { href: "#pricing", label: "Precios" },
-    { href: "#faq", label: "FAQ" },
+    { href: "#nosotros", label: "Nosotros" },
   ];
 
   return (
