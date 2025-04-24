@@ -53,7 +53,7 @@ export default function Footer() {
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-6">
           <motion.div 
-            className={`py-10 flex flex-col md:flex-row items-center justify-between border-b border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'}`}
+            className={`py-10 flex flex-col md:flex-row items-center justify-center border-b border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -70,48 +70,57 @@ export default function Footer() {
                 <Logo textSize="lg" />
               </motion.div>
             </Link>
-            <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              Transformamos ideas en experiencias digitales increíbles. Creamos páginas web optimizadas para conversión en tiempo récord. Nuestro método centrado en resultados garantiza proyectos entregados en solo 3 días con excelencia en cada detalle.
-            </p>
           </motion.div>
           
           <div className="py-10">
-            {navigation.categories.map((category) => (
-              <div
-                key={category.id}
-                className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6"
-              >
-                {category.sections.map((section, sectionIndex) => (
-                  <div key={section.id}>
-                    <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>{section.title}</h3>
-                    <ul className="flex flex-col space-y-3">
-                      {section.items.map((item, index) => (
-                        <motion.li 
-                          key={item.name} 
-                          initial={{ opacity: 0, y: 5 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.3, delay: index * 0.05 + sectionIndex * 0.1 }}
-                        >
-                          <a
-                            href={item.href}
-                            className={`text-sm transition-colors duration-300 ${
-                              theme === 'dark' 
-                                ? 'text-zinc-500 hover:text-white' 
-                                : 'text-zinc-600 hover:text-black'
-                            }`}
-                            onMouseEnter={() => setCursorVariant("sm")}
-                            onMouseLeave={() => setCursorVariant("default")}
-                          >
-                            {item.name}
-                          </a>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+            <div className="flex flex-col md:flex-row gap-10">
+              <div className="md:w-1/2 md:pr-10">
+                <p className={`text-left text-sm leading-relaxed ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                  Transformamos ideas en experiencias digitales increíbles. Creamos páginas web optimizadas para conversión en tiempo récord. Nuestro método centrado en resultados garantiza proyectos entregados en solo 3 días con excelencia en cada detalle.
+                </p>
               </div>
-            ))}
+              
+              <div className="md:w-1/2">
+                <div className="grid grid-cols-2 gap-8 md:gap-10">
+                  {navigation.categories.map((category) => (
+                    <div
+                      key={category.id}
+                      className="flex flex-wrap justify-end gap-8 md:gap-10"
+                    >
+                      {category.sections.map((section, sectionIndex) => (
+                        <div key={section.id}>
+                          <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>{section.title}</h3>
+                          <ul className="flex flex-col space-y-3">
+                            {section.items.map((item, index) => (
+                              <motion.li 
+                                key={item.name} 
+                                initial={{ opacity: 0, y: 5 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.3, delay: index * 0.05 + sectionIndex * 0.1 }}
+                              >
+                                <a
+                                  href={item.href}
+                                  className={`text-sm transition-colors duration-300 ${
+                                    theme === 'dark' 
+                                      ? 'text-zinc-500 hover:text-white' 
+                                      : 'text-zinc-600 hover:text-black'
+                                  }`}
+                                  onMouseEnter={() => setCursorVariant("sm")}
+                                  onMouseLeave={() => setCursorVariant("default")}
+                                >
+                                  {item.name}
+                                </a>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           
           <div className={`border-t border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'} py-10`}>
