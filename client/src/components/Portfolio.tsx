@@ -59,7 +59,7 @@ export default function Portfolio() {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-primary text-sm font-medium mb-2 tracking-wide">NUESTROS PROYECTOS</p>
+            <p className="text-primary text-sm font-medium mb-2 tracking-wide">NUESTROS <span className="text-[#0e62fe]">proyectos</span> MÁS RECIENTES</p>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-neutral-900">Trabajos recientes</h2>
             <p className="text-neutral-600 text-lg max-w-2xl mx-auto mb-6">
               Cada uno de estos proyectos fue entregado en 3 días, manteniendo la calidad y elegancia.

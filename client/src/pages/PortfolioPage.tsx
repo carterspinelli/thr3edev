@@ -128,7 +128,9 @@ export default function PortfolioPage() {
 
   return (
     <div className={theme === 'dark' ? 'bg-black text-white' : 'bg-white text-zinc-900'}>
-      <Header />
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Header />
+      </div>
       
       <div className="relative mt-16">
         <HeroParallax projects={projects} />

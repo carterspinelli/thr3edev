@@ -107,10 +107,10 @@ export const Header = () => {
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
       <h1 className={`text-2xl md:text-7xl font-bold ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-        Nuestros <span className="text-[#0e62fe]">Proyectos</span> <br /> Web más Recientes
+        Nuestros <span className="text-[#0e62fe]">proyectos</span> <br /> más recientes
       </h1>
       <p className={`max-w-2xl text-base md:text-xl mt-8 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-        Diseñamos y desarrollamos sitios y aplicaciones web de alta calidad para empresas y startups. 
+        Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital.
         Cada proyecto es único y personalizado para satisfacer las necesidades específicas de nuestros clientes.
       </p>
     </div>
