@@ -36,13 +36,14 @@ const LightModeContent = () => {
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
         <div className="text-center space-y-4 mb-8">
           <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
-            COLABORACIONES
+            PROYECTOS DESTACADOS
           </p>
           <h2 className="text-3xl md:text-4xl font-medium mb-2 text-zinc-900">
-            Marcas que transformamos
+            Diseño que habla por sí mismo
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-zinc-600">
-            Creamos experiencias digitales memorables para marcas visionarias que buscan redefinir su presencia digital
+            Colaboramos con marcas visionarias para crear experiencias web impresionantes
+            que desafían los límites del diseño digital
           </p>
         </div>
 

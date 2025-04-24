@@ -45,13 +45,14 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">SERVICIOS</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Diseño con <span className="text-[#0e62fe]">propósito.</span>
+            Experiencias que <span className="text-[#0e62fe]">transforman.</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Un enfoque estratégico que transforma visiones en experiencias digitales impactantes.
-            Cada pixel, cada interacción, cada elemento tiene un propósito definido.
+            Diseñamos viajes digitales que cautivan a tu audiencia y convierten
+            la curiosidad en deleite duradero. Cada detalle cuenta en la creación
+            de experiencias memorables.
           </p>
         </motion.div>
 

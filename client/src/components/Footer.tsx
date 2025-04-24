@@ -87,7 +87,7 @@ export default function Footer() {
               </motion.div>
             </Link>
             <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              Diseñamos soluciones digitales que conectan marcas con personas. Nuestro estudio combina diseño estratégico, tecnología innovadora y creatividad para crear experiencias web memorables que impulsan el crecimiento de tu negocio.
+              Somos una agencia de diseño digital fundada por entusiastas apasionados. Creamos sitios web y aplicaciones móviles impresionantes que desafían la forma en que las personas navegan y compran en línea.
             </p>
           </motion.div>
 
