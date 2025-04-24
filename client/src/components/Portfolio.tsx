@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Portfolio items array
 const portfolioItems = [
@@ -69,13 +70,16 @@ export default function Portfolio() {
                 <div className="p-6">
                   <h3 className="font-semibold text-lg mb-1 text-neutral-900">{item.title}</h3>
                   <p className="text-neutral-500 text-sm mb-4">{item.description}</p>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/90"
+                  <Button
+                    variant="expandIcon"
+                    size="sm"
+                    className="px-0 bg-transparent text-[#0e62fe] hover:bg-transparent"
+                    Icon={() => <ArrowRight className="h-4 w-4" />}
+                    iconPlacement="right"
+                    onClick={() => {}}
                   >
                     Ver proyecto
-                    <ArrowRight className="h-4 w-4 ml-1" />
-                  </a>
+                  </Button>
                 </div>
               </div>
             ))}
