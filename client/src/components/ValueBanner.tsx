@@ -119,16 +119,17 @@ export default function ValueBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">LO QUE OFRECEMOS</p>
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Simplicidad <span className="text-[#0e62fe]">absoluta</span>
+            Cuatro <span className="text-[#0e62fe]">promesas</span>
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Eliminamos la complejidad del desarrollo web.
-            Solo beneficios claros, tiempos exactos y resultados sobresalientes.
+            Sin letra pequeña. Sin condiciones ocultas.
+            Cuatro compromisos inquebrantables que definen nuestro servicio.
           </p>
         </motion.div>
 
