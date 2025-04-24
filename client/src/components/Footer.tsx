@@ -108,8 +108,14 @@ export default function Footer() {
           </div>
           
           <div className={`border-t border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'} py-10`}>
-            <div className="flex flex-wrap justify-center gap-y-6">
-              <div className="flex flex-wrap items-center justify-center gap-4 px-6 mb-8">
+            <div className="flex flex-row items-center justify-center gap-6">
+              <motion.div 
+                className="flex items-center justify-center"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3 }}
+              >
                 {socialLinks.map((link, index) => (
                   <motion.a
                     key={index}
@@ -124,15 +130,11 @@ export default function Footer() {
                     }`}
                     onMouseEnter={() => setCursorVariant("sm")}
                     onMouseLeave={() => setCursorVariant("default")}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     {link.icon}
                   </motion.a>
                 ))}
-              </div>
+              </motion.div>
               
               <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleTheme} />
             </div>

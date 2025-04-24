@@ -16,7 +16,7 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ isDarkMode, toggleDarkMode }: ThemeToggleProps) {
   return (
-    <div className="flex items-center justify-center py-8">
+    <div className="flex items-center justify-center">
       <motion.div 
         className="flex items-center rounded-full border border-dotted border-zinc-700 px-2 py-1"
         initial={{ opacity: 0, y: 20 }}
