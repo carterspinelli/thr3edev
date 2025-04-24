@@ -8,12 +8,17 @@ import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
 
-export default function Header() {
+interface HeaderProps {
+  onNavigate?: (path: string) => void;
+}
+
+export default function Header({ onNavigate }: HeaderProps = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
   const { setCursorVariant } = useSetCursorVariant();
   const { theme } = useTheme();
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +61,20 @@ export default function Header() {
             {navItems.map((item, index) => (
               <motion.a 
                 key={index}
-                href={item.href} 
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigate) {
+                    onNavigate(item.href);
+                  } else {
+                    // Default behavior for home page
+                    if (item.href.startsWith('#')) {
+                      document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                    } else if (item.href === "/portafolio") {
+                      setLocation("/portafolio");
+                    }
+                  }
+                }}
                 className={`text-sm font-medium transition-colors relative group ${theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'}`}
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
@@ -129,11 +147,24 @@ export default function Header() {
             {navItems.map((item, index) => (
               <motion.a 
                 key={index}
-                href={item.href} 
+                href={item.href}
                 className={`font-medium transition-colors ${theme === 'dark' 
                   ? 'text-zinc-400 hover:text-white' 
                   : 'text-zinc-600 hover:text-black'}`}
-                onClick={closeMobileMenu}
+                onClick={(e) => {
+                  e.preventDefault();
+                  closeMobileMenu();
+                  if (onNavigate) {
+                    onNavigate(item.href);
+                  } else {
+                    // Default behavior for home page
+                    if (item.href.startsWith('#')) {
+                      document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                    } else if (item.href === "/portafolio") {
+                      setLocation("/portafolio");
+                    }
+                  }
+                }}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: isMobileMenuOpen ? 0 : -20, opacity: isMobileMenuOpen ? 1 : 0 }}
                 transition={{ delay: index * 0.05, duration: 0.3 }}

@@ -119,24 +119,35 @@ const projects = [
 
 export default function PortfolioPage() {
   const { theme } = useTheme();
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
   
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Handle navigation for portfolio page
+  const handleNavigation = (path: string) => {
+    if (path.startsWith('#')) {
+      // If it's a home page section, navigate to home with hash
+      setLocation(`/${path}`);
+    } else if (path === "/portafolio") {
+      // Reload the portfolio page
+      window.location.reload();
+    }
+  };
+
   return (
     <div className={theme === 'dark' ? 'bg-black text-white' : 'bg-white text-zinc-900'}>
       <div className="fixed top-0 left-0 right-0 z-50">
-        <Header />
+        <Header onNavigate={handleNavigation} />
       </div>
       
       <div className="relative mt-16">
         <HeroParallax projects={projects} />
       </div>
       
-      <Footer />
+      <Footer onNavigate={handleNavigation} />
     </div>
   );
 }

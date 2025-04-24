@@ -38,10 +38,15 @@ const socialLinks = [
   { icon: <FooterIcons.Mail className="h-5 w-5" />, href: "mailto:contacto@thr3e.dev", label: "Email" },
 ];
 
-export default function Footer() {
+interface FooterProps {
+  onNavigate?: (path: string) => void;
+}
+
+export default function Footer({ onNavigate }: FooterProps = {}) {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === 'dark';
+  const [, setLocation] = useLocation();
   
   return (
     <BackgroundBeamsWithCollision className={`h-auto ${theme === 'dark' ? 'dark' : ''}`}>
@@ -90,6 +95,23 @@ export default function Footer() {
                                       ? 'text-zinc-500 hover:text-white' 
                                       : 'text-zinc-600 hover:text-black'
                                   }`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    if (onNavigate && item.href.startsWith('#')) {
+                                      onNavigate(item.href);
+                                    } else {
+                                      // Default behavior for home page
+                                      if (item.href.startsWith('#')) {
+                                        document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                                      } else if (item.href === "/portafolio") {
+                                        if (onNavigate) {
+                                          onNavigate(item.href);
+                                        } else {
+                                          setLocation("/portafolio");
+                                        }
+                                      }
+                                    }
+                                  }}
                                   onMouseEnter={() => setCursorVariant("sm")}
                                   onMouseLeave={() => setCursorVariant("default")}
                                 >
