@@ -53,6 +53,14 @@ export default function Services() {
             Creamos landing pages impresionantes que desafían la forma en que los clientes navegan e interactúan en línea.
             Todo en un proceso de solo 3 días.
           </p>
+          <div className="mt-8">
+            <a 
+              href="#contacto" 
+              className="text-sm font-medium text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300 underline underline-offset-4"
+            >
+              Más Información
+            </a>
+          </div>
         </motion.div>
 
         <motion.div
@@ -91,7 +99,26 @@ export default function Services() {
           </Stepper>
         </motion.div>
 
-
+        <motion.div
+          className="max-w-3xl mx-auto mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h3 className={`text-2xl md:text-3xl font-medium mb-6 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
+            Cómo damos vida a las <span className="text-[#0e62fe]">ideas</span>
+          </h3>
+          
+          <a
+            href="#contacto"
+            className="inline-block rounded-full px-8 py-3 bg-[#0e62fe] hover:bg-[#0952d3] text-white text-sm font-medium transition-colors duration-300"
+            onMouseEnter={() => setCursorVariant("sm")}
+            onMouseLeave={() => setCursorVariant("default")}
+          >
+            Contáctanos
+          </a>
+        </motion.div>
       </div>
     </section>
   );

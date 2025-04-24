@@ -124,14 +124,27 @@ export default function ValueBanner() {
           <h2
             className={`text-3xl md:text-4xl font-medium mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Números que <span className="text-[#0e62fe]">hablan por sí solos</span>
+            Somos una <span className="text-[#0e62fe]">agencia de diseño digital</span> fundada por apasionados entusiastas
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Priorizamos un servicio excepcional, satisfaciendo las necesidades de cada cliente 
-            durante todo el proceso de diseño y desarrollo
+            Creamos landing pages impresionantes que desafían la forma en que las personas navegan y compran en línea. Todo en tres días.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-5">
+            <a 
+              href="#nosotros" 
+              className="text-sm font-medium text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300 underline underline-offset-4"
+            >
+              Sobre Nosotros
+            </a>
+            <a 
+              href="#contacto" 
+              className="text-sm font-medium text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300 underline underline-offset-4"
+            >
+              Contáctanos
+            </a>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

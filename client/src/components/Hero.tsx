@@ -30,14 +30,14 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6">
-                <span className="inline-block mb-4">Hablamos diseño</span> <br />
-                <span className="text-[#0e62fe]">fluidamente</span>
+                <span className="inline-block mb-4">Agencia de Diseño Digital</span> <br />
+                <span className="text-[#0e62fe]">Hablamos Fluido Diseño</span>
               </h1>
 
               <p
                 className={`text-lg md:text-2xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Ama tu presencia digital. Landing pages profesionales en{" "}
+                Ama tu presencia digital. thr3e.dev lo hace posible en{" "}
                 <span className="text-[#0e62fe] font-medium">solo 3 días</span>{" "}
                 por{" "}
                 <span className="font-medium text-[#0e62fe]">
@@ -60,7 +60,7 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#pricing">Solicitar mi sitio web</a>
+                <a href="#contacto">Contáctanos</a>
               </Button>
               <Button
                 variant="outline"
@@ -74,7 +74,7 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#servicios">Nuestros servicios</a>
+                <a href="#portafolio">Nuestro Portafolio</a>
               </Button>
             </motion.div>
           </div>
