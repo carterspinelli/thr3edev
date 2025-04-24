@@ -55,37 +55,19 @@ export default function Hero() {
             >
               <a 
                 href="#pricing" 
-                className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] px-6 py-3 bg-[#0e62fe] rounded-md text-white text-sm font-medium transition duration-200 ease-linear group"
+                className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] px-8 py-3 bg-[#0e62fe] rounded-md text-white font-medium transition duration-200 ease-linear"
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <span className="inline-flex items-center">
-                  Quiero mi landing page
-                  <span className="inline-flex items-center ml-0 overflow-hidden transition-all duration-300 ease-in-out group-hover:ml-2">
-                    <span className="w-0 h-4 opacity-0 transition-all duration-300 ease-in-out group-hover:w-4 group-hover:opacity-100">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                        <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-                      </svg>
-                    </span>
-                  </span>
-                </span>
+                Quiero mi landing page
               </a>
               <a 
                 href="#servicios" 
-                className={`border px-6 py-3 rounded-md text-sm font-medium transition duration-200 ease-linear group ${isDark ? 'border-zinc-800 text-white hover:bg-zinc-900' : 'border-zinc-200 bg-white text-zinc-800 hover:border-zinc-300'}`}
+                className={`shadow-[0_4px_14px_0_rgb(0,0,0,10%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-3 ${isDark ? 'bg-zinc-800 text-zinc-200' : 'bg-white text-zinc-800'} rounded-md font-medium transition duration-200 ease-linear`}
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <span className="inline-flex items-center">
-                  Nuestros servicios
-                  <span className="inline-flex items-center ml-0 overflow-hidden transition-all duration-300 ease-in-out group-hover:ml-2">
-                    <span className="w-0 h-4 opacity-0 transition-all duration-300 ease-in-out group-hover:w-4 group-hover:opacity-100">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                        <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-                      </svg>
-                    </span>
-                  </span>
-                </span>
+                Nuestros servicios
               </a>
             </motion.div>
           </div>
