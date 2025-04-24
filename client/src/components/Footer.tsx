@@ -87,7 +87,7 @@ export default function Footer() {
               </motion.div>
             </Link>
             <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              We craft digital solutions that connect brands with people. Our studio blends strategic design, innovative technology, and creativity to create web experiences that drive business growth.
+              Diseñamos soluciones digitales que conectan marcas con personas. Nuestro estudio combina diseño estratégico, tecnología innovadora y creatividad para crear experiencias web memorables que impulsan el crecimiento de tu negocio.
             </p>
           </motion.div>
 
