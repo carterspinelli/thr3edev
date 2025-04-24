@@ -87,11 +87,16 @@ export default {
             opacity: "0",
           },
         },
+        shine: {
+          "0%": { backgroundPosition: "200% 0" },
+          "to": { backgroundPosition: "-200% 0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "meteor-effect": "meteor 5s linear infinite",
+        "shine": "shine 8s ease-in-out infinite",
       },
     },
   },

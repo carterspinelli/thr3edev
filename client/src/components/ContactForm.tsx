@@ -34,7 +34,8 @@ export default function ContactForm() {
       telefono: "",
       tipoProyecto: "",
       mensaje: ""
-    }
+    },
+    shouldUseNativeValidation: false,
   });
 
   const { mutate, isPending } = useMutation({
@@ -131,7 +132,14 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel className="text-neutral-700">Nombre</FormLabel>
                           <FormControl>
-                            <Input {...field} className="border-neutral-200 focus:border-primary" />
+                            <Input 
+                              className="border-neutral-200 focus:border-primary" 
+                              onChange={field.onChange} 
+                              onBlur={field.onBlur}
+                              value={field.value || ""}
+                              name={field.name}
+                              ref={field.ref}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -145,7 +153,14 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel className="text-neutral-700">Empresa</FormLabel>
                           <FormControl>
-                            <Input {...field} className="border-neutral-200 focus:border-primary" />
+                            <Input 
+                              className="border-neutral-200 focus:border-primary" 
+                              onChange={field.onChange} 
+                              onBlur={field.onBlur}
+                              value={field.value || ""}
+                              name={field.name}
+                              ref={field.ref}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -161,7 +176,15 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel className="text-neutral-700">Email</FormLabel>
                           <FormControl>
-                            <Input type="email" {...field} className="border-neutral-200 focus:border-primary" />
+                            <Input 
+                              type="email"
+                              className="border-neutral-200 focus:border-primary" 
+                              onChange={field.onChange} 
+                              onBlur={field.onBlur}
+                              value={field.value || ""}
+                              name={field.name}
+                              ref={field.ref}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -175,7 +198,15 @@ export default function ContactForm() {
                         <FormItem>
                           <FormLabel className="text-neutral-700">Teléfono</FormLabel>
                           <FormControl>
-                            <Input type="tel" {...field} className="border-neutral-200 focus:border-primary" />
+                            <Input 
+                              type="tel"
+                              className="border-neutral-200 focus:border-primary" 
+                              onChange={field.onChange} 
+                              onBlur={field.onBlur}
+                              value={field.value || ""}
+                              name={field.name}
+                              ref={field.ref}
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -191,7 +222,7 @@ export default function ContactForm() {
                         <FormLabel className="text-neutral-700">Tipo de Proyecto</FormLabel>
                         <Select 
                           onValueChange={field.onChange} 
-                          defaultValue={field.value}
+                          defaultValue={field.value || ""}
                         >
                           <FormControl>
                             <SelectTrigger className="border-neutral-200 focus:border-primary">
@@ -230,15 +261,13 @@ export default function ContactForm() {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-neutral-900 hover:bg-black text-white font-medium h-12"
+                    variant="shine"
+                    className="w-full bg-[#0e62fe] text-white font-medium h-12"
                     disabled={isPending}
+                    Icon={ArrowRight}
+                    iconPlacement="right"
                   >
-                    {isPending ? "Enviando..." : (
-                      <span className="flex items-center">
-                        Enviar mensaje
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </span>
-                    )}
+                    {isPending ? "Enviando..." : "Enviar mensaje"}
                   </Button>
                 </form>
               </Form>
