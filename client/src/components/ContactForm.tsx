@@ -250,8 +250,12 @@ export default function ContactForm() {
                         <FormControl>
                           <Textarea 
                             rows={4} 
-                            {...field} 
-                            className="resize-none border-neutral-200 focus:border-primary" 
+                            className="resize-none border-neutral-200 focus:border-primary"
+                            onChange={field.onChange} 
+                            onBlur={field.onBlur}
+                            value={field.value || ""}
+                            name={field.name}
+                            ref={field.ref}
                           />
                         </FormControl>
                         <FormMessage />
