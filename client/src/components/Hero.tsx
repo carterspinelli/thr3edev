@@ -67,9 +67,9 @@ export default function Hero() {
                 Quiero mi landing page
               </Button>
               <Button 
-                variant="expandIcon" 
+                variant="expandIconNeutral" 
                 size="lg"
-                className={`${isDark ? 'bg-zinc-800 text-zinc-200' : 'bg-white text-zinc-800'}`}
+                className={`${isDark ? 'bg-zinc-800 text-zinc-200 hover:bg-zinc-800' : 'bg-white text-zinc-800 hover:bg-white'}`}
                 Icon={() => <ArrowRight className="h-4 w-4" />} 
                 iconPlacement="right"
                 onMouseEnter={() => setCursorVariant("sm")}
