@@ -11,27 +11,23 @@ export default function Pricing() {
     {
       title: "Incluye",
       items: [
-        "Diseño minimalista y elegante",
-        "Entrega en solo 3 días",
-        "Adaptado a todos los dispositivos",
-        "SEO básico incluido",
-        "Formulario de contacto funcional",
-        "Dominio personalizado",
+        "Diseño elegante",
+        "100% responsivo (se ve increíble en cualquier dispositivo)",
         "1 mes de soporte técnico",
-        "Integración de redes sociales",
+        "Entrega ultra rápida: en solo 3 días",
+        "Dominio personalizado",
+        "Integración con redes sociales",
       ],
     },
     {
       title: "Características",
       items: [
-        "Diseño de alta conversión",
-        "Adaptado a tu marca",
-        "Optimizado para móviles",
-        "Imágenes profesionales",
-        "Textos persuasivos",
-        "Carga rápida",
-        "Analítica web",
-        "Hospedaje incluido",
+        "Estilo visual alineado a tu marca",
+        "Diseño pensado para convertir",
+        "Visuales que hablan por tu marca",
+        "Textos que comunican tu identidad con claridad",
+        "Carga rápida (porque nadie quiere esperar)",
+        "Hosting incluido – sin complicaciones técnicas",
       ],
     },
   ];
@@ -68,7 +64,7 @@ export default function Pricing() {
           price={18000}
           priceSuffix=" MXN"
           features={pricingFeatures}
-          buttonText="Solicitar mi sitio web"
+          buttonText="Quiero mi landing page"
           onButtonClick={() => {
             window.location.href = "#contacto";
           }}

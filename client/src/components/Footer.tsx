@@ -87,7 +87,7 @@ export default function Footer() {
               </motion.div>
             </Link>
             <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              Transformamos ideas en experiencias digitales impactantes. Creamos landing pages optimizadas para conversión en tiempo récord. Nuestro enfoque minimalista y orientado a resultados asegura que cada proyecto sea entregado en solo 3 días con la máxima calidad.
+              Transformamos ideas en experiencias digitales increíbles. Creamos páginas web optimizadas para conversión en tiempo récord. Nuestro método centrado en resultados garantiza proyectos entregados en solo 3 días con excelencia en cada detalle.
             </p>
           </motion.div>
           
