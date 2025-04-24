@@ -87,7 +87,7 @@ export default function Footer() {
               </motion.div>
             </Link>
             <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              Especialistas en landing pages de alto rendimiento para empresas B2B. Ayudamos a equipos de marketing a transformar sitios web subutilizados en potentes herramientas de generación de leads y aceleración de ventas.
+              Especialistas en creación de sitios web profesionales para todo tipo de negocios. Diseñamos páginas atractivas y funcionales que conectan con tu audiencia y fortalecen tu presencia online.
             </p>
           </motion.div>
 

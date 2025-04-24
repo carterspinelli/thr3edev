@@ -61,8 +61,8 @@ export default function Technologies() {
             Modernos y <span className="text-[#26D9A3]">a prueba de futuro</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Utilizamos tecnologías modernas para crear landing pages rápidas, escalables y 
-            optimizadas para la generación de leads y el marketing B2B.
+            Utilizamos tecnologías modernas para crear sitios web rápidos, escalables y 
+            optimizados para todo tipo de negocios y objetivos comerciales.
           </p>
         </motion.div>
 

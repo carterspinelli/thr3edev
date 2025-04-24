@@ -123,12 +123,12 @@ export default function ValueBanner() {
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Páginas web que <span className="text-[#0e62fe]">generan</span> resultados
+            Páginas web que <span className="text-[#0e62fe]">conectan</span> con clientes
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Ayudamos a equipos de marketing B2B a convertir sitios web anticuados en productos escalables y de alta conversión.
+            Creamos experiencias digitales atractivas y funcionales que representan a tu negocio y cautivan a tu audiencia.
           </p>
         </motion.div>
 

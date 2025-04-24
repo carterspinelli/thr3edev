@@ -51,8 +51,8 @@ export default function Services() {
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
             Los sitios web no son solo parte de lo que hacemos. Son todo lo que hacemos.
-            Entregamos landing pages de alto rendimiento en solo 3 días, con diseños
-            que generan resultados.
+            Entregamos páginas web de alto impacto en solo 3 días, con diseños
+            que captan la atención y generan resultados.
           </p>
         </motion.div>
 

@@ -42,8 +42,8 @@ const LightModeContent = () => {
             Resultados que amarás
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-zinc-600">
-            Ayudamos a equipos de marketing B2B a convertir sitios web anticuados
-            en herramientas de generación de pipeline que aceleran el crecimiento
+            Ayudamos a negocios de todos los tamaños a crear sitios web efectivos
+            que mejoran la visibilidad y convierten visitantes en clientes
           </p>
         </div>
 
