@@ -88,21 +88,21 @@ export default function ValueBanner() {
       icon: <DollarSign className="size-6" />,
       title: "Precio fijo",
       description:
-        "Precio transparente que incluye diseño, desarrollo y entrega del código. Sin sorpresas ni costos adicionales.",
+        "Precio transparente que incluye diseño, desarrollo, hosting y entrega del código. Sin sorpresas ni costos adicionales.",
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
       title: "Tecnologías modernas",
       description:
-        "Utilizamos las mejores tecnologías para crear landing pages rápidas, seguras y optimizadas para conversión.",
+        "Utilizamos las mejores tecnologías para crear páginas rápidas, seguras y optimizadas para conversión.",
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
       title: "Código entregable",
       description:
-        "Recibes el código fuente de tu sitio al finalizar el proyecto, dándote total control sobre tu inversión.",
+        "Recibes el código fuente de tu landing page al finalizar, dándote total control sobre tu inversión.",
       color: "#0e62fe",
     },
   ];
@@ -127,9 +127,7 @@ export default function ValueBanner() {
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Un servicio completo de diseño y desarrollo de landing pages con
-            plazos y costos predecibles
-          </p>
+            Un servicio completo de diseño y desarrollo.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

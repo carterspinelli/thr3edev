@@ -30,8 +30,8 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                <span className="inline-block mb-4">Landing pages</span> <br />
-                <span className="text-[#0e62fe]">profesionales</span> en{" "}
+                <span className="inline-block mb-4">Creamos tu landing page</span> <br />
+                <span className="text-[#0e62fe]">profesional</span> en{" "}
                 <Cover>solo 3 días</Cover>
               </h1>
 
@@ -40,9 +40,9 @@ export default function Hero() {
               >
                 Diseño, desarrollo y hosting completo por{" "}
                 <span className="font-medium text-[#0e62fe]">
-                  $18,000 MXN
+                  $18,000 MXN.
                 </span>
-                {" "}precio fijo. Del concepto al lanzamiento en tres días, incluyendo
+                {" "} Del concepto al lanzamiento en tres días, incluyendo
                 entrega del código fuente.
               </p>
             </motion.div>
@@ -60,7 +60,7 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#pricing">Solicitar mi sitio web</a>
+                <a href="#pricing">Quiero mi landing page</a>
               </Button>
               <Button
                 variant="outline"

@@ -27,7 +27,7 @@ const steps = [
   {
     step: 2,
     title: "Entrega completa",
-    description: "En solo 3 días recibes tu sitio web listo y alojado, junto con el código fuente completo por $18,000 MXN precio fijo."
+    description: "En solo 3 días recibes tu landing page lista en la web, junto con el código fuente completo por $18,000 MXN."
   },
 ];
 
