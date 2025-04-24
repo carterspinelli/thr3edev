@@ -34,7 +34,12 @@ const MeteorCard = ({ icon, title, description, color }: MeteorCardProps) => {
         setCursorVariant("default");
       }}
     >
-      {/* Removed gradient background */}
+      <div
+        className={`absolute inset-0 h-full w-full scale-[0.80] rounded-full blur-3xl ${mouseEnter ? "opacity-70" : "opacity-40"} transition-opacity duration-500`}
+        style={{
+          background: `radial-gradient(circle at center, ${color}, transparent 70%)`,
+        }}
+      />
 
       <div
         className={cn(
@@ -95,7 +100,7 @@ export default function ValueBanner() {
       icon: <Code className="size-6" />,
       title: "Tecnologías modernas",
       description:
-        "Utilizamos las mejores tecnologías para crear landing pages rápidas y seguras con excelente rendimiento.",
+        "Utilizamos las mejores tecnologías para crear landing pages rápidas, seguras y optimizadas para conversión.",
       color: "#0e62fe",
     },
     {
@@ -127,7 +132,7 @@ export default function ValueBanner() {
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Un servicio completo de diseño y desarrollo de tu landing page con
+            Un servicio completo de diseño y desarrollo de landing pages con
             plazos y costos predecibles
           </p>
         </motion.div>

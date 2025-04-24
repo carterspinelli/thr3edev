@@ -19,14 +19,14 @@ const faqData: FAQItem[] = [
   {
     id: 1,
     question: "¿Cómo funciona exactamente el proceso de 3 días?",
-    answer: "El proceso comienza con una reunión inicial de 30 minutos para entender tu negocio y necesidades. Inmediatamente después, diseñamos y desarrollamos tu landing page utilizando las mejores tecnologías disponibles. Al tercer día, entregamos tu sitio completamente funcional junto con el código fuente.",
+    answer: "El proceso comienza con una reunión inicial de 30 minutos para entender tu negocio y necesidades. Inmediatamente después, diseñamos y desarrollamos tu landing page utilizando las mejores tecnologías disponibles. Al tercer día, entregamos el sitio completamente funcional junto con el código fuente.",
     icon: icons[0],
     iconPosition: "left"
   },
   {
     id: 2,
     question: "¿Qué incluye exactamente el precio de $18,000 MXN?",
-    answer: "El precio fijo incluye diseño personalizado, desarrollo completo, optimización para dispositivos móviles, hosting por un año y entrega del código fuente completo. No hay costos ocultos ni cargos adicionales.",
+    answer: "El precio fijo incluye diseño personalizado, desarrollo completo, optimización para dispositivos móviles, formulario de contacto funcional, SEO básico, hospedaje por un año, entrega del código fuente completo y 1 mes de soporte técnico. No hay costos ocultos ni cargos adicionales.",
     icon: icons[1],
     iconPosition: "right"
   },
