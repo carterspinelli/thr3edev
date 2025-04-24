@@ -47,11 +47,11 @@ export default function Services() {
         >
           <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Estrategia de <span className="text-[#0e62fe]">diseño impactante.</span>
+            Diseño con <span className="text-[#0e62fe]">propósito.</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Nuestro enfoque estratégico transforma ideas en experiencias digitales inolvidables.
-            Cada elemento está diseñado con un propósito claro y resultados medibles.
+            Un enfoque estratégico que transforma visiones en experiencias digitales impactantes.
+            Cada pixel, cada interacción, cada elemento tiene un propósito definido.
           </p>
         </motion.div>
 

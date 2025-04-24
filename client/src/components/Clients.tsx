@@ -39,10 +39,10 @@ const LightModeContent = () => {
             COLABORACIONES
           </p>
           <h2 className="text-3xl md:text-4xl font-medium mb-2 text-zinc-900">
-            Marcas que elevamos
+            Marcas que transformamos
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-zinc-600">
-            Nos asociamos con marcas visionarias para crear experiencias digitales memorables que redefinen su presencia en el mundo digital.
+            Creamos experiencias digitales memorables para marcas visionarias que buscan redefinir su presencia digital
           </p>
         </div>
 
