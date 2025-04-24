@@ -125,13 +125,12 @@ export function PricingCard({
               </motion.div>
             </div>
             <motion.div className="mt-8" variants={itemVariants}>
-              <Button 
-                className="w-full py-6 bg-[#0e62fe] hover:bg-[#0952d3] text-white font-medium rounded-full" 
-                size="lg" 
+              <button 
+                className="w-full py-4 shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] bg-[#0e62fe] rounded-md text-white font-medium transition duration-200 ease-linear" 
                 onClick={onButtonClick}
               >
                 {buttonText}
-              </Button>
+              </button>
             </motion.div>
           </motion.div>
           <Separator className={`lg:my-6 lg:hidden ${

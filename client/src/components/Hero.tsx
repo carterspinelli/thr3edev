@@ -53,29 +53,22 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Button
-                size="lg"
-                className="rounded-full px-10 py-6 bg-[#0e62fe] hover:bg-[#0952d3] text-white font-medium"
-                asChild
+              <a 
+                href="#pricing" 
+                className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] px-8 py-3 bg-[#0e62fe] rounded-md text-white font-medium transition duration-200 ease-linear"
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#pricing">Quiero mi landing page</a>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className={`rounded-full px-10 py-6 font-medium ${
-                  isDark
-                    ? "border-zinc-800 text-white hover:bg-zinc-900"
-                    : "border-zinc-300 text-zinc-900 hover:bg-zinc-100"
-                }`}
-                asChild
+                Quiero mi landing page
+              </a>
+              <a 
+                href="#servicios" 
+                className={`shadow-[0_4px_14px_0_rgb(0,0,0,10%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-3 ${isDark ? 'bg-zinc-800 text-zinc-200' : 'bg-white text-zinc-800'} rounded-md font-medium transition duration-200 ease-linear`}
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#servicios">Nuestros servicios</a>
-              </Button>
+                Nuestros servicios
+              </a>
             </motion.div>
           </div>
         </div>

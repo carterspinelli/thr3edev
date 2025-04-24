@@ -82,18 +82,14 @@ export default function Header() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.3 }}
           >
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className={`rounded-full ${theme === 'dark' 
-                ? 'border-zinc-800 text-white hover:border-[#0e62fe] hover:bg-[#0e62fe]/10' 
-                : 'border-zinc-300 text-zinc-900 hover:border-[#0e62fe] hover:bg-[#0e62fe]/10 hover:text-[#0e62fe]'}`}
-              asChild
+            <a 
+              href="mailto:contacto@thr3e.dev" 
+              className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] px-5 py-2 bg-[#0e62fe] rounded-md text-white text-sm font-medium transition duration-200 ease-linear"
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              <a href="mailto:contacto@thr3e.dev">Contactar</a>
-            </Button>
+              Contactar
+            </a>
           </motion.div>
         )}
         
@@ -143,7 +139,7 @@ export default function Header() {
             ))}
             <motion.a 
               href="mailto:contacto@thr3e.dev" 
-              className="font-medium text-zinc-200 py-2 px-6 bg-[#0e62fe] hover:bg-[#0952d3] transition-colors rounded-full inline-block w-full text-center"
+              className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] py-2 px-6 bg-[#0e62fe] rounded-md text-white font-medium transition duration-200 ease-linear inline-block w-full text-center"
               onClick={closeMobileMenu}
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: isMobileMenuOpen ? 0 : 10, opacity: isMobileMenuOpen ? 1 : 0 }}
