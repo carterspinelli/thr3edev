@@ -45,13 +45,13 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">OUR PROCESS</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Diseño con <span className="text-[#0e62fe]">propósito.</span>
+            Design with <span className="text-[#0e62fe]">Impact.</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Un enfoque estratégico que transforma visiones en experiencias digitales impactantes.
-            Cada pixel, cada interacción, cada elemento tiene un propósito definido.
+            Our strategic approach turns visions into stunning digital experiences.
+            Every pixel, every interaction crafted for a purpose - measurable results.
           </p>
         </motion.div>
 
