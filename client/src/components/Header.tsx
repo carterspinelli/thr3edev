@@ -7,6 +7,7 @@ import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
+import { StackingNavbar } from "@/components/ui/stacking-navbar";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,7 +36,9 @@ export default function Header() {
   const navItems = [
     { href: "#inicio", label: "Inicio" },
     { href: "#servicios", label: "Servicios" },
-    { href: "#lo-que-ofrecemos", label: "Nosotros" }
+    { href: "#portafolio", label: "Portafolio" },
+    { href: "#nosotros", label: "Nosotros" },
+    { href: "#contacto", label: "Contacto" }
   ];
 
   return (
@@ -49,32 +52,14 @@ export default function Header() {
         <Link href="/" className="flex items-center">
           <Logo textSize="lg" />
         </Link>
-
+        
         {/* Desktop Navigation */}
         {!isMobile && (
-          <div className="flex space-x-10">
-            {navItems.map((item, index) => (
-              <motion.a 
-                key={index}
-                href={item.href} 
-                className={`text-sm font-medium transition-colors relative group ${theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'}`}
-                onMouseEnter={() => setCursorVariant("sm")}
-                onMouseLeave={() => setCursorVariant("default")}
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                {item.label}
-                <motion.div 
-                  className="absolute -bottom-1 left-0 h-0.5 bg-[#0e62fe] w-0 group-hover:w-full transition-all duration-300"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                />
-              </motion.a>
-            ))}
+          <div className="flex items-center">
+            <StackingNavbar />
           </div>
         )}
-
+        
         {/* Contact Button - Desktop */}
         {!isMobile && (
           <motion.div
@@ -92,11 +77,11 @@ export default function Header() {
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              <a href="mailto:contacto@thr3e.dev">Contactar</a>
+              <a href="#contacto">Contactar</a>
             </Button>
           </motion.div>
         )}
-
+        
         {/* Mobile Menu Button */}
         {isMobile && (
           <Button 
@@ -110,7 +95,7 @@ export default function Header() {
           </Button>
         )}
       </motion.nav>
-
+      
       {/* Mobile Navigation Menu */}
       {isMobile && (
         <motion.div 
@@ -142,7 +127,7 @@ export default function Header() {
               </motion.a>
             ))}
             <motion.a 
-              href="mailto:contacto@thr3e.dev" 
+              href="#contacto" 
               className="font-medium text-zinc-200 py-2 px-6 bg-[#0e62fe] hover:bg-[#0952d3] transition-colors rounded-full inline-block w-full text-center"
               onClick={closeMobileMenu}
               initial={{ y: 10, opacity: 0 }}

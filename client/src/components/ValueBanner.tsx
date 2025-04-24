@@ -79,38 +79,37 @@ export default function ValueBanner() {
   const valueItems = [
     {
       icon: <Clock className="size-6" />,
-      title: "Excelencia creativa",
+      title: "Entrega en 3 días",
       description:
-        "Experimenta la experiencia creativa de nuestro equipo en soluciones de diseño innovadoras y convincentes que capturan la esencia de tu marca.",
+        "Desde la conversación inicial hasta el sitio web completo en solo 72 horas. Tu presencia online lista en tiempo récord.",
       color: "#0e62fe",
     },
     {
       icon: <DollarSign className="size-6" />,
-      title: "Soluciones personalizadas",
+      title: "Precio fijo",
       description:
-        "Personalizamos nuestros servicios para tus necesidades empresariales únicas con un toque personal que garantiza resultados a medida.",
+        "Precio transparente que incluye diseño, desarrollo y entrega del código. Sin sorpresas ni costos adicionales.",
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
-      title: "Experiencia integral",
+      title: "Tecnologías modernas",
       description:
-        "Un equipo, todas tus necesidades. Desarrollo, diseño y todo lo demás incluido en nuestro servicio de 3 días a precio fijo.",
+        "Utilizamos las mejores tecnologías para crear landing pages rápidas y seguras con excelente rendimiento.",
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
-      title: "Comunicación transparente",
+      title: "Código entregable",
       description:
-        "Mantente informado e involucrado con una comunicación clara y abierta durante todo el proyecto, sin sorpresas ni complicaciones.",
+        "Recibes el código fuente de tu sitio al finalizar el proyecto, dándote total control sobre tu inversión.",
       color: "#0e62fe",
     },
   ];
 
   return (
     <section
-      id="lo-que-ofrecemos"
-      className={`py-20 ${theme === "dark" ? "bg-[#050715]" : "bg-white"}`}
+      className={`py-20 ${theme === "dark" ? "bg-black" : "bg-white"}`}
     >
       <div className="container mx-auto px-6">
         <motion.div
@@ -120,31 +119,17 @@ export default function ValueBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">DESTACADOS</p>
           <h2
-            className={`text-3xl md:text-4xl font-medium mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
+            className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Somos una <span className="text-[#0e62fe]">agencia de diseño digital</span> fundada por apasionados entusiastas
+            Lo que <span className="text-[#0e62fe]">ofrecemos</span>
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Creamos landing pages impresionantes que desafían la forma en que las personas navegan y compran en línea. Todo en tres días.
+            Un servicio completo de diseño y desarrollo de tu landing page con
+            plazos y costos predecibles
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-5">
-            <a 
-              href="#nosotros" 
-              className="text-sm font-medium text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300 underline underline-offset-4"
-            >
-              Sobre Nosotros
-            </a>
-            <a 
-              href="#contacto" 
-              className="text-sm font-medium text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300 underline underline-offset-4"
-            >
-              Contáctanos
-            </a>
-          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -34,7 +34,7 @@ export default function ContactForm() {
       telefono: "",
       tipoProyecto: "",
       mensaje: ""
-    } as InsertContact
+    }
   });
 
   const { mutate, isPending } = useMutation({
@@ -67,12 +67,10 @@ export default function ContactForm() {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">CONVERTIRSE EN CLIENTE</p>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-neutral-900">
-              ¿Listo para <span className="text-[#0e62fe]">tu landing page</span> en 3 días?
-            </h2>
+            <p className="text-primary text-sm font-medium mb-2 tracking-wide">CONTACTO</p>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-neutral-900">¿Listo para comenzar?</h2>
             <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
-              Completa el formulario y recibe una respuesta en menos de 24 horas con todo lo que necesitas saber para comenzar.
+              Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.
             </p>
           </div>
           
@@ -232,12 +230,12 @@ export default function ContactForm() {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-[#0e62fe] hover:bg-[#0952d3] text-white font-medium h-12"
+                    className="w-full bg-neutral-900 hover:bg-black text-white font-medium h-12"
                     disabled={isPending}
                   >
                     {isPending ? "Enviando..." : (
                       <span className="flex items-center">
-                        Iniciar Proyecto
+                        Enviar mensaje
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </span>
                     )}

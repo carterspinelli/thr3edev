@@ -29,21 +29,21 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-6">
-                <span className="inline-block mb-4">Agencia de Diseño Digital</span> <br />
-                <span className="text-[#0e62fe]">Hablamos Fluido Diseño</span>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
+                <span className="inline-block mb-4">Tu landing page</span> <br />
+                <span className="text-[#0e62fe]">profesional</span> en{" "}
+                <Cover>solo 3 días</Cover>
               </h1>
 
               <p
-                className={`text-lg md:text-2xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
+                className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Ama tu presencia digital. thr3e.dev lo hace posible en{" "}
-                <span className="text-[#0e62fe] font-medium">solo 3 días</span>{" "}
-                por{" "}
+                Diseño, desarrollo y hosting completo por{" "}
                 <span className="font-medium text-[#0e62fe]">
                   $18,000 MXN
                 </span>
-                {" "}precio fijo.
+                {" "}precio fijo. Del concepto al lanzamiento en tres días, incluyendo
+                entrega del código fuente.
               </p>
             </motion.div>
 
@@ -60,7 +60,7 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#contacto">Contáctanos</a>
+                <a href="#pricing">Solicitar mi sitio web</a>
               </Button>
               <Button
                 variant="outline"
@@ -74,7 +74,7 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#portafolio">Nuestro Portafolio</a>
+                <a href="#servicios">Nuestros servicios</a>
               </Button>
             </motion.div>
           </div>

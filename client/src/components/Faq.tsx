@@ -67,10 +67,10 @@ export default function Faq() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">FAQ</p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-4">Tus Preguntas, Respondidas</h2>
+          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">AYUDA Y PREGUNTAS</p>
+          <h2 className="text-3xl md:text-4xl font-medium mb-4">Preguntas Frecuentes</h2>
           <p className={`text-lg max-w-3xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Respuestas a las dudas más comunes sobre nuestro servicio de landing pages en 3 días.
+            Respuestas a las dudas más comunes sobre nuestro servicio.
           </p>
         </motion.div>
 

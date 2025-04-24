@@ -16,18 +16,18 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Discusión de ideas y requisitos",
-    description: "Colaboramos contigo para entender tus objetivos, público objetivo y alcance del proyecto. Todo en una reunión de solo 30 minutos."
+    title: "Reunión inicial (30 min)",
+    description: "Empezamos con una reunión breve para comprender tu negocio y los objetivos específicos de tu landing page."
   },
   {
     step: 1,
-    title: "Del concepto al diseño final",
-    description: "Transformamos tu visión en conceptos impactantes con tu participación activa, iterando hasta lograr un diseño impecable que resuene con tu audiencia."
+    title: "Diseño y desarrollo",
+    description: "Utilizamos las mejores tecnologías actuales para crear una landing page optimizada que refleje la identidad de tu marca."
   },
   {
     step: 2,
-    title: "Desarrollo, pruebas y lanzamiento",
-    description: "Convertimos el diseño en una experiencia digital perfecta, probamos rigurosamente en todas las plataformas y celebramos tu éxito con un lanzamiento impecable."
+    title: "Entrega completa",
+    description: "En solo 3 días recibes tu sitio web listo y alojado, junto con el código fuente completo por $18,000 MXN precio fijo."
   },
 ];
 
@@ -45,22 +45,13 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTROS SERVICIOS</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Único. Digital. <span className="text-[#0e62fe]">De primera clase.</span>
+            Del concepto al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Creamos landing pages impresionantes que desafían la forma en que los clientes navegan e interactúan en línea.
-            Todo en un proceso de solo 3 días.
+            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos tu landing page con las mejores tecnologías, y entregamos todo en solo 3 días.
           </p>
-          <div className="mt-8">
-            <a 
-              href="#contacto" 
-              className="text-sm font-medium text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300 underline underline-offset-4"
-            >
-              Más Información
-            </a>
-          </div>
         </motion.div>
 
         <motion.div
@@ -99,26 +90,7 @@ export default function Services() {
           </Stepper>
         </motion.div>
 
-        <motion.div
-          className="max-w-3xl mx-auto mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h3 className={`text-2xl md:text-3xl font-medium mb-6 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Cómo damos vida a las <span className="text-[#0e62fe]">ideas</span>
-          </h3>
-          
-          <a
-            href="#contacto"
-            className="inline-block rounded-full px-8 py-3 bg-[#0e62fe] hover:bg-[#0952d3] text-white text-sm font-medium transition-colors duration-300"
-            onMouseEnter={() => setCursorVariant("sm")}
-            onMouseLeave={() => setCursorVariant("default")}
-          >
-            Contáctanos
-          </a>
-        </motion.div>
+
       </div>
     </section>
   );
