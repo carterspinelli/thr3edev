@@ -74,7 +74,7 @@ export default function Hero() {
                 iconPlacement="right"
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
-                onClick={() => window.location.href = "#servicios"}
+                onClick={() => window.location.href = "#nuestro-proceso"}
               >
                 Nuestros servicios
               </Button>

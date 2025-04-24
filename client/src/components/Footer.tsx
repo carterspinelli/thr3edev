@@ -17,7 +17,7 @@ const navigation = {
           id: "menu",
           title: "Menu",
           items: [
-            { name: "Servicios", href: "#servicios" },
+            { name: "Servicios", href: "#nuestro-proceso" },
             { name: "Portafolio", href: "#portafolio" },
             { name: "Nosotros", href: "#lo-que-ofrecemos" },
           ],
