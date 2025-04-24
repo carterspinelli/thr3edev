@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { FooterIcons } from "@/components/ui/footer-icons";
