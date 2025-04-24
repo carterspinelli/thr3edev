@@ -30,18 +30,18 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                <span className="inline-block mb-4">Hablamos el lenguaje del</span> <br />
-                <span className="text-[#0e62fe]">diseño digital.</span>{" "}
-                <Cover>Hagámoslo realidad.</Cover>
+                <span className="inline-block mb-4">Sitios web que</span> <br />
+                <span className="text-[#0e62fe]">generan resultados.</span>{" "}
+                <Cover>En 3 días.</Cover>
               </h1>
 
               <p
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Transformamos ideas en experiencias digitales cautivadoras que desafían
-                la forma en que las personas navegan e interactúan en línea.
+                Transformamos sitios anticuados y de bajo rendimiento en productos 
+                escalables y de alta conversión que captan audiencias y aceleran el crecimiento.
                 <span className="font-medium block mt-2 text-[#0e62fe]">
-                  Único. Digital. Excepcional.
+                  Diseñamos. Desarrollamos. Entregamos.
                 </span>
               </p>
             </motion.div>

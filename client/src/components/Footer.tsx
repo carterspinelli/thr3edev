@@ -87,7 +87,7 @@ export default function Footer() {
               </motion.div>
             </Link>
             <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              Somos una agencia de diseño digital fundada por entusiastas apasionados. Creamos sitios web y aplicaciones móviles impresionantes que desafían la forma en que las personas navegan y compran en línea.
+              Especialistas en landing pages de alto rendimiento para empresas B2B. Ayudamos a equipos de marketing a transformar sitios web subutilizados en potentes herramientas de generación de leads y aceleración de ventas.
             </p>
           </motion.div>
 

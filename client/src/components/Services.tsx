@@ -16,18 +16,18 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Descubrimiento + Estrategia",
-    description: "Inmersión profunda en tu marca. Análisis de objetivos, audiencia y competencia. Creamos la base estratégica para un diseño efectivo."
+    title: "Diseño",
+    description: "Creamos diseños que captan la atención, inspiran acción y generan resultados. Enfoque en la experiencia del usuario y la conversión desde el primer día."
   },
   {
     step: 1,
-    title: "Diseño + Desarrollo",
-    description: "Traducimos estrategia en diseño visual. Creamos interfaces intuitivas y estéticamente impactantes con desarrollo técnicamente impecable."
+    title: "Desarrollo",
+    description: "Construcciones modernas que son rápidas, escalables y preparadas para el futuro. Código limpio y optimizado para el rendimiento y SEO."
   },
   {
     step: 2,
-    title: "Lanzamiento + Optimización",
-    description: "Implementación, pruebas y lanzamiento. Análisis continuo de datos para optimizar el rendimiento y mejorar la experiencia del usuario."
+    title: "Entrega en 3 días",
+    description: "Mientras otros prometen semanas, nosotros entregamos en días. Tu landing page lista para generar leads y potenciar tu marketing en tiempo récord."
   },
 ];
 
@@ -45,14 +45,14 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">SERVICIOS</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Experiencias que <span className="text-[#0e62fe]">transforman.</span>
+            Lo hacemos <span className="text-[#0e62fe]">rápido.</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Diseñamos viajes digitales que cautivan a tu audiencia y convierten
-            la curiosidad en deleite duradero. Cada detalle cuenta en la creación
-            de experiencias memorables.
+            Los sitios web no son solo parte de lo que hacemos. Son todo lo que hacemos.
+            Entregamos landing pages de alto rendimiento en solo 3 días, con diseños
+            que generan resultados.
           </p>
         </motion.div>
 

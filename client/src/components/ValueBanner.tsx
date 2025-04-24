@@ -79,30 +79,30 @@ export default function ValueBanner() {
   const valueItems = [
     {
       icon: <Clock className="size-6" />,
-      title: "Rapid Prototyping",
+      title: "Entrega en 3 días",
       description:
-        "We deliver high-fidelity prototypes in record time, ensuring your vision is realized quickly and efficiently.",
+        "Tu landing page lista para captar leads en solo 3 días. Rápido, eficiente y sin comprometer la calidad.",
       color: "#0e62fe",
     },
     {
       icon: <DollarSign className="size-6" />,
-      title: "Transparent Pricing",
+      title: "Diseño que Convierte",
       description:
-        "Our clear and concise pricing ensures no hidden costs or unexpected surprises.",
+        "Diseños estratégicos enfocados en la conversión que captan la atención de tu audiencia e inspiran acción inmediata.",
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
-      title: "Cutting-Edge Technology",
+      title: "Desarrollo Moderno",
       description:
-        "We leverage the latest technologies to craft innovative and effective digital solutions.",
+        "Construcciones rápidas, escalables y preparadas para el futuro que se adaptan a las necesidades de tu negocio.",
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
-      title: "Clean Code Delivery",
+      title: "Resultados Medibles",
       description:
-        "We provide clean, well-documented code, ensuring maintainability and future scalability.",
+        "Páginas optimizadas para generar leads, aumentar conversiones y potenciar tus esfuerzos de marketing B2B.",
       color: "#0e62fe",
     },
   ];
@@ -119,16 +119,16 @@ export default function ValueBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">OUR SERVICES</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO VALOR</p>
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Crafting <span className="text-[#0e62fe]">Exceptional</span> Digital Experiences
+            Páginas web que <span className="text-[#0e62fe]">generan</span> resultados
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            We blend strategic design with cutting-edge technology to deliver impactful digital solutions.
+            Ayudamos a equipos de marketing B2B a convertir sitios web anticuados en productos escalables y de alta conversión.
           </p>
         </motion.div>
 
