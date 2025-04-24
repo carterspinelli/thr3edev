@@ -30,20 +30,19 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                <span className="inline-block mb-4">Diseño + Código.</span> <br />
-                <span className="text-[#0e62fe]">72 horas.</span> Un{" "}
-                <Cover>sitio increíble.</Cover>
+                <span className="inline-block mb-4">Tu landing page</span> <br />
+                <span className="text-[#0e62fe]">en 3 días.</span> Por{" "}
+                <Cover>$18,000 MXN.</Cover>
               </h1>
 
               <p
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Somos disruptores del diseño web. Transformamos ideas en landing pages 
-                de alto impacto en solo 3 días por{" "}
-                <span className="font-medium text-[#0e62fe]">
-                  $18,000 MXN
+                Sin demoras. Sin complicaciones. Sin sorpresas de último momento.
+                Una landing page profesional, optimizada y lista para convertir.
+                <span className="font-medium block mt-2 text-[#0e62fe]">
+                  Tres días. Un precio fijo. Resultados garantizados.
                 </span>
-                {" "}todo incluido. Código limpio. Diseño cautivador. Sin esperas.
               </p>
             </motion.div>
 
@@ -60,7 +59,7 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#pricing">Lanzar en 3 días →</a>
+                <a href="#contacto">Solicitar ahora →</a>
               </Button>
               <Button
                 variant="outline"
@@ -74,7 +73,7 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#servicios">Ver nuestro proceso</a>
+                <a href="#portafolio">Ver proyectos</a>
               </Button>
             </motion.div>
           </div>

@@ -16,18 +16,18 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Reunión inicial (30 min)",
-    description: "Empezamos con una reunión breve para comprender tu negocio y los objetivos específicos de tu landing page."
+    title: "Día 1: Brief + Concepto",
+    description: "30 minutos. Una sola llamada. Capturamos tu visión, objetivos y requerimientos específicos. El reloj comienza a correr."
   },
   {
     step: 1,
-    title: "Diseño y desarrollo",
-    description: "Utilizamos las mejores tecnologías actuales para crear una landing page optimizada que refleje la identidad de tu marca."
+    title: "Día 2: Diseño + Código",
+    description: "Nuestro equipo trabaja en paralelo. Diseñadores y desarrolladores colaboran simultáneamente. Eficiencia absoluta."
   },
   {
     step: 2,
-    title: "Entrega completa",
-    description: "En solo 3 días recibes tu sitio web listo y alojado, junto con el código fuente completo por $18,000 MXN precio fijo."
+    title: "Día 3: Entrega + Lanzamiento",
+    description: "Sitio desplegado, código fuente entregado, dominio configurado. $18,000 MXN. Misión cumplida. Siguiente proyecto."
   },
 ];
 
@@ -45,12 +45,13 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">MÉTODO TH3EE</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Del concepto al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
+            Tres días. <span className="text-[#0e62fe]">Tres pasos.</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos con las mejores tecnologías, y entregamos todo en solo 3 días.
+            Un sistema optimizado para la eficiencia. Cada día cuenta. Cada acción importa.
+            Sin reuniones innecesarias ni revisiones interminables. Solo resultados.
           </p>
         </motion.div>
 

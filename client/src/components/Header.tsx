@@ -33,11 +33,9 @@ export default function Header() {
   };
 
   const navItems = [
-    { href: "#inicio", label: "Inicio" },
-    { href: "#servicios", label: "Servicios" },
     { href: "#portafolio", label: "Portafolio" },
-    { href: "#nosotros", label: "Nosotros" },
-    { href: "#contacto", label: "Contacto" }
+    { href: "#servicios", label: "Servicios" },
+    { href: "#nosotros", label: "Nosotros" }
   ];
 
   return (
