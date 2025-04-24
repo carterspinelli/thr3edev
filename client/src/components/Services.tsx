@@ -36,7 +36,7 @@ export default function Services() {
   const { theme } = useTheme();
 
   return (
-    <section id="servicios" className={`py-20 md:py-28 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
+    <section id="nuestro-proceso" className={`py-20 md:py-28 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
