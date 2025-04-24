@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
@@ -82,18 +82,23 @@ export default function Header() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.3 }}
           >
-            <Button 
-              variant="shine" 
-              size="sm" 
-              className="bg-[#0e62fe] text-white"
-              asChild
-              Icon={ArrowRight}
-              iconPlacement="right"
+            <a 
+              href="mailto:contacto@thr3e.dev" 
+              className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] px-5 py-2 bg-[#0e62fe] rounded-md text-white text-sm font-medium transition duration-200 ease-linear group"
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              <a href="mailto:contacto@thr3e.dev">Contactar</a>
-            </Button>
+              <span className="inline-flex items-center">
+                Contactar
+                <span className="inline-flex items-center ml-0 overflow-hidden transition-all duration-300 ease-in-out group-hover:ml-2">
+                  <span className="w-0 h-4 opacity-0 transition-all duration-300 ease-in-out group-hover:w-4 group-hover:opacity-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                      <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+                    </svg>
+                  </span>
+                </span>
+              </span>
+            </a>
           </motion.div>
         )}
         
