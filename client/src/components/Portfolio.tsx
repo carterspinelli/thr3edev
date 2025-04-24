@@ -5,36 +5,42 @@ import { Button } from "@/components/ui/button";
 const portfolioItems = [
   {
     id: 1,
+    imageUrl: "https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/cdp/cf/ul/g/73/c0/IBMDS8900F.component.xl.ts=1688413457835.png/content/adobe-cms/us/en/products/ds8000/jcr:content/root/leadspace",
+    title: "IBM DS8000",
+    description: "Sistema de almacenamiento empresarial"
+  },
+  {
+    id: 2,
     imageUrl: "https://1.cms.s81c.com/sites/default/files/2020-10-21/IBM-Storage-2-1032x1370-1.jpg",
     title: "IBM Copy Services Manager",
     description: "Plataforma para IBM"
   },
   {
-    id: 2,
+    id: 3,
     imageUrl: "https://business.udemy.com/wp-content/uploads/2023/10/homepage-preview-2x.png",
     title: "Udemy Business",
     description: "Plataforma de aprendizaje empresarial"
   },
   {
-    id: 3,
+    id: 4,
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     title: "Agencia de Marketing",
     description: "Landing page para captar leads"
   },
   {
-    id: 4,
+    id: 5,
     imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     title: "Restaurante Italiano",
     description: "Sitio con menú digital integrado"
   },
   {
-    id: 5,
+    id: 6,
     imageUrl: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     title: "Academia de Fitness",
     description: "Landing para venta de membresías"
   },
   {
-    id: 6,
+    id: 7,
     imageUrl: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     title: "Despacho Jurídico",
     description: "Sitio para servicios legales"
@@ -88,8 +94,9 @@ export default function Portfolio() {
                     className="px-0 bg-transparent text-[#0e62fe] hover:bg-transparent"
                     Icon={() => <ArrowRight className="h-4 w-4" />}
                     iconPlacement="right"
-                    onClick={() => window.open(item.id === 1 ? "https://www.ibm.com/es-es/products/copy-services-manager" : 
-                      item.id === 2 ? "https://business.udemy.com/" : "#")}
+                    onClick={() => window.open(item.id === 1 ? "https://www.ibm.com/mx-es/products/ds8000" : 
+                      item.id === 2 ? "https://www.ibm.com/es-es/products/copy-services-manager" : 
+                      item.id === 3 ? "https://business.udemy.com/" : "#")}
                   >
                     Ver proyecto
                   </Button>

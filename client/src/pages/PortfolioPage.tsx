@@ -8,6 +8,12 @@ import { useLocation } from "wouter";
 // Proyectos para el portafolio
 const projects = [
   {
+    title: "IBM DS8000",
+    link: "https://www.ibm.com/mx-es/products/ds8000",
+    description: "Sistema de almacenamiento empresarial de alta gama para IBM",
+    thumbnail: "https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/cdp/cf/ul/g/73/c0/IBMDS8900F.component.xl.ts=1688413457835.png/content/adobe-cms/us/en/products/ds8000/jcr:content/root/leadspace"
+  },
+  {
     title: "IBM Copy Services Manager",
     link: "https://www.ibm.com/es-es/products/copy-services-manager",
     description: "Plataforma de gestión de servicios de almacenamiento para IBM",
