@@ -36,11 +36,6 @@ const navigation = {
 
 const socialLinks = [
   { icon: <FooterIcons.Mail className="h-5 w-5" />, href: "mailto:contacto@thr3e.dev", label: "Email" },
-  { icon: <FooterIcons.Instagram className="h-5 w-5" />, href: "#", label: "Instagram" },
-  { icon: <FooterIcons.X className="h-5 w-5" />, href: "#", label: "Twitter" },
-  { icon: <FooterIcons.Facebook className="h-5 w-5" />, href: "#", label: "Facebook" },
-  { icon: <FooterIcons.Linkedin className="h-5 w-5" />, href: "#", label: "LinkedIn" },
-  { icon: <FooterIcons.Github className="h-5 w-5" />, href: "#", label: "GitHub" },
 ];
 
 export default function Footer() {
