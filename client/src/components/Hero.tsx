@@ -30,20 +30,20 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                <span className="inline-block mb-4">Landing pages</span> <br />
-                <span className="text-[#0e62fe]">profesionales</span> en{" "}
-                <Cover>solo 3 días</Cover>
+                <span className="inline-block mb-4">Diseño + Código.</span> <br />
+                <span className="text-[#0e62fe]">72 horas.</span> Un{" "}
+                <Cover>sitio increíble.</Cover>
               </h1>
 
               <p
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Diseño, desarrollo y hosting completo por{" "}
+                Somos disruptores del diseño web. Transformamos ideas en landing pages 
+                de alto impacto en solo 3 días por{" "}
                 <span className="font-medium text-[#0e62fe]">
                   $18,000 MXN
                 </span>
-                {" "}precio fijo. Del concepto al lanzamiento en tres días, incluyendo
-                entrega del código fuente.
+                {" "}todo incluido. Código limpio. Diseño cautivador. Sin esperas.
               </p>
             </motion.div>
 
@@ -60,21 +60,21 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#pricing">Solicitar mi sitio web</a>
+                <a href="#pricing">Lanzar en 3 días →</a>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className={`rounded-full px-10 py-6 font-medium ${
                   isDark
-                    ? "border-zinc-800 text-white hover:bg-zinc-900"
-                    : "border-zinc-300 text-zinc-900 hover:bg-zinc-100"
+                    ? "border-zinc-800 text-white hover:bg-zinc-900 hover:border-[#0e62fe]"
+                    : "border-zinc-300 text-zinc-900 hover:bg-zinc-100 hover:border-[#0e62fe]"
                 }`}
                 asChild
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#servicios">Nuestros servicios</a>
+                <a href="#servicios">Ver nuestro proceso</a>
               </Button>
             </motion.div>
           </div>

@@ -34,12 +34,7 @@ const MeteorCard = ({ icon, title, description, color }: MeteorCardProps) => {
         setCursorVariant("default");
       }}
     >
-      <div
-        className={`absolute inset-0 h-full w-full scale-[0.80] rounded-full blur-3xl ${mouseEnter ? "opacity-70" : "opacity-40"} transition-opacity duration-500`}
-        style={{
-          background: `radial-gradient(circle at center, ${color}, transparent 70%)`,
-        }}
-      />
+      {/* Gradient background removed */}
 
       <div
         className={cn(
@@ -84,30 +79,30 @@ export default function ValueBanner() {
   const valueItems = [
     {
       icon: <Clock className="size-6" />,
-      title: "Entrega en 3 días",
+      title: "3 días. Sin excusas.",
       description:
-        "Desde la conversación inicial hasta el sitio web completo en solo 72 horas. Tu presencia online lista en tiempo récord.",
+        "Desde concepto a código en 72 horas exactas. Tu landing page estará lista antes que tu próxima reunión con inversores.",
       color: "#0e62fe",
     },
     {
       icon: <DollarSign className="size-6" />,
-      title: "Precio fijo",
+      title: "18K MXN. Todo incluido.",
       description:
-        "Precio transparente que incluye diseño, desarrollo y entrega del código. Sin sorpresas ni costos adicionales.",
+        "Sin cotizaciones complejas ni presupuestos que escalan. Un precio justo por un trabajo excepcional, sin letras pequeñas.",
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
-      title: "Tecnologías modernas",
+      title: "Stack de élite.",
       description:
-        "Utilizamos las mejores tecnologías para crear landing pages rápidas, seguras y optimizadas para conversión.",
+        "React + TypeScript + Tailwind. La trifecta perfecta para sitios rápidos, escalables y visualmente impactantes.",
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
-      title: "Código entregable",
+      title: "Código es tuyo.",
       description:
-        "Recibes el código fuente de tu sitio al finalizar el proyecto, dándote total control sobre tu inversión.",
+        "Te entregamos archivos fuente de alta calidad. Tu sitio, tu código, tu activo digital para siempre.",
       color: "#0e62fe",
     },
   ];
@@ -127,13 +122,13 @@ export default function ValueBanner() {
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Lo que <span className="text-[#0e62fe]">ofrecemos</span>
+            Simplicidad <span className="text-[#0e62fe]">absoluta</span>
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Un servicio completo de diseño y desarrollo de landing pages con
-            plazos y costos predecibles
+            Eliminamos la complejidad del desarrollo web.
+            Solo beneficios claros, tiempos exactos y resultados sobresalientes.
           </p>
         </motion.div>
 
