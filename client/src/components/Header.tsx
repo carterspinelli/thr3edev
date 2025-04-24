@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
@@ -83,10 +83,12 @@ export default function Header() {
             transition={{ duration: 0.3, delay: 0.3 }}
           >
             <Button 
-              variant="ringHover" 
+              variant="shine" 
               size="sm" 
               className="bg-[#0e62fe] text-white"
               asChild
+              Icon={ArrowRight}
+              iconPlacement="right"
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >

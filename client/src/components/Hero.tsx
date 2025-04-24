@@ -54,7 +54,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Button 
-                variant="ringHover" 
+                variant="shine" 
                 size="lg" 
                 className="bg-[#0e62fe] text-white"
                 asChild

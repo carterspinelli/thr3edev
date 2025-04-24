@@ -268,8 +268,6 @@ export default function ContactForm() {
                     variant="shine"
                     className="w-full bg-[#0e62fe] text-white font-medium h-12"
                     disabled={isPending}
-                    Icon={ArrowRight}
-                    iconPlacement="right"
                   >
                     {isPending ? "Enviando..." : "Enviar mensaje"}
                   </Button>
