@@ -79,30 +79,30 @@ export default function ValueBanner() {
   const valueItems = [
     {
       icon: <Clock className="size-6" />,
-      title: "3 días. Sin excusas.",
+      title: "Rapid Prototyping",
       description:
-        "Desde concepto a código en 72 horas exactas. Tu landing page estará lista antes que tu próxima reunión con inversores.",
+        "We deliver high-fidelity prototypes in record time, ensuring your vision is realized quickly and efficiently.",
       color: "#0e62fe",
     },
     {
       icon: <DollarSign className="size-6" />,
-      title: "18K MXN. Todo incluido.",
+      title: "Transparent Pricing",
       description:
-        "Sin cotizaciones complejas ni presupuestos que escalan. Un precio justo por un trabajo excepcional, sin letras pequeñas.",
+        "Our clear and concise pricing ensures no hidden costs or unexpected surprises.",
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
-      title: "Stack de élite.",
+      title: "Cutting-Edge Technology",
       description:
-        "React + TypeScript + Tailwind. La trifecta perfecta para sitios rápidos, escalables y visualmente impactantes.",
+        "We leverage the latest technologies to craft innovative and effective digital solutions.",
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
-      title: "Código es tuyo.",
+      title: "Clean Code Delivery",
       description:
-        "Te entregamos archivos fuente de alta calidad. Tu sitio, tu código, tu activo digital para siempre.",
+        "We provide clean, well-documented code, ensuring maintainability and future scalability.",
       color: "#0e62fe",
     },
   ];
@@ -119,17 +119,16 @@ export default function ValueBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">LO QUE OFRECEMOS</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">OUR SERVICES</p>
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Cuatro <span className="text-[#0e62fe]">promesas</span>
+            Crafting <span className="text-[#0e62fe]">Exceptional</span> Digital Experiences
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Sin letra pequeña. Sin condiciones ocultas.
-            Cuatro compromisos inquebrantables que definen nuestro servicio.
+            We blend strategic design with cutting-edge technology to deliver impactful digital solutions.
           </p>
         </motion.div>
 

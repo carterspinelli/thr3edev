@@ -16,18 +16,18 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Día 1: Brief + Concepto",
-    description: "30 minutos. Una sola llamada. Capturamos tu visión, objetivos y requerimientos específicos. El reloj comienza a correr."
+    title: "Descubrimiento + Estrategia",
+    description: "Inmersión profunda en tu marca. Análisis de objetivos, audiencia y competencia. Creamos la base estratégica para un diseño efectivo."
   },
   {
     step: 1,
-    title: "Día 2: Diseño + Código",
-    description: "Nuestro equipo trabaja en paralelo. Diseñadores y desarrolladores colaboran simultáneamente. Eficiencia absoluta."
+    title: "Diseño + Desarrollo",
+    description: "Traducimos estrategia en diseño visual. Creamos interfaces intuitivas y estéticamente impactantes con desarrollo técnicamente impecable."
   },
   {
     step: 2,
-    title: "Día 3: Entrega + Lanzamiento",
-    description: "Sitio desplegado, código fuente entregado, dominio configurado. $18,000 MXN. Misión cumplida. Siguiente proyecto."
+    title: "Lanzamiento + Optimización",
+    description: "Implementación, pruebas y lanzamiento. Análisis continuo de datos para optimizar el rendimiento y mejorar la experiencia del usuario."
   },
 ];
 
@@ -45,13 +45,13 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">MÉTODO TH3EE</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Tres días. <span className="text-[#0e62fe]">Tres pasos.</span>
+            Diseño con <span className="text-[#0e62fe]">propósito.</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Un sistema optimizado para la eficiencia. Cada día cuenta. Cada acción importa.
-            Sin reuniones innecesarias ni revisiones interminables. Solo resultados.
+            Un enfoque estratégico que transforma visiones en experiencias digitales impactantes.
+            Cada pixel, cada interacción, cada elemento tiene un propósito definido.
           </p>
         </motion.div>
 

@@ -63,7 +63,7 @@ export default function Footer() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === 'dark';
-  
+
   return (
     <BackgroundBeamsWithCollision className={`h-auto ${theme === 'dark' ? 'dark' : ''}`}>
       <div className="relative z-10 w-full">
@@ -87,10 +87,10 @@ export default function Footer() {
               </motion.div>
             </Link>
             <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              Transformamos ideas en experiencias digitales impactantes. Creamos landing pages optimizadas para conversión en tiempo récord. Nuestro enfoque minimalista y orientado a resultados asegura que cada proyecto sea entregado en solo 3 días con la máxima calidad.
+              Diseñamos soluciones digitales que conectan marcas con personas. Nuestro estudio combina diseño estratégico, tecnología innovadora y creatividad para crear experiencias web memorables que impulsan el crecimiento de tu negocio.
             </p>
           </motion.div>
-          
+
           <div className="py-10">
             {navigation.categories.map((category) => (
               <div
@@ -128,7 +128,7 @@ export default function Footer() {
               </div>
             ))}
           </div>
-          
+
           <div className={`border-t border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'} py-10`}>
             <div className="flex flex-wrap justify-center gap-y-6">
               <div className="flex flex-wrap items-center justify-center gap-4 px-6 mb-8">
@@ -155,10 +155,10 @@ export default function Footer() {
                   </motion.a>
                 ))}
               </div>
-              
+
               <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleTheme} />
             </div>
-            
+
             <div className="flex flex-col justify-between text-center text-xs mt-8">
               <motion.div 
                 className="flex flex-row items-center justify-center gap-1 text-zinc-600"
