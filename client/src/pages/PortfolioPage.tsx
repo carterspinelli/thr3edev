@@ -3,13 +3,22 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/hooks/use-theme";
-import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 
 // Proyectos para el portafolio
 const projects = [
+  {
+    title: "IBM Copy Services Manager",
+    link: "https://www.ibm.com/es-es/products/copy-services-manager",
+    description: "Plataforma de gestión de servicios de almacenamiento para IBM",
+    thumbnail: "https://1.cms.s81c.com/sites/default/files/2020-10-21/IBM-Storage-2-1032x1370-1.jpg"
+  },
+  {
+    title: "Udemy Business",
+    link: "https://business.udemy.com/",
+    description: "Plataforma de aprendizaje empresarial con cursos personalizados",
+    thumbnail: "https://business.udemy.com/wp-content/uploads/2023/10/homepage-preview-2x.png"
+  },
   {
     title: "Startup Financiera",
     link: "#",
@@ -89,12 +98,6 @@ const projects = [
     thumbnail: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
-    title: "Agencia de Viajes",
-    link: "#",
-    description: "Plataforma con reservas en tiempo real y pagos",
-    thumbnail: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-  },
-  {
     title: "Agencia Creativa",
     link: "#",
     description: "Portafolio dinámico con interacciones avanzadas",
@@ -116,23 +119,6 @@ export default function PortfolioPage() {
       <Header />
       
       <div className="relative mt-16">
-        <motion.div 
-          className="fixed top-24 left-6 z-50"
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.3, delay: 0.5 }}
-        >
-          <Button
-            variant="expandIconNeutral"
-            className={`${theme === 'dark' ? 'bg-zinc-800 text-zinc-200 hover:bg-zinc-800' : 'bg-white text-zinc-800 hover:bg-white'} shadow-lg`}
-            Icon={() => <ArrowLeft className="h-4 w-4" />}
-            iconPlacement="left"
-            onClick={() => setLocation("/")}
-          >
-            Volver al inicio
-          </Button>
-        </motion.div>
-        
         <HeroParallax projects={projects} />
       </div>
       

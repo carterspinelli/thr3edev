@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 const portfolioItems = [
   {
     id: 1,
-    imageUrl: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    title: "Startup Financiera",
-    description: "Landing page para servicios financieros"
+    imageUrl: "https://1.cms.s81c.com/sites/default/files/2020-10-21/IBM-Storage-2-1032x1370-1.jpg",
+    title: "IBM Copy Services Manager",
+    description: "Plataforma para IBM"
   },
   {
     id: 2,
-    imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    title: "Salón de Belleza",
-    description: "Sitio elegante con sistema de citas"
+    imageUrl: "https://business.udemy.com/wp-content/uploads/2023/10/homepage-preview-2x.png",
+    title: "Udemy Business",
+    description: "Plataforma de aprendizaje empresarial"
   },
   {
     id: 3,
@@ -88,7 +88,8 @@ export default function Portfolio() {
                     className="px-0 bg-transparent text-[#0e62fe] hover:bg-transparent"
                     Icon={() => <ArrowRight className="h-4 w-4" />}
                     iconPlacement="right"
-                    onClick={() => {}}
+                    onClick={() => window.open(item.id === 1 ? "https://www.ibm.com/es-es/products/copy-services-manager" : 
+                      item.id === 2 ? "https://business.udemy.com/" : "#")}
                   >
                     Ver proyecto
                   </Button>
