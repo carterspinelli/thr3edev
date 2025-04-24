@@ -82,14 +82,16 @@ export default function Header() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.3 }}
           >
-            <a 
-              href="mailto:contacto@thr3e.dev" 
-              className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] px-5 py-2 bg-[#0e62fe] rounded-md text-white text-sm font-medium transition duration-200 ease-linear"
+            <Button 
+              variant="ringHover" 
+              size="sm" 
+              className="bg-[#0e62fe] text-white"
+              asChild
               onMouseEnter={() => setCursorVariant("sm")}
               onMouseLeave={() => setCursorVariant("default")}
             >
-              Contactar
-            </a>
+              <a href="mailto:contacto@thr3e.dev">Contactar</a>
+            </Button>
           </motion.div>
         )}
         
@@ -137,16 +139,21 @@ export default function Header() {
                 {item.label}
               </motion.a>
             ))}
-            <motion.a 
-              href="mailto:contacto@thr3e.dev" 
-              className="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(0,118,255,0.9)] py-2 px-6 bg-[#0e62fe] rounded-md text-white font-medium transition duration-200 ease-linear inline-block w-full text-center"
-              onClick={closeMobileMenu}
+            <motion.div
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: isMobileMenuOpen ? 0 : 10, opacity: isMobileMenuOpen ? 1 : 0 }}
               transition={{ delay: 0.25, duration: 0.3 }}
+              className="w-full"
             >
-              Contactar
-            </motion.a>
+              <Button 
+                variant="ringHover" 
+                className="bg-[#0e62fe] text-white w-full"
+                asChild
+                onClick={closeMobileMenu}
+              >
+                <a href="mailto:contacto@thr3e.dev">Contactar</a>
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
       )}
