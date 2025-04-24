@@ -53,13 +53,23 @@ export default function Footer() {
       <div className="relative z-10 w-full">
         <div className="container mx-auto px-6">
           <motion.div 
-            className={`py-10 border-b border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'}`}
+            className={`py-10 flex flex-col md:flex-row items-center justify-center border-b border-dotted ${theme === 'dark' ? 'border-zinc-800' : 'border-zinc-300'}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            {/* Logo removed */}
+            <Link href="/">
+              <motion.div 
+                className="flex items-center cursor-pointer mb-6 md:mb-0"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                onMouseEnter={() => setCursorVariant("sm")}
+                onMouseLeave={() => setCursorVariant("default")}
+              >
+                <Logo textSize="lg" />
+              </motion.div>
+            </Link>
           </motion.div>
           
           <div className="py-10">
@@ -153,7 +163,15 @@ export default function Footer() {
               >
                 <span>©</span>
                 <span>{new Date().getFullYear()}</span>
-                <span>Todos los derechos reservados</span>
+                <span>Hecho con</span>
+                <FooterIcons.Heart className="text-[#0e62fe] mx-1 h-4 w-4 animate-pulse" />
+                <span>por</span>
+                <motion.span 
+                  className={`cursor-pointer font-medium ${theme === 'dark' ? 'text-white' : 'text-black'}`}
+                  whileHover={{ color: "#0e62fe" }}
+                >
+                  <Link href="/">thr3e.dev</Link>
+                </motion.span>
               </motion.div>
             </div>
           </div>
