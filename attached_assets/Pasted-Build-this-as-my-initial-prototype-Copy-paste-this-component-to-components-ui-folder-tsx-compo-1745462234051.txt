@@ -1,3 +1,8 @@
+Build this as my initial prototype
+
+Copy-paste this component to /components/ui folder:
+```tsx
+component.tsx
 import * as React from "react";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -105,3 +110,24 @@ const Button = React.forwardRef<
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
+        
+
+demo.tsx
+"use client"
+
+import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+function ButtonExpandIconRight() {
+  return (
+    <Button variant="expandIcon" Icon={() => <ArrowRight className="h-4 w-4" />} iconPlacement="right">
+      Icon right
+    </Button>
+  )
+}
+
+
+export {
+  ButtonExpandIconRight
+}
+```

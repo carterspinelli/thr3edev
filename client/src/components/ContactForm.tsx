@@ -230,15 +230,14 @@ export default function ContactForm() {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-neutral-900 hover:bg-black text-white font-medium h-12"
+                    variant="expandIcon"
+                    size="lg"
+                    className="w-full bg-[#0e62fe] text-white"
+                    Icon={() => <ArrowRight className="h-4 w-4" />}
+                    iconPlacement="right"
                     disabled={isPending}
                   >
-                    {isPending ? "Enviando..." : (
-                      <span className="flex items-center">
-                        Enviar mensaje
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </span>
-                    )}
+                    {isPending ? "Enviando..." : "Enviar mensaje"}
                   </Button>
                 </form>
               </Form>
