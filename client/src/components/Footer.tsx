@@ -86,9 +86,29 @@ export default function Footer() {
                 <Logo textSize="lg" />
               </motion.div>
             </Link>
-            <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-              Transformamos ideas en experiencias digitales impactantes. Creamos tu landing page de alto impacto en tiempo récord. Nuestro enfoque orientado a resultados asegura que tu proyecto sea entregado en solo 3 días con la máxima calidad.
-            </p>
+            <div>
+              <p className={`text-center md:text-left text-xs leading-relaxed max-w-xl ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                Diseñamos y desarrollamos sitios web para marcas modernas. Nuestro enfoque único permite entregar landing pages profesionales en solo 3 días por un precio fijo.
+              </p>
+              <div className="mt-4 md:mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+                <a 
+                  href="#contacto" 
+                  className="inline-flex items-center text-xs text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300"
+                  onMouseEnter={() => setCursorVariant("sm")}
+                  onMouseLeave={() => setCursorVariant("default")}
+                >
+                  Contáctanos
+                </a>
+                <a 
+                  href="#portafolio" 
+                  className="inline-flex items-center text-xs text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300"
+                  onMouseEnter={() => setCursorVariant("sm")}
+                  onMouseLeave={() => setCursorVariant("default")}
+                >
+                  Ver nuestro trabajo
+                </a>
+              </div>
+            </div>
           </motion.div>
           
           <div className="py-10">

@@ -56,13 +56,21 @@ export default function Technologies() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#26D9A3] text-sm font-medium mb-2 tracking-wide">TECNOLOGÍAS</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">STACK TECNOLÓGICO</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Construido con lo mejor
+            Respaldados por <span className="text-[#0e62fe]">tecnologías líderes</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Utilizamos las tecnologías más innovadoras y eficientes para crear sitios web de alto rendimiento.
+            Usamos herramientas modernas y eficientes para crear sitios web rápidos, seguros y escalables.
           </p>
+          <div className="mt-8">
+            <a 
+              href="#contacto" 
+              className="text-sm font-medium text-[#0e62fe] hover:text-[#0952d3] transition-colors duration-300 underline underline-offset-4"
+            >
+              Ver más detalles
+            </a>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

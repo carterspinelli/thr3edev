@@ -34,7 +34,7 @@ export default function ContactForm() {
       telefono: "",
       tipoProyecto: "",
       mensaje: ""
-    }
+    } as InsertContact
   });
 
   const { mutate, isPending } = useMutation({
