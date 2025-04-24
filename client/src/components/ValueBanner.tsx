@@ -34,12 +34,7 @@ const MeteorCard = ({ icon, title, description, color }: MeteorCardProps) => {
         setCursorVariant("default");
       }}
     >
-      <div
-        className={`absolute inset-0 h-full w-full scale-[0.80] rounded-full blur-3xl ${mouseEnter ? "opacity-70" : "opacity-40"} transition-opacity duration-500`}
-        style={{
-          background: `radial-gradient(circle at center, ${color}, transparent 70%)`,
-        }}
-      />
+      {/* Eliminado el fondo de gradiente */}
 
       <div
         className={cn(
