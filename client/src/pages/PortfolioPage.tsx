@@ -134,6 +134,9 @@ export default function PortfolioPage() {
     } else if (path === "/portafolio") {
       // Reload the portfolio page
       window.location.reload();
+    } else if (path === "#nuestro-proceso") {
+      // Navigate to the nuestro-proceso section on the home page
+      setLocation('/#nuestro-proceso');
     }
   };
 
