@@ -15,33 +15,17 @@ const navigation = {
       sections: [
         {
           id: "menu",
+          title: "Menu",
           items: [
-            { name: "Inicio", href: "#inicio" },
             { name: "Servicios", href: "#servicios" },
             { name: "Portafolio", href: "#portafolio" },
+            { name: "Nosotros", href: "#lo-que-ofrecemos" },
           ],
         },
         {
-          id: "servicios",
+          id: "legal",
+          title: "Legal",
           items: [
-            { name: "Landing Pages", href: "#servicios" },
-            { name: "Sitios Corporativos", href: "#servicios" },
-            { name: "Tiendas Online", href: "#servicios" },
-          ],
-        },
-        {
-          id: "about",
-          items: [
-            { name: "Nosotros", href: "#nosotros" },
-            { name: "Precios", href: "#precios" },
-            { name: "Contacto", href: "#contacto" },
-          ],
-        },
-        {
-          id: "info",
-          items: [
-            { name: "FAQs", href: "#" },
-            { name: "Términos", href: "#" },
             { name: "Privacidad", href: "#" },
           ],
         },
@@ -99,6 +83,7 @@ export default function Footer() {
               >
                 {category.sections.map((section, sectionIndex) => (
                   <div key={section.id}>
+                    <h3 className={`font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>{section.title}</h3>
                     <ul className="flex flex-col space-y-3">
                       {section.items.map((item, index) => (
                         <motion.li 
