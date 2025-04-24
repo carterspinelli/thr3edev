@@ -23,6 +23,12 @@ const portfolioItems = [
   },
   {
     id: 4,
+    imageUrl: "/images/carter-spinelli.png",
+    title: "Carter Spinelli",
+    description: "Colección personal minimalista"
+  },
+  {
+    id: 4,
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     title: "Agencia de Marketing",
     description: "Landing page para captar leads"
@@ -96,7 +102,8 @@ export default function Portfolio() {
                     iconPlacement="right"
                     onClick={() => window.open(item.id === 1 ? "https://www.ibm.com/mx-es/products/ds8000" : 
                       item.id === 2 ? "https://www.ibm.com/es-es/products/copy-services-manager" : 
-                      item.id === 3 ? "https://business.udemy.com/" : "#")}
+                      item.id === 3 ? "https://business.udemy.com/" :
+                      item.id === 4 ? "https://carterspinelli.com/miscellaneous" : "#")}
                   >
                     Ver proyecto
                   </Button>

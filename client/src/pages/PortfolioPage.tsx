@@ -26,6 +26,12 @@ const projects = [
     thumbnail: "/images/udemy-business.png"
   },
   {
+    title: "Carter Spinelli Miscellaneous",
+    link: "https://carterspinelli.com/miscellaneous",
+    description: "Colección personal de ideas, música y cosas que le gustan al autor",
+    thumbnail: "/images/carter-spinelli.png"
+  },
+  {
     title: "Startup Financiera",
     link: "#",
     description: "Landing page para servicios financieros con alta conversión",
