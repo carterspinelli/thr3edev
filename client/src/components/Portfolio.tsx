@@ -5,19 +5,19 @@ import { Button } from "@/components/ui/button";
 const portfolioItems = [
   {
     id: 1,
-    imageUrl: "https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/cdp/cf/ul/g/73/c0/IBMDS8900F.component.xl.ts=1688413457835.png/content/adobe-cms/us/en/products/ds8000/jcr:content/root/leadspace",
+    imageUrl: "/images/ibm-ds8000.png",
     title: "IBM DS8000",
     description: "Sistema de almacenamiento empresarial"
   },
   {
     id: 2,
-    imageUrl: "https://1.cms.s81c.com/sites/default/files/2020-10-21/IBM-Storage-2-1032x1370-1.jpg",
+    imageUrl: "/images/ibm-csm.png",
     title: "IBM Copy Services Manager",
     description: "Plataforma para IBM"
   },
   {
     id: 3,
-    imageUrl: "https://business.udemy.com/wp-content/uploads/2023/10/homepage-preview-2x.png",
+    imageUrl: "/images/udemy-business.png",
     title: "Udemy Business",
     description: "Plataforma de aprendizaje empresarial"
   },

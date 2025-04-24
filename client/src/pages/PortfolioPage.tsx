@@ -11,19 +11,19 @@ const projects = [
     title: "IBM DS8000",
     link: "https://www.ibm.com/mx-es/products/ds8000",
     description: "Sistema de almacenamiento empresarial de alta gama para IBM",
-    thumbnail: "https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/cdp/cf/ul/g/73/c0/IBMDS8900F.component.xl.ts=1688413457835.png/content/adobe-cms/us/en/products/ds8000/jcr:content/root/leadspace"
+    thumbnail: "/images/ibm-ds8000.png"
   },
   {
     title: "IBM Copy Services Manager",
     link: "https://www.ibm.com/es-es/products/copy-services-manager",
     description: "Plataforma de gestión de servicios de almacenamiento para IBM",
-    thumbnail: "https://1.cms.s81c.com/sites/default/files/2020-10-21/IBM-Storage-2-1032x1370-1.jpg"
+    thumbnail: "/images/ibm-csm.png"
   },
   {
     title: "Udemy Business",
     link: "https://business.udemy.com/",
     description: "Plataforma de aprendizaje empresarial con cursos personalizados",
-    thumbnail: "https://business.udemy.com/wp-content/uploads/2023/10/homepage-preview-2x.png"
+    thumbnail: "/images/udemy-business.png"
   },
   {
     title: "Startup Financiera",
