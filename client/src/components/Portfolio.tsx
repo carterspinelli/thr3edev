@@ -49,9 +49,21 @@ export default function Portfolio() {
           <div className="text-center mb-16">
             <p className="text-primary text-sm font-medium mb-2 tracking-wide">NUESTROS PROYECTOS</p>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-neutral-900">Trabajos recientes</h2>
-            <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
+            <p className="text-neutral-600 text-lg max-w-2xl mx-auto mb-6">
               Cada uno de estos proyectos fue entregado en 3 días, manteniendo la calidad y elegancia.
             </p>
+            <div className="mt-8">
+              <Button 
+                variant="expandIcon" 
+                size="lg"
+                className="bg-[#0e62fe] text-white"
+                Icon={() => <ArrowRight className="h-4 w-4" />} 
+                iconPlacement="right"
+                onClick={() => window.location.href = "/portafolio"}
+              >
+                Ver portafolio completo
+              </Button>
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

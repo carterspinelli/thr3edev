@@ -35,7 +35,7 @@ export default function Cta() {
               className="bg-transparent border border-neutral-700 text-white hover:bg-neutral-800"
               Icon={() => <ArrowRight className="h-4 w-4" />}
               iconPlacement="right"
-              onClick={() => window.location.href = "#portafolio"}
+              onClick={() => window.location.href = "/portafolio"}
             >
               Ver más ejemplos
             </Button>
