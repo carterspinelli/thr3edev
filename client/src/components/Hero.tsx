@@ -30,18 +30,17 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                <span className="inline-block mb-4">Diseño web que</span> <br />
-                <span className="text-[#0e62fe]">impulsa resultados.</span> Desde{" "}
-                <Cover>$18,000 MXN.</Cover>
+                <span className="inline-block mb-4">Creamos experiencias digitales</span> <br />
+                <span className="text-[#0e62fe]">que cautivan e inspiran.</span>
               </h1>
 
               <p
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Creamos experiencias digitales que conectan con tu audiencia y elevan tu marca.
-                Diseño estratégico, desarrollo impecable, resultados medibles.
+                Transformamos marcas con soluciones digitales innovadoras.
+                Desde sitios web modernos hasta aplicaciones atractivas, llevamos tu visión al siguiente nivel.
                 <span className="font-medium block mt-2 text-[#0e62fe]">
-                  Creatividad. Innovación. Excelencia técnica.
+                  Innovación. Diseño. Excelencia.
                 </span>
               </p>
             </motion.div>
