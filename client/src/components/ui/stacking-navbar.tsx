@@ -6,11 +6,13 @@ import { useTheme } from "@/hooks/use-theme";
 
 const StackingNavbar = () => {
   const [expanded, setExpanded] = useState(false);
-  
+
   const items = [
-    { href: "#portafolio", label: "Portafolio" },
+    { href: "#inicio", label: "Inicio" },
     { href: "#servicios", label: "Servicios" },
-    { href: "#nosotros", label: "Nosotros" },
+    { href: "#clientes", label: "Clientes" },
+    { href: "#pricing", label: "Precios" },
+    { href: "#faq", label: "FAQ" },
   ];
 
   return (

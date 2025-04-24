@@ -30,19 +30,20 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                <span className="inline-block mb-4">Sitios web que</span> <br />
-                <span className="text-[#0e62fe]">impulsan tu negocio.</span>{" "}
-                <Cover>En 3 días.</Cover>
+                <span className="inline-block mb-4">Tu landing page</span> <br />
+                <span className="text-[#0e62fe]">profesional</span> en{" "}
+                <Cover>solo 3 días</Cover>
               </h1>
 
               <p
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Creamos sitios web profesionales, modernos y de alta conversión
-                que captan la atención de tu audiencia y potencian tu presencia digital.
-                <span className="font-medium block mt-2 text-[#0e62fe]">
-                  Diseñamos. Desarrollamos. Entregamos.
+                Diseño, desarrollo y hosting completo por{" "}
+                <span className="font-medium text-[#0e62fe]">
+                  $18,000 MXN
                 </span>
+                {" "}precio fijo. Del concepto al lanzamiento en tres días, incluyendo
+                entrega del código fuente.
               </p>
             </motion.div>
 
@@ -59,21 +60,21 @@ export default function Hero() {
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#contacto">Hablemos de tu proyecto →</a>
+                <a href="#pricing">Solicitar mi sitio web</a>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 className={`rounded-full px-10 py-6 font-medium ${
                   isDark
-                    ? "border-zinc-800 text-white hover:bg-zinc-900 hover:border-[#0e62fe]"
-                    : "border-zinc-300 text-zinc-900 hover:bg-zinc-100 hover:border-[#0e62fe]"
+                    ? "border-zinc-800 text-white hover:bg-zinc-900"
+                    : "border-zinc-300 text-zinc-900 hover:bg-zinc-100"
                 }`}
                 asChild
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
               >
-                <a href="#servicios">Explorar servicios</a>
+                <a href="#servicios">Nuestros servicios</a>
               </Button>
             </motion.div>
           </div>

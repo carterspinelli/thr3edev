@@ -19,45 +19,41 @@ export default function AboutUs() {
           </div>
           
           <div className="md:w-1/2">
-            <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO EQUIPO</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Obsesionados con la <span className="text-[#0e62fe]">eficiencia</span></h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Quiénes Somos</h2>
             <p className="text-gray-600 text-lg mb-6">
-              No somos una agencia web tradicional. Somos ingenieros de velocidad y calidad. 
-              Hemos descompuesto metódicamente el proceso de desarrollo web para eliminar toda ineficiencia.
+              Somos un equipo de diseñadores y desarrolladores web apasionados por crear sitios web efectivos, hermosos y funcionales en tiempo récord.
             </p>
             <p className="text-gray-600 text-lg mb-6">
-              Creemos que el tiempo de espera es el enemigo de la innovación. Por eso diseñamos un sistema que reduce 
-              semanas de trabajo a solo 72 horas, sin comprometer la calidad ni la personalización.
+              Nuestra misión es simplificar el proceso de creación web para pequeñas y medianas empresas, ofreciendo un servicio rápido, profesional y a un precio justo.
             </p>
             <p className="text-gray-600 text-lg mb-8">
-              Nuestro equipo está formado por especialistas en diseño y desarrollo que trabajan en paralelo, 
-              no en secuencia. Un enfoque revolucionario para un resultado extraordinario.
+              Con años de experiencia en la industria, hemos optimizado nuestro flujo de trabajo para entregar resultados excepcionales en solo 3 días.
             </p>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-[#0e62fe] mr-4">
+                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-primary mr-4">
                   <Paintbrush className="h-5 w-5" />
                 </div>
-                <span className="font-medium">Diseño ejecutivo</span>
+                <span className="font-medium">Diseñadores expertos</span>
               </div>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-[#0e62fe] mr-4">
+                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-primary mr-4">
                   <Code className="h-5 w-5" />
                 </div>
-                <span className="font-medium">Código perfecto</span>
+                <span className="font-medium">Desarrolladores senior</span>
               </div>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-[#0e62fe] mr-4">
+                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-primary mr-4">
                   <Rocket className="h-5 w-5" />
                 </div>
-                <span className="font-medium">72h garantizadas</span>
+                <span className="font-medium">Entrega rápida</span>
               </div>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-[#0e62fe] mr-4">
+                <div className="w-12 h-12 bg-gray-50 rounded-full flex items-center justify-center text-primary mr-4">
                   <Headphones className="h-5 w-5" />
                 </div>
-                <span className="font-medium">Soporte premium</span>
+                <span className="font-medium">Soporte continuo</span>
               </div>
             </div>
           </div>

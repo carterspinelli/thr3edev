@@ -34,7 +34,7 @@ const MeteorCard = ({ icon, title, description, color }: MeteorCardProps) => {
         setCursorVariant("default");
       }}
     >
-      {/* Gradient background removed */}
+      {/* Removed gradient background */}
 
       <div
         className={cn(
@@ -81,28 +81,28 @@ export default function ValueBanner() {
       icon: <Clock className="size-6" />,
       title: "Entrega en 3 días",
       description:
-        "Tu landing page lista para captar leads en solo 3 días. Rápido, eficiente y sin comprometer la calidad.",
+        "Desde la conversación inicial hasta el sitio web completo en solo 72 horas. Tu presencia online lista en tiempo récord.",
       color: "#0e62fe",
     },
     {
       icon: <DollarSign className="size-6" />,
-      title: "Diseño que Convierte",
+      title: "Precio fijo",
       description:
-        "Diseños estratégicos enfocados en la conversión que captan la atención de tu audiencia e inspiran acción inmediata.",
+        "Precio transparente que incluye diseño, desarrollo y entrega del código. Sin sorpresas ni costos adicionales.",
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
-      title: "Desarrollo Moderno",
+      title: "Tecnologías modernas",
       description:
-        "Construcciones rápidas, escalables y preparadas para el futuro que se adaptan a las necesidades de tu negocio.",
+        "Utilizamos las mejores tecnologías para crear landing pages rápidas y seguras con excelente rendimiento.",
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
-      title: "Resultados Medibles",
+      title: "Código entregable",
       description:
-        "Páginas optimizadas para generar leads, aumentar conversiones y potenciar tus esfuerzos de marketing B2B.",
+        "Recibes el código fuente de tu sitio al finalizar el proyecto, dándote total control sobre tu inversión.",
       color: "#0e62fe",
     },
   ];
@@ -119,16 +119,16 @@ export default function ValueBanner() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO VALOR</p>
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Páginas web que <span className="text-[#0e62fe]">conectan</span> con clientes
+            Lo que <span className="text-[#0e62fe]">ofrecemos</span>
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Creamos experiencias digitales atractivas y funcionales que representan a tu negocio y cautivan a tu audiencia.
+            Un servicio completo de diseño y desarrollo de tu landing page con
+            plazos y costos predecibles
           </p>
         </motion.div>
 

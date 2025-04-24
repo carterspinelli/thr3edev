@@ -36,14 +36,14 @@ const LightModeContent = () => {
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
         <div className="text-center space-y-4 mb-8">
           <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
-            RESULTADOS PROBADOS
+            CLIENTES DESTACADOS
           </p>
           <h2 className="text-3xl md:text-4xl font-medium mb-2 text-zinc-900">
-            Resultados que amarás
+            Marcas que confían en nosotros
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-zinc-600">
-            Ayudamos a negocios de todos los tamaños a crear sitios web efectivos
-            que mejoran la visibilidad y convierten visitantes en clientes
+            Diseñamos experiencias web para empresas líderes que buscan destacar
+            en el mercado digital
           </p>
         </div>
 
@@ -100,7 +100,7 @@ const DarkModeContent = () => {
             Marcas que confían en nosotros
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-zinc-400">
-            Diseñamos experiencias web para empresas líderes que buscan destacar
+            Diseñamos tu landing page para que tu empresa destaque
             en el mercado digital
           </p>
         </div>

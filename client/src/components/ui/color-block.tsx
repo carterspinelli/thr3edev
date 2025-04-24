@@ -21,7 +21,7 @@ export function ColorBlock({
   className
 }: ColorBlockProps) {
   const { theme } = useTheme();
-  
+
   const getBgColor = () => {
     if (theme === 'dark') {
       switch (color) {
@@ -107,12 +107,6 @@ export function ColorBlock({
           </motion.p>
         </div>
 
-        <motion.div 
-          className={cn("absolute -bottom-20 -right-20 rounded-full", getTextColor(), "opacity-10")}
-          initial={{ width: "12rem", height: "12rem" }}
-          animate={isHovered ? { width: "16rem", height: "16rem" } : { width: "12rem", height: "12rem" }}
-          transition={{ duration: 0.5 }}
-        />
       </div>
     </motion.div>
   );

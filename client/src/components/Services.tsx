@@ -16,18 +16,18 @@ import {
 const steps = [
   {
     step: 0,
-    title: "Diseño",
-    description: "Creamos diseños que captan la atención, inspiran acción y generan resultados. Enfoque en la experiencia del usuario y la conversión desde el primer día."
+    title: "Reunión inicial (30 min)",
+    description: "Empezamos con una reunión breve para comprender tu negocio y los objetivos específicos de tu landing page."
   },
   {
     step: 1,
-    title: "Desarrollo",
-    description: "Construcciones modernas que son rápidas, escalables y preparadas para el futuro. Código limpio y optimizado para el rendimiento y SEO."
+    title: "Diseño y desarrollo",
+    description: "Utilizamos las mejores tecnologías actuales para crear una landing page optimizada que refleje la identidad de tu marca."
   },
   {
     step: 2,
-    title: "Entrega en 3 días",
-    description: "Mientras otros prometen semanas, nosotros entregamos en días. Tu landing page lista para generar leads y potenciar tu marketing en tiempo récord."
+    title: "Entrega completa",
+    description: "En solo 3 días recibes tu sitio web listo y alojado, junto con el código fuente completo por $18,000 MXN precio fijo."
   },
 ];
 
@@ -47,12 +47,10 @@ export default function Services() {
         >
           <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Lo hacemos <span className="text-[#0e62fe]">rápido.</span>
+            Del concepto al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Los sitios web no son solo parte de lo que hacemos. Son todo lo que hacemos.
-            Entregamos páginas web de alto impacto en solo 3 días, con diseños
-            que captan la atención y generan resultados.
+            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos tu landing page con las mejores tecnologías, y entregamos todo en solo 3 días.
           </p>
         </motion.div>
 

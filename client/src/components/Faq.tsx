@@ -18,36 +18,36 @@ const icons = ["⏱️", "💵", "📋", "📝", "🌐"];
 const faqData: FAQItem[] = [
   {
     id: 1,
-    question: "¿3 días? ¿En serio? Sin trucos.",
-    answer: "Absolutamente en serio. 72 horas desde el brief inicial hasta la entrega completa. Lo que normalmente toma semanas, nosotros lo hacemos en días. Nuestro sistema está optimizado para la velocidad sin sacrificar calidad. Hemos eliminado los cuellos de botella típicos del desarrollo web tradicional.",
+    question: "¿Cómo funciona exactamente el proceso de 3 días?",
+    answer: "El proceso comienza con una reunión inicial de 30 minutos para entender tu negocio y necesidades. Inmediatamente después, diseñamos y desarrollamos tu landing page utilizando las mejores tecnologías disponibles. Al tercer día, entregamos tu sitio completamente funcional junto con el código fuente.",
     icon: icons[0],
     iconPosition: "left"
   },
   {
     id: 2,
-    question: "¿Qué incluye realmente el precio de $18K?",
-    answer: "Todo. Diseño, código, hosting por 1 año, implementación de formularios, optimización móvil, SEO fundamental, archivos fuente, y soporte por 30 días. Sin sorpresas, sin costos adicionales, sin asteriscos ni letra pequeña. Transparencia total.",
+    question: "¿Qué incluye exactamente el precio de $18,000 MXN?",
+    answer: "El precio fijo incluye diseño personalizado, desarrollo completo, optimización para dispositivos móviles, hosting por un año y entrega del código fuente completo. No hay costos ocultos ni cargos adicionales.",
     icon: icons[1],
     iconPosition: "right"
   },
   {
     id: 3,
-    question: "¿Y si necesito cambios después?",
-    answer: "El código es tuyo. Puedes hacer modificaciones por tu cuenta o contratar a cualquier desarrollador. Si prefieres que nosotros hagamos los cambios, tenemos paquetes de mantenimiento accesibles. La flexibilidad es tuya. Tu sitio, tus reglas.",
+    question: "¿Qué necesitan de mi parte para comenzar?",
+    answer: "Para comenzar solo necesitamos 30 minutos de tu tiempo para la reunión inicial, información básica sobre tu negocio, cualquier preferencia de diseño, y tus contenidos (textos, logotipo e imágenes). También un anticipo del 50% del precio total.",
     icon: icons[2],
     iconPosition: "left"
   },
   {
     id: 4,
-    question: "¿Podré actualizar el contenido yo mismo?",
-    answer: "Por supuesto. Implementamos un sistema intuitivo para que puedas actualizar textos, imágenes y otros contenidos sin conocimientos técnicos. Si necesitas modificaciones más complejas, ofrecemos soporte. Queremos que tengas independencia.",
+    question: "¿Por qué entregan el código fuente completo?",
+    answer: "Creemos en la transparencia y en darte control total sobre tu sitio web. Al entregar el código fuente, garantizamos que puedas modificarlo en el futuro con tu propio equipo técnico si así lo deseas, o seguir trabajando con nosotros para actualizaciones y mejoras.",
     icon: icons[3],
     iconPosition: "right"
   },
   {
     id: 5,
-    question: "¿Cómo iniciamos? ¿Cuál es el primer paso?",
-    answer: "Simple: agendamos una llamada de 30 minutos, recopilamos tus requerimientos y el 50% de anticipo. Inmediatamente activamos el cronómetro. 72 horas después, tu sitio estará listo. Así de directo, así de eficiente.",
+    question: "¿Ofrecen servicios de hosting y dominio?",
+    answer: "Sí, el primer año de hosting está incluido en el precio. Después del primer año, ofrecemos planes de hosting a precios competitivos. En cuanto al dominio, podemos adquirirlo por ti (costo adicional) o puedes utilizar uno que ya poseas.",
     icon: icons[4],
     iconPosition: "left"
   }
@@ -67,11 +67,10 @@ export default function Faq() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">LA TRANSPARENCIA ES CLAVE</p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-4">Dudas <span className="text-[#0e62fe]">resueltas</span></h2>
+          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">AYUDA Y PREGUNTAS</p>
+          <h2 className="text-3xl md:text-4xl font-medium mb-4">Preguntas Frecuentes</h2>
           <p className={`text-lg max-w-3xl mx-auto ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Respuestas directas, sin rodeos. Todo lo que necesitas saber antes de
-            acelerar tu presencia web a velocidad supersónica.
+            Respuestas a las dudas más comunes sobre nuestro servicio.
           </p>
         </motion.div>
 

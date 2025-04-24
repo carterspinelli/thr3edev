@@ -58,11 +58,10 @@ export default function Technologies() {
         >
           <p className="text-[#26D9A3] text-sm font-medium mb-2 tracking-wide">TECNOLOGÍAS</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Modernos y <span className="text-[#26D9A3]">a prueba de futuro</span>
+            Construido con lo mejor
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Utilizamos tecnologías modernas para crear sitios web rápidos, escalables y 
-            optimizados para todo tipo de negocios y objetivos comerciales.
+            Utilizamos las tecnologías más innovadoras y eficientes para crear sitios web de alto rendimiento.
           </p>
         </motion.div>
 
