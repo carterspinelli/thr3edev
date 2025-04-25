@@ -13,8 +13,30 @@ export function ThemeComparison({
   darkModeContent,
   className = ""
 }: ThemeComparisonProps) {
+  const isMobile = useIsMobile();
   const [inset, setInset] = useState<number>(50);
   const [onMouseDown, setOnMouseDown] = useState<boolean>(false);
+  
+  // En dispositivos móviles, iniciamos una animación automática para mostrar ambos temas
+  useEffect(() => {
+    if (isMobile) {
+      // Iniciar la animación automática en móviles
+      let direction = 1; // 1 = derecha, -1 = izquierda
+      let currentPos = 50; // Posición inicial
+      
+      const interval = setInterval(() => {
+        // Cambiamos la dirección cuando llegamos a los límites
+        if (currentPos >= 95) direction = -1;
+        if (currentPos <= 5) direction = 1;
+        
+        // Actualizamos la posición
+        currentPos += direction * 0.5;
+        setInset(currentPos);
+      }, 50);
+      
+      return () => clearInterval(interval);
+    }
+  }, [isMobile]);
 
   const onMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (!onMouseDown) return;
