@@ -22,7 +22,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   return (
     <motion.div
-      className="relative h-16 w-32 overflow-hidden md:h-24 md:w-48"
+      className="relative h-20 w-36 overflow-hidden md:h-24 md:w-48 border border-transparent dark:border-blue-900/20 bg-white/5 dark:bg-blue-900/5 rounded-lg"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -54,12 +54,14 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           <img
             src={currentLogo.src}
             alt={currentLogo.name}
-            className="h-auto w-auto max-h-[80%] max-w-[80%] object-contain"
+            className="h-auto w-auto max-h-full max-w-full object-contain"
             style={{ 
-              filter: 'brightness(1.2)', 
-              maxWidth: '100%',
-              maxHeight: '100%'
+              filter: 'brightness(1.2) contrast(1.1)', 
+              width: '100%',
+              height: '80%'
             }}
+            width="100"
+            height="100"
             loading="eager"
             onError={(e) => {
               console.error(`Error loading logo: ${currentLogo.name}`, e);
@@ -115,7 +117,7 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   }, []);
 
   return (
-    <div className="flex justify-center items-center gap-3 md:gap-4 py-6 md:py-8 min-h-[150px]">
+    <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 py-6 md:py-8 min-h-[150px] px-4">
       {logoColumns.map((columnLogos, index) => (
         <LogoColumn
           key={index}
