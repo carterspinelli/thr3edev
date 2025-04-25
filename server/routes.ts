@@ -4,6 +4,21 @@ import { storage } from "./storage";
 import { contactFormSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import * as nodemailer from "nodemailer";
+
+// Configuración del transporte para enviar correos
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com", // O cualquier otro proveedor SMTP
+  port: 587,
+  secure: false, // true para 465, false para otros puertos
+  auth: {
+    user: process.env.EMAIL_USER || "notifications@thr3e.dev", // Fallback para desarrollo
+    pass: process.env.EMAIL_PASSWORD || "password", // Fallback para desarrollo
+  },
+  tls: {
+    rejectUnauthorized: false // Para desarrollo en entornos locales
+  }
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -14,6 +29,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Store the contact submission
       const submission = await storage.createContactSubmission(validatedData);
+      
+      // Intentar enviar email (no bloqueamos la respuesta en caso de error)
+      try {
+        const mailOptions = {
+          from: '"thr3e.dev Notificaciones" <notifications@thr3e.dev>',
+          to: "contacto@thr3e.dev",
+          subject: `Nuevo formulario de contacto: ${validatedData.business_name}`,
+          text: `
+            Nombre de empresa: ${validatedData.business_name}
+            Email: ${validatedData.email}
+            Referido por: ${validatedData.referral_source}
+            
+            Mensaje:
+            ${validatedData.message}
+          `,
+          html: `
+            <h2>Nuevo formulario de contacto</h2>
+            <p><strong>Empresa:</strong> ${validatedData.business_name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${validatedData.email}">${validatedData.email}</a></p>
+            <p><strong>Referido por:</strong> ${validatedData.referral_source}</p>
+            <p><strong>Mensaje:</strong></p>
+            <p style="white-space: pre-line;">${validatedData.message}</p>
+          `
+        };
+        
+        transporter.sendMail(mailOptions).catch(e => 
+          console.error("Error enviando email de notificación:", e)
+        );
+      } catch (emailError) {
+        console.error("Error preparando email:", emailError);
+        // No fallamos la solicitud principal si el email falla
+      }
       
       return res.status(201).json({
         message: "Formulario enviado con éxito",
