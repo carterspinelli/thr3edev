@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Logo {
   id: number;
@@ -15,9 +14,7 @@ interface LogoColumnProps {
 }
 
 function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
-  const isMobile = useIsMobile();
-  // Reducimos ligeramente el tiempo del ciclo en móviles para que se vean más logos
-  const CYCLE_DURATION = isMobile ? 1800 : 2000;
+  const CYCLE_DURATION = 2000;
   const columnDelay = columnIndex * 200;
   const adjustedTime = (currentTime + columnDelay) % (CYCLE_DURATION * logos.length);
   const currentIndex = Math.floor(adjustedTime / CYCLE_DURATION);
@@ -58,11 +55,6 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
             src={currentLogo.src}
             alt={currentLogo.name}
             className="h-auto w-auto max-h-[80%] max-w-[80%] object-contain"
-            // Aumentamos el brillo en móviles para que se vean mejor
-            style={{ 
-              filter: isMobile ? 'brightness(1.1)' : 'none',
-              maxHeight: isMobile ? '70%' : '80%' // Ligeramente más pequeño en móviles
-            }}
           />
         </motion.div>
       </AnimatePresence>
@@ -76,20 +68,16 @@ interface LogoCarouselProps {
 }
 
 export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
-  const isMobile = useIsMobile();
   const [logoColumns, setLogoColumns] = useState<Logo[][]>([]);
   const [time, setTime] = useState(0);
-  
-  // Ajustamos el número de columnas en móvil si no se especifica
-  const effectiveColumns = isMobile ? Math.min(2, columns) : columns;
 
   const distributeLogos = useCallback(
     (logos: Logo[]) => {
       const shuffled = [...logos].sort(() => Math.random() - 0.5);
-      const result: Logo[][] = Array.from({ length: effectiveColumns }, () => []);
+      const result: Logo[][] = Array.from({ length: columns }, () => []);
 
       shuffled.forEach((logo, index) => {
-        result[index % effectiveColumns].push(logo);
+        result[index % columns].push(logo);
       });
 
       const maxLength = Math.max(...result.map((col) => col.length));
@@ -101,7 +89,7 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
 
       return result;
     },
-    [effectiveColumns]
+    [columns]
   );
 
   useEffect(() => {
@@ -109,12 +97,11 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   }, [logos, distributeLogos]);
 
   useEffect(() => {
-    // Velocidad más rápida en dispositivos móviles para mostrar más logos
     const interval = setInterval(() => {
-      setTime((prev) => prev + (isMobile ? 150 : 100));
+      setTime((prev) => prev + 100);
     }, 100);
     return () => clearInterval(interval);
-  }, [isMobile]);
+  }, []);
 
   return (
     <div className="flex justify-center gap-4 py-8">
