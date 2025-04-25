@@ -37,20 +37,20 @@ const LightModeContent = () => {
   return (
     <div className={`${isMobile ? 'py-8' : 'py-16'} bg-zinc-50 min-h-[400px] md:min-h-[500px] flex flex-col`}>
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-8">
-          <p className="text-[#0e62fe] text-xs sm:text-sm font-medium tracking-wide uppercase">
+        <div className="text-center space-y-2 md:space-y-4 mb-3 md:mb-8">
+          <p className={`text-[#0e62fe] ${isMobile ? 'text-[10px]' : 'text-xs'} sm:text-sm font-medium tracking-wide uppercase`}>
             Clientes Destacados
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-zinc-900">
+          <h2 className={`${isMobile ? 'text-xl' : 'text-2xl'} sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-zinc-900`}>
             Marcas que confían en nosotros
           </h2>
-          <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-600">
+          <p className={`${isMobile ? 'text-xs' : 'text-sm'} sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-600`}>
             Diseñamos experiencias web para empresas líderes que buscan destacar
             en el mercado digital
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col justify-center">
+        <div className={`flex-1 flex flex-col ${isMobile ? 'justify-start pt-3' : 'justify-center'}`}>
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
       </div>
@@ -95,20 +95,20 @@ const DarkModeContent = () => {
       />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-8">
-          <p className="text-[#0e62fe] text-xs sm:text-sm font-medium tracking-wide uppercase">
+        <div className="text-center space-y-2 md:space-y-4 mb-3 md:mb-8">
+          <p className={`text-[#0e62fe] ${isMobile ? 'text-[10px]' : 'text-xs'} sm:text-sm font-medium tracking-wide uppercase`}>
             Clientes Destacados
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-white">
+          <h2 className={`${isMobile ? 'text-xl' : 'text-2xl'} sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-white`}>
             Marcas que confían en nosotros
           </h2>
-          <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-400">
+          <p className={`${isMobile ? 'text-xs' : 'text-sm'} sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-400`}>
             Diseñamos experiencias web para empresas líderes que buscan destacar
             en el mercado digital
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col justify-center">
+        <div className={`flex-1 flex flex-col ${isMobile ? 'justify-start pt-3' : 'justify-center'}`}>
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
       </div>

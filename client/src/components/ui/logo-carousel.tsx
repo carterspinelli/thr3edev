@@ -24,7 +24,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   return (
     <motion.div
-      className="relative h-12 w-20 overflow-hidden sm:h-14 sm:w-24 md:h-24 md:w-48"
+      className="relative h-16 w-24 overflow-hidden sm:h-14 sm:w-24 md:h-24 md:w-48"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -57,7 +57,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
             src={currentLogo.src}
             alt={currentLogo.name}
             className={`h-auto w-auto object-contain ${
-              isMobile ? "max-h-[90%] max-w-[90%]" : "max-h-[80%] max-w-[80%]"
+              isMobile ? "max-h-full max-w-full" : "max-h-[80%] max-w-[80%]"
             }`}
           />
         </motion.div>
@@ -112,7 +112,7 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   }, []);
 
   return (
-    <div className={`flex justify-center ${isMobile ? 'gap-2 py-4' : 'gap-4 py-8'}`}>
+    <div className={`flex justify-center ${isMobile ? 'gap-2 py-2 mt-2' : 'gap-4 py-8'}`}>
       {logoColumns.map((columnLogos, index) => (
         <LogoColumn
           key={index}
