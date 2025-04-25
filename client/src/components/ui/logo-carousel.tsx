@@ -54,9 +54,8 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           <img
             src={currentLogo.src}
             alt={currentLogo.name}
-            className="w-16 h-16 md:w-24 md:h-24 object-contain"
+            className="w-16 h-16 md:w-24 md:h-24 object-contain logo-image"
             style={{ 
-              filter: 'brightness(1.3) contrast(1.2)',
               maxWidth: '100%',
               maxHeight: '100%'
             }}

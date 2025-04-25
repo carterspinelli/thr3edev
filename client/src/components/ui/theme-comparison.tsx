@@ -38,26 +38,32 @@ export function ThemeComparison({
       onTouchMove={onMouseMove}
       onTouchEnd={() => setOnMouseDown(false)}
     >
-      {/* Capas de contenido */}
-      <div className="relative w-full h-full">
-        {/* Capa oscura (base) */}
-        <div className="absolute inset-0 w-full h-full theme-dark">
+      {/* Contenedor común */}
+      <div className="relative w-full h-full theme-comparison-container">
+        {/* Contenido principal */}
+        <div className="absolute inset-0 w-full h-full theme-comparison-content">
           {children}
         </div>
         
-        {/* Capa clara (encima, con recorte) */}
+        {/* Máscara para la zona oscura (a la derecha del divisor) */}
         <div 
-          className="absolute inset-0 w-full h-full theme-light"
+          className="absolute inset-0 z-10 theme-comparison-mask dark-mask"
+          style={{
+            clipPath: `inset(0 0 0 ${inset}%)`,
+          }}
+        />
+        
+        {/* Máscara para la zona clara (a la izquierda del divisor) */}
+        <div 
+          className="absolute inset-0 z-10 theme-comparison-mask light-mask"
           style={{
             clipPath: `inset(0 ${100 - inset}% 0 0)`,
           }}
-        >
-          {children}
-        </div>
+        />
         
         {/* Línea divisoria vertical */}
         <div
-          className="bg-white dark:bg-zinc-800 h-full w-1 absolute z-20 top-0 -ml-[0.5px] select-none"
+          className="bg-white dark:bg-zinc-800 h-full w-1 absolute z-30 top-0 -ml-[0.5px] select-none"
           style={{
             left: inset + "%",
           }}
