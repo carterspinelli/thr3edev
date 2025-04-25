@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { ThemeComparison } from "@/components/ui/theme-comparison";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Logo paths
 const clientLogos = [
@@ -31,17 +32,19 @@ const clientLogos = [
 
 // Componente para mostrar el contenido en modo claro
 const LightModeContent = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <div className="py-16 bg-zinc-50 min-h-[500px] flex flex-col">
-      <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-4 mb-8">
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
-            CLIENTES DESTACADOS
+    <div className={`${isMobile ? 'py-8' : 'py-16'} bg-zinc-50 min-h-[400px] md:min-h-[500px] flex flex-col`}>
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
+        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-8">
+          <p className="text-[#0e62fe] text-xs sm:text-sm font-medium tracking-wide uppercase">
+            Clientes Destacados
           </p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-2 text-zinc-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-zinc-900">
             Marcas que confían en nosotros
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-zinc-600">
+          <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-600">
             Diseñamos experiencias web para empresas líderes que buscan destacar
             en el mercado digital
           </p>
@@ -50,8 +53,6 @@ const LightModeContent = () => {
         <div className="flex-1 flex flex-col justify-center">
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
-
-        {/* Text removed */}
       </div>
     </div>
   );
@@ -59,8 +60,10 @@ const LightModeContent = () => {
 
 // Componente para mostrar el contenido en modo oscuro con efectos
 const DarkModeContent = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <div className="py-16 bg-[#050715] min-h-[500px] relative overflow-hidden flex flex-col">
+    <div className={`${isMobile ? 'py-8' : 'py-16'} bg-[#050715] min-h-[400px] md:min-h-[500px] relative overflow-hidden flex flex-col`}>
       {/* Fondo con efectos para el modo oscuro */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
       <div className="stars absolute inset-0" />
@@ -91,15 +94,15 @@ const DarkModeContent = () => {
         maxDelay={3500}
       />
 
-      <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-4 mb-8">
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
-            CLIENTES DESTACADOS
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
+        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-8">
+          <p className="text-[#0e62fe] text-xs sm:text-sm font-medium tracking-wide uppercase">
+            Clientes Destacados
           </p>
-          <h2 className="text-3xl md:text-4xl font-medium mb-2 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-white">
             Marcas que confían en nosotros
           </h2>
-          <p className="text-lg max-w-2xl mx-auto text-zinc-400">
+          <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-400">
             Diseñamos experiencias web para empresas líderes que buscan destacar
             en el mercado digital
           </p>
@@ -108,8 +111,6 @@ const DarkModeContent = () => {
         <div className="flex-1 flex flex-col justify-center">
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
-
-        {/* Text removed */}
       </div>
     </div>
   );
