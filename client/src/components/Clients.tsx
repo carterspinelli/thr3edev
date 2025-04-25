@@ -32,13 +32,13 @@ const clientLogos = [
 // Componente para mostrar el contenido en modo claro
 const LightModeContent = () => {
   return (
-    <div className="py-8 md:py-16 bg-zinc-50 min-h-[500px] flex flex-col">
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-6">
+    <div className="py-6 md:py-12 bg-zinc-50 flex flex-col justify-center h-full">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center space-y-2 md:space-y-4 mb-4">
           <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
             CLIENTES DESTACADOS
           </p>
-          <h2 className="text-2xl md:text-4xl font-medium mb-2 text-zinc-900">
+          <h2 className="text-2xl md:text-4xl font-medium mb-1 md:mb-2 text-zinc-900">
             Marcas que confían en nosotros
           </h2>
           <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-600">
@@ -47,7 +47,7 @@ const LightModeContent = () => {
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col justify-center mt-8 md:mt-0">
+        <div className="mt-6 md:mt-8">
           <div className="w-full max-w-3xl mx-auto">
             <LogoCarousel logos={clientLogos} columns={2} />
           </div>
@@ -60,7 +60,7 @@ const LightModeContent = () => {
 // Componente para mostrar el contenido en modo oscuro con efectos
 const DarkModeContent = () => {
   return (
-    <div className="py-8 md:py-16 bg-[#050715] min-h-[500px] relative overflow-hidden flex flex-col">
+    <div className="py-6 md:py-12 bg-[#050715] relative overflow-hidden flex flex-col justify-center h-full">
       {/* Fondo con efectos para el modo oscuro */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
       <div className="stars absolute inset-0" />
@@ -91,12 +91,12 @@ const DarkModeContent = () => {
         maxDelay={3500}
       />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-6">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center space-y-2 md:space-y-4 mb-4">
           <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
             CLIENTES DESTACADOS
           </p>
-          <h2 className="text-2xl md:text-4xl font-medium mb-2 text-white">
+          <h2 className="text-2xl md:text-4xl font-medium mb-1 md:mb-2 text-white">
             Marcas que confían en nosotros
           </h2>
           <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-400">
@@ -105,7 +105,7 @@ const DarkModeContent = () => {
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col justify-center mt-8 md:mt-0">
+        <div className="mt-6 md:mt-8">
           <div className="w-full max-w-3xl mx-auto">
             <LogoCarousel logos={clientLogos} columns={2} />
           </div>
@@ -125,7 +125,7 @@ export default function Clients() {
       <ThemeComparison
         lightModeContent={<LightModeContent />}
         darkModeContent={<DarkModeContent />}
-        className="w-full h-[800px] md:h-auto md:aspect-[21/9]"
+        className="w-full h-[500px] md:h-auto md:aspect-[21/9]"
       />
     </section>
   );
