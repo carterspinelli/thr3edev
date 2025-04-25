@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GripVertical } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ThemeComparisonProps {
   lightModeContent: React.ReactNode;

@@ -9,6 +9,7 @@ import {
 } from "framer-motion"
 
 import { cn } from "@/lib/utils"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const customCursorSpringConfig = {
   damping: 25,
@@ -53,9 +54,20 @@ const customCursorVariants = {
 }
 
 export function useSetCursorVariant() {
+  const isMobile = useIsMobile()
   const [cursorVariant, setCursorVariant] =
     React.useState<keyof typeof customCursorVariants>("default")
   const [cursorText, setCursorText] = React.useState<string>("")
+
+  // Si es móvil, proporcionamos las funciones pero no hacen nada
+  if (isMobile) {
+    return {
+      cursorVariant: "default" as const,
+      setCursorVariant: () => {},
+      cursorText: "",
+      setCursorText: () => {},
+    };
+  }
 
   return {
     cursorVariant,
@@ -76,6 +88,12 @@ export function CustomCursor({
   className,
 }: CustomCursorProps) {
   const { cursorXSpring, cursroYSpring } = useFollowMouse()
+  const isMobile = useIsMobile()
+  
+  // No renderizar el cursor si es un dispositivo móvil
+  if (isMobile) {
+    return null;
+  }
 
   const isTextNotEmpty = text !== ""
   return (
