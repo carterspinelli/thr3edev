@@ -22,7 +22,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   return (
     <motion.div
-      className="relative h-20 w-36 overflow-hidden md:h-24 md:w-48 border border-transparent dark:border-blue-900/20 bg-white/5 dark:bg-blue-900/5 rounded-lg"
+      className="relative overflow-hidden p-2"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -34,7 +34,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
       <AnimatePresence mode="wait">
         <motion.div
           key={`${currentLogo.id}-${currentIndex}`}
-          className="absolute inset-0 flex items-center justify-center"
+          className="flex items-center justify-center h-[120px]"
           initial={{ y: "10%", opacity: 0 }}
           animate={{
             y: "0%",
@@ -54,14 +54,14 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           <img
             src={currentLogo.src}
             alt={currentLogo.name}
-            className="h-auto w-auto max-h-full max-w-full object-contain"
+            className="w-24 h-24 object-contain"
             style={{ 
-              filter: 'brightness(1.2) contrast(1.1)', 
-              width: '100%',
-              height: '80%'
+              filter: 'brightness(1.3) contrast(1.2)',
+              maxWidth: '100%',
+              maxHeight: '100%'
             }}
-            width="100"
-            height="100"
+            width="96"
+            height="96"
             loading="eager"
             onError={(e) => {
               console.error(`Error loading logo: ${currentLogo.name}`, e);

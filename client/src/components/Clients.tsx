@@ -125,7 +125,7 @@ export default function Clients() {
       <ThemeComparison
         lightModeContent={<LightModeContent />}
         darkModeContent={<DarkModeContent />}
-        className="w-full h-[700px] md:h-auto md:aspect-[21/9]"
+        className="w-full h-[800px] md:h-auto md:aspect-[21/9]"
       />
     </section>
   );
