@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GripVertical } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ThemeComparisonProps {
-  children: React.ReactNode;
+  lightModeContent: React.ReactNode;
+  darkModeContent: React.ReactNode;
   className?: string;
 }
 
 export function ThemeComparison({
-  children,
+  lightModeContent,
+  darkModeContent,
   className = ""
 }: ThemeComparisonProps) {
   const [inset, setInset] = useState<number>(50);
@@ -31,60 +34,52 @@ export function ThemeComparison({
 
   return (
     <div
-      className={`relative overflow-hidden select-none ${className}`}
+      className={`relative overflow-hidden rounded-xl select-none ${className}`}
       onMouseMove={onMouseMove}
       onMouseUp={() => setOnMouseDown(false)}
       onMouseLeave={() => setOnMouseDown(false)}
       onTouchMove={onMouseMove}
       onTouchEnd={() => setOnMouseDown(false)}
     >
-      {/* Contenedor común */}
-      <div className="relative w-full h-full theme-comparison-container">
-        {/* Contenido principal */}
-        <div className="absolute inset-0 w-full h-full theme-comparison-content">
-          {children}
-        </div>
-        
-        {/* Máscara para la zona oscura (a la derecha del divisor) */}
-        <div 
-          className="absolute inset-0 z-10 theme-comparison-mask dark-mask"
-          style={{
-            clipPath: `inset(0 0 0 ${inset}%)`,
+      <div
+        className="bg-white dark:bg-zinc-800 h-full w-1 absolute z-20 top-0 -ml-[0.5px] select-none"
+        style={{
+          left: inset + "%",
+        }}
+      >
+        <button
+          className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-full hover:scale-110 transition-all w-8 h-8 select-none -translate-y-1/2 absolute top-1/2 -ml-4 z-30 cursor-ew-resize flex justify-center items-center shadow-md"
+          onTouchStart={(e) => {
+            setOnMouseDown(true);
+            onMouseMove(e);
           }}
-        />
-        
-        {/* Máscara para la zona clara (a la izquierda del divisor) */}
-        <div 
-          className="absolute inset-0 z-10 theme-comparison-mask light-mask"
-          style={{
-            clipPath: `inset(0 ${100 - inset}% 0 0)`,
+          onMouseDown={(e) => {
+            setOnMouseDown(true);
+            onMouseMove(e);
           }}
-        />
-        
-        {/* Línea divisoria vertical */}
-        <div
-          className="bg-white dark:bg-zinc-800 h-full w-1 absolute z-30 top-0 -ml-[0.5px] select-none"
-          style={{
-            left: inset + "%",
-          }}
+          onTouchEnd={() => setOnMouseDown(false)}
+          onMouseUp={() => setOnMouseDown(false)}
         >
-          <button
-            className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-full hover:scale-110 transition-all w-8 h-8 select-none -translate-y-1/2 absolute top-1/2 -ml-4 z-30 cursor-ew-resize flex justify-center items-center shadow-md"
-            onTouchStart={(e) => {
-              setOnMouseDown(true);
-              onMouseMove(e);
-            }}
-            onMouseDown={(e) => {
-              setOnMouseDown(true);
-              onMouseMove(e);
-            }}
-            onTouchEnd={() => setOnMouseDown(false)}
-            onMouseUp={() => setOnMouseDown(false)}
-          >
-            <GripVertical className="h-4 w-4 select-none text-zinc-500 dark:text-zinc-400" />
-          </button>
-        </div>
+          <GripVertical className="h-4 w-4 select-none text-zinc-500 dark:text-zinc-400" />
+        </button>
       </div>
+      
+      {/* Lado oscuro (a la derecha) */}
+      <div className="relative w-full">
+        {darkModeContent}
+      </div>
+      
+      {/* Lado claro (a la izquierda) con el recorte */}
+      <div 
+        className="absolute left-0 top-0 z-10 w-full h-full"
+        style={{
+          clipPath: `inset(0 ${100 - inset}% 0 0)`,
+        }}
+      >
+        {lightModeContent}
+      </div>
+      
+      {/* Mode labels removed */}
     </div>
   );
 }

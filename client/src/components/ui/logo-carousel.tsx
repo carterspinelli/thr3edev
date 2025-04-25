@@ -22,7 +22,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   return (
     <motion.div
-      className="relative overflow-hidden p-2"
+      className="relative h-14 w-24 overflow-hidden md:h-24 md:w-48"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -34,7 +34,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
       <AnimatePresence mode="wait">
         <motion.div
           key={`${currentLogo.id}-${currentIndex}`}
-          className="flex items-center justify-center h-[80px] md:h-[100px]"
+          className="absolute inset-0 flex items-center justify-center"
           initial={{ y: "10%", opacity: 0 }}
           animate={{
             y: "0%",
@@ -54,19 +54,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           <img
             src={currentLogo.src}
             alt={currentLogo.name}
-            className="w-16 h-16 md:w-24 md:h-24 object-contain logo-image"
-            style={{ 
-              maxWidth: '100%',
-              maxHeight: '100%'
-            }}
-            width="80"
-            height="80"
-            loading="eager"
-            onError={(e) => {
-              console.error(`Error loading logo: ${currentLogo.name}`, e);
-              // Set a fallback if image fails to load
-              e.currentTarget.style.display = 'none';
-            }}
+            className="h-auto w-auto max-h-[80%] max-w-[80%] object-contain"
           />
         </motion.div>
       </AnimatePresence>
@@ -79,46 +67,34 @@ interface LogoCarouselProps {
   logos: Logo[];
 }
 
-// Almacena de manera global los logos distribuidos para mantener consistencia entre instancias
-let globalDistributedLogos: Logo[][] | null = null;
-
 export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   const [logoColumns, setLogoColumns] = useState<Logo[][]>([]);
   const [time, setTime] = useState(0);
 
-  const distributeLogos = useCallback(() => {
-    // Si ya tenemos los logos distribuidos, los usamos
-    if (globalDistributedLogos) {
-      return globalDistributedLogos;
-    }
-    
-    // Distribuir los logos de manera determinística
-    const result: Logo[][] = Array.from({ length: columns }, () => []);
-    
-    // Aseguramos que cada columna tenga al menos un logo
-    for (let i = 0; i < logos.length; i++) {
-      const colIndex = i % columns;
-      result[colIndex].push(logos[i]);
-    }
-    
-    // Aseguramos que todas las columnas tengan la misma cantidad de logos
-    const maxLength = Math.max(...result.map((col) => col.length));
-    result.forEach((col) => {
-      while (col.length < maxLength) {
-        // Agregamos logos de manera determinística
-        const index = col.length % logos.length;
-        col.push(logos[index]);
-      }
-    });
-    
-    // Guardamos globalmente para mantener consistencia
-    globalDistributedLogos = result;
-    return result;
-  }, [columns, logos]);
+  const distributeLogos = useCallback(
+    (logos: Logo[]) => {
+      const shuffled = [...logos].sort(() => Math.random() - 0.5);
+      const result: Logo[][] = Array.from({ length: columns }, () => []);
+
+      shuffled.forEach((logo, index) => {
+        result[index % columns].push(logo);
+      });
+
+      const maxLength = Math.max(...result.map((col) => col.length));
+      result.forEach((col) => {
+        while (col.length < maxLength) {
+          col.push(shuffled[Math.floor(Math.random() * shuffled.length)]);
+        }
+      });
+
+      return result;
+    },
+    [columns]
+  );
 
   useEffect(() => {
-    setLogoColumns(distributeLogos());
-  }, [distributeLogos]);
+    setLogoColumns(distributeLogos(logos));
+  }, [logos, distributeLogos]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -128,7 +104,7 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 py-2 md:py-4 px-4">
+    <div className="flex justify-center gap-4 py-8">
       {logoColumns.map((columnLogos, index) => (
         <LogoColumn
           key={index}
