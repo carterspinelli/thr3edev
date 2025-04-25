@@ -36,8 +36,7 @@ const LightClientContent = () => (
       <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
         CLIENTES DESTACADOS
       </p>
-      <h2 className="text-2xl md:text-4xl font-medium mb-2 text-transparent" 
-          style={{ WebkitTextStroke: '1px rgba(0,0,0,0.15)' }}>
+      <h2 className="text-2xl md:text-4xl font-medium mb-2 text-zinc-900">
         Marcas que confían en nosotros
       </h2>
       <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-600">
@@ -59,8 +58,7 @@ const DarkClientContent = () => (
       <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
         CLIENTES DESTACADOS
       </p>
-      <h2 className="text-2xl md:text-4xl font-medium mb-2 text-transparent" 
-          style={{ WebkitTextStroke: '1px white' }}>
+      <h2 className="text-2xl md:text-4xl font-medium mb-2 text-white">
         Marcas que confían en nosotros
       </h2>
       <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-400">
