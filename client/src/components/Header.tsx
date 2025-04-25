@@ -45,6 +45,39 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
     { href: "/privacidad", label: "Privacidad" }
   ];
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (isMobileMenuOpen) {
+      closeMobileMenu();
+    }
+    
+    if (href === "/#nuestro-proceso") {
+      // Para el enlace de Servicios, siempre navegar a la página principal + sección
+      if (window.location.pathname !== "/") {
+        sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
+        window.location.href = "/";
+      } else {
+        document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (href.startsWith('#')) {
+      if (onNavigate) {
+        onNavigate(href);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (href === "/portafolio" || href === "/privacidad") {
+      if (onNavigate) {
+        onNavigate(href);
+      } else {
+        // Navegar a la página usando wouter
+        setLocation(href);
+        // Asegurar que se va al inicio de la página
+        window.scrollTo(0, 0);
+      }
+    }
+  };
+
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? (theme === 'dark' ? 'bg-black/90 backdrop-blur-md border-b border-zinc-900' : 'bg-white/90 backdrop-blur-md border-b border-zinc-200') : 'bg-transparent'}`}>
       <motion.nav 
@@ -64,27 +97,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
               <motion.a 
                 key={index}
                 href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (item.href === "/#nuestro-proceso") {
-                    // Para el enlace de Servicios, siempre navegar a la página principal + sección
-                    if (window.location.pathname !== "/") {
-                      sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
-                      window.location.href = "/";
-                    } else {
-                      document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  } else if (onNavigate) {
-                    onNavigate(item.href);
-                  } else {
-                    // Default behavior for home page
-                    if (item.href.startsWith('#')) {
-                      document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-                    } else if (item.href === "/portafolio") {
-                      setLocation("/portafolio");
-                    }
-                  }
-                }}
+                onClick={(e) => handleNavigation(e, item.href)}
                 className={`text-sm font-medium transition-colors relative group ${theme === 'dark' ? 'text-zinc-400 hover:text-white' : 'text-zinc-600 hover:text-black'}`}
                 onMouseEnter={() => setCursorVariant("sm")}
                 onMouseLeave={() => setCursorVariant("default")}
@@ -161,28 +174,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
                 className={`font-medium transition-colors ${theme === 'dark' 
                   ? 'text-zinc-400 hover:text-white' 
                   : 'text-zinc-600 hover:text-black'}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  closeMobileMenu();
-                  if (item.href === "/#nuestro-proceso") {
-                    // Para el enlace de Servicios, siempre navegar a la página principal + sección
-                    if (window.location.pathname !== "/") {
-                      sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
-                      window.location.href = "/";
-                    } else {
-                      document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  } else if (onNavigate) {
-                    onNavigate(item.href);
-                  } else {
-                    // Default behavior for home page
-                    if (item.href.startsWith('#')) {
-                      document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-                    } else if (item.href === "/portafolio") {
-                      setLocation("/portafolio");
-                    }
-                  }
-                }}
+                onClick={(e) => handleNavigation(e, item.href)}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: isMobileMenuOpen ? 0 : -20, opacity: isMobileMenuOpen ? 1 : 0 }}
                 transition={{ delay: index * 0.05, duration: 0.3 }}

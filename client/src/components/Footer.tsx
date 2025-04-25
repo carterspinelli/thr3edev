@@ -47,6 +47,35 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
   const isDarkMode = theme === 'dark';
   const [, setLocation] = useLocation();
   
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (href === "/#nuestro-proceso") {
+      // Para el enlace de Servicios, siempre navegar a la página principal + sección
+      if (window.location.pathname !== "/") {
+        sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
+        window.location.href = "/";
+      } else {
+        document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (href.startsWith('#')) {
+      if (onNavigate) {
+        onNavigate(href);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (href === "/portafolio" || href === "/privacidad") {
+      if (onNavigate) {
+        onNavigate(href);
+      } else {
+        // Navegar a la página usando wouter
+        setLocation(href);
+        // Asegurar que se va al inicio de la página
+        window.scrollTo(0, 0);
+      }
+    }
+  };
+  
   return (
     <BackgroundBeamsWithCollision className={`h-auto ${theme === 'dark' ? 'dark' : ''}`}>
       <div className="relative z-10 w-full">
@@ -94,30 +123,7 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
                                       ? 'text-zinc-500 hover:text-white' 
                                       : 'text-zinc-600 hover:text-black'
                                   }`}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    if (item.href === "/#nuestro-proceso") {
-                                      // Para el enlace de Servicios, siempre navegar a la página principal + sección
-                                      if (window.location.pathname !== "/") {
-                                        sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
-                                        window.location.href = "/";
-                                      } else {
-                                        document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
-                                      }
-                                    } else if (item.href.startsWith('#')) {
-                                      if (onNavigate) {
-                                        onNavigate(item.href);
-                                      } else {
-                                        document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-                                      }
-                                    } else if (item.href === "/portafolio" || item.href === "/privacidad") {
-                                      if (onNavigate) {
-                                        onNavigate(item.href);
-                                      } else {
-                                        setLocation(item.href);
-                                      }
-                                    }
-                                  }}
+                                  onClick={(e) => handleNavigation(e, item.href)}
                                   onMouseEnter={() => setCursorVariant("sm")}
                                   onMouseLeave={() => setCursorVariant("default")}
                                 >
