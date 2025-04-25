@@ -29,35 +29,55 @@ const clientLogos = [
   },
 ];
 
-// Contenido compartido base para ambos modos
-const SharedClientContent = ({ isDark = false }) => {
-  return (
-    <div className="container mx-auto px-4 md:px-6 relative z-10">
-      <div className="mb-8 text-center">
-        <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
-          CLIENTES DESTACADOS
-        </p>
-        <h2 className={`text-2xl md:text-4xl font-medium mb-2 ${isDark ? "text-white" : "text-zinc-900"}`}>
-          Marcas que confían en nosotros
-        </h2>
-        <p className={`text-base md:text-lg max-w-2xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}>
-          Diseñamos experiencias web para empresas líderes que buscan destacar
-          en el mercado digital
-        </p>
-      </div>
-
-      <div className="w-full max-w-3xl mx-auto">
-        <LogoCarousel logos={clientLogos} columns={2} />
-      </div>
+// Componente de contenido para el modo claro
+const LightClientContent = () => (
+  <div className="container mx-auto px-4 md:px-6 relative z-10">
+    <div className="mb-8 text-center">
+      <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
+        CLIENTES DESTACADOS
+      </p>
+      <h2 className="text-2xl md:text-4xl font-medium mb-2 text-zinc-900">
+        Marcas que confían en nosotros
+      </h2>
+      <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-600">
+        Diseñamos experiencias web para empresas líderes que buscan destacar
+        en el mercado digital
+      </p>
     </div>
-  );
-};
+
+    <div className="w-full max-w-3xl mx-auto">
+      <LogoCarousel logos={clientLogos} columns={2} />
+    </div>
+  </div>
+);
+
+// Componente de contenido para el modo oscuro
+const DarkClientContent = () => (
+  <div className="container mx-auto px-4 md:px-6 relative z-10">
+    <div className="mb-8 text-center">
+      <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
+        CLIENTES DESTACADOS
+      </p>
+      <h2 className="text-2xl md:text-4xl font-medium mb-2 text-white">
+        Marcas que confían en nosotros
+      </h2>
+      <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-400">
+        Diseñamos experiencias web para empresas líderes que buscan destacar
+        en el mercado digital
+      </p>
+    </div>
+
+    <div className="w-full max-w-3xl mx-auto">
+      <LogoCarousel logos={clientLogos} columns={2} />
+    </div>
+  </div>
+);
 
 // Componente para mostrar el contenido en modo claro
 const LightModeContent = () => {
   return (
     <div className="py-8 bg-zinc-50 h-full w-full flex items-center">
-      <SharedClientContent isDark={false} />
+      <LightClientContent />
     </div>
   );
 };
@@ -96,7 +116,7 @@ const DarkModeContent = () => {
         maxDelay={3500}
       />
 
-      <SharedClientContent isDark={true} />
+      <DarkClientContent />
     </div>
   );
 };
