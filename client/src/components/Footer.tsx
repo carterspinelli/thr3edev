@@ -18,7 +18,7 @@ const navigation = {
           title: "Menu",
           items: [
             { name: "Servicios", href: "/#nuestro-proceso" },
-            { name: "Portafolio", href: "#portafolio" },
+            { name: "Portafolio", href: "/portafolio" },
             { name: "Nosotros", href: "#lo-que-ofrecemos" },
           ],
         },
@@ -97,18 +97,24 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
                                   }`}
                                   onClick={(e) => {
                                     e.preventDefault();
-                                    if (onNavigate && item.href.startsWith('#')) {
-                                      onNavigate(item.href);
-                                    } else {
-                                      // Default behavior for home page
-                                      if (item.href.startsWith('#')) {
+                                    if (item.href === "/#nuestro-proceso") {
+                                      // Para el enlace de Servicios, siempre navegar a la página principal + sección
+                                      if (window.location.pathname !== "/") {
+                                        window.location.href = "/#nuestro-proceso";
+                                      } else {
+                                        document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
+                                      }
+                                    } else if (item.href.startsWith('#')) {
+                                      if (onNavigate) {
+                                        onNavigate(item.href);
+                                      } else {
                                         document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
-                                      } else if (item.href === "/portafolio") {
-                                        if (onNavigate) {
-                                          onNavigate(item.href);
-                                        } else {
-                                          setLocation("/portafolio");
-                                        }
+                                      }
+                                    } else if (item.href === "/portafolio") {
+                                      if (onNavigate) {
+                                        onNavigate(item.href);
+                                      } else {
+                                        setLocation("/portafolio");
                                       }
                                     }
                                   }}

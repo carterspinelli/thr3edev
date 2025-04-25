@@ -64,7 +64,14 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
                 href={item.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  if (onNavigate) {
+                  if (item.href === "/#nuestro-proceso") {
+                    // Para el enlace de Servicios, siempre navegar a la página principal + sección
+                    if (window.location.pathname !== "/") {
+                      window.location.href = "/#nuestro-proceso";
+                    } else {
+                      document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  } else if (onNavigate) {
                     onNavigate(item.href);
                   } else {
                     // Default behavior for home page
@@ -154,7 +161,14 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
                 onClick={(e) => {
                   e.preventDefault();
                   closeMobileMenu();
-                  if (onNavigate) {
+                  if (item.href === "/#nuestro-proceso") {
+                    // Para el enlace de Servicios, siempre navegar a la página principal + sección
+                    if (window.location.pathname !== "/") {
+                      window.location.href = "/#nuestro-proceso";
+                    } else {
+                      document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  } else if (onNavigate) {
                     onNavigate(item.href);
                   } else {
                     // Default behavior for home page
