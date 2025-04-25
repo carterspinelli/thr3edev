@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
-import { LogoCarousel } from "@/components/ui/logo-carousel";
+import { LogoCarousel } from "@/components/ui/logo-carousel-new";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { ThemeComparison } from "@/components/ui/theme-comparison";
 import { useIsMobile } from "@/hooks/use-mobile";

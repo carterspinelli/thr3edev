@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -87,8 +87,8 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   const [time, setTime] = useState(0);
   const isMobile = useIsMobile();
   
-  // Asegurarse de que siempre haya al menos una columna
-  const effectiveColumns = Math.max(1, columns);
+  // Asegurarse de que siempre haya al menos una columna, y en móvil mostrar solo una
+  const effectiveColumns = isMobile ? 1 : Math.max(1, columns);
   
   // En móvil, reducir el intervalo de tiempo para mostrar los logos más rápido
   const timeInterval = isMobile ? 50 : 100;
