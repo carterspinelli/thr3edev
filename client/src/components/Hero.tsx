@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
 import {
@@ -7,8 +8,11 @@ import {
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import ContactModal from "./ContactModal";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 
 export default function Hero() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const { cursorVariant, setCursorVariant, cursorText, setCursorText } =
     useSetCursorVariant();
   const { theme } = useTheme();
@@ -54,18 +58,27 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Button 
-                variant="expandIcon" 
-                size="lg"
-                className="bg-[#0e62fe] text-white"
-                Icon={() => <ArrowRight className="h-4 w-4" />} 
-                iconPlacement="right"
-                onMouseEnter={() => setCursorVariant("sm")}
-                onMouseLeave={() => setCursorVariant("default")}
-                onClick={() => window.location.href = "#pricing"}
-              >
-                Quiero mi landing page
-              </Button>
+              <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
+                <DialogTrigger asChild>
+                  <Button 
+                    variant="expandIcon" 
+                    size="lg"
+                    className="bg-[#0e62fe] text-white"
+                    Icon={() => <ArrowRight className="h-4 w-4" />} 
+                    iconPlacement="right"
+                    onMouseEnter={() => setCursorVariant("sm")}
+                    onMouseLeave={() => setCursorVariant("default")}
+                  >
+                    Quiero mi landing page
+                  </Button>
+                </DialogTrigger>
+                
+                <ContactModal 
+                  open={isContactModalOpen} 
+                  onOpenChange={setIsContactModalOpen} 
+                />
+              </Dialog>
+              
               <Button 
                 variant="expandIconNeutral" 
                 size="lg"

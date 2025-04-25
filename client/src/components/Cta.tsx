@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ContactModal from "./ContactModal";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 
 export default function Cta() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -23,16 +24,25 @@ export default function Cta() {
             Una reunión de 30 minutos y 3 días después tu sitio está listo. Diseño, desarrollo y hosting incluidos por $18,000 MXN, con entrega completa del código.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button 
-              variant="expandIcon"
-              size="lg"
-              className="bg-white text-neutral-900 px-8"
-              Icon={() => <ArrowRight className="h-4 w-4" />}
-              iconPlacement="right"
-              onClick={() => setIsContactModalOpen(true)}
-            >
-              Quiero mi landing page
-            </Button>
+            <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="expandIcon"
+                  size="lg"
+                  className="bg-white text-neutral-900 px-8"
+                  Icon={() => <ArrowRight className="h-4 w-4" />}
+                  iconPlacement="right"
+                >
+                  Quiero mi landing page
+                </Button>
+              </DialogTrigger>
+              
+              <ContactModal 
+                open={isContactModalOpen} 
+                onOpenChange={setIsContactModalOpen} 
+              />
+            </Dialog>
+            
             <Button 
               variant="expandIcon"
               size="lg"
@@ -46,11 +56,6 @@ export default function Cta() {
           </div>
         </div>
       </div>
-      
-      <ContactModal 
-        open={isContactModalOpen} 
-        onOpenChange={setIsContactModalOpen} 
-      />
     </section>
   );
 }
