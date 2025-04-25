@@ -1,39 +1,36 @@
 import React from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
-import { LogoCarousel } from "@/components/ui/logo-carousel-new";
+import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { ThemeComparison } from "@/components/ui/theme-comparison";
-import { useIsMobile } from "@/hooks/use-mobile";
 
-// Logo paths - Usar imágenes locales para garantizar que se cargan correctamente en todos los dispositivos
+// Logo paths
 const clientLogos = [
   {
     id: 1,
     name: "IBM",
-    src: "/ibm-logo.svg",
+    src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
   },
   {
     id: 2,
     name: "Udemy",
-    src: "/udemy-logo.svg",
+    src: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg",
   },
   {
     id: 3,
-    name: "GitHub",
-    src: "/github-logo.svg",
+    name: "Docusaurus",
+    src: "https://docusaurus.io/img/docusaurus.svg",
   },
   {
     id: 4,
-    name: "Meta",
-    src: "/meta-logo.svg",
+    name: "Metamask",
+    src: "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg",
   },
 ];
 
 // Componente para mostrar el contenido en modo claro
 const LightModeContent = () => {
-  const isMobile = useIsMobile();
-
   return (
     <div className="py-16 bg-zinc-50 min-h-[500px] flex flex-col">
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
@@ -51,7 +48,7 @@ const LightModeContent = () => {
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
-          <LogoCarousel logos={clientLogos} columns={isMobile ? 1 : 2} />
+          <LogoCarousel logos={clientLogos} columns={2} />
         </div>
 
         {/* Text removed */}
@@ -62,8 +59,6 @@ const LightModeContent = () => {
 
 // Componente para mostrar el contenido en modo oscuro con efectos
 const DarkModeContent = () => {
-  const isMobile = useIsMobile();
-  
   return (
     <div className="py-16 bg-[#050715] min-h-[500px] relative overflow-hidden flex flex-col">
       {/* Fondo con efectos para el modo oscuro */}
@@ -111,7 +106,7 @@ const DarkModeContent = () => {
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
-          <LogoCarousel logos={clientLogos} columns={isMobile ? 1 : 2} />
+          <LogoCarousel logos={clientLogos} columns={2} />
         </div>
 
         {/* Text removed */}
@@ -124,7 +119,6 @@ export default function Clients() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  // Siempre mostrar el componente de comparación de temas (tanto en móvil como en desktop)
   return (
     <section className={`relative ${isDark ? "bg-[#050715]" : "bg-zinc-50"}`}>
       {/* Componente de comparación de temas */}

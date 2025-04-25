@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Logo {
   id: number;
@@ -15,25 +14,15 @@ interface LogoColumnProps {
 }
 
 function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
-  if (!logos || logos.length === 0) {
-    return null;
-  }
-  
-  const isMobile = useIsMobile();
-  const CYCLE_DURATION = isMobile ? 3000 : 2000; // Más tiempo para ver cada logo en móvil
+  const CYCLE_DURATION = 2000;
   const columnDelay = columnIndex * 200;
   const adjustedTime = (currentTime + columnDelay) % (CYCLE_DURATION * logos.length);
   const currentIndex = Math.floor(adjustedTime / CYCLE_DURATION);
-  const currentLogo = logos[currentIndex] || logos[0]; // Asegurarse de que siempre haya un logo
-
-  // Aumentar el tamaño en móvil para mayor visibilidad
-  const containerSizeClasses = isMobile
-    ? "relative h-24 w-32 overflow-visible"
-    : "relative h-16 w-24 overflow-visible md:h-24 md:w-48";
+  const currentLogo = logos[currentIndex];
 
   return (
     <motion.div
-      className={containerSizeClasses}
+      className="relative h-14 w-24 overflow-hidden md:h-24 md:w-48"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -65,11 +54,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           <img
             src={currentLogo.src}
             alt={currentLogo.name}
-            className="h-auto w-auto object-contain max-h-[90%] max-w-[90%]"
-            style={{
-              minWidth: isMobile ? "80px" : "auto",
-              minHeight: isMobile ? "30px" : "auto",
-            }}
+            className="h-auto w-auto max-h-[80%] max-w-[80%] object-contain"
           />
         </motion.div>
       </AnimatePresence>
@@ -85,27 +70,14 @@ interface LogoCarouselProps {
 export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   const [logoColumns, setLogoColumns] = useState<Logo[][]>([]);
   const [time, setTime] = useState(0);
-  const isMobile = useIsMobile();
-  
-  // Asegurarse de que siempre haya al menos una columna
-  const effectiveColumns = Math.max(1, columns);
-  
-  // En móvil, reducir el intervalo de tiempo para mostrar los logos más rápido
-  const timeInterval = isMobile ? 50 : 100;
 
   const distributeLogos = useCallback(
     (logos: Logo[]) => {
-      // Asegurarse de que haya logos para mostrar
-      if (!logos || logos.length === 0) {
-        // Si no hay logos, crear un array del tamaño apropiado
-        return Array.from({ length: effectiveColumns }, () => []);
-      }
-      
       const shuffled = [...logos].sort(() => Math.random() - 0.5);
-      const result: Logo[][] = Array.from({ length: effectiveColumns }, () => []);
+      const result: Logo[][] = Array.from({ length: columns }, () => []);
 
       shuffled.forEach((logo, index) => {
-        result[index % effectiveColumns].push(logo);
+        result[index % columns].push(logo);
       });
 
       const maxLength = Math.max(...result.map((col) => col.length));
@@ -117,7 +89,7 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
 
       return result;
     },
-    [effectiveColumns]
+    [columns]
   );
 
   useEffect(() => {
@@ -126,32 +98,21 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime((prev) => prev + timeInterval);
-    }, timeInterval);
+      setTime((prev) => prev + 100);
+    }, 100);
     return () => clearInterval(interval);
-  }, [timeInterval]);
+  }, []);
 
-  // Preparar estilos específicos para móvil o desktop
-  const containerStyles = isMobile 
-    ? "flex flex-col items-center justify-center gap-8 py-8" 
-    : "flex justify-center gap-4 py-8";
-    
   return (
-    <div className={containerStyles}>
-      {/* Asegurar que siempre se renderice al menos una columna */}
-      {(logoColumns && logoColumns.length > 0) ? (
-        logoColumns.map((columnLogos, index) => (
-          <LogoColumn
-            key={index}
-            logos={columnLogos}
-            columnIndex={index}
-            currentTime={time}
-          />
-        ))
-      ) : (
-        // Fallback por si no hay columnas
-        <div className="text-sm text-zinc-500">Cargando logos...</div>
-      )}
+    <div className="flex justify-center gap-4 py-8">
+      {logoColumns.map((columnLogos, index) => (
+        <LogoColumn
+          key={index}
+          logos={columnLogos}
+          columnIndex={index}
+          currentTime={time}
+        />
+      ))}
     </div>
   );
 }
