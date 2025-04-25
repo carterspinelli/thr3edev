@@ -28,8 +28,11 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   // Aumentar el tamaño en móvil para mayor visibilidad
   const containerSizeClasses = isMobile
-    ? "relative h-24 w-32 overflow-visible"
+    ? "relative h-28 w-40 overflow-visible"
     : "relative h-16 w-24 overflow-visible md:h-24 md:w-48";
+
+  // Obtener la URL de la imagen o usar el ruta por defecto
+  const imageSrc = currentLogo.src || `/ibm-logo.svg`;
 
   return (
     <motion.div
@@ -63,12 +66,12 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           }}
         >
           <img
-            src={currentLogo.src}
+            src={imageSrc}
             alt={currentLogo.name}
-            className="h-auto w-auto object-contain max-h-[90%] max-w-[90%]"
+            className="h-auto w-auto object-contain max-h-[90%] max-w-[90%] dark:filter dark:brightness-0 dark:invert"
             style={{
-              minWidth: isMobile ? "80px" : "auto",
-              minHeight: isMobile ? "30px" : "auto",
+              minWidth: isMobile ? "100px" : "auto",
+              minHeight: isMobile ? "40px" : "auto",
             }}
           />
         </motion.div>
@@ -83,6 +86,17 @@ interface LogoCarouselProps {
 }
 
 export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
+  // Usamos logos fijos en caso de que los pasados no se carguen correctamente
+  const defaultLogos: Logo[] = [
+    { id: 1, name: "IBM", src: "/ibm-logo.svg" },
+    { id: 2, name: "Udemy", src: "/udemy-logo.svg" },
+    { id: 3, name: "GitHub", src: "/github-logo.svg" },
+    { id: 4, name: "Meta", src: "/meta-logo.svg" }
+  ];
+  
+  // Usar los logos por defecto si los pasados están vacíos
+  const logosToUse = (logos && logos.length > 0) ? logos : defaultLogos;
+  
   const [logoColumns, setLogoColumns] = useState<Logo[][]>([]);
   const [time, setTime] = useState(0);
   const isMobile = useIsMobile();
@@ -121,8 +135,8 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   );
 
   useEffect(() => {
-    setLogoColumns(distributeLogos(logos));
-  }, [logos, distributeLogos]);
+    setLogoColumns(distributeLogos(logosToUse));
+  }, [logosToUse, distributeLogos]);
 
   useEffect(() => {
     const interval = setInterval(() => {
