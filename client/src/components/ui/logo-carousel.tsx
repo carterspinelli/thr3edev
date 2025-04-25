@@ -57,9 +57,6 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
             src={currentLogo.src}
             alt={currentLogo.name}
             className={`h-auto w-auto object-contain ${isMobile ? 'max-h-[80%] max-w-[80%] min-w-[60px]' : 'max-h-[80%] max-w-[80%]'}`}
-            style={{
-              filter: isMobile ? 'brightness(0) invert(1)' : 'none', // Hacer los logos blancos en móvil para mejor visibilidad
-            }}
           />
         </motion.div>
       </AnimatePresence>

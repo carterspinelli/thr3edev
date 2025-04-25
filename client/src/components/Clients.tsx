@@ -71,34 +71,30 @@ const DarkModeContent = () => {
       <div className="stars absolute inset-0" />
 
       {/* Múltiples capas de estrellas fugaces con diferentes colores y velocidades */}
-      {!isMobile && (
-        <>
-          <ShootingStars
-            starColor="#0e62fe"
-            trailColor="#2EB9DF"
-            minSpeed={15}
-            maxSpeed={35}
-            minDelay={1000}
-            maxDelay={3000}
-          />
-          <ShootingStars
-            starColor="#3b82f6"
-            trailColor="#0e62fe"
-            minSpeed={10}
-            maxSpeed={25}
-            minDelay={2000}
-            maxDelay={4000}
-          />
-          <ShootingStars
-            starColor="#60a5fa"
-            trailColor="#2563eb"
-            minSpeed={20}
-            maxSpeed={40}
-            minDelay={1500}
-            maxDelay={3500}
-          />
-        </>
-      )}
+      <ShootingStars
+        starColor="#0e62fe"
+        trailColor="#2EB9DF"
+        minSpeed={15}
+        maxSpeed={35}
+        minDelay={1000}
+        maxDelay={3000}
+      />
+      <ShootingStars
+        starColor="#3b82f6"
+        trailColor="#0e62fe"
+        minSpeed={10}
+        maxSpeed={25}
+        minDelay={2000}
+        maxDelay={4000}
+      />
+      <ShootingStars
+        starColor="#60a5fa"
+        trailColor="#2563eb"
+        minSpeed={20}
+        maxSpeed={40}
+        minDelay={1500}
+        maxDelay={3500}
+      />
 
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
         <div className="text-center space-y-4 mb-8">
@@ -127,27 +123,8 @@ const DarkModeContent = () => {
 export default function Clients() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const isMobile = useIsMobile();
 
-  // Si estamos en un dispositivo móvil y en modo oscuro, mostrar directamente el contenido oscuro
-  if (isMobile && isDark) {
-    return (
-      <section className="relative bg-[#050715]">
-        <DarkModeContent />
-      </section>
-    );
-  }
-  
-  // Si estamos en un dispositivo móvil y en modo claro, mostrar directamente el contenido claro
-  if (isMobile && !isDark) {
-    return (
-      <section className="relative bg-zinc-50">
-        <LightModeContent />
-      </section>
-    );
-  }
-
-  // En desktop, mostrar el componente de comparación de temas
+  // Siempre mostrar el componente de comparación de temas (tanto en móvil como en desktop)
   return (
     <section className={`relative ${isDark ? "bg-[#050715]" : "bg-zinc-50"}`}>
       {/* Componente de comparación de temas */}

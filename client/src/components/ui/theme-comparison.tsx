@@ -15,29 +15,45 @@ export function ThemeComparison({
 }: ThemeComparisonProps) {
   const [inset, setInset] = useState<number>(50);
   const [onMouseDown, setOnMouseDown] = useState<boolean>(false);
+  const [showHint, setShowHint] = useState<boolean>(true);
   const isMobile = useIsMobile();
 
-  // En dispositivos móviles, alternar automáticamente entre modos claro y oscuro
+  // En dispositivos móviles, podemos dejar que el usuario arrastre pero también ofrecemos animación automática
   useEffect(() => {
+    // Inicializar la posición de la cortina al montar el componente
+    setInset(50);
+    
     if (isMobile) {
-      // Cambiar gradualmente entre modos cada 4 segundos en móvil
+      // Sin embargo, añadimos un movimiento sutil cada cierto tiempo para llamar la atención
       const interval = setInterval(() => {
         setInset((prev) => {
-          // Si está en modo claro (>70%), pasar a oscuro
-          if (prev > 70) return 30;
-          // Si está en modo oscuro (<30%), pasar a claro
-          if (prev < 30) return 70;
-          // Si está en transición, continuar en la misma dirección
-          return prev > 50 ? 80 : 20;
+          // Pequeña oscilación para llamar la atención sobre la capacidad de arrastrar
+          if (prev === 50) return 45;
+          if (prev === 45) return 55;
+          if (prev === 55) return 50;
+          return 50;
         });
-      }, 4000);
+      }, 3000);
       
-      return () => clearInterval(interval);
+      // Ocultar la sugerencia después de 5 segundos
+      const hintTimer = setTimeout(() => {
+        setShowHint(false);
+      }, 5000);
+      
+      return () => {
+        clearInterval(interval);
+        clearTimeout(hintTimer);
+      };
     }
   }, [isMobile]);
 
   const onMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (!onMouseDown) return;
+
+    // Ocultar la sugerencia si el usuario está interactuando
+    if (showHint) {
+      setShowHint(false);
+    }
 
     const rect = e.currentTarget.getBoundingClientRect();
     let x = 0;
@@ -68,7 +84,7 @@ export function ThemeComparison({
         }}
       >
         <button
-          className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-full hover:scale-110 transition-all w-8 h-8 select-none -translate-y-1/2 absolute top-1/2 -ml-4 z-30 cursor-ew-resize flex justify-center items-center shadow-md"
+          className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-full hover:scale-110 transition-all w-8 h-8 md:w-10 md:h-10 select-none -translate-y-1/2 absolute top-1/2 -ml-4 z-30 cursor-ew-resize flex justify-center items-center shadow-md"
           onTouchStart={(e) => {
             setOnMouseDown(true);
             onMouseMove(e);
@@ -80,7 +96,7 @@ export function ThemeComparison({
           onTouchEnd={() => setOnMouseDown(false)}
           onMouseUp={() => setOnMouseDown(false)}
         >
-          <GripVertical className="h-4 w-4 select-none text-zinc-500 dark:text-zinc-400" />
+          <GripVertical className="h-4 w-4 md:h-5 md:w-5 select-none text-zinc-500 dark:text-zinc-400" />
         </button>
       </div>
       
@@ -99,7 +115,12 @@ export function ThemeComparison({
         {lightModeContent}
       </div>
       
-      {/* Mode labels removed */}
+      {/* Indicación para dispositivos móviles */}
+      {isMobile && showHint && (
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-40 bg-black/60 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm whitespace-nowrap animate-pulse">
+          Desliza para cambiar de tema
+        </div>
+      )}
     </div>
   );
 }
