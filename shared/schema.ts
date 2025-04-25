@@ -19,12 +19,10 @@ export type User = typeof users.$inferSelect;
 // Contact form submission
 export const contactSubmissions = pgTable("contact_submissions", {
   id: serial("id").primaryKey(),
-  nombre: text("nombre").notNull(),
-  empresa: text("empresa"),
+  business_name: text("business_name").notNull(),
   email: text("email").notNull(),
-  telefono: text("telefono"),
-  tipoProyecto: text("tipo_proyecto"),
-  mensaje: text("mensaje").notNull(),
+  message: text("message").notNull(),
+  referral_source: text("referral_source").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -35,8 +33,9 @@ export const insertContactSchema = createInsertSchema(contactSubmissions).omit({
 
 export const contactFormSchema = insertContactSchema.extend({
   email: z.string().email({ message: "Email inválido" }),
-  nombre: z.string().min(2, { message: "Nombre es requerido" }),
-  mensaje: z.string().min(5, { message: "Mensaje es requerido" }),
+  business_name: z.string().min(1, { message: "Nombre de empresa es requerido" }),
+  message: z.string().min(10, { message: "La descripción del proyecto es requerida" }),
+  referral_source: z.string().min(1, { message: "Indica cómo nos conociste" }),
 });
 
 export type InsertContact = z.infer<typeof insertContactSchema>;
