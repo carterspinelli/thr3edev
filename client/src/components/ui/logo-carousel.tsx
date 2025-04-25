@@ -80,34 +80,46 @@ interface LogoCarouselProps {
   logos: Logo[];
 }
 
+// Almacena de manera global los logos distribuidos para mantener consistencia entre instancias
+let globalDistributedLogos: Logo[][] | null = null;
+
 export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   const [logoColumns, setLogoColumns] = useState<Logo[][]>([]);
   const [time, setTime] = useState(0);
 
-  const distributeLogos = useCallback(
-    (logos: Logo[]) => {
-      const shuffled = [...logos].sort(() => Math.random() - 0.5);
-      const result: Logo[][] = Array.from({ length: columns }, () => []);
-
-      shuffled.forEach((logo, index) => {
-        result[index % columns].push(logo);
-      });
-
-      const maxLength = Math.max(...result.map((col) => col.length));
-      result.forEach((col) => {
-        while (col.length < maxLength) {
-          col.push(shuffled[Math.floor(Math.random() * shuffled.length)]);
-        }
-      });
-
-      return result;
-    },
-    [columns]
-  );
+  const distributeLogos = useCallback(() => {
+    // Si ya tenemos los logos distribuidos, los usamos
+    if (globalDistributedLogos) {
+      return globalDistributedLogos;
+    }
+    
+    // Distribuir los logos de manera determinística
+    const result: Logo[][] = Array.from({ length: columns }, () => []);
+    
+    // Aseguramos que cada columna tenga al menos un logo
+    for (let i = 0; i < logos.length; i++) {
+      const colIndex = i % columns;
+      result[colIndex].push(logos[i]);
+    }
+    
+    // Aseguramos que todas las columnas tengan la misma cantidad de logos
+    const maxLength = Math.max(...result.map((col) => col.length));
+    result.forEach((col) => {
+      while (col.length < maxLength) {
+        // Agregamos logos de manera determinística
+        const index = col.length % logos.length;
+        col.push(logos[index]);
+      }
+    });
+    
+    // Guardamos globalmente para mantener consistencia
+    globalDistributedLogos = result;
+    return result;
+  }, [columns, logos]);
 
   useEffect(() => {
-    setLogoColumns(distributeLogos(logos));
-  }, [logos, distributeLogos]);
+    setLogoColumns(distributeLogos());
+  }, [distributeLogos]);
 
   useEffect(() => {
     const interval = setInterval(() => {

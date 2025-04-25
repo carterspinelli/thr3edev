@@ -33,13 +33,29 @@ export function ThemeComparison({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl select-none ${className}`}
+      className={`relative overflow-hidden select-none ${className}`}
       onMouseMove={onMouseMove}
       onMouseUp={() => setOnMouseDown(false)}
       onMouseLeave={() => setOnMouseDown(false)}
       onTouchMove={onMouseMove}
       onTouchEnd={() => setOnMouseDown(false)}
     >
+      {/* Lado oscuro (al fondo, ocupa todo el espacio) */}
+      <div className="absolute inset-0 w-full h-full">
+        {darkModeContent}
+      </div>
+      
+      {/* Lado claro encima, con el recorte */}
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{
+          clipPath: `inset(0 ${100 - inset}% 0 0)`,
+        }}
+      >
+        {lightModeContent}
+      </div>
+      
+      {/* Línea divisoria vertical */}
       <div
         className="bg-white dark:bg-zinc-800 h-full w-1 absolute z-20 top-0 -ml-[0.5px] select-none"
         style={{
@@ -62,23 +78,6 @@ export function ThemeComparison({
           <GripVertical className="h-4 w-4 select-none text-zinc-500 dark:text-zinc-400" />
         </button>
       </div>
-      
-      {/* Lado oscuro (a la derecha) */}
-      <div className="relative w-full">
-        {darkModeContent}
-      </div>
-      
-      {/* Lado claro (a la izquierda) con el recorte */}
-      <div 
-        className="absolute left-0 top-0 z-10 w-full h-full"
-        style={{
-          clipPath: `inset(0 ${100 - inset}% 0 0)`,
-        }}
-      >
-        {lightModeContent}
-      </div>
-      
-      {/* Mode labels removed */}
     </div>
   );
 }

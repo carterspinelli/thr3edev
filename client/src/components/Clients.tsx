@@ -29,28 +29,35 @@ const clientLogos = [
   },
 ];
 
+// Contenido compartido base para ambos modos
+const SharedClientContent = ({ isDark = false }) => {
+  return (
+    <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="mb-8 text-center">
+        <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
+          CLIENTES DESTACADOS
+        </p>
+        <h2 className={`text-2xl md:text-4xl font-medium mb-2 ${isDark ? "text-white" : "text-zinc-900"}`}>
+          Marcas que confían en nosotros
+        </h2>
+        <p className={`text-base md:text-lg max-w-2xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}>
+          Diseñamos experiencias web para empresas líderes que buscan destacar
+          en el mercado digital
+        </p>
+      </div>
+
+      <div className="w-full max-w-3xl mx-auto">
+        <LogoCarousel logos={clientLogos} columns={2} />
+      </div>
+    </div>
+  );
+};
+
 // Componente para mostrar el contenido en modo claro
 const LightModeContent = () => {
   return (
-    <div className="py-8 bg-zinc-50 h-full flex items-center">
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="mb-8 text-center">
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
-            CLIENTES DESTACADOS
-          </p>
-          <h2 className="text-2xl md:text-4xl font-medium mb-2 text-zinc-900">
-            Marcas que confían en nosotros
-          </h2>
-          <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-600">
-            Diseñamos experiencias web para empresas líderes que buscan destacar
-            en el mercado digital
-          </p>
-        </div>
-
-        <div className="w-full max-w-3xl mx-auto">
-          <LogoCarousel logos={clientLogos} columns={2} />
-        </div>
-      </div>
+    <div className="py-8 bg-zinc-50 h-full w-full flex items-center">
+      <SharedClientContent isDark={false} />
     </div>
   );
 };
@@ -58,7 +65,7 @@ const LightModeContent = () => {
 // Componente para mostrar el contenido en modo oscuro con efectos
 const DarkModeContent = () => {
   return (
-    <div className="py-8 bg-[#050715] relative overflow-hidden h-full flex items-center">
+    <div className="py-8 bg-[#050715] relative overflow-hidden h-full w-full flex items-center">
       {/* Fondo con efectos para el modo oscuro */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
       <div className="stars absolute inset-0" />
@@ -89,24 +96,7 @@ const DarkModeContent = () => {
         maxDelay={3500}
       />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="mb-8 text-center">
-          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-2">
-            CLIENTES DESTACADOS
-          </p>
-          <h2 className="text-2xl md:text-4xl font-medium mb-2 text-white">
-            Marcas que confían en nosotros
-          </h2>
-          <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-400">
-            Diseñamos experiencias web para empresas líderes que buscan destacar
-            en el mercado digital
-          </p>
-        </div>
-
-        <div className="w-full max-w-3xl mx-auto">
-          <LogoCarousel logos={clientLogos} columns={2} />
-        </div>
-      </div>
+      <SharedClientContent isDark={true} />
     </div>
   );
 };
