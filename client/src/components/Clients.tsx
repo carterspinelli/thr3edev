@@ -35,21 +35,19 @@ const LightModeContent = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className={`${isMobile ? 'py-4' : 'py-16'} bg-zinc-50 min-h-[320px] sm:min-h-[400px] md:min-h-[500px] flex flex-col`}>
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-1 sm:space-y-2 md:space-y-4 mb-2 sm:mb-4 md:mb-8">
-          <p className="text-[#0e62fe] text-[10px] xs:text-xs sm:text-sm font-medium tracking-wide uppercase">
+    <div className={`${isMobile ? 'py-8' : 'py-16'} bg-zinc-50 min-h-[400px] md:min-h-[500px] flex flex-col`}>
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
+        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-8">
+          <p className="text-[#0e62fe] text-xs sm:text-sm font-medium tracking-wide uppercase">
             Clientes Destacados
           </p>
-          <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-medium mb-0 sm:mb-1 md:mb-2 text-zinc-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-zinc-900">
             Marcas que confían en nosotros
           </h2>
-          {!isMobile && (
-            <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-600">
-              Diseñamos experiencias web para empresas líderes que buscan destacar
-              en el mercado digital
-            </p>
-          )}
+          <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-600">
+            Diseñamos experiencias web para empresas líderes que buscan destacar
+            en el mercado digital
+          </p>
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
@@ -65,7 +63,7 @@ const DarkModeContent = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className={`${isMobile ? 'py-4' : 'py-16'} bg-[#050715] min-h-[320px] sm:min-h-[400px] md:min-h-[500px] relative overflow-hidden flex flex-col`}>
+    <div className={`${isMobile ? 'py-8' : 'py-16'} bg-[#050715] min-h-[400px] md:min-h-[500px] relative overflow-hidden flex flex-col`}>
       {/* Fondo con efectos para el modo oscuro */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
       <div className="stars absolute inset-0" />
@@ -96,20 +94,18 @@ const DarkModeContent = () => {
         maxDelay={3500}
       />
 
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-1 sm:space-y-2 md:space-y-4 mb-2 sm:mb-4 md:mb-8">
-          <p className="text-[#0e62fe] text-[10px] xs:text-xs sm:text-sm font-medium tracking-wide uppercase">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
+        <div className="text-center space-y-2 md:space-y-4 mb-4 md:mb-8">
+          <p className="text-[#0e62fe] text-xs sm:text-sm font-medium tracking-wide uppercase">
             Clientes Destacados
           </p>
-          <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-medium mb-0 sm:mb-1 md:mb-2 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-white">
             Marcas que confían en nosotros
           </h2>
-          {!isMobile && (
-            <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-400">
-              Diseñamos experiencias web para empresas líderes que buscan destacar
-              en el mercado digital
-            </p>
-          )}
+          <p className="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-400">
+            Diseñamos experiencias web para empresas líderes que buscan destacar
+            en el mercado digital
+          </p>
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
@@ -124,15 +120,13 @@ export default function Clients() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const isMobile = useIsMobile();
-  
   return (
     <section className={`relative ${isDark ? "bg-[#050715]" : "bg-zinc-50"}`}>
       {/* Componente de comparación de temas */}
       <ThemeComparison
         lightModeContent={<LightModeContent />}
         darkModeContent={<DarkModeContent />}
-        className={`w-full ${isMobile ? 'aspect-[6/5]' : 'aspect-[16/10] md:aspect-[21/9]'}`}
+        className="w-full aspect-[16/10] md:aspect-[21/9]"
       />
     </section>
   );
