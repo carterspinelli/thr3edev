@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { ThemeComparison } from "@/components/ui/theme-comparison";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Logo paths
 const clientLogos = [
@@ -118,7 +119,27 @@ const DarkModeContent = () => {
 export default function Clients() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const isMobile = useIsMobile();
 
+  // Si estamos en un dispositivo móvil y en modo oscuro, mostrar directamente el contenido oscuro
+  if (isMobile && isDark) {
+    return (
+      <section className="relative bg-[#050715]">
+        <DarkModeContent />
+      </section>
+    );
+  }
+  
+  // Si estamos en un dispositivo móvil y en modo claro, mostrar directamente el contenido claro
+  if (isMobile && !isDark) {
+    return (
+      <section className="relative bg-zinc-50">
+        <LightModeContent />
+      </section>
+    );
+  }
+
+  // En desktop, mostrar el componente de comparación de temas
   return (
     <section className={`relative ${isDark ? "bg-[#050715]" : "bg-zinc-50"}`}>
       {/* Componente de comparación de temas */}

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Logo {
   id: number;
@@ -19,10 +20,11 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
   const adjustedTime = (currentTime + columnDelay) % (CYCLE_DURATION * logos.length);
   const currentIndex = Math.floor(adjustedTime / CYCLE_DURATION);
   const currentLogo = logos[currentIndex];
+  const isMobile = useIsMobile();
 
   return (
     <motion.div
-      className="relative h-14 w-24 overflow-hidden md:h-24 md:w-48"
+      className="relative h-16 w-24 overflow-visible md:h-24 md:w-48"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -54,7 +56,10 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           <img
             src={currentLogo.src}
             alt={currentLogo.name}
-            className="h-auto w-auto max-h-[80%] max-w-[80%] object-contain"
+            className={`h-auto w-auto object-contain ${isMobile ? 'max-h-[80%] max-w-[80%] min-w-[60px]' : 'max-h-[80%] max-w-[80%]'}`}
+            style={{
+              filter: isMobile ? 'brightness(0) invert(1)' : 'none', // Hacer los logos blancos en móvil para mejor visibilidad
+            }}
           />
         </motion.div>
       </AnimatePresence>

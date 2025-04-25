@@ -15,6 +15,26 @@ export function ThemeComparison({
 }: ThemeComparisonProps) {
   const [inset, setInset] = useState<number>(50);
   const [onMouseDown, setOnMouseDown] = useState<boolean>(false);
+  const isMobile = useIsMobile();
+
+  // En dispositivos móviles, alternar automáticamente entre modos claro y oscuro
+  useEffect(() => {
+    if (isMobile) {
+      // Cambiar gradualmente entre modos cada 4 segundos en móvil
+      const interval = setInterval(() => {
+        setInset((prev) => {
+          // Si está en modo claro (>70%), pasar a oscuro
+          if (prev > 70) return 30;
+          // Si está en modo oscuro (<30%), pasar a claro
+          if (prev < 30) return 70;
+          // Si está en transición, continuar en la misma dirección
+          return prev > 50 ? 80 : 20;
+        });
+      }, 4000);
+      
+      return () => clearInterval(interval);
+    }
+  }, [isMobile]);
 
   const onMouseMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (!onMouseDown) return;
