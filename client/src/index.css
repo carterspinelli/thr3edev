@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Eliminar el contorno del focus en el componente stepper */
-.Stepper button:focus,
-.Stepper button:active,
-.Stepper button:hover,
-button.StepperTrigger:focus,
-button.StepperTrigger:active,
-button.StepperTrigger:hover {
-  outline: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
 @layer base {
   :root {
     --background: #ffffff;
