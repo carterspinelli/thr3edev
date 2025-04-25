@@ -2,14 +2,12 @@ import { useState } from "react";
 import { GripVertical } from "lucide-react";
 
 interface ThemeComparisonProps {
-  lightModeContent: React.ReactNode;
-  darkModeContent: React.ReactNode;
+  children: React.ReactNode;
   className?: string;
 }
 
 export function ThemeComparison({
-  lightModeContent,
-  darkModeContent,
+  children,
   className = ""
 }: ThemeComparisonProps) {
   const [inset, setInset] = useState<number>(50);
@@ -40,24 +38,21 @@ export function ThemeComparison({
       onTouchMove={onMouseMove}
       onTouchEnd={() => setOnMouseDown(false)}
     >
+      {/* Capas de contenido */}
       <div className="relative w-full h-full">
-        {/* Cada lado ocupa la mitad correspondiente */}
-        <div className="flex h-full">
-          {/* Lado claro (izquierda) */}
-          <div 
-            className="relative h-full overflow-hidden"
-            style={{ width: `${inset}%` }}
-          >
-            {lightModeContent}
-          </div>
-          
-          {/* Lado oscuro (derecha) */}
-          <div 
-            className="relative h-full overflow-hidden"
-            style={{ width: `${100 - inset}%` }}
-          >
-            {darkModeContent}
-          </div>
+        {/* Capa oscura (base) */}
+        <div className="absolute inset-0 w-full h-full theme-dark">
+          {children}
+        </div>
+        
+        {/* Capa clara (encima, con recorte) */}
+        <div 
+          className="absolute inset-0 w-full h-full theme-light"
+          style={{
+            clipPath: `inset(0 ${100 - inset}% 0 0)`,
+          }}
+        >
+          {children}
         </div>
         
         {/* Línea divisoria vertical */}

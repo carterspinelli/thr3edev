@@ -129,14 +129,67 @@ export default function Clients() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  // Único contenido con la estructura común
+  const ClientContent = () => (
+    <div className="py-8 relative overflow-hidden h-full w-full flex items-center justify-center">
+      {/* Efectos adicionales que solo se verán en modo oscuro (parte de .theme-dark) */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
+      <div className="stars absolute inset-0" />
+      
+      <ShootingStars
+        starColor="#0e62fe"
+        trailColor="#2EB9DF"
+        minSpeed={15}
+        maxSpeed={35}
+        minDelay={1000}
+        maxDelay={3000}
+      />
+      <ShootingStars
+        starColor="#3b82f6"
+        trailColor="#0e62fe"
+        minSpeed={10}
+        maxSpeed={25}
+        minDelay={2000}
+        maxDelay={4000}
+      />
+      <ShootingStars
+        starColor="#60a5fa"
+        trailColor="#2563eb"
+        minSpeed={20}
+        maxSpeed={40}
+        minDelay={1500}
+        maxDelay={3500}
+      />
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="mb-8 text-center">
+          <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-3 uppercase">
+            Clientes Destacados
+          </p>
+          <h2 className="text-3xl md:text-4xl font-medium mb-3">
+            Marcas que confían en nosotros
+          </h2>
+          <p className="text-base md:text-lg max-w-2xl mx-auto">
+            Diseñamos experiencias web para empresas líderes que buscan destacar
+            en el mercado digital
+          </p>
+        </div>
+
+        <div className="w-full max-w-3xl mx-auto">
+          <LogoCarousel logos={clientLogos} columns={2} />
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section className={`relative ${isDark ? "bg-[#050715]" : "bg-zinc-50"}`}>
       {/* Componente de comparación de temas */}
       <ThemeComparison
-        lightModeContent={<LightModeContent />}
-        darkModeContent={<DarkModeContent />}
         className="w-full h-[450px] md:h-auto md:aspect-[21/9]"
-      />
+      >
+        <ClientContent />
+      </ThemeComparison>
     </section>
   );
 }
