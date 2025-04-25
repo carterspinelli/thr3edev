@@ -24,7 +24,11 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   return (
     <motion.div
-      className="relative h-12 w-20 overflow-hidden sm:h-14 sm:w-24 md:h-24 md:w-48"
+      className="relative overflow-hidden transition-all duration-300 flex items-center justify-center"
+      style={{
+        height: isMobile ? "60px" : "100px", 
+        width: isMobile ? "80px" : "150px",
+      }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -56,9 +60,11 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
           <img
             src={currentLogo.src}
             alt={currentLogo.name}
-            className={`h-auto w-auto object-contain ${
-              isMobile ? "max-h-full max-w-full" : "max-h-[80%] max-w-[80%]"
-            }`}
+            className="h-auto w-auto object-contain transition-all duration-300"
+            style={{
+              maxHeight: isMobile ? "80%" : "80%",
+              maxWidth: isMobile ? "80%" : "80%", 
+            }}
           />
         </motion.div>
       </AnimatePresence>

@@ -35,9 +35,9 @@ const LightModeContent = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className={`${isMobile ? 'py-8' : 'py-16'} bg-zinc-50 min-h-[400px] md:min-h-[500px] flex flex-col`}>
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-2 md:space-y-4 mb-3 md:mb-8">
+    <div className="bg-zinc-50 py-10 sm:py-16 w-full flex flex-col">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col">
+        <div className="text-center space-y-2 md:space-y-4 mb-6">
           <p className={`text-[#0e62fe] ${isMobile ? 'text-[10px]' : 'text-xs'} sm:text-sm font-medium tracking-wide uppercase`}>
             Clientes Destacados
           </p>
@@ -50,7 +50,7 @@ const LightModeContent = () => {
           </p>
         </div>
 
-        <div className={`flex-1 flex flex-col ${isMobile ? 'justify-start pt-3' : 'justify-center'}`}>
+        <div className="py-6">
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
       </div>
@@ -63,7 +63,7 @@ const DarkModeContent = () => {
   const isMobile = useIsMobile();
   
   return (
-    <div className={`${isMobile ? 'py-8' : 'py-16'} bg-[#050715] min-h-[400px] md:min-h-[500px] relative overflow-hidden flex flex-col`}>
+    <div className="bg-[#050715] py-10 sm:py-16 w-full relative overflow-hidden flex flex-col">
       {/* Fondo con efectos para el modo oscuro */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
       <div className="stars absolute inset-0" />
@@ -94,8 +94,8 @@ const DarkModeContent = () => {
         maxDelay={3500}
       />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-2 md:space-y-4 mb-3 md:mb-8">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col">
+        <div className="text-center space-y-2 md:space-y-4 mb-6">
           <p className={`text-[#0e62fe] ${isMobile ? 'text-[10px]' : 'text-xs'} sm:text-sm font-medium tracking-wide uppercase`}>
             Clientes Destacados
           </p>
@@ -108,7 +108,7 @@ const DarkModeContent = () => {
           </p>
         </div>
 
-        <div className={`flex-1 flex flex-col ${isMobile ? 'justify-start pt-3' : 'justify-center'}`}>
+        <div className="py-6">
           <LogoCarousel logos={clientLogos} columns={2} />
         </div>
       </div>
@@ -126,7 +126,7 @@ export default function Clients() {
       <ThemeComparison
         lightModeContent={<LightModeContent />}
         darkModeContent={<DarkModeContent />}
-        className="w-full aspect-[16/10] md:aspect-[21/9]"
+        className="w-full h-auto" // Eliminado el aspecto fijo para que se ajuste automáticamente
       />
     </section>
   );
