@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import ContactModal from "./ContactModal";
 
 export default function Cta() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   return (
     <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: 'var(--background)' }}>
       {/* Background decoration */}
@@ -25,9 +29,9 @@ export default function Cta() {
               className="bg-white text-neutral-900 px-8"
               Icon={() => <ArrowRight className="h-4 w-4" />}
               iconPlacement="right"
-              onClick={() => window.location.href = "#contacto"}
+              onClick={() => setIsContactModalOpen(true)}
             >
-              Solicitar mi sitio web
+              Quiero mi landing page
             </Button>
             <Button 
               variant="expandIcon"
@@ -42,6 +46,11 @@ export default function Cta() {
           </div>
         </div>
       </div>
+      
+      <ContactModal 
+        open={isContactModalOpen} 
+        onOpenChange={setIsContactModalOpen} 
+      />
     </section>
   );
 }

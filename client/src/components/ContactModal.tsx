@@ -56,12 +56,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
   const queryClient = useQueryClient();
 
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(formSchema),
     defaultValues: {
-      nombreEmpresa: "",
-      descripcionProyecto: "",
+      business_name: "",
+      message: "",
       email: "",
-      comoNosConociste: "",
+      referral_source: "",
     },
   });
 
@@ -73,12 +73,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          business_name: data.nombreEmpresa,
-          message: data.descripcionProyecto,
-          email: data.email,
-          referral_source: data.comoNosConociste,
-        }),
+        body: JSON.stringify(data),
       });
       
       // Invalidar cache para actualizar la lista si es necesario
@@ -134,7 +129,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
                 control={form.control}
-                name="nombreEmpresa"
+                name="business_name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
@@ -175,7 +170,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               
               <FormField
                 control={form.control}
-                name="descripcionProyecto"
+                name="message"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
@@ -195,7 +190,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               
               <FormField
                 control={form.control}
-                name="comoNosConociste"
+                name="referral_source"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
