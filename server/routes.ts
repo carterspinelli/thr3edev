@@ -22,7 +22,13 @@ const transporter = nodemailer.createTransport({
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Ruta para servir archivos estáticos desde la carpeta public
-  app.use('/images', express.static('public/images'));
+  app.use('/images', express.static('public/images', { 
+    setHeaders: (res, path) => {
+      if (path.endsWith('.svg')) {
+        res.setHeader('Content-Type', 'image/svg+xml');
+      }
+    }
+  }));
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
