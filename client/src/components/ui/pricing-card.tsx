@@ -16,6 +16,7 @@ interface PricingCardProps {
   description: string;
   price: number;
   originalPrice?: number;
+  priceSuffix?: string;
   features: PricingFeature[];
   buttonText?: string;
   onButtonClick?: () => void;
@@ -26,6 +27,7 @@ export function PricingCard({
   description,
   price,
   originalPrice,
+  priceSuffix = " MXN",
   features,
   buttonText = "Get Started",
   onButtonClick,
@@ -113,7 +115,7 @@ export function PricingCard({
                 <div className="inline-flex items-baseline">
                   <span className={`text-3xl font-extrabold ${
                     theme === 'dark' ? 'text-[#0e62fe]' : 'text-[#0e62fe]'
-                  }`}>${price.toLocaleString()} MXN</span>
+                  }`}>${price.toLocaleString()}{priceSuffix}</span>
                   {originalPrice && (
                     <span className={`ml-2 text-xl line-through ${
                       theme === 'dark' ? 'text-zinc-500' : 'text-zinc-400'

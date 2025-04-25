@@ -103,7 +103,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none rounded-2xl shadow-2xl bg-background">
+      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none rounded-2xl shadow-2xl bg-white dark:bg-zinc-900">
         <div className="absolute right-3 top-3 z-50">
           <Button
             variant="ghost"
@@ -115,12 +115,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
           </Button>
         </div>
         
-        <div className="p-6 sm:p-8 bg-background">
+        <div className="p-6 sm:p-8 bg-white dark:bg-zinc-900">
           <DialogHeader className="mb-6">
-            <DialogTitle className="text-2xl font-semibold">
+            <DialogTitle className="text-2xl font-semibold text-zinc-900 dark:text-white">
               ¡Quiero mi landing page!
             </DialogTitle>
-            <DialogDescription>
+            <DialogDescription className="text-zinc-600 dark:text-zinc-300">
               Completa el formulario y nos pondremos en contacto contigo para discutir tu proyecto.
             </DialogDescription>
           </DialogHeader>
@@ -139,7 +139,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                       <Input 
                         placeholder="Nombre de tu empresa" 
                         {...field} 
-                        className="bg-muted/50"
+                        className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
                     <FormMessage />
@@ -160,7 +160,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                         placeholder="tu@correo.com" 
                         type="email" 
                         {...field} 
-                        className="bg-muted/50"
+                        className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
                     <FormMessage />
@@ -180,7 +180,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                       <Textarea 
                         placeholder="Describe brevemente tu proyecto..." 
                         {...field} 
-                        className="min-h-[120px] bg-muted/50"
+                        className="min-h-[120px] bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
                     <FormMessage />
@@ -200,7 +200,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                       <Input 
                         placeholder="Google, recomendación, redes sociales..." 
                         {...field} 
-                        className="bg-muted/50"
+                        className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
                     <FormMessage />
