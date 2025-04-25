@@ -43,7 +43,7 @@ export function ThemeComparison({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl select-none ${className}`}
+      className={`relative overflow-hidden select-none ${className}`}
       onMouseMove={onMouseMove}
       onMouseUp={() => setOnMouseDown(false)}
       onMouseLeave={() => setOnMouseDown(false)}
