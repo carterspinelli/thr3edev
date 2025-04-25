@@ -1,8 +1,14 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" fill="#000000"/>
-  <text x="600" y="265" font-family="Arial, sans-serif" font-size="80" font-weight="700" fill="white" text-anchor="middle">Creamos tu landing page</text>
-  <text x="600" y="345" font-family="Arial, sans-serif" font-size="80" font-weight="700" fill="#0e62fe" text-anchor="middle">profesional</text>
-  <text x="600" y="425" font-family="Arial, sans-serif" font-size="80" font-weight="700" fill="white" text-anchor="middle">en solo 3 días</text>
-  <text x="600" y="500" font-family="Arial, sans-serif" font-size="32" font-weight="400" fill="#999999" text-anchor="middle">Diseño, desarrollo y hosting completo por $18,000 MXN</text>
-  <text x="600" y="550" font-family="Arial, sans-serif" font-size="28" font-weight="500" fill="#666666" text-anchor="middle">thr3e.dev</text>
+  <g>
+    <path d="M300 210 H900 V420 H300 Z" fill="#050715"/>
+    <text x="320" y="290" font-family="sans-serif" font-size="80" font-weight="bold" fill="white">Creamos tu</text>
+    <text x="320" y="380" font-family="sans-serif" font-size="80" font-weight="bold" fill="white">landing page</text>
+    <text x="320" y="470" font-family="sans-serif" font-size="80" font-weight="bold" fill="#0e62fe">profesional</text>
+    <text x="770" y="470" font-family="sans-serif" font-size="80" font-weight="bold" fill="white">en 3 días</text>
+    <path d="M264 140 h48 v450 h-48z" fill="#0e62fe"/>
+    <text x="150" y="320" font-family="sans-serif" font-size="50" font-weight="bold" fill="white">thr</text>
+    <text x="240" y="320" font-family="sans-serif" font-size="50" font-weight="bold" fill="#0e62fe">3</text>
+    <text x="270" y="320" font-family="sans-serif" font-size="50" font-weight="bold" fill="white">e.dev</text>
+  </g>
 </svg>
