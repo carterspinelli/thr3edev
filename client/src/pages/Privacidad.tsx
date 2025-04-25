@@ -91,24 +91,7 @@ export default function Privacidad() {
                   </li>
                 </ul>
                 
-                <h2>4. Divulgación de sus datos personales</h2>
-                <p>
-                  Es posible que tengamos que compartir sus datos personales con las partes que se establecen a continuación 
-                  para los fines establecidos en la sección 3 anterior:
-                </p>
-                <ul>
-                  <li>
-                    Proveedores de servicios que proporcionan servicios de TI y administración de sistemas.
-                  </li>
-                  <li>
-                    Asesores profesionales, incluidos abogados, banqueros, auditores y aseguradores.
-                  </li>
-                  <li>
-                    Autoridades fiscales, reguladoras y otras autoridades.
-                  </li>
-                </ul>
-                
-                <h2>5. Seguridad de datos</h2>
+                <h2>4. Seguridad de datos</h2>
                 <p>
                   Hemos implementado medidas de seguridad apropiadas para evitar que sus datos personales se 
                   pierdan, utilicen o accedan accidentalmente de forma no autorizada, se modifiquen o divulguen. 
@@ -117,7 +100,7 @@ export default function Privacidad() {
                   según nuestras instrucciones y están sujetos a un deber de confidencialidad.
                 </p>
                 
-                <h2>6. Sus derechos legales</h2>
+                <h2>5. Sus derechos legales</h2>
                 <p>
                   Bajo ciertas circunstancias, tiene derechos bajo las leyes de protección de datos en relación 
                   con sus datos personales, que incluyen:
@@ -146,7 +129,7 @@ export default function Privacidad() {
                   </li>
                 </ul>
                 
-                <h2>7. Contacto</h2>
+                <h2>6. Contacto</h2>
                 <p>
                   Si tiene alguna pregunta sobre esta política de privacidad o nuestras prácticas de privacidad, 
                   comuníquese con nosotros en: contacto@thr3e.dev

@@ -150,7 +150,7 @@ const StepperTrigger = React.forwardRef<HTMLButtonElement, StepperTriggerProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center gap-3 disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center gap-3 disabled:pointer-events-none disabled:opacity-50 border-none outline-none focus:outline-none focus:ring-0 focus:ring-offset-0",
           className,
         )}
         onClick={() => setActiveStep(step)}
