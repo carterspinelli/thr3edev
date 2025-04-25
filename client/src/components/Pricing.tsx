@@ -17,7 +17,7 @@ export default function Pricing() {
       items: [
         "Diseño elegante",
         "100% responsivo (se ve increíble en cualquier dispositivo)",
-        "1 mes de soporte técnico",
+        "1 año de hosting",
         "Entrega ultra rápida: en solo 3 días",
         "Dominio personalizado",
         "Integración con redes sociales",
@@ -37,7 +37,10 @@ export default function Pricing() {
   ];
 
   return (
-    <section className={`py-20 ${theme === "dark" ? "bg-black" : "bg-white"}`} id="pricing">
+    <section
+      className={`py-20 ${theme === "dark" ? "bg-black" : "bg-white"}`}
+      id="pricing"
+    >
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-8"
@@ -72,10 +75,10 @@ export default function Pricing() {
             buttonText="Quiero mi landing page"
             onButtonClick={() => setIsContactModalOpen(true)}
           />
-          
-          <ContactModal 
-            open={isContactModalOpen} 
-            onOpenChange={setIsContactModalOpen} 
+
+          <ContactModal
+            open={isContactModalOpen}
+            onOpenChange={setIsContactModalOpen}
           />
         </Dialog>
 

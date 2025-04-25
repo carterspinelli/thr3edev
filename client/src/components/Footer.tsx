@@ -19,14 +19,13 @@ const navigation = {
           items: [
             { name: "Servicios", href: "/#nuestro-proceso" },
             { name: "Portafolio", href: "/portafolio" },
-            { name: "Nosotros", href: "#lo-que-ofrecemos" },
           ],
         },
         {
           id: "legal",
           title: "Legal",
           items: [
-            { name: "Privacidad", href: "#" },
+            { name: "Privacidad", href: "/privacidad" },
           ],
         },
       ],
@@ -111,11 +110,11 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
                                       } else {
                                         document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
                                       }
-                                    } else if (item.href === "/portafolio") {
+                                    } else if (item.href === "/portafolio" || item.href === "/privacidad") {
                                       if (onNavigate) {
                                         onNavigate(item.href);
                                       } else {
-                                        setLocation("/portafolio");
+                                        setLocation(item.href);
                                       }
                                     }
                                   }}

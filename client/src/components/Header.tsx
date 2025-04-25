@@ -41,8 +41,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
 
   const navItems = [
     { href: "/#nuestro-proceso", label: "Servicios" },
-    { href: "/portafolio", label: "Portafolio" },
-    { href: "#nosotros", label: "Nosotros" }
+    { href: "/portafolio", label: "Portafolio" }
   ];
 
   return (
