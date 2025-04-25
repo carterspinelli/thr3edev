@@ -1,4 +1,4 @@
-import type { Express, Request, Response } from "express";
+import express, { type Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { contactFormSchema } from "@shared/schema";
@@ -21,6 +21,8 @@ const transporter = nodemailer.createTransport({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Ruta para servir archivos estáticos desde la carpeta public
+  app.use('/images', express.static('public/images'));
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
