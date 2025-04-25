@@ -103,7 +103,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none rounded-2xl shadow-2xl">
+      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none rounded-2xl shadow-2xl bg-background">
         <div className="absolute right-3 top-3 z-50">
           <Button
             variant="ghost"
@@ -115,7 +115,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
           </Button>
         </div>
         
-        <div className="p-6 sm:p-8">
+        <div className="p-6 sm:p-8 bg-background">
           <DialogHeader className="mb-6">
             <DialogTitle className="text-2xl font-semibold">
               ¡Quiero mi landing page!

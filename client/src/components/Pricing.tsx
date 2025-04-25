@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { PricingCard } from "@/components/ui/pricing-card";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import ContactModal from "./ContactModal";
 
 export default function Pricing() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   const { theme } = useTheme();
 
@@ -33,7 +37,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section className={`py-20 ${theme === "dark" ? "bg-black" : "bg-white"}`}>
+    <section className={`py-20 ${theme === "dark" ? "bg-black" : "bg-white"}`} id="pricing">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-8"
@@ -58,17 +62,22 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        <PricingCard
-          title="Landing Page Profesional"
-          description="Todo lo que necesitas para establecer tu presencia web."
-          price={18000}
-          priceSuffix=" MXN"
-          features={pricingFeatures}
-          buttonText="Quiero mi landing page"
-          onButtonClick={() => {
-            window.location.href = "#contacto";
-          }}
-        />
+        <Dialog open={isContactModalOpen} onOpenChange={setIsContactModalOpen}>
+          <PricingCard
+            title="Landing Page Profesional"
+            description="Todo lo que necesitas para establecer tu presencia web."
+            price={18000}
+            priceSuffix=" MXN"
+            features={pricingFeatures}
+            buttonText="Quiero mi landing page"
+            onButtonClick={() => setIsContactModalOpen(true)}
+          />
+          
+          <ContactModal 
+            open={isContactModalOpen} 
+            onOpenChange={setIsContactModalOpen} 
+          />
+        </Dialog>
 
         <motion.div
           className="mt-6 text-center text-zinc-500 text-sm"
