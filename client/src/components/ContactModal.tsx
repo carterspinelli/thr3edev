@@ -103,30 +103,22 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden border-none rounded-2xl shadow-2xl bg-white dark:bg-zinc-900">
-        <div className="absolute right-3 top-3 z-50">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8 rounded-full"
-            onClick={() => onOpenChange(false)}
-          >
-            <X className="h-4 w-4" />
-          </Button>
-        </div>
+      <DialogContent className="sm:max-w-[500px] max-w-[90%] mx-auto p-0 overflow-hidden border-none rounded-2xl shadow-2xl bg-white dark:bg-zinc-900">
+        {/* El botón de cerrar está incluido automáticamente por DialogContent, 
+            no necesitamos añadir otro */}
         
-        <div className="p-6 sm:p-8 bg-white dark:bg-zinc-900">
-          <DialogHeader className="mb-6">
-            <DialogTitle className="text-2xl font-semibold text-zinc-900 dark:text-white">
+        <div className="p-4 sm:p-6 md:p-8 bg-white dark:bg-zinc-900">
+          <DialogHeader className="mb-4 sm:mb-6">
+            <DialogTitle className="text-xl sm:text-2xl font-semibold text-zinc-900 dark:text-white">
               ¡Quiero mi landing page!
             </DialogTitle>
-            <DialogDescription className="text-zinc-600 dark:text-zinc-300">
+            <DialogDescription className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300">
               Completa el formulario y nos pondremos en contacto contigo para discutir tu proyecto.
             </DialogDescription>
           </DialogHeader>
           
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
               <FormField
                 control={form.control}
                 name="business_name"
@@ -180,7 +172,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                       <Textarea 
                         placeholder="Describe brevemente tu proyecto..." 
                         {...field} 
-                        className="min-h-[120px] bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
+                        className="min-h-[80px] sm:min-h-[120px] bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
                     <FormMessage />

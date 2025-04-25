@@ -24,7 +24,7 @@ function LogoColumn({ logos, columnIndex, currentTime }: LogoColumnProps) {
 
   return (
     <motion.div
-      className="relative h-16 w-24 overflow-hidden sm:h-14 sm:w-24 md:h-24 md:w-48"
+      className="relative h-12 w-20 overflow-hidden sm:h-14 sm:w-24 md:h-24 md:w-48"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
