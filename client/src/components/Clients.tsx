@@ -36,14 +36,10 @@ const LightClientContent = () => (
       <p className="text-[#0e62fe] text-sm font-medium tracking-wide mb-3 uppercase">
         Clientes Destacados
       </p>
-      <h2 className="text-2xl md:text-4xl font-medium mb-3 text-neutral-100 opacity-90 tracking-wide" 
-          style={{ 
-            WebkitTextStroke: '1px rgba(200, 200, 200, 0.2)',
-            textShadow: '0 0 1px rgba(255, 255, 255, 0.1)'
-          }}>
+      <h2 className="text-2xl md:text-4xl font-medium mb-3 text-zinc-900">
         Marcas que confían en nosotros
       </h2>
-      <p className="text-base md:text-lg max-w-2xl mx-auto text-neutral-600">
+      <p className="text-base md:text-lg max-w-2xl mx-auto text-zinc-600">
         Diseñamos experiencias web para empresas líderes que buscan destacar
         en el mercado digital
       </p>
