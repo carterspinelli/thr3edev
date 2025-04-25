@@ -6,27 +6,27 @@ import { ShootingStars } from "@/components/ui/shooting-stars";
 import { ThemeComparison } from "@/components/ui/theme-comparison";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-// Logo paths
+// Logo paths - Usar imágenes locales para garantizar que se cargan correctamente en todos los dispositivos
 const clientLogos = [
   {
     id: 1,
     name: "IBM",
-    src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    src: "/ibm-logo.svg",
   },
   {
     id: 2,
     name: "Udemy",
-    src: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg",
+    src: "/udemy-logo.svg",
   },
   {
     id: 3,
-    name: "Docusaurus",
-    src: "https://docusaurus.io/img/docusaurus.svg",
+    name: "GitHub",
+    src: "/github-logo.svg",
   },
   {
     id: 4,
-    name: "Metamask",
-    src: "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg",
+    name: "Meta",
+    src: "/meta-logo.svg",
   },
 ];
 
