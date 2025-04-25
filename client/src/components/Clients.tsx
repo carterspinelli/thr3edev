@@ -76,8 +76,10 @@ const DarkClientContent = () => (
 // Componente para mostrar el contenido en modo claro
 const LightModeContent = () => {
   return (
-    <div className="py-8 bg-zinc-50 h-full w-full flex items-center">
-      <LightClientContent />
+    <div className="py-8 bg-zinc-50 h-full w-full flex items-center justify-center">
+      <div className="w-full">
+        <LightClientContent />
+      </div>
     </div>
   );
 };
@@ -85,7 +87,7 @@ const LightModeContent = () => {
 // Componente para mostrar el contenido en modo oscuro con efectos
 const DarkModeContent = () => {
   return (
-    <div className="py-8 bg-[#050715] relative overflow-hidden h-full w-full flex items-center">
+    <div className="py-8 bg-[#050715] relative overflow-hidden h-full w-full flex items-center justify-center">
       {/* Fondo con efectos para el modo oscuro */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.1)_0%,rgba(0,0,0,0)_80%)]" />
       <div className="stars absolute inset-0" />
@@ -116,7 +118,9 @@ const DarkModeContent = () => {
         maxDelay={3500}
       />
 
-      <DarkClientContent />
+      <div className="w-full">
+        <DarkClientContent />
+      </div>
     </div>
   );
 };

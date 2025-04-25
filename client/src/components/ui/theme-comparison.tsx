@@ -40,43 +40,49 @@ export function ThemeComparison({
       onTouchMove={onMouseMove}
       onTouchEnd={() => setOnMouseDown(false)}
     >
-      {/* Lado oscuro (al fondo, ocupa todo el espacio) */}
-      <div className="absolute inset-0 w-full h-full">
-        {darkModeContent}
-      </div>
-      
-      {/* Lado claro encima, con el recorte */}
-      <div 
-        className="absolute inset-0 w-full h-full"
-        style={{
-          clipPath: `inset(0 ${100 - inset}% 0 0)`,
-        }}
-      >
-        {lightModeContent}
-      </div>
-      
-      {/* Línea divisoria vertical */}
-      <div
-        className="bg-white dark:bg-zinc-800 h-full w-1 absolute z-20 top-0 -ml-[0.5px] select-none"
-        style={{
-          left: inset + "%",
-        }}
-      >
-        <button
-          className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-full hover:scale-110 transition-all w-8 h-8 select-none -translate-y-1/2 absolute top-1/2 -ml-4 z-30 cursor-ew-resize flex justify-center items-center shadow-md"
-          onTouchStart={(e) => {
-            setOnMouseDown(true);
-            onMouseMove(e);
+      <div className="relative w-full h-full">
+        {/* Cada lado ocupa la mitad correspondiente */}
+        <div className="flex h-full">
+          {/* Lado claro (izquierda) */}
+          <div 
+            className="relative h-full overflow-hidden"
+            style={{ width: `${inset}%` }}
+          >
+            {lightModeContent}
+          </div>
+          
+          {/* Lado oscuro (derecha) */}
+          <div 
+            className="relative h-full overflow-hidden"
+            style={{ width: `${100 - inset}%` }}
+          >
+            {darkModeContent}
+          </div>
+        </div>
+        
+        {/* Línea divisoria vertical */}
+        <div
+          className="bg-white dark:bg-zinc-800 h-full w-1 absolute z-20 top-0 -ml-[0.5px] select-none"
+          style={{
+            left: inset + "%",
           }}
-          onMouseDown={(e) => {
-            setOnMouseDown(true);
-            onMouseMove(e);
-          }}
-          onTouchEnd={() => setOnMouseDown(false)}
-          onMouseUp={() => setOnMouseDown(false)}
         >
-          <GripVertical className="h-4 w-4 select-none text-zinc-500 dark:text-zinc-400" />
-        </button>
+          <button
+            className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-full hover:scale-110 transition-all w-8 h-8 select-none -translate-y-1/2 absolute top-1/2 -ml-4 z-30 cursor-ew-resize flex justify-center items-center shadow-md"
+            onTouchStart={(e) => {
+              setOnMouseDown(true);
+              onMouseMove(e);
+            }}
+            onMouseDown={(e) => {
+              setOnMouseDown(true);
+              onMouseMove(e);
+            }}
+            onTouchEnd={() => setOnMouseDown(false)}
+            onMouseUp={() => setOnMouseDown(false)}
+          >
+            <GripVertical className="h-4 w-4 select-none text-zinc-500 dark:text-zinc-400" />
+          </button>
+        </div>
       </div>
     </div>
   );
