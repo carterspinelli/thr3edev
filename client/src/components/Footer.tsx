@@ -100,7 +100,8 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
                                     if (item.href === "/#nuestro-proceso") {
                                       // Para el enlace de Servicios, siempre navegar a la página principal + sección
                                       if (window.location.pathname !== "/") {
-                                        window.location.href = "/#nuestro-proceso";
+                                        sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
+                                        window.location.href = "/";
                                       } else {
                                         document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
                                       }

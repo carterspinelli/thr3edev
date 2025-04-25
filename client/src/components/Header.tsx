@@ -29,6 +29,17 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Verificar si hay una sección a la que desplazarse después de la carga
+  useEffect(() => {
+    const sectionToScroll = sessionStorage.getItem('scrollToSection');
+    if (sectionToScroll && window.location.pathname === '/') {
+      setTimeout(() => {
+        document.querySelector(`#${sectionToScroll}`)?.scrollIntoView({ behavior: 'smooth' });
+        sessionStorage.removeItem('scrollToSection');
+      }, 500);
+    }
+  }, []);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -67,7 +78,8 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
                   if (item.href === "/#nuestro-proceso") {
                     // Para el enlace de Servicios, siempre navegar a la página principal + sección
                     if (window.location.pathname !== "/") {
-                      window.location.href = "/#nuestro-proceso";
+                      sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
+                      window.location.href = "/";
                     } else {
                       document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
                     }
@@ -164,7 +176,8 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
                   if (item.href === "/#nuestro-proceso") {
                     // Para el enlace de Servicios, siempre navegar a la página principal + sección
                     if (window.location.pathname !== "/") {
-                      window.location.href = "/#nuestro-proceso";
+                      sessionStorage.setItem('scrollToSection', 'nuestro-proceso');
+                      window.location.href = "/";
                     } else {
                       document.querySelector("#nuestro-proceso")?.scrollIntoView({ behavior: 'smooth' });
                     }
