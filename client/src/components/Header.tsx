@@ -41,8 +41,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
 
   const navItems = [
     { href: "/#nuestro-proceso", label: "Servicios" },
-    { href: "/portafolio", label: "Portafolio" },
-    { href: "/privacidad", label: "Privacidad" }
+    { href: "/portafolio", label: "Portafolio" }
   ];
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
