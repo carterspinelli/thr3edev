@@ -75,19 +75,19 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         },
         body: JSON.stringify(data),
       });
-      
+
       // Invalidar cache para actualizar la lista si es necesario
       queryClient.invalidateQueries({ queryKey: ["/api/contact"] });
-      
+
       // Mostrar mensaje de éxito
       toast({
         title: "¡Formulario enviado exitosamente!",
         description: "Nos pondremos en contacto contigo pronto.",
       });
-      
+
       // Cerrar el modal
       onOpenChange(false);
-      
+
       // Restablecer el formulario
       form.reset();
     } catch (error) {
@@ -106,31 +106,36 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
       <DialogContent className="sm:max-w-[500px] max-w-[90%] mx-auto p-0 overflow-hidden border-none rounded-2xl shadow-2xl bg-white dark:bg-zinc-900">
         {/* El botón de cerrar está incluido automáticamente por DialogContent, 
             no necesitamos añadir otro */}
-        
+
         <div className="p-4 sm:p-6 md:p-8 bg-white dark:bg-zinc-900">
           <DialogHeader className="mb-4 sm:mb-6">
             <DialogTitle className="text-xl sm:text-2xl font-semibold text-zinc-900 dark:text-white">
               ¡Quiero mi landing page!
             </DialogTitle>
             <DialogDescription className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300">
-              Completa el formulario y nos pondremos en contacto contigo para discutir tu proyecto.
+              Completa el formulario y en menos de 12 horas nos pondremos en
+              contacto contigo.
             </DialogDescription>
           </DialogHeader>
-          
+
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-4 sm:space-y-6"
+            >
               <FormField
                 control={form.control}
                 name="business_name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      Nombre de la empresa<span className="text-[#0e62fe]">*</span>
+                      Nombre de la empresa
+                      <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="Nombre de tu empresa" 
-                        {...field} 
+                      <Input
+                        placeholder="Nombre de tu empresa"
+                        {...field}
                         className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
@@ -138,20 +143,21 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      Correo electrónico<span className="text-[#0e62fe]">*</span>
+                      Correo electrónico
+                      <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="tu@correo.com" 
-                        type="email" 
-                        {...field} 
+                      <Input
+                        placeholder="tu@correo.com"
+                        type="email"
+                        {...field}
                         className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
@@ -159,19 +165,20 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="message"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      Cuéntanos sobre tu proyecto<span className="text-[#0e62fe]">*</span>
+                      Cuéntanos sobre tu proyecto
+                      <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Textarea 
-                        placeholder="Describe brevemente tu proyecto..." 
-                        {...field} 
+                      <Textarea
+                        placeholder="Describe brevemente tu proyecto..."
+                        {...field}
                         className="min-h-[80px] sm:min-h-[120px] bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
@@ -179,19 +186,20 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="referral_source"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      ¿Cómo nos conociste?<span className="text-[#0e62fe]">*</span>
+                      ¿Cómo nos conociste?
+                      <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="Google, recomendación, redes sociales..." 
-                        {...field} 
+                      <Input
+                        placeholder="Google, recomendación, redes sociales..."
+                        {...field}
                         className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
                     </FormControl>
@@ -199,9 +207,9 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                   </FormItem>
                 )}
               />
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 className="w-full bg-[#0e62fe] text-white hover:bg-blue-700 transition-colors"
                 disabled={isSubmitting}
               >
