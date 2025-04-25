@@ -29,16 +29,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Verificar si hay una sección a la que desplazarse después de la carga
-  useEffect(() => {
-    const sectionToScroll = sessionStorage.getItem('scrollToSection');
-    if (sectionToScroll && window.location.pathname === '/') {
-      setTimeout(() => {
-        document.querySelector(`#${sectionToScroll}`)?.scrollIntoView({ behavior: 'smooth' });
-        sessionStorage.removeItem('scrollToSection');
-      }, 500);
-    }
-  }, []);
+  // El scroll se maneja ahora en el componente Home
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
