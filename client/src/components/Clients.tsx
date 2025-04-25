@@ -5,7 +5,7 @@ import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { ThemeComparison } from "@/components/ui/theme-comparison";
 
-// Logo paths
+// Logo paths - usando SVG que son más adecuados para la web
 const clientLogos = [
   {
     id: 1,
@@ -34,7 +34,7 @@ const LightModeContent = () => {
   return (
     <div className="py-16 bg-zinc-50 min-h-[500px] flex flex-col">
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-4 mb-8">
+        <div className="text-center space-y-4 mb-6">
           <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
             CLIENTES DESTACADOS
           </p>
@@ -48,10 +48,10 @@ const LightModeContent = () => {
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
-          <LogoCarousel logos={clientLogos} columns={2} />
+          <div className="w-full max-w-3xl mx-auto">
+            <LogoCarousel logos={clientLogos} columns={2} />
+          </div>
         </div>
-
-        {/* Text removed */}
       </div>
     </div>
   );
@@ -92,7 +92,7 @@ const DarkModeContent = () => {
       />
 
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
-        <div className="text-center space-y-4 mb-8">
+        <div className="text-center space-y-4 mb-6">
           <p className="text-[#0e62fe] text-sm font-medium tracking-wide">
             CLIENTES DESTACADOS
           </p>
@@ -106,10 +106,10 @@ const DarkModeContent = () => {
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
-          <LogoCarousel logos={clientLogos} columns={2} />
+          <div className="w-full max-w-3xl mx-auto">
+            <LogoCarousel logos={clientLogos} columns={2} />
+          </div>
         </div>
-
-        {/* Text removed */}
       </div>
     </div>
   );
