@@ -32,6 +32,8 @@ const clientLogos = [
 
 // Componente para mostrar el contenido en modo claro
 const LightModeContent = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="py-16 bg-zinc-50 min-h-[500px] flex flex-col">
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
@@ -49,7 +51,7 @@ const LightModeContent = () => {
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
-          <LogoCarousel logos={clientLogos} columns={2} />
+          <LogoCarousel logos={clientLogos} columns={isMobile ? 1 : 2} />
         </div>
 
         {/* Text removed */}
@@ -60,6 +62,8 @@ const LightModeContent = () => {
 
 // Componente para mostrar el contenido en modo oscuro con efectos
 const DarkModeContent = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <div className="py-16 bg-[#050715] min-h-[500px] relative overflow-hidden flex flex-col">
       {/* Fondo con efectos para el modo oscuro */}
@@ -67,30 +71,34 @@ const DarkModeContent = () => {
       <div className="stars absolute inset-0" />
 
       {/* Múltiples capas de estrellas fugaces con diferentes colores y velocidades */}
-      <ShootingStars
-        starColor="#0e62fe"
-        trailColor="#2EB9DF"
-        minSpeed={15}
-        maxSpeed={35}
-        minDelay={1000}
-        maxDelay={3000}
-      />
-      <ShootingStars
-        starColor="#3b82f6"
-        trailColor="#0e62fe"
-        minSpeed={10}
-        maxSpeed={25}
-        minDelay={2000}
-        maxDelay={4000}
-      />
-      <ShootingStars
-        starColor="#60a5fa"
-        trailColor="#2563eb"
-        minSpeed={20}
-        maxSpeed={40}
-        minDelay={1500}
-        maxDelay={3500}
-      />
+      {!isMobile && (
+        <>
+          <ShootingStars
+            starColor="#0e62fe"
+            trailColor="#2EB9DF"
+            minSpeed={15}
+            maxSpeed={35}
+            minDelay={1000}
+            maxDelay={3000}
+          />
+          <ShootingStars
+            starColor="#3b82f6"
+            trailColor="#0e62fe"
+            minSpeed={10}
+            maxSpeed={25}
+            minDelay={2000}
+            maxDelay={4000}
+          />
+          <ShootingStars
+            starColor="#60a5fa"
+            trailColor="#2563eb"
+            minSpeed={20}
+            maxSpeed={40}
+            minDelay={1500}
+            maxDelay={3500}
+          />
+        </>
+      )}
 
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col">
         <div className="text-center space-y-4 mb-8">
@@ -107,7 +115,7 @@ const DarkModeContent = () => {
         </div>
 
         <div className="flex-1 flex flex-col justify-center">
-          <LogoCarousel logos={clientLogos} columns={2} />
+          <LogoCarousel logos={clientLogos} columns={isMobile ? 1 : 2} />
         </div>
 
         {/* Text removed */}

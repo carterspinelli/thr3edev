@@ -75,6 +75,10 @@ interface LogoCarouselProps {
 export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
   const [logoColumns, setLogoColumns] = useState<Logo[][]>([]);
   const [time, setTime] = useState(0);
+  const isMobile = useIsMobile();
+  
+  // En móvil, reducir el intervalo de tiempo para mostrar los logos más rápido
+  const timeInterval = isMobile ? 50 : 100;
 
   const distributeLogos = useCallback(
     (logos: Logo[]) => {
@@ -103,10 +107,10 @@ export function LogoCarousel({ columns = 2, logos }: LogoCarouselProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime((prev) => prev + 100);
-    }, 100);
+      setTime((prev) => prev + timeInterval);
+    }, timeInterval);
     return () => clearInterval(interval);
-  }, []);
+  }, [timeInterval]);
 
   return (
     <div className="flex justify-center gap-4 py-8">
