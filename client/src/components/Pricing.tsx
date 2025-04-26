@@ -28,7 +28,7 @@ export default function Pricing() {
       items: [
         "Estilo visual alineado a tu marca",
         "Diseño pensado para convertir",
-        "Visuales que hablan por tu marca",
+        "Imágenes personalizadas",
         "Textos que comunican tu identidad con claridad",
         "Carga rápida (porque nadie quiere esperar)",
         "Hosting incluido – sin complicaciones técnicas",

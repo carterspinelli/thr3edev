@@ -94,17 +94,16 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         to_email: 'contacto@thr3e.dev' // Correo destinatario
       };
       
-      // Verificamos que EmailJS esté configurado
-      if (!emailJSConfig.configured || !emailJSConfig.serviceId || !emailJSConfig.templateId) {
-        console.error("EmailJS no está configurado correctamente");
-        throw new Error("La configuración de EmailJS no está completa");
-      }
-
-      // Enviamos el correo usando nuestra utilidad que encapsula EmailJS
-      // y los valores configurados por el usuario
+      console.log("Enviando correo con datos:", {
+        business: data.business_name,
+        email: data.email
+      });
+      
+      // Ahora la función sendContactForm se encarga de usar la configuración predeterminada
+      // No es necesario pasar los IDs ya que están en el módulo emailjs.ts
       const emailjsResponse = await sendContactForm(
-        emailJSConfig.serviceId,
-        emailJSConfig.templateId,
+        undefined,  // serviceId - usa el predeterminado
+        undefined,  // templateId - usa el predeterminado
         templateParams
       );
       

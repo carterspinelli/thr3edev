@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -8,9 +7,6 @@ import Home from "@/pages/Home";
 import PortfolioPage from "@/pages/PortfolioPage";
 import Privacidad from "@/pages/Privacidad";
 import { ThemeProvider } from "@/hooks/use-theme";
-import EmailJSConfigPanel from "@/components/EmailJSConfigPanel";
-import useEmailJSConfig from "@/hooks/use-emailjs-config";
-import { initializeEmailJS } from "@/lib/emailjs";
 
 function Router() {
   return (
@@ -24,14 +20,7 @@ function Router() {
 }
 
 function App() {
-  const { config } = useEmailJSConfig();
-
-  // Inicializamos EmailJS con la clave pública cuando la aplicación carga
-  useEffect(() => {
-    if (config.configured && config.publicKey) {
-      initializeEmailJS(config.publicKey);
-    }
-  }, [config.configured, config.publicKey]);
+  // No necesitamos inicializar EmailJS aquí, ya se inicializa directamente en el módulo
 
   return (
     <ThemeProvider>
