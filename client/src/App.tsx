@@ -38,7 +38,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Router />
         <Toaster />
-        <EmailJSConfigPanel />
+        {/* Panel de configuración removido - Configuración ya establecida por el administrador */}
       </QueryClientProvider>
     </ThemeProvider>
   );
