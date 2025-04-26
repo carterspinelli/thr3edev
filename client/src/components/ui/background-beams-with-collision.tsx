@@ -12,79 +12,83 @@ export const BackgroundBeamsWithCollision = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLDivElement>(null);
-
-  const beams = [
-    // Lado izquierdo
-    {
-      initialX: 10,
-      translateX: 10,
-      duration: 7,
-      repeatDelay: 3,
-      delay: 2,
-    },
-    {
-      initialX: 150,
-      translateX: 150,
-      duration: 6,
-      repeatDelay: 4,
-      delay: 1,
-      className: "h-10",
-    },
-    {
-      initialX: 300,
-      translateX: 300,
-      duration: 5,
-      repeatDelay: 5,
-      className: "h-8",
-    },
-    // Centro
-    {
-      initialX: 450,
-      translateX: 450,
-      duration: 8,
-      repeatDelay: 2,
-      delay: 3,
-    },
-    // Lado derecho
-    {
-      initialX: 600,
-      translateX: 600,
-      duration: 5,
-      repeatDelay: 3,
-      delay: 2,
-    },
-    {
-      initialX: 750,
-      translateX: 750,
-      duration: 7,
-      repeatDelay: 4,
-      delay: 1,
-      className: "h-12",
-    },
-    {
-      initialX: 900,
-      translateX: 900,
-      duration: 6,
-      repeatDelay: 2,
-      className: "h-20",
-    },
-    {
-      initialX: 1050,
-      translateX: 1050,
-      duration: 4,
-      repeatDelay: 3,
-      delay: 2,
-      className: "h-6",
-    },
-    {
-      initialX: 1200,
-      translateX: 1200,
-      duration: 5,
-      repeatDelay: 4,
-      delay: 3,
-      className: "h-16",
-    },
-  ];
+  const [beams, setBeams] = useState<Array<{
+    initialX: number;
+    translateX: number;
+    duration: number;
+    repeatDelay: number;
+    delay?: number;
+    className?: string;
+  }>>([]);
+  
+  // Función para generar los beams basados en el ancho de la pantalla
+  const generateBeams = () => {
+    const totalBeams = 9; // Número total de meteoritos
+    const screenWidth = window.innerWidth;
+    
+    // Crear un arreglo vacío para los nuevos beams
+    const newBeams = [];
+    
+    // Calcular el espaciado aproximado entre beams
+    const spacing = screenWidth / (totalBeams - 1);
+    
+    // Propiedades estándar para diferentes tamaños
+    const sizeVariants = [
+      { className: "h-6" },
+      { className: "h-8" },
+      { className: "h-10" },
+      { className: "h-12" },
+      { className: "h-16" },
+      { className: "h-20" },
+    ];
+    
+    // Propiedades de duración y retraso
+    const durationOptions = [4, 5, 6, 7, 8];
+    const delayOptions = [0, 1, 2, 3, 4];
+    const repeatDelayOptions = [2, 3, 4, 5, 6, 7];
+    
+    // Crear beams uniformemente espaciados
+    for (let i = 0; i < totalBeams; i++) {
+      // Calculamos la posición X como un porcentaje del ancho de la pantalla
+      const xPos = Math.round(i * spacing);
+      
+      // Seleccionar propiedades aleatorias para cada beam
+      const size = sizeVariants[Math.floor(Math.random() * sizeVariants.length)];
+      const duration = durationOptions[Math.floor(Math.random() * durationOptions.length)];
+      const repeatDelay = repeatDelayOptions[Math.floor(Math.random() * repeatDelayOptions.length)];
+      
+      // Solo algunos beams tendrán delay
+      const hasDelay = Math.random() > 0.5;
+      const delay = hasDelay ? delayOptions[Math.floor(Math.random() * delayOptions.length)] : undefined;
+      
+      newBeams.push({
+        initialX: xPos,
+        translateX: xPos,
+        duration,
+        repeatDelay,
+        delay,
+        className: size.className,
+      });
+    }
+    
+    setBeams(newBeams);
+  };
+  
+  // Generar beams iniciales y al cambiar el tamaño de la ventana
+  useEffect(() => {
+    // Generar beams iniciales
+    generateBeams();
+    
+    // Ajustar los beams al cambiar el tamaño de la ventana
+    const handleResize = () => {
+      generateBeams();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div
