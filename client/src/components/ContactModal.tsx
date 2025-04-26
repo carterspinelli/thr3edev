@@ -100,7 +100,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         templateParams
       );
       
-      if (emailjsResponse.status === 200) {
+      if (emailjsResponse.success) {
         toast({
           title: "¡Formulario enviado exitosamente!",
           description: "Nos pondremos en contacto contigo pronto.",
