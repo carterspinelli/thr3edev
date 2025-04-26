@@ -5,6 +5,7 @@ import { z } from "zod";
 import { useQueryClient } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { sendContactForm } from "@/lib/emailjs";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -67,8 +68,11 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
   async function onSubmit(data: ContactFormValues) {
     setIsSubmitting(true);
+    
     try {
-      const response = await fetch("/api/contact", {
+      // Primero guardamos la información en nuestro backend 
+      // para tener un respaldo de todos los contactos
+      const backendResponse = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,26 +80,31 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         body: JSON.stringify(data),
       });
       
-      const result = await response.json();
-
       // Invalidar cache para actualizar la lista si es necesario
       queryClient.invalidateQueries({ queryKey: ["/api/contact"] });
-
-      if (response.ok) {
-        if (result.emailSent === false) {
-          // El formulario se guardó pero el email no se envió
-          toast({
-            title: "Formulario recibido con advertencia",
-            description: "Hemos guardado tu información, pero hubo un problema al enviar la notificación. Te contactaremos pronto.",
-            variant: "default",
-          });
-        } else {
-          // Todo fue exitoso
-          toast({
-            title: "¡Formulario enviado exitosamente!",
-            description: "Nos pondremos en contacto contigo pronto.",
-          });
-        }
+      
+      // Luego enviamos el correo usando EmailJS (esto es independiente del backend)
+      const templateParams = {
+        from_name: data.business_name,
+        from_email: data.email,
+        message: data.message,
+        referral_source: data.referral_source,
+        to_email: 'contacto@thr3e.dev' // Correo destinatario
+      };
+      
+      // Enviamos el correo usando nuestra utilidad que encapsula EmailJS
+      // Reemplaza estos valores con los de tu cuenta de EmailJS
+      const emailjsResponse = await sendContactForm(
+        'service_id',         // Reemplaza con tu Service ID
+        'template_id',        // Reemplaza con tu Template ID
+        templateParams
+      );
+      
+      if (emailjsResponse.status === 200) {
+        toast({
+          title: "¡Formulario enviado exitosamente!",
+          description: "Nos pondremos en contacto contigo pronto.",
+        });
         
         // Cerrar el modal
         onOpenChange(false);
@@ -103,20 +112,48 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         // Restablecer el formulario
         form.reset();
       } else {
-        // Hubo un error en la validación u otro problema
+        // El formulario se guardó pero hubo problema con el email
         toast({
-          title: "Error al procesar el formulario",
-          description: result.message || "Por favor verifica los datos e intenta de nuevo.",
-          variant: "destructive",
+          title: "Formulario recibido",
+          description: "Hemos guardado tu información, pero puede haber un problema con la notificación. Te contactaremos pronto.",
+          variant: "default",
         });
+        
+        // Igualmente cerramos el modal y reseteamos el form
+        onOpenChange(false);
+        form.reset();
       }
     } catch (error) {
       console.error("Error en la solicitud:", error);
-      toast({
-        title: "Error de conexión",
-        description: "No pudimos conectar con el servidor. Por favor intenta de nuevo más tarde.",
-        variant: "destructive",
-      });
+      
+      // Intentamos guardar al menos en el backend
+      try {
+        await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        
+        toast({
+          title: "Formulario recibido con advertencia",
+          description: "Hemos guardado tu información, pero hubo un problema al enviar la notificación. Te contactaremos pronto.",
+          variant: "default",
+        });
+        
+        // Cerrar modal y resetear form
+        onOpenChange(false);
+        form.reset();
+      } catch (backendError) {
+        // Fallo completo
+        console.error("Error en la solicitud al backend:", backendError);
+        toast({
+          title: "Error de conexión",
+          description: "No pudimos procesar tu solicitud. Por favor intenta de nuevo más tarde.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
