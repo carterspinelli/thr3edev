@@ -68,32 +68,53 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
   async function onSubmit(data: ContactFormValues) {
     setIsSubmitting(true);
     try {
-      await fetch("/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
+      
+      const result = await response.json();
 
       // Invalidar cache para actualizar la lista si es necesario
       queryClient.invalidateQueries({ queryKey: ["/api/contact"] });
 
-      // Mostrar mensaje de éxito
-      toast({
-        title: "¡Formulario enviado exitosamente!",
-        description: "Nos pondremos en contacto contigo pronto.",
-      });
-
-      // Cerrar el modal
-      onOpenChange(false);
-
-      // Restablecer el formulario
-      form.reset();
+      if (response.ok) {
+        if (result.emailSent === false) {
+          // El formulario se guardó pero el email no se envió
+          toast({
+            title: "Formulario recibido con advertencia",
+            description: "Hemos guardado tu información, pero hubo un problema al enviar la notificación. Te contactaremos pronto.",
+            variant: "default",
+          });
+        } else {
+          // Todo fue exitoso
+          toast({
+            title: "¡Formulario enviado exitosamente!",
+            description: "Nos pondremos en contacto contigo pronto.",
+          });
+        }
+        
+        // Cerrar el modal
+        onOpenChange(false);
+        
+        // Restablecer el formulario
+        form.reset();
+      } else {
+        // Hubo un error en la validación u otro problema
+        toast({
+          title: "Error al procesar el formulario",
+          description: result.message || "Por favor verifica los datos e intenta de nuevo.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
+      console.error("Error en la solicitud:", error);
       toast({
-        title: "Error al enviar el formulario",
-        description: "Por favor intenta de nuevo más tarde.",
+        title: "Error de conexión",
+        description: "No pudimos conectar con el servidor. Por favor intenta de nuevo más tarde.",
         variant: "destructive",
       });
     } finally {

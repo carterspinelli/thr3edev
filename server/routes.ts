@@ -38,42 +38,50 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Store the contact submission
       const submission = await storage.createContactSubmission(validatedData);
       
-      // Intentar enviar email (no bloqueamos la respuesta en caso de error)
-      try {
-        const mailOptions = {
-          from: '"thr3e.dev Notificaciones" <notifications@thr3e.dev>',
-          to: "contacto@thr3e.dev",
-          subject: `Nuevo formulario de contacto: ${validatedData.business_name}`,
-          text: `
-            Nombre de empresa: ${validatedData.business_name}
-            Email: ${validatedData.email}
-            Referido por: ${validatedData.referral_source}
-            
-            Mensaje:
-            ${validatedData.message}
-          `,
-          html: `
-            <h2>Nuevo formulario de contacto</h2>
-            <p><strong>Empresa:</strong> ${validatedData.business_name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${validatedData.email}">${validatedData.email}</a></p>
-            <p><strong>Referido por:</strong> ${validatedData.referral_source}</p>
-            <p><strong>Mensaje:</strong></p>
-            <p style="white-space: pre-line;">${validatedData.message}</p>
-          `
-        };
-        
-        transporter.sendMail(mailOptions).catch(e => 
-          console.error("Error enviando email de notificación:", e)
-        );
-      } catch (emailError) {
-        console.error("Error preparando email:", emailError);
-        // No fallamos la solicitud principal si el email falla
-      }
+      // Configuramos el email y lo enviamos inmediatamente
+      const mailOptions = {
+        from: `"thr3e.dev Notificaciones" <${process.env.EMAIL_USER}>`,
+        to: "contacto@thr3e.dev",
+        subject: `Nuevo formulario de contacto: ${validatedData.business_name}`,
+        text: `
+          Nombre de empresa: ${validatedData.business_name}
+          Email: ${validatedData.email}
+          Referido por: ${validatedData.referral_source}
+          
+          Mensaje:
+          ${validatedData.message}
+        `,
+        html: `
+          <h2>Nuevo formulario de contacto</h2>
+          <p><strong>Empresa:</strong> ${validatedData.business_name}</p>
+          <p><strong>Email:</strong> <a href="mailto:${validatedData.email}">${validatedData.email}</a></p>
+          <p><strong>Referido por:</strong> ${validatedData.referral_source}</p>
+          <p><strong>Mensaje:</strong></p>
+          <p style="white-space: pre-line;">${validatedData.message}</p>
+        `
+      };
       
-      return res.status(201).json({
-        message: "Formulario enviado con éxito",
-        submission
-      });
+      try {
+        // Esperamos a que el email se envíe correctamente
+        await transporter.sendMail(mailOptions);
+        
+        console.log(`Email enviado exitosamente a contacto@thr3e.dev desde ${validatedData.business_name}`);
+        
+        return res.status(201).json({
+          message: "Formulario enviado con éxito",
+          submission,
+          emailSent: true
+        });
+      } catch (emailError) {
+        console.error("Error enviando email:", emailError);
+        
+        // Aunque el contacto se guardó, informamos que el email falló
+        return res.status(201).json({
+          message: "Formulario guardado pero hubo un problema al enviar la notificación por email",
+          submission,
+          emailSent: false
+        });
+      }
     } catch (error) {
       if (error instanceof ZodError) {
         const validationError = fromZodError(error);
@@ -83,6 +91,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
+      console.error("Error en la API de contacto:", error);
       return res.status(500).json({ 
         message: "Error al procesar la solicitud"
       });
