@@ -6,6 +6,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { sendContactForm } from "@/lib/emailjs";
+import useEmailJSConfig from "@/hooks/use-emailjs-config";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -55,6 +56,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const { config: emailJSConfig } = useEmailJSConfig();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
@@ -92,11 +94,17 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         to_email: 'contacto@thr3e.dev' // Correo destinatario
       };
       
+      // Verificamos que EmailJS esté configurado
+      if (!emailJSConfig.configured || !emailJSConfig.serviceId || !emailJSConfig.templateId) {
+        console.error("EmailJS no está configurado correctamente");
+        throw new Error("La configuración de EmailJS no está completa");
+      }
+
       // Enviamos el correo usando nuestra utilidad que encapsula EmailJS
-      // Reemplaza estos valores con los de tu cuenta de EmailJS
+      // y los valores configurados por el usuario
       const emailjsResponse = await sendContactForm(
-        'service_id',         // Reemplaza con tu Service ID
-        'template_id',        // Reemplaza con tu Template ID
+        emailJSConfig.serviceId,
+        emailJSConfig.templateId,
         templateParams
       );
       

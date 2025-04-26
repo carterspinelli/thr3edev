@@ -8,7 +8,7 @@ import Home from "@/pages/Home";
 import PortfolioPage from "@/pages/PortfolioPage";
 import Privacidad from "@/pages/Privacidad";
 import { ThemeProvider } from "@/hooks/use-theme";
-import EmailJSConfig, { EmailJSConfig as EmailJSConfigType } from "@/components/EmailJSConfig";
+import EmailJSConfigPanel from "@/components/EmailJSConfigPanel";
 import useEmailJSConfig from "@/hooks/use-emailjs-config";
 import { initializeEmailJS } from "@/lib/emailjs";
 
@@ -24,39 +24,21 @@ function Router() {
 }
 
 function App() {
-  const [showConfig, setShowConfig] = useState(true);
-  const { config, setConfig } = useEmailJSConfig();
+  const { config } = useEmailJSConfig();
 
-  // Inicializar EmailJS cuando tenemos la configuración guardada
+  // Inicializamos EmailJS con la clave pública cuando la aplicación carga
   useEffect(() => {
     if (config.configured && config.publicKey) {
       initializeEmailJS(config.publicKey);
-      setShowConfig(false);
     }
-  }, [config]);
-
-  const handleSaveConfig = (emailjsConfig: EmailJSConfigType) => {
-    setConfig({
-      serviceId: emailjsConfig.serviceId,
-      templateId: emailjsConfig.templateId,
-      publicKey: emailjsConfig.publicKey,
-    });
-    setShowConfig(false);
-  };
+  }, [config.configured, config.publicKey]);
 
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <Router />
         <Toaster />
-        
-        {/* Formulario de configuración de EmailJS */}
-        {showConfig && (
-          <EmailJSConfig 
-            onSave={handleSaveConfig} 
-            onCancel={() => setShowConfig(false)} 
-          />
-        )}
+        <EmailJSConfigPanel />
       </QueryClientProvider>
     </ThemeProvider>
   );
