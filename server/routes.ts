@@ -6,17 +6,51 @@ import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 import * as nodemailer from "nodemailer";
 
-// Configuración del transporte para enviar correos
-const transporter = nodemailer.createTransport({
-  service: "Gmail", // Usamos el servicio predefinido para Gmail
-  auth: {
-    user: process.env.EMAIL_USER || "notifications@thr3e.dev", // Fallback para desarrollo
-    pass: process.env.EMAIL_PASSWORD || "password", // Fallback para desarrollo
-  },
-  tls: {
-    rejectUnauthorized: false // Para desarrollo en entornos locales
-  }
-});
+// Configuración dinámica del transporte para enviar correos
+function getTransporter() {
+  // Para entorno de producción
+  if (process.env.NODE_ENV === 'production') {
+    // En producción, la recomendación es usar un servicio de email profesional 
+    // como SendGrid, Mailgun, etc. en lugar de Gmail
+    console.log("Configurando transporter para producción");
+    
+    // Ejemplo de configuración para un servidor SMTP propio
+    // Los detalles reales deberían configurarse según el proveedor SMTP
+    // de producción que utilices
+    return nodemailer.createTransport({
+      // Configura esto según tu proveedor SMTP en producción
+      host: process.env.SMTP_HOST || "smtp.thr3e.dev",
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: {
+        user: process.env.SMTP_USER || process.env.EMAIL_USER || "contacto@thr3e.dev",
+        pass: process.env.SMTP_PASSWORD || process.env.EMAIL_PASSWORD
+      }
+    });
+  } 
+  
+  // Para entorno de desarrollo o pruebas, usamos un transporter de prueba
+  console.log("Configurando transporter para desarrollo");
+  return {
+    sendMail: (mailOptions: any) => {
+      console.log("SIMULACIÓN DE EMAIL EN DESARROLLO");
+      console.log("================================");
+      console.log("A: " + mailOptions.to);
+      console.log("Asunto: " + mailOptions.subject);
+      console.log("De: " + mailOptions.from);
+      console.log("--------------------------------");
+      console.log("Texto del mensaje:");
+      console.log(mailOptions.text);
+      console.log("================================");
+      
+      // Simulamos una promesa resuelta exitosamente
+      return Promise.resolve({
+        messageId: "simulado-" + Date.now(),
+        response: "250 Simulación de envío exitoso"
+      });
+    }
+  };
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Ruta para servir archivos estáticos desde la carpeta public
@@ -59,27 +93,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
         `
       };
       
-      // En cualquier entorno de producción, intentamos enviar el email
+      // Obtenemos el transporter adecuado para el entorno
+      const transporter = getTransporter();
+      
+      // Intentamos enviar el email
       let emailSent = false;
       try {
-        // Esperamos a que el email se envíe correctamente
-        if (process.env.NODE_ENV === 'production') {
-          await transporter.sendMail(mailOptions);
-          emailSent = true;
-          console.log(`Email enviado exitosamente a contacto@thr3e.dev desde ${validatedData.business_name}`);
-        } else {
-          // En desarrollo, solo simulamos el envío para evitar errores de credenciales
-          console.log("Modo desarrollo: simulando envío de email con estos datos:", {
-            to: mailOptions.to,
-            subject: mailOptions.subject,
-            businessName: validatedData.business_name,
-            email: validatedData.email
-          });
-          // Consideramos exitoso en desarrollo para mejor experiencia
-          emailSent = true;
-        }
+        // Enviamos el email
+        await transporter.sendMail(mailOptions);
+        emailSent = true;
+        console.log(`Email procesado para contacto@thr3e.dev desde ${validatedData.business_name}`);
       } catch (emailError) {
-        console.error("Error enviando email:", emailError);
+        console.error("Error procesando email:", emailError);
         emailSent = false;
       }
       
