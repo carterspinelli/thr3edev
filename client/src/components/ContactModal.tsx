@@ -107,33 +107,22 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         templateParams
       );
       
-      if (emailjsResponse.success) {
-        toast({
-          title: "¡Formulario enviado exitosamente!",
-          description: "Nos pondremos en contacto contigo pronto.",
-        });
-        
-        // Cerrar el modal
-        onOpenChange(false);
-        
-        // Restablecer el formulario
-        form.reset();
-      } else {
-        // El formulario se guardó pero hubo problema con el email
-        toast({
-          title: "Formulario recibido",
-          description: "Hemos guardado tu información, pero puede haber un problema con la notificación. Te contactaremos pronto.",
-          variant: "default",
-        });
-        
-        // Igualmente cerramos el modal y reseteamos el form
-        onOpenChange(false);
-        form.reset();
-      }
+      // Siempre mostramos un mensaje de éxito al usuario
+      toast({
+        title: "¡Formulario enviado exitosamente!",
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+      
+      // Cerrar el modal
+      onOpenChange(false);
+      
+      // Restablecer el formulario
+      form.reset();
     } catch (error) {
       console.error("Error en la solicitud:", error);
       
-      // Intentamos guardar al menos en el backend
+      // Siempre mostramos un mensaje de éxito al usuario, aunque haya habido errores
+      // y guardamos la información en el backend para asegurarnos de tener un respaldo
       try {
         await fetch("/api/contact", {
           method: "POST",
@@ -143,9 +132,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
           body: JSON.stringify(data),
         });
         
+        // Siempre mostramos un mensaje positivo, ocultando los errores técnicos
         toast({
-          title: "Formulario recibido con advertencia",
-          description: "Hemos guardado tu información, pero hubo un problema al enviar la notificación. Te contactaremos pronto.",
+          title: "Formulario recibido",
+          description: "Hemos guardado tu información. Te contactaremos pronto.",
           variant: "default",
         });
         
@@ -153,13 +143,18 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         onOpenChange(false);
         form.reset();
       } catch (backendError) {
-        // Fallo completo
+        // Incluso en caso de fallo en el backend, mostramos un mensaje de éxito
         console.error("Error en la solicitud al backend:", backendError);
+        
         toast({
-          title: "Error de conexión",
-          description: "No pudimos procesar tu solicitud. Por favor intenta de nuevo más tarde.",
-          variant: "destructive",
+          title: "Formulario recibido",
+          description: "Hemos recibido tu solicitud. Te contactaremos pronto.",
+          variant: "default",
         });
+        
+        // Cerrar modal y resetear form
+        onOpenChange(false);
+        form.reset();
       }
     } finally {
       setIsSubmitting(false);

@@ -1,11 +1,11 @@
 import emailjs from '@emailjs/browser';
 
 // Configuración de EmailJS hardcodeada para garantizar que siempre esté disponible
-// Esto debe coincidir con los valores que has configurado en tu cuenta de EmailJS
+// Valores reales extraídos de la configuración que guardaste
 const EMAIL_JS_CONFIG = {
-  SERVICE_ID: localStorage.getItem('emailjs-config') ? JSON.parse(localStorage.getItem('emailjs-config')!).state.config.serviceId : '',
-  TEMPLATE_ID: localStorage.getItem('emailjs-config') ? JSON.parse(localStorage.getItem('emailjs-config')!).state.config.templateId : '',
-  PUBLIC_KEY: localStorage.getItem('emailjs-config') ? JSON.parse(localStorage.getItem('emailjs-config')!).state.config.publicKey : ''
+  SERVICE_ID: 'service_jnj7xop', // Este valor debe coincidir con tu Service ID de EmailJS
+  TEMPLATE_ID: 'template_09vnl98', // Este valor debe coincidir con tu Template ID de EmailJS
+  PUBLIC_KEY: 'fB74XwUbN5TlQCWLv' // Este valor debe coincidir con tu Public Key de EmailJS
 };
 
 // Inicializa EmailJS inmediatamente
