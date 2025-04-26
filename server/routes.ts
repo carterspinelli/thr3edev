@@ -10,21 +10,20 @@ import * as nodemailer from "nodemailer";
 function getTransporter() {
   // Para entorno de producción
   if (process.env.NODE_ENV === 'production') {
-    // En producción, la recomendación es usar un servicio de email profesional 
-    // como SendGrid, Mailgun, etc. en lugar de Gmail
-    console.log("Configurando transporter para producción");
+    console.log("Configurando transporter para producción (iCloud)");
     
-    // Ejemplo de configuración para un servidor SMTP propio
-    // Los detalles reales deberían configurarse según el proveedor SMTP
-    // de producción que utilices
+    // Configuración para iCloud
     return nodemailer.createTransport({
-      // Configura esto según tu proveedor SMTP en producción
-      host: process.env.SMTP_HOST || "smtp.thr3e.dev",
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: process.env.SMTP_SECURE === "true",
+      host: "smtp.mail.me.com",  // Servidor SMTP de iCloud
+      port: 587,
+      secure: false,
       auth: {
-        user: process.env.SMTP_USER || process.env.EMAIL_USER || "contacto@thr3e.dev",
-        pass: process.env.SMTP_PASSWORD || process.env.EMAIL_PASSWORD
+        user: process.env.EMAIL_USER || "notifications@thr3e.dev",
+        pass: process.env.EMAIL_PASSWORD || ""
+      },
+      tls: {
+        rejectUnauthorized: false,
+        ciphers: "SSLv3"
       }
     });
   } 
