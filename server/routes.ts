@@ -8,9 +8,7 @@ import * as nodemailer from "nodemailer";
 
 // Configuración del transporte para enviar correos
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com", // O cualquier otro proveedor SMTP
-  port: 587,
-  secure: false, // true para 465, false para otros puertos
+  service: "Gmail", // Usamos el servicio predefinido para Gmail
   auth: {
     user: process.env.EMAIL_USER || "notifications@thr3e.dev", // Fallback para desarrollo
     pass: process.env.EMAIL_PASSWORD || "password", // Fallback para desarrollo
@@ -61,27 +59,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
         `
       };
       
+      // En cualquier entorno de producción, intentamos enviar el email
+      let emailSent = false;
       try {
         // Esperamos a que el email se envíe correctamente
-        await transporter.sendMail(mailOptions);
-        
-        console.log(`Email enviado exitosamente a contacto@thr3e.dev desde ${validatedData.business_name}`);
-        
-        return res.status(201).json({
-          message: "Formulario enviado con éxito",
-          submission,
-          emailSent: true
-        });
+        if (process.env.NODE_ENV === 'production') {
+          await transporter.sendMail(mailOptions);
+          emailSent = true;
+          console.log(`Email enviado exitosamente a contacto@thr3e.dev desde ${validatedData.business_name}`);
+        } else {
+          // En desarrollo, solo simulamos el envío para evitar errores de credenciales
+          console.log("Modo desarrollo: simulando envío de email con estos datos:", {
+            to: mailOptions.to,
+            subject: mailOptions.subject,
+            businessName: validatedData.business_name,
+            email: validatedData.email
+          });
+          // Consideramos exitoso en desarrollo para mejor experiencia
+          emailSent = true;
+        }
       } catch (emailError) {
         console.error("Error enviando email:", emailError);
-        
-        // Aunque el contacto se guardó, informamos que el email falló
-        return res.status(201).json({
-          message: "Formulario guardado pero hubo un problema al enviar la notificación por email",
-          submission,
-          emailSent: false
-        });
+        emailSent = false;
       }
+      
+      // Siempre respondemos con éxito porque los datos se guardaron correctamente
+      return res.status(201).json({
+        message: emailSent 
+          ? "Formulario enviado con éxito" 
+          : "Formulario guardado pero hubo un problema al enviar la notificación por email",
+        submission,
+        emailSent: emailSent
+      });
     } catch (error) {
       if (error instanceof ZodError) {
         const validationError = fromZodError(error);
