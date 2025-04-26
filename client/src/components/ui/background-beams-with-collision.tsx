@@ -14,6 +14,7 @@ export const BackgroundBeamsWithCollision = ({
   const parentRef = useRef<HTMLDivElement>(null);
 
   const beams = [
+    // Lado izquierdo
     {
       initialX: 10,
       translateX: 10,
@@ -22,47 +23,66 @@ export const BackgroundBeamsWithCollision = ({
       delay: 2,
     },
     {
+      initialX: 150,
+      translateX: 150,
+      duration: 6,
+      repeatDelay: 4,
+      delay: 1,
+      className: "h-10",
+    },
+    {
+      initialX: 300,
+      translateX: 300,
+      duration: 5,
+      repeatDelay: 5,
+      className: "h-8",
+    },
+    // Centro
+    {
+      initialX: 450,
+      translateX: 450,
+      duration: 8,
+      repeatDelay: 2,
+      delay: 3,
+    },
+    // Lado derecho
+    {
       initialX: 600,
       translateX: 600,
-      duration: 3,
-      repeatDelay: 3,
-      delay: 4,
-    },
-    {
-      initialX: 100,
-      translateX: 100,
-      duration: 7,
-      repeatDelay: 7,
-      className: "h-6",
-    },
-    {
-      initialX: 400,
-      translateX: 400,
       duration: 5,
-      repeatDelay: 14,
-      delay: 4,
+      repeatDelay: 3,
+      delay: 2,
     },
     {
-      initialX: 800,
-      translateX: 800,
-      duration: 11,
+      initialX: 750,
+      translateX: 750,
+      duration: 7,
+      repeatDelay: 4,
+      delay: 1,
+      className: "h-12",
+    },
+    {
+      initialX: 900,
+      translateX: 900,
+      duration: 6,
       repeatDelay: 2,
       className: "h-20",
     },
     {
-      initialX: 1000,
-      translateX: 1000,
+      initialX: 1050,
+      translateX: 1050,
       duration: 4,
-      repeatDelay: 2,
-      className: "h-12",
+      repeatDelay: 3,
+      delay: 2,
+      className: "h-6",
     },
     {
       initialX: 1200,
       translateX: 1200,
-      duration: 6,
+      duration: 5,
       repeatDelay: 4,
-      delay: 2,
-      className: "h-6",
+      delay: 3,
+      className: "h-16",
     },
   ];
 
@@ -224,13 +244,21 @@ const CollisionMechanism = React.forwardRef<
 CollisionMechanism.displayName = "CollisionMechanism";
 
 const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
-  const spans = Array.from({ length: 20 }, (_, index) => ({
-    id: index,
-    initialX: 0,
-    initialY: 0,
-    directionX: Math.floor(Math.random() * 80 - 40),
-    directionY: Math.floor(Math.random() * -50 - 10),
-  }));
+  // Crear partículas de explosión más balanceadas
+  const spans = Array.from({ length: 24 }, (_, index) => {
+    // Distribuir partículas en un círculo completo (360 grados)
+    const angle = (index / 24) * 2 * Math.PI;
+    const distance = Math.random() * 30 + 20; // Distancia aleatoria entre 20 y 50
+    
+    return {
+      id: index,
+      initialX: 0,
+      initialY: 0,
+      // Usar trigonometría para una distribución más uniforme
+      directionX: Math.cos(angle) * distance,
+      directionY: Math.sin(angle) * distance - 15, // Bias hacia arriba para el efecto de explosión
+    };
+  });
 
   return (
     <div {...props} className={cn("absolute z-50 h-2 w-2", props.className)}>
