@@ -1,10 +1,10 @@
 import emailjs from '@emailjs/browser';
 
-// Obtener credenciales de variables de entorno
+// Credenciales hardcodeadas directamente para evitar problemas con variables de entorno en Vite
 const EMAIL_JS_CONFIG = {
-  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
-  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
-  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
+  SERVICE_ID: 'service_jnj7xop',
+  TEMPLATE_ID: 'template_09vnl98',
+  PUBLIC_KEY: 'WFNDiHV80PXbKRYG5'
 };
 
 // Mensajes adicionales para debugging
