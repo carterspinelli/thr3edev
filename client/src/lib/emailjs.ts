@@ -1,12 +1,18 @@
 import emailjs from '@emailjs/browser';
 
-// Configuración de EmailJS hardcodeada para garantizar que siempre esté disponible
-// Valores reales extraídos de la configuración que guardaste
+// Obtener credenciales de variables de entorno
 const EMAIL_JS_CONFIG = {
-  SERVICE_ID: 'service_jnj7xop', // Este valor debe coincidir con tu Service ID de EmailJS
-  TEMPLATE_ID: 'template_09vnl98', // Este valor debe coincidir con tu Template ID de EmailJS
-  PUBLIC_KEY: 'fB74XwUbN5TlQCWLv' // Este valor debe coincidir con tu Public Key de EmailJS
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
 };
+
+// Mensajes adicionales para debugging
+console.log('EmailJS Config Status:', {
+  serviceId: EMAIL_JS_CONFIG.SERVICE_ID ? 'Configurado' : 'No configurado',
+  templateId: EMAIL_JS_CONFIG.TEMPLATE_ID ? 'Configurado' : 'No configurado',
+  publicKey: EMAIL_JS_CONFIG.PUBLIC_KEY ? 'Configurado' : 'No configurado'
+});
 
 // Inicializa EmailJS inmediatamente
 if (EMAIL_JS_CONFIG.PUBLIC_KEY) {
