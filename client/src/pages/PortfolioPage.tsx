@@ -68,10 +68,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "ASVM Teams",
-    link: "https://www.asvm.com/teams",
-    description: "Plataforma colaborativa para equipos de desarrollo",
-    thumbnail: "/images/asvm-project.png"
+    title: "BetterCaption",
+    link: "https://carterspinelli-test-dev.com/",
+    description: "Interactive documentation website showcasing AI-powered Instagram caption generation, built with Docusaurus",
+    thumbnail: "/images/bettercaption.svg"
   },
   {
     title: "Carter Spinelli Media",

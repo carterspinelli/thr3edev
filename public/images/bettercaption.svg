@@ -1,0 +1,81 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Fondo gradient -->
+  <rect width="1200" height="630" fill="#f4f6f9" />
+  
+  <!-- Header bar -->
+  <rect width="1200" height="60" fill="white" />
+  <rect x="20" y="18" width="24" height="24" rx="4" fill="#38bdf8" />
+  <text x="54" y="35" font-family="Arial, sans-serif" font-size="16" fill="#333" font-weight="600">BetterCaption</text>
+  <text x="1100" y="35" font-family="Arial, sans-serif" font-size="14" fill="#666">Documentation</text>
+  
+  <!-- Main content -->
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="50" font-weight="700" text-anchor="middle" fill="url(#titleGradient)">BetterCaption</text>
+  
+  <text x="600" y="240" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#666" width="600">
+    <tspan x="600" dy="0">Create engaging Instagram captions tailored to your unique style</tspan>
+    <tspan x="600" dy="28">and optimized for maximum audience engagement</tspan>
+  </text>
+  
+  <!-- Buttons -->
+  <rect x="490" y="320" width="140" height="40" rx="20" fill="url(#buttonGradient)" />
+  <text x="545" y="345" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">Get Started →</text>
+  
+  <rect x="650" y="320" width="140" height="40" rx="20" fill="#f1f5f9" />
+  <text x="720" y="345" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle" font-weight="600">Learn More</text>
+  
+  <!-- Features -->
+  <g transform="translate(250, 420)">
+    <circle cx="50" cy="30" r="25" fill="url(#iconGradient)" />
+    <text x="50" y="38" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">✓</text>
+    <text x="50" y="90" font-family="Arial, sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="600">Preserve Your</text>
+    <text x="50" y="115" font-family="Arial, sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="600">Authentic Voice</text>
+    <text x="50" y="155" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle" width="180">
+      <tspan x="50" dy="0">BetterCaption analyzes your</tspan>
+      <tspan x="50" dy="20">writing style to ensure every</tspan>
+      <tspan x="50" dy="20">suggestion sounds like you</tspan>
+      <tspan x="50" dy="20">wrote it.</tspan>
+    </text>
+  </g>
+  
+  <g transform="translate(600, 420)">
+    <circle cx="0" cy="30" r="25" fill="url(#iconGradient)" />
+    <text x="0" y="38" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">📈</text>
+    <text x="0" y="90" font-family="Arial, sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="600">Maximize</text>
+    <text x="0" y="115" font-family="Arial, sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="600">Engagement</text>
+    <text x="0" y="155" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle" width="180">
+      <tspan x="0" dy="0">Leverage data from your</tspan>
+      <tspan x="0" dy="20">highest-performing posts to</tspan>
+      <tspan x="0" dy="20">replicate your past success.</tspan>
+    </text>
+  </g>
+  
+  <g transform="translate(900, 420)">
+    <circle cx="0" cy="30" r="25" fill="url(#iconGradient)" />
+    <text x="0" y="38" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">#</text>
+    <text x="0" y="90" font-family="Arial, sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="600">Smart Hashtag</text>
+    <text x="0" y="115" font-family="Arial, sans-serif" font-size="18" fill="#333" text-anchor="middle" font-weight="600">Recommendations</text>
+    <text x="0" y="155" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle" width="180">
+      <tspan x="0" dy="0">Get strategic hashtag</tspan>
+      <tspan x="0" dy="20">suggestions based on your</tspan>
+      <tspan x="0" dy="20">content and trending topics.</tspan>
+    </text>
+  </g>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#818cf8;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
