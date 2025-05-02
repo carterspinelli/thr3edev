@@ -21,10 +21,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "BetterCaption Docs",
-    link: "https://carterspinelli-test-dev.com/docs",
-    description: "Documentación interactiva de la API de generación de texto con IA",
-    thumbnail: "/images/bettercaption.svg"
+    title: "BetterCaption",
+    link: "https://carterspinelli-test-dev.com/",
+    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Miscellaneous",
@@ -45,10 +45,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "BetterCaption Analytics",
-    link: "https://carterspinelli-test-dev.com/analytics",
-    description: "Dashboard de análisis de rendimiento de publicaciones en Instagram",
-    thumbnail: "/images/bettercaption.svg"
+    title: "BetterCaption Dashboard",
+    link: "https://carterspinelli-test-dev.com/dashboard",
+    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Portfolio",
@@ -71,8 +71,8 @@ const projects = [
   {
     title: "BetterCaption",
     link: "https://carterspinelli-test-dev.com/",
-    description: "Interactive documentation website showcasing AI-powered Instagram caption generation, built with Docusaurus",
-    thumbnail: "/images/bettercaption.svg"
+    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Media",
@@ -94,9 +94,9 @@ const projects = [
   },
   {
     title: "BetterCaption Pro",
-    link: "https://carterspinelli-test-dev.com/pro",
-    description: "Versión avanzada con generación de hashtags y análisis de tendencias",
-    thumbnail: "/images/bettercaption.svg"
+    link: "https://carterspinelli-test-dev.com/",
+    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Projects",
