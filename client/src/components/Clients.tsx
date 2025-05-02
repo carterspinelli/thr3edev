@@ -15,8 +15,8 @@ const clientLogos = [
   },
   {
     id: 2,
-    name: "Udemy",
-    src: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Udemy_logo.svg",
+    name: "ASVM",
+    src: "/images/clients/asvm_logo.png",
   },
   {
     id: 3,

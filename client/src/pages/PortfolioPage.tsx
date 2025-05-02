@@ -20,10 +20,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "Udemy Business",
-    link: "https://business.udemy.com/",
-    description: "Plataforma de aprendizaje empresarial con cursos personalizados",
-    thumbnail: "/images/udemy-business.png"
+    title: "ASVM Solutions",
+    link: "https://www.asvm.com/",
+    description: "Portal corporativo con soluciones tecnológicas avanzadas",
+    thumbnail: "/images/asvm-project.png"
   },
   {
     title: "Carter Spinelli Miscellaneous",
@@ -44,10 +44,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "Udemy Business Enterprise",
-    link: "https://business.udemy.com/",
-    description: "Plataforma para capacitación de equipos empresariales",
-    thumbnail: "/images/udemy-business.png"
+    title: "ASVM Enterprise",
+    link: "https://www.asvm.com/enterprise",
+    description: "Plataforma empresarial con herramientas de gestión avanzadas",
+    thumbnail: "/images/asvm-project.png"
   },
   {
     title: "Carter Spinelli Portfolio",
@@ -68,10 +68,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "Udemy Business Teams",
-    link: "https://business.udemy.com/",
-    description: "Versión para equipos pequeños y medianos",
-    thumbnail: "/images/udemy-business.png"
+    title: "ASVM Teams",
+    link: "https://www.asvm.com/teams",
+    description: "Plataforma colaborativa para equipos de desarrollo",
+    thumbnail: "/images/asvm-project.png"
   },
   {
     title: "Carter Spinelli Media",
