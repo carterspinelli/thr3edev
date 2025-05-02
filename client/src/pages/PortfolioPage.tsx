@@ -92,10 +92,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "Udemy Business Enterprise Plus",
-    link: "https://business.udemy.com/",
-    description: "Solución premium con servicios adicionales personalizados",
-    thumbnail: "/images/udemy-business.png"
+    title: "ASVM Enterprise Plus",
+    link: "https://www.asvm.com/enterprise-plus",
+    description: "Solución premium con servicios de tecnología avanzados",
+    thumbnail: "/images/asvm-project.png"
   },
   {
     title: "Carter Spinelli Projects",
