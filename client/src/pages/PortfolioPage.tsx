@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/hooks/use-theme";
 import { useLocation } from "wouter";
+import { BetterCaptionCard } from "@/components/ui/bettercaption-card";
 
 // Proyectos para el portafolio
 const projects = [
@@ -20,10 +21,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "ASVM Solutions",
-    link: "https://www.asvm.com/",
-    description: "Portal corporativo con soluciones tecnológicas avanzadas",
-    thumbnail: "/images/asvm-project.png"
+    title: "BetterCaption Docs",
+    link: "https://carterspinelli-test-dev.com/docs",
+    description: "Documentación interactiva de la API de generación de texto con IA",
+    thumbnail: "/images/bettercaption.svg"
   },
   {
     title: "Carter Spinelli Miscellaneous",
@@ -44,10 +45,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "ASVM Enterprise",
-    link: "https://www.asvm.com/enterprise",
-    description: "Plataforma empresarial con herramientas de gestión avanzadas",
-    thumbnail: "/images/asvm-project.png"
+    title: "BetterCaption Analytics",
+    link: "https://carterspinelli-test-dev.com/analytics",
+    description: "Dashboard de análisis de rendimiento de publicaciones en Instagram",
+    thumbnail: "/images/bettercaption.svg"
   },
   {
     title: "Carter Spinelli Portfolio",
@@ -92,10 +93,10 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "ASVM Enterprise Plus",
-    link: "https://www.asvm.com/enterprise-plus",
-    description: "Solución premium con servicios de tecnología avanzados",
-    thumbnail: "/images/asvm-project.png"
+    title: "BetterCaption Pro",
+    link: "https://carterspinelli-test-dev.com/pro",
+    description: "Versión avanzada con generación de hashtags y análisis de tendencias",
+    thumbnail: "/images/bettercaption.svg"
   },
   {
     title: "Carter Spinelli Projects",
