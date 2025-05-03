@@ -45,8 +45,8 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "BetterCaption Dashboard",
-    link: "https://carterspinelli-test-dev.com/dashboard",
+    title: "BetterCaption",
+    link: "https://carterspinelli-test-dev.com/",
     description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
     thumbnail: "/images/bettercaption.png"
   },
@@ -93,7 +93,7 @@ const projects = [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "BetterCaption Pro",
+    title: "BetterCaption",
     link: "https://carterspinelli-test-dev.com/",
     description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
     thumbnail: "/images/bettercaption.png"
