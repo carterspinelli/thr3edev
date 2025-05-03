@@ -183,9 +183,9 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
               >
                 <span>©</span>
                 <span>{new Date().getFullYear()}</span>
-                <span>Built with</span>
+                <span>Hecho con</span>
                 <FooterIcons.Heart className="text-[#0e62fe] mx-1 h-4 w-4 animate-pulse" />
-                <span>by</span>
+                <span>por</span>
                 <motion.span 
                   className={`cursor-pointer font-medium ${theme === 'dark' ? 'text-white' : 'text-black'}`}
                   whileHover={{ color: "#0e62fe" }}
