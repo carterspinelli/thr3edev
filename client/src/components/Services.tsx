@@ -14,28 +14,36 @@ import {
   StepperTrigger,
 } from "@/components/ui/stepper";
 
-const steps = [
-  {
-    step: 0,
-    title: "Reunión inicial (30 min)",
-    description: "Empezamos con una reunión breve para comprender tu negocio y los objetivos específicos de tu landing page."
-  },
-  {
-    step: 1,
-    title: "Diseño y desarrollo",
-    description: "Utilizamos las mejores tecnologías actuales para crear una landing page optimizada que refleje la identidad de tu marca."
-  },
-  {
-    step: 2,
-    title: "Entrega completa",
-    description: "En solo 3 días recibes tu landing page lista en la web, junto con el código fuente completo por $18,000 MXN."
-  },
-];
+// Interfaz para los pasos del proceso
+interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
 
 export default function Services() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   const { theme } = useTheme();
   const { t, i18n } = useTranslation();
+
+  // Definir los pasos dentro del componente para usar traducción
+  const steps: ProcessStep[] = [
+    {
+      step: 0,
+      title: t("process.step1.title"),
+      description: t("process.step1.description")
+    },
+    {
+      step: 1,
+      title: t("process.step2.title"),
+      description: t("process.step2.description")
+    },
+    {
+      step: 2,
+      title: t("process.step3.title"),
+      description: t("process.step3.description") + (i18n.language === 'en' ? " $1,000 USD." : " $18,000 MXN.")
+    },
+  ];
 
   return (
     <section id="nuestro-proceso" className={`py-20 md:py-28 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
@@ -47,12 +55,14 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">NUESTRO PROCESO</p>
+          <p className="text-[#0e62fe] text-sm font-medium mb-2 tracking-wide">
+            {t("process.title").toUpperCase()}
+          </p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Del concepto al lanzamiento <span className="text-[#0e62fe]">en 3 días</span>
+            {t("process.subtitle")} <span className="text-[#0e62fe]">{t("hero.highlight")}</span>
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Comenzamos con una reunión de 30 minutos para entender tu negocio, diseñamos y desarrollamos con las mejores tecnologías, y entregamos todo en solo 3 días.
+            {t("process.description")}
           </p>
         </motion.div>
 

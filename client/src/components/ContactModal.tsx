@@ -5,6 +5,7 @@ import { z } from "zod";
 import { useQueryClient } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { sendContactForm } from "@/lib/emailjs";
 import useEmailJSConfig from "@/hooks/use-emailjs-config";
 
@@ -29,23 +30,23 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { contactFormSchema } from "../../../shared/schema";
 
-// Esquema del formulario adaptado al componente
-const formSchema = z.object({
+// Esquema del formulario adaptado al componente usando translations
+const getFormSchema = (t: (key: string) => string) => z.object({
   business_name: z.string().min(1, {
-    message: "El nombre de la empresa es requerido",
+    message: t("contact.required"),
   }),
   message: z.string().min(10, {
-    message: "Por favor describe tu proyecto (mínimo 10 caracteres)",
+    message: t("contact.messageMin"),
   }),
   email: z.string().email({
-    message: "Ingresa un correo electrónico válido",
+    message: t("contact.invalidEmail"),
   }),
   referral_source: z.string().min(1, {
-    message: "Por favor indica cómo nos conociste",
+    message: t("contact.required"),
   }),
 });
 
-type ContactFormValues = z.infer<typeof formSchema>;
+type ContactFormValues = z.infer<ReturnType<typeof getFormSchema>>;
 
 interface ContactModalProps {
   open: boolean;
@@ -57,6 +58,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const { config: emailJSConfig } = useEmailJSConfig();
+  const { t, i18n } = useTranslation();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
