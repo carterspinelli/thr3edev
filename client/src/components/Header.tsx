@@ -43,8 +43,8 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
   };
 
   const navItems = [
-    { href: "/#nuestro-proceso", label: "Servicios" },
-    { href: "/portafolio", label: "Portafolio" }
+    { href: "/#nuestro-proceso", label: t("navigation.services") },
+    { href: "/portafolio", label: t("navigation.portfolio") }
   ];
 
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -135,7 +135,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
               onMouseLeave={() => setCursorVariant("default")}
               onClick={() => window.location.href = "mailto:contacto@thr3e.dev"}
             >
-              Contactar
+              {t("navigation.contact")}
             </Button>
           </motion.div>
         )}
@@ -200,7 +200,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
                   closeMobileMenu();
                 }}
               >
-                Contactar
+                {t("navigation.contact")}
               </Button>
             </motion.div>
           </div>

@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
+import { en, es } from './locales';
 
 // Lista de idiomas soportados
 export const languages = ['en', 'es'];
@@ -31,15 +31,24 @@ export async function detectUserCountry(): Promise<string> {
   }
 }
 
+// Recursos de traducción
+const resources = {
+  en: {
+    translation: en
+  },
+  es: {
+    translation: es
+  }
+};
+
 i18n
-  // Carga las traducciones usando http (backend)
-  .use(Backend)
   // Detecta el idioma del usuario
   .use(LanguageDetector)
   // Pasa el i18n a react-i18next
   .use(initReactI18next)
   // Inicializa i18next
   .init({
+    resources,
     debug: import.meta.env.DEV,
     fallbackLng: 'es',
     supportedLngs: languages,
@@ -52,9 +61,6 @@ i18n
       lookupCookie: 'i18next',
       lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage', 'cookie'],
-    },
-    backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
     react: {
       useSuspense: true,
