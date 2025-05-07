@@ -127,8 +127,8 @@ export const es = {
     description: "Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital"
   },
   faq: {
-    title: "Preguntas Frecuentes",
-    subtitle: "Respuestas a tus dudas",
+    title: "Ayuda y Preguntas",
+    subtitle: "Preguntas Frecuentes",
     question1: "¿Realmente pueden entregar una landing page en 3 días?",
     answer1: "Sí, nuestro proceso está optimizado para entregarte un producto terminado en 72 horas desde la aprobación del proyecto. Para lograrlo, trabajamos con plazos estrictos y un equipo dedicado exclusivamente a tu proyecto.",
     question2: "¿Qué incluye exactamente el precio de $18,000 MXN?",
@@ -182,7 +182,14 @@ export const es = {
   footer: {
     rights: "© 2025 thr3e.dev. Todos los derechos reservados.",
     terms: "Términos y Condiciones",
-    privacy: "Política de Privacidad"
+    privacy: "Política de Privacidad",
+    description: "Transformamos ideas en experiencias digitales increíbles. Creamos páginas web optimizadas para conversión en tiempo récord. Nuestro método centrado en resultados garantiza proyectos entregados en solo 3 días con excelencia en cada detalle.",
+    menu: "Menú",
+    services: "Servicios",
+    portfolio: "Portafolio",
+    legal: "Legal",
+    madeWith: "Hecho con",
+    by: "por"
   }
 };
 
@@ -315,8 +322,8 @@ export const en = {
     description: "We design web experiences for leading companies that seek to stand out in the digital market"
   },
   faq: {
-    title: "Frequently Asked Questions",
-    subtitle: "Answers to your questions",
+    title: "Help and Questions",
+    subtitle: "Frequently Asked Questions",
     question1: "Can you really deliver a landing page in 3 days?",
     answer1: "Yes, our process is optimized to deliver a finished product within 72 hours from project approval. To achieve this, we work with strict deadlines and a team dedicated exclusively to your project.",
     question2: "What exactly is included in the $1,000 USD price?",
@@ -370,6 +377,13 @@ export const en = {
   footer: {
     rights: "© 2025 thr3e.dev. All rights reserved.",
     terms: "Terms and Conditions",
-    privacy: "Privacy Policy"
+    privacy: "Privacy Policy",
+    description: "We transform ideas into amazing digital experiences. We create web pages optimized for conversion in record time. Our results-focused method guarantees projects delivered in just 3 days with excellence in every detail.",
+    menu: "Menu",
+    services: "Services",
+    portfolio: "Portfolio",
+    legal: "Legal",
+    madeWith: "Made with",
+    by: "by"
   }
 };
