@@ -5,9 +5,10 @@ import Footer from "@/components/Footer";
 import { useTheme } from "@/hooks/use-theme";
 import { useLocation } from "wouter";
 import { BetterCaptionCard } from "@/components/ui/bettercaption-card";
+import { useTranslation } from "react-i18next";
 
-// Proyectos para el portafolio
-const projects = [
+// Project translations
+const getProjects = (t: any) => [
   {
     title: "IBM DS8000",
     link: "https://www.ibm.com/mx-es/products/ds8000",
@@ -121,6 +122,7 @@ const projects = [
 export default function PortfolioPage() {
   const { theme } = useTheme();
   const [location, setLocation] = useLocation();
+  const { t, i18n } = useTranslation();
   
   // Scroll to top when component mounts
   useEffect(() => {
@@ -148,7 +150,7 @@ export default function PortfolioPage() {
       </div>
       
       <div className="relative mt-16">
-        <HeroParallax projects={projects} />
+        <HeroParallax projects={getProjects(t)} />
       </div>
       
       <Footer onNavigate={handleNavigation} />

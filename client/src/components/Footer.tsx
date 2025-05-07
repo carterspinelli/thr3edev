@@ -96,13 +96,13 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
             <div className="flex flex-col md:flex-row gap-10">
               <div className="md:w-1/2 md:pr-10">
                 <p className={`text-left text-sm leading-relaxed ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-500'}`}>
-                  Transformamos ideas en experiencias digitales increíbles. Creamos páginas web optimizadas para conversión en tiempo récord. Nuestro método centrado en resultados garantiza proyectos entregados en solo 3 días con excelencia en cada detalle.
+                  {t("footer.description", "Transformamos ideas en experiencias digitales increíbles. Creamos páginas web optimizadas para conversión en tiempo récord. Nuestro método centrado en resultados garantiza proyectos entregados en solo 3 días con excelencia en cada detalle.")}
                 </p>
               </div>
               
               <div className="md:w-1/2">
                 <div className="grid grid-cols-2 gap-8 md:gap-10">
-                  {navigation.categories.map((category) => (
+                  {getNavigation(t).categories.map((category) => (
                     <div
                       key={category.id}
                       className="flex flex-wrap justify-end gap-8 md:gap-10"
@@ -186,9 +186,9 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
               >
                 <span>©</span>
                 <span>{new Date().getFullYear()}</span>
-                <span>Hecho con</span>
+                <span>{t("footer.madeWith", "Hecho con")}</span>
                 <FooterIcons.Heart className="text-[#0e62fe] mx-1 h-4 w-4 animate-pulse" />
-                <span>por</span>
+                <span>{t("footer.by", "por")}</span>
                 <motion.span 
                   className={`cursor-pointer font-medium ${theme === 'dark' ? 'text-white' : 'text-black'}`}
                   whileHover={{ color: "#0e62fe" }}
