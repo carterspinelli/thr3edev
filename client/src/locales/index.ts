@@ -77,7 +77,13 @@ export const es = {
   technologies: {
     title: "Tecnologías",
     subtitle: "Herramientas que usamos",
-    description: "Trabajamos con las tecnologías más modernas para crear sitios web rápidos, seguros y escalables."
+    description: "Trabajamos con las tecnologías más modernas para crear sitios web rápidos, seguros y escalables.",
+    tech1: "El framework React para aplicaciones web con renderizado híbrido.",
+    tech2: "Framework frontend para crear sitios rápidos con React y GraphQL.",
+    tech3: "Framework CSS utilitario para construir diseños personalizados.",
+    tech4: "Lenguaje de programación tipado superset de JavaScript.",
+    tech5: "Entorno de ejecución de JavaScript del lado del servidor.",
+    tech6: "Biblioteca de JavaScript para construir interfaces de usuario."
   },
   portfolio: {
     title: "Portafolio",
@@ -259,7 +265,13 @@ export const en = {
   technologies: {
     title: "Technologies",
     subtitle: "Tools we use",
-    description: "We work with the most modern technologies to create fast, secure, and scalable websites."
+    description: "We work with the most modern technologies to create fast, secure, and scalable websites.",
+    tech1: "The React framework for web applications with hybrid rendering.",
+    tech2: "Frontend framework for creating fast sites with React and GraphQL.",
+    tech3: "Utility CSS framework for building custom designs.",
+    tech4: "Typed programming language that is a superset of JavaScript.",
+    tech5: "Server-side JavaScript runtime environment.",
+    tech6: "JavaScript library for building user interfaces."
   },
   portfolio: {
     title: "Portfolio",

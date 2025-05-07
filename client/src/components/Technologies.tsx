@@ -8,41 +8,44 @@ import {
   GlowingStarsTitle,
 } from "@/components/ui/glowing-background-stars-card";
 
-const technologies = [
-  {
-    name: "Next.js",
-    description: "El framework React para aplicaciones web con renderizado híbrido.",
-    url: "https://nextjs.org/",
-  },
-  {
-    name: "Gatsby.js",
-    description: "Framework frontend para crear sitios rápidos con React y GraphQL.",
-    url: "https://www.gatsbyjs.com/",
-  },
-  {
-    name: "TailwindCSS",
-    description: "Framework CSS utilitario para construir diseños personalizados.",
-    url: "https://tailwindcss.com/",
-  },
-  {
-    name: "TypeScript",
-    description: "Lenguaje de programación tipado superset de JavaScript.",
-    url: "https://www.typescriptlang.org/",
-  },
-  {
-    name: "Node.js",
-    description: "Entorno de ejecución de JavaScript del lado del servidor.",
-    url: "https://nodejs.org/",
-  },
-  {
-    name: "React",
-    description: "Biblioteca de JavaScript para construir interfaces de usuario.",
-    url: "https://reactjs.org/",
-  },
-];
+// The technologies array is now created inside the component to access translations
 
 export default function Technologies() {
   const { theme } = useTheme();
+  const { t, i18n } = useTranslation();
+  
+  const technologies = [
+    {
+      name: "Next.js",
+      description: t("technologies.tech1"),
+      url: "https://nextjs.org/",
+    },
+    {
+      name: "Gatsby.js",
+      description: t("technologies.tech2"),
+      url: "https://www.gatsbyjs.com/",
+    },
+    {
+      name: "TailwindCSS",
+      description: t("technologies.tech3"),
+      url: "https://tailwindcss.com/",
+    },
+    {
+      name: "TypeScript",
+      description: t("technologies.tech4"),
+      url: "https://www.typescriptlang.org/",
+    },
+    {
+      name: "Node.js",
+      description: t("technologies.tech5"),
+      url: "https://nodejs.org/",
+    },
+    {
+      name: "React",
+      description: t("technologies.tech6"),
+      url: "https://reactjs.org/",
+    },
+  ];
 
   return (
     <section 
@@ -57,12 +60,12 @@ export default function Technologies() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[#26D9A3] text-sm font-medium mb-2 tracking-wide">TECNOLOGÍAS</p>
+          <p className="text-[#26D9A3] text-sm font-medium mb-2 tracking-wide">{t("technologies.title").toUpperCase()}</p>
           <h2 className={`text-3xl md:text-4xl font-medium mb-4 ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-            Construido con lo mejor
+            {t("technologies.subtitle")}
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-            Utilizamos las tecnologías más innovadoras y eficientes para crear sitios web de alto rendimiento.
+            {t("technologies.description")}
           </p>
         </motion.div>
 
