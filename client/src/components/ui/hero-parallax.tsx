@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
+import { useTranslation } from "react-i18next";
 
 export const HeroParallax = ({
   projects,
@@ -103,15 +104,21 @@ export const HeroParallax = ({
 
 export const Header = () => {
   const { theme } = useTheme();
+  const { t, i18n } = useTranslation();
   
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
       <h1 className={`text-2xl md:text-7xl font-bold ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
-        Nuestros <span className="text-[#0e62fe]">proyectos</span> <br /> más recientes
+        {i18n.language === 'es' ? (
+          <>Nuestros <span className="text-[#0e62fe]">proyectos</span> <br /> más recientes</>
+        ) : (
+          <>Our <span className="text-[#0e62fe]">latest</span> <br /> projects</>
+        )}
       </h1>
       <p className={`max-w-2xl text-base md:text-xl mt-8 ${theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600'}`}>
-        Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital.
-        Cada proyecto es único y personalizado para satisfacer las necesidades específicas de nuestros clientes.
+        {i18n.language === 'es' ? 
+          'Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital. Cada proyecto es único y personalizado para satisfacer las necesidades específicas de nuestros clientes.' :
+          'We design web experiences for leading companies looking to stand out in the digital market. Each project is unique and personalized to meet the specific needs of our clients.'}
       </p>
     </div>
   );
@@ -131,6 +138,7 @@ export const ProjectCard = ({
 }) => {
   const { setCursorVariant } = useSetCursorVariant();
   const { theme } = useTheme();
+  const { t, i18n } = useTranslation();
   
   return (
     <motion.div
