@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTranslation } from "react-i18next";
 
 // Logo paths
 const clientLogos = [
@@ -30,6 +31,7 @@ const clientLogos = [
 
 export default function Clients() {
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
   
   return (
     <section className="relative">
@@ -67,14 +69,13 @@ export default function Clients() {
         <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col">
           <div className="text-center space-y-2 md:space-y-4 mb-6">
             <p className={`text-[#0e62fe] ${isMobile ? 'text-[10px]' : 'text-xs'} sm:text-sm font-medium tracking-wide uppercase`}>
-              Clientes Destacados
+              {t("clients.title")}
             </p>
             <h2 className={`${isMobile ? 'text-xl' : 'text-2xl'} sm:text-3xl md:text-4xl font-medium mb-1 md:mb-2 text-white`}>
-              Marcas que confían en nosotros
+              {t("clients.subtitle")}
             </h2>
             <p className={`${isMobile ? 'text-xs' : 'text-sm'} sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto text-zinc-400`}>
-              Diseñamos experiencias web para empresas líderes que buscan destacar
-              en el mercado digital
+              {t("clients.description")}
             </p>
           </div>
 

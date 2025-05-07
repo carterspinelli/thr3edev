@@ -1,6 +1,7 @@
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import {
   GlowingStarsBackgroundCard,
   GlowingStarsDescription,

@@ -5,6 +5,7 @@ import { Clock, DollarSign, Code, DownloadCloud } from "lucide-react";
 import { Meteors } from "@/components/ui/meteors";
 import { cn } from "@/lib/utils";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
+import { useTranslation } from "react-i18next";
 
 interface MeteorCardProps {
   icon: React.ReactNode;
@@ -75,34 +76,31 @@ const MeteorCard = ({ icon, title, description, color }: MeteorCardProps) => {
 
 export default function ValueBanner() {
   const { theme } = useTheme();
+  const { t } = useTranslation();
 
   const valueItems = [
     {
       icon: <Clock className="size-6" />,
-      title: "Entrega en 3 días",
-      description:
-        "Desde la conversación inicial hasta el sitio web completo en solo 72 horas. Tu presencia online lista en tiempo récord.",
+      title: t("benefits.benefit1.title"),
+      description: t("benefits.benefit1.description"),
       color: "#0e62fe",
     },
     {
       icon: <DollarSign className="size-6" />,
-      title: "Precio fijo",
-      description:
-        "Precio transparente que incluye diseño, desarrollo, hosting y entrega del código. Sin sorpresas ni costos adicionales.",
+      title: t("benefits.benefit2.title"),
+      description: t("benefits.benefit2.description"),
       color: "#0e62fe",
     },
     {
       icon: <Code className="size-6" />,
-      title: "Tecnologías modernas",
-      description:
-        "Utilizamos las mejores tecnologías para crear páginas web rápidas, seguras y optimizadas para conversión.",
+      title: t("benefits.benefit3.title"),
+      description: t("benefits.benefit3.description"),
       color: "#0e62fe",
     },
     {
       icon: <DownloadCloud className="size-6" />,
-      title: "Código entregable",
-      description:
-        "Recibes el código fuente de tu landing page al finalizar, dándote total control sobre tu inversión.",
+      title: t("benefits.benefit4.title"),
+      description: t("benefits.benefit4.description"),
       color: "#0e62fe",
     },
   ];
@@ -122,12 +120,12 @@ export default function ValueBanner() {
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            Lo que <span className="text-[#0e62fe]">ofrecemos</span>
+            {t("benefits.title")} <span className="text-[#0e62fe]">{t("benefits.subtitle")}</span>
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            Un servicio completo de diseño y desarrollo.</p>
+            {t("benefits.description")}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
