@@ -60,6 +60,9 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
   const { config: emailJSConfig } = useEmailJSConfig();
   const { t, i18n } = useTranslation();
 
+  // Create the schema with current language translations
+  const formSchema = getFormSchema(t);
+  
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -111,8 +114,8 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
       
       // Siempre mostramos un mensaje de éxito al usuario
       toast({
-        title: "¡Formulario enviado exitosamente!",
-        description: "Nos pondremos en contacto contigo pronto.",
+        title: t("contact.success.title"),
+        description: t("contact.success.description"),
       });
       
       // Cerrar el modal
@@ -136,8 +139,8 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         
         // Siempre mostramos un mensaje positivo, ocultando los errores técnicos
         toast({
-          title: "Formulario recibido",
-          description: "Hemos guardado tu información. Te contactaremos pronto.",
+          title: t("contact.fallback.title"),
+          description: t("contact.fallback.description"),
           variant: "default",
         });
         
@@ -149,8 +152,8 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         console.error("Error en la solicitud al backend:", backendError);
         
         toast({
-          title: "Formulario recibido",
-          description: "Hemos recibido tu solicitud. Te contactaremos pronto.",
+          title: t("contact.fallback.title"),
+          description: t("contact.fallback.description"),
           variant: "default",
         });
         
@@ -172,11 +175,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         <div className="p-4 sm:p-6 md:p-8 bg-white dark:bg-zinc-900">
           <DialogHeader className="mb-4 sm:mb-6">
             <DialogTitle className="text-xl sm:text-2xl font-semibold text-zinc-900 dark:text-white">
-              ¡Quiero mi landing page!
+              {t("contact.formTitle")}
             </DialogTitle>
             <DialogDescription className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300">
-              Completa el formulario y en menos de 12 horas nos pondremos en
-              contacto contigo.
+              {t("contact.formDescription")}
             </DialogDescription>
           </DialogHeader>
 
@@ -191,12 +193,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      Nombre de la empresa
+                      {t("contact.company")}
                       <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Nombre de tu empresa"
+                        placeholder={t("contact.companyPlaceholder")}
                         {...field}
                         className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
@@ -212,12 +214,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      Correo electrónico
+                      {t("contact.email")}
                       <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="tu@correo.com"
+                        placeholder={t("contact.emailPlaceholder")}
                         type="email"
                         {...field}
                         className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
@@ -234,12 +236,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      Cuéntanos sobre tu proyecto
+                      {t("contact.projectDetails")}
                       <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Describe brevemente tu proyecto..."
+                        placeholder={t("contact.messagePlaceholder")}
                         {...field}
                         className="min-h-[80px] sm:min-h-[120px] bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
@@ -255,12 +257,12 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-sm font-medium">
-                      ¿Cómo nos conociste?
+                      {t("contact.referralSource")}
                       <span className="text-[#0e62fe]">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Google, recomendación, redes sociales..."
+                        placeholder={t("contact.referralPlaceholder")}
                         {...field}
                         className="bg-slate-100 dark:bg-zinc-800 border-slate-200 dark:border-zinc-700"
                       />
@@ -275,7 +277,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 className="w-full bg-[#0e62fe] text-white hover:bg-blue-700 transition-colors"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Enviando..." : "Enviar"}
+                {isSubmitting ? t("contact.sending") : t("contact.button")}
               </Button>
             </form>
           </Form>

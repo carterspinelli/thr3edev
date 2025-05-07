@@ -148,14 +148,29 @@ export const es = {
     email: "Correo electrónico",
     message: "Mensaje",
     phone: "Teléfono (opcional)",
-    company: "Empresa (opcional)",
+    company: "Empresa",
+    companyPlaceholder: "Nombre de tu empresa",
+    emailPlaceholder: "tu@correo.com",
+    messagePlaceholder: "Describe brevemente tu proyecto...",
+    projectDetails: "Cuéntanos sobre tu proyecto",
+    referralSource: "¿Cómo nos conociste?",
+    referralPlaceholder: "Google, recomendación, redes sociales...",
     button: "Enviar Mensaje",
-    success: "¡Mensaje enviado con éxito! Te contactaremos pronto.",
-    error: "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.",
+    sending: "Enviando...",
+    success: {
+      title: "¡Formulario enviado exitosamente!",
+      description: "Nos pondremos en contacto contigo pronto."
+    },
+    fallback: {
+      title: "Formulario recibido",
+      description: "Hemos guardado tu información. Te contactaremos pronto."
+    },
+    formTitle: "¡Quiero mi landing page!",
+    formDescription: "Completa el formulario y en menos de 12 horas nos pondremos en contacto contigo.",
     required: "Campo requerido",
+    messageMin: "Por favor describe tu proyecto (mínimo 10 caracteres)",
     invalidEmail: "Correo electrónico inválido",
     invalidPhone: "Número de teléfono inválido",
-    sending: "Enviando...",
     privacy: "Al enviar este formulario, aceptas nuestra política de privacidad."
   },
   footer: {
@@ -315,14 +330,29 @@ export const en = {
     email: "Email",
     message: "Message",
     phone: "Phone (optional)",
-    company: "Company (optional)",
+    company: "Company",
+    companyPlaceholder: "Your company name",
+    emailPlaceholder: "you@email.com",
+    messagePlaceholder: "Briefly describe your project...",
+    projectDetails: "Tell us about your project",
+    referralSource: "How did you find us?",
+    referralPlaceholder: "Google, recommendation, social media...",
     button: "Send Message",
-    success: "Message sent successfully! We will contact you soon.",
-    error: "There was an error sending the message. Please try again.",
+    sending: "Sending...",
+    success: {
+      title: "Form submitted successfully!",
+      description: "We'll get in touch with you soon."
+    },
+    fallback: {
+      title: "Form received",
+      description: "We've saved your information. We'll contact you soon."
+    },
+    formTitle: "I want my landing page!",
+    formDescription: "Complete the form and we'll get back to you in less than 12 hours.",
     required: "Required field",
+    messageMin: "Please describe your project (minimum 10 characters)",
     invalidEmail: "Invalid email",
     invalidPhone: "Invalid phone number",
-    sending: "Sending...",
     privacy: "By submitting this form, you accept our privacy policy."
   },
   footer: {
