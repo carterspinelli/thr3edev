@@ -2,6 +2,7 @@ import React from "react";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import {
   Stepper,
@@ -34,6 +35,7 @@ const steps = [
 export default function Services() {
   const { setCursorVariant, setCursorText } = useSetCursorVariant();
   const { theme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   return (
     <section id="nuestro-proceso" className={`py-20 md:py-28 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}>
