@@ -7,31 +7,33 @@ import { motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
 import { Logo } from "@/components/ui/logo";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import { useTranslation } from "react-i18next";
 
-const navigation = {
+// The navigation will be created dynamically based on the current language
+const getNavigation = (t: any) => ({
   categories: [
     {
       id: "main",
       sections: [
         {
           id: "menu",
-          title: "Menu",
+          title: t("footer.menu", "Menu"),
           items: [
-            { name: "Servicios", href: "/#nuestro-proceso" },
-            { name: "Portafolio", href: "/portafolio" },
+            { name: t("footer.services", "Servicios"), href: "/#nuestro-proceso" },
+            { name: t("footer.portfolio", "Portafolio"), href: "/portafolio" },
           ],
         },
         {
           id: "legal",
-          title: "Legal",
+          title: t("footer.legal", "Legal"),
           items: [
-            { name: "Privacidad", href: "/privacidad" },
+            { name: t("footer.privacy", "Privacidad"), href: "/privacidad" },
           ],
         },
       ],
     },
   ],
-};
+});
 
 const socialLinks = [
   { icon: <FooterIcons.Mail className="h-5 w-5" />, href: "mailto:contacto@thr3e.dev", label: "Email" },
@@ -46,6 +48,7 @@ export default function Footer({ onNavigate }: FooterProps = {}) {
   const { theme, toggleTheme } = useTheme();
   const isDarkMode = theme === 'dark';
   const [, setLocation] = useLocation();
+  const { t, i18n } = useTranslation();
   
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
