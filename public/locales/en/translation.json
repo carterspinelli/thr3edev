@@ -1,0 +1,165 @@
+{
+  "site": {
+    "title": "thr3e.dev - Professional landing pages in 3 days",
+    "description": "We create your professional landing page in just 3 days. Design, development, and complete hosting for $1,000 USD."
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "process": "Process",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "privacy": "Privacy"
+  },
+  "hero": {
+    "title": "We create your professional landing page",
+    "highlight": "in just 3 days",
+    "subtitle": "Design, development, and complete hosting for $1,000 USD. From concept to launch in three days, including source code delivery.",
+    "cta": "I want my landing page",
+    "services": "Our services"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete digital solutions",
+    "description": "We offer specialized services to help your business stand out online with unique designs and customized functionalities.",
+    "service1": {
+      "title": "Web Design",
+      "description": "We create unique and modern designs that highlight your brand and enhance the user experience."
+    },
+    "service2": {
+      "title": "Frontend Development",
+      "description": "We build intuitive and responsive interfaces using the most modern technologies in the market."
+    },
+    "service3": {
+      "title": "SEO Optimization",
+      "description": "We improve your site's visibility in search engines to attract more qualified traffic."
+    }
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "How we work",
+    "description": "We follow a structured process to deliver your project in record time without compromising quality.",
+    "step1": {
+      "title": "Initial Consultation",
+      "description": "We analyze your needs and objectives to define the scope of the project."
+    },
+    "step2": {
+      "title": "Design and Development",
+      "description": "We create the visual design and develop the required functionality."
+    },
+    "step3": {
+      "title": "Review and Delivery",
+      "description": "We validate the result and deliver the project ready to publish."
+    }
+  },
+  "benefits": {
+    "title": "Why choose us",
+    "subtitle": "Benefits of working with us",
+    "benefit1": {
+      "title": "Delivery in 3 days",
+      "description": "From the initial conversation to the complete website in just 72 hours. Your online presence ready in record time."
+    },
+    "benefit2": {
+      "title": "Fixed price",
+      "description": "Transparent price that includes design, development, hosting, and code delivery. No surprises or additional costs."
+    },
+    "benefit3": {
+      "title": "Modern technologies",
+      "description": "We use the best technologies to create fast, secure web pages optimized for conversion."
+    },
+    "benefit4": {
+      "title": "Deliverable code",
+      "description": "You receive the source code of your landing page upon completion, giving you total control over your investment."
+    }
+  },
+  "technologies": {
+    "title": "Technologies",
+    "subtitle": "Tools we use",
+    "description": "We work with the most modern technologies to create fast, secure, and scalable websites."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Our projects",
+    "description": "Explore some of the projects we've developed for our clients.",
+    "viewMore": "View more"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What our clients say",
+    "testimonial1": {
+      "quote": "The thr3e.dev team delivered exactly what they promised, in record time and with excellent quality.",
+      "author": "Carlos Rodriguez",
+      "company": "CEO, Digital Marketing"
+    },
+    "testimonial2": {
+      "quote": "Our new landing page increased our conversions by 45%. The best investment we've made.",
+      "author": "Laura Martinez",
+      "company": "Sales Director, Tech Solutions"
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Simple and transparent plans",
+    "description": "We offer a fixed and transparent price for your professional landing page.",
+    "price": "$1,000 USD",
+    "features": "Features",
+    "feature1": "Custom design",
+    "feature2": "Frontend development",
+    "feature3": "Contact form",
+    "feature4": "Mobile optimization",
+    "feature5": "Basic SEO optimization",
+    "feature6": "Hosting for 1 year",
+    "feature7": "Delivery in 3 days",
+    "feature8": "Source code included",
+    "cta": "Get Started Now"
+  },
+  "clients": {
+    "title": "Featured Clients",
+    "subtitle": "Brands that trust us",
+    "description": "We design web experiences for leading companies that seek to stand out in the digital market"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to your questions",
+    "question1": "Can you really deliver a landing page in 3 days?",
+    "answer1": "Yes, our process is optimized to deliver a finished product within 72 hours from project approval. To achieve this, we work with strict deadlines and a team dedicated exclusively to your project.",
+    "question2": "What exactly is included in the $1,000 USD price?",
+    "answer2": "The price includes custom design, frontend development, contact form, hosting for one year, mobile optimization, basic SEO, and delivery of the complete source code.",
+    "question3": "Can I request changes after delivery?",
+    "answer3": "Yes, we include one round of revisions at no additional cost. Major changes or those outside the initial scope may have an additional cost that will be quoted in advance.",
+    "question4": "What is the payment process?",
+    "answer4": "We request a 50% deposit to start the project and the remaining 50% upon completion, before the final delivery of the code and publication.",
+    "question5": "Do you provide maintenance after delivery?",
+    "answer5": "Hosting is included for one year, but maintenance and updates are handled separately. We can offer you a maintenance plan tailored to your needs.",
+    "question6": "Can you integrate payment systems or online stores?",
+    "answer6": "Basic landing pages are focused on conversion and lead generation. For payment integrations or complete stores, we recommend our complete web development services, which we quote separately."
+  },
+  "cta": {
+    "title": "Ready to start your project?",
+    "description": "Contact us today to create your professional landing page in just 3 days.",
+    "button": "Contact Now"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk about your project",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "phone": "Phone (optional)",
+    "company": "Company (optional)",
+    "button": "Send Message",
+    "success": "Message sent successfully! We will contact you soon.",
+    "error": "There was an error sending the message. Please try again.",
+    "required": "Required field",
+    "invalidEmail": "Invalid email",
+    "invalidPhone": "Invalid phone number",
+    "sending": "Sending...",
+    "privacy": "By submitting this form, you accept our privacy policy."
+  },
+  "footer": {
+    "rights": "© 2025 thr3e.dev. All rights reserved.",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy"
+  }
+}

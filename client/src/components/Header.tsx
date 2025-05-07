@@ -7,6 +7,8 @@ import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTheme } from "@/hooks/use-theme";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 interface HeaderProps {
   onNavigate?: (path: string) => void;
@@ -19,6 +21,7 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
   const { setCursorVariant } = useSetCursorVariant();
   const { theme } = useTheme();
   const [, setLocation] = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {

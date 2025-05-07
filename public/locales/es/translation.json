@@ -1,0 +1,165 @@
+{
+  "site": {
+    "title": "thr3e.dev - Landing pages profesionales en 3 días",
+    "description": "Creamos tu landing page profesional en solo 3 días. Diseño, desarrollo y hosting completo por $18,000 MXN."
+  },
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "process": "Proceso",
+    "pricing": "Precios",
+    "contact": "Contacto",
+    "privacy": "Privacidad"
+  },
+  "hero": {
+    "title": "Creamos tu landing page profesional",
+    "highlight": "en solo 3 días",
+    "subtitle": "Diseño, desarrollo y hosting completo por $18,000 MXN. Del concepto al lanzamiento en tres días, incluyendo entrega del código fuente.",
+    "cta": "Quiero mi landing page",
+    "services": "Nuestros servicios"
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones digitales completas",
+    "description": "Ofrecemos servicios especializados para ayudar a tu negocio a destacar en línea con diseños únicos y funcionalidades personalizadas.",
+    "service1": {
+      "title": "Diseño Web",
+      "description": "Creamos diseños únicos y modernos que destacan tu marca y mejoran la experiencia del usuario."
+    },
+    "service2": {
+      "title": "Desarrollo Frontend",
+      "description": "Construimos interfaces intuitivas y responsivas utilizando las tecnologías más modernas del mercado."
+    },
+    "service3": {
+      "title": "Optimización SEO",
+      "description": "Mejoramos la visibilidad de tu sitio en los motores de búsqueda para atraer más tráfico cualificado."
+    }
+  },
+  "process": {
+    "title": "Nuestro Proceso",
+    "subtitle": "Cómo trabajamos",
+    "description": "Seguimos un proceso estructurado para entregar tu proyecto en tiempo récord sin comprometer la calidad.",
+    "step1": {
+      "title": "Consulta Inicial",
+      "description": "Analizamos tus necesidades y objetivos para definir el alcance del proyecto."
+    },
+    "step2": {
+      "title": "Diseño y Desarrollo",
+      "description": "Creamos el diseño visual y desarrollamos la funcionalidad requerida."
+    },
+    "step3": {
+      "title": "Revisión y Entrega",
+      "description": "Validamos el resultado y entregamos el proyecto listo para publicar."
+    }
+  },
+  "benefits": {
+    "title": "Por qué elegirnos",
+    "subtitle": "Beneficios de trabajar con nosotros",
+    "benefit1": {
+      "title": "Entrega en 3 días",
+      "description": "Desde la conversación inicial hasta el sitio web completo en solo 72 horas. Tu presencia online lista en tiempo récord."
+    },
+    "benefit2": {
+      "title": "Precio fijo",
+      "description": "Precio transparente que incluye diseño, desarrollo, hosting y entrega del código. Sin sorpresas ni costos adicionales."
+    },
+    "benefit3": {
+      "title": "Tecnologías modernas",
+      "description": "Utilizamos las mejores tecnologías para crear páginas web rápidas, seguras y optimizadas para conversión."
+    },
+    "benefit4": {
+      "title": "Código entregable",
+      "description": "Recibes el código fuente de tu landing page al finalizar, dándote total control sobre tu inversión."
+    }
+  },
+  "technologies": {
+    "title": "Tecnologías",
+    "subtitle": "Herramientas que usamos",
+    "description": "Trabajamos con las tecnologías más modernas para crear sitios web rápidos, seguros y escalables."
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "subtitle": "Nuestros proyectos",
+    "description": "Explora algunos de los proyectos que hemos desarrollado para nuestros clientes.",
+    "viewMore": "Ver más"
+  },
+  "testimonials": {
+    "title": "Testimonios",
+    "subtitle": "Lo que dicen nuestros clientes",
+    "testimonial1": {
+      "quote": "El equipo de thr3e.dev entregó exactamente lo que prometieron, en tiempo récord y con excelente calidad.",
+      "author": "Carlos Rodríguez",
+      "company": "CEO, Marketing Digital"
+    },
+    "testimonial2": {
+      "quote": "Nuestra nueva landing page aumentó nuestras conversiones en un 45%. La mejor inversión que hemos hecho.",
+      "author": "Laura Martínez",
+      "company": "Directora de Ventas, Tech Solutions"
+    }
+  },
+  "pricing": {
+    "title": "Precios",
+    "subtitle": "Planes simples y transparentes",
+    "description": "Ofrecemos un precio fijo y transparente para tu landing page profesional.",
+    "price": "$18,000 MXN",
+    "features": "Características",
+    "feature1": "Diseño personalizado",
+    "feature2": "Desarrollo frontend",
+    "feature3": "Formulario de contacto",
+    "feature4": "Optimización móvil",
+    "feature5": "Optimización SEO básica",
+    "feature6": "Hosting por 1 año",
+    "feature7": "Entrega en 3 días",
+    "feature8": "Código fuente incluido",
+    "cta": "Empezar Ahora"
+  },
+  "clients": {
+    "title": "Clientes Destacados",
+    "subtitle": "Marcas que confían en nosotros",
+    "description": "Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Respuestas a tus dudas",
+    "question1": "¿Realmente pueden entregar una landing page en 3 días?",
+    "answer1": "Sí, nuestro proceso está optimizado para entregarte un producto terminado en 72 horas desde la aprobación del proyecto. Para lograrlo, trabajamos con plazos estrictos y un equipo dedicado exclusivamente a tu proyecto.",
+    "question2": "¿Qué incluye exactamente el precio de $18,000 MXN?",
+    "answer2": "El precio incluye diseño personalizado, desarrollo frontend, formulario de contacto, hosting por un año, optimización para dispositivos móviles, SEO básico y entrega del código fuente completo.",
+    "question3": "¿Puedo solicitar cambios después de la entrega?",
+    "answer3": "Sí, incluimos una ronda de revisiones sin costo adicional. Cambios mayores o fuera del alcance inicial podrían tener un costo adicional que se cotizará previamente.",
+    "question4": "¿Cómo es el proceso de pago?",
+    "answer4": "Solicitamos un anticipo del 50% para iniciar el proyecto y el 50% restante al finalizar, antes de la entrega final del código y la publicación.",
+    "question5": "¿Proporcionan mantenimiento después de la entrega?",
+    "answer5": "El hosting está incluido por un año, pero el mantenimiento y actualizaciones se manejan por separado. Podemos ofrecerte un plan de mantenimiento adecuado a tus necesidades.",
+    "question6": "¿Pueden integrar sistemas de pago o tiendas online?",
+    "answer6": "Las landing pages básicas están enfocadas en conversión y generación de leads. Para integraciones de pago o tiendas completas, te recomendamos nuestros servicios de desarrollo web completo, que cotizamos por separado."
+  },
+  "cta": {
+    "title": "¿Listo para iniciar tu proyecto?",
+    "description": "Contáctanos hoy para crear tu landing page profesional en solo 3 días.",
+    "button": "Contactar Ahora"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Hablemos de tu proyecto",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "phone": "Teléfono (opcional)",
+    "company": "Empresa (opcional)",
+    "button": "Enviar Mensaje",
+    "success": "¡Mensaje enviado con éxito! Te contactaremos pronto.",
+    "error": "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.",
+    "required": "Campo requerido",
+    "invalidEmail": "Correo electrónico inválido",
+    "invalidPhone": "Número de teléfono inválido",
+    "sending": "Enviando...",
+    "privacy": "Al enviar este formulario, aceptas nuestra política de privacidad."
+  },
+  "footer": {
+    "rights": "© 2025 thr3e.dev. Todos los derechos reservados.",
+    "terms": "Términos y Condiciones",
+    "privacy": "Política de Privacidad"
+  }
+}
