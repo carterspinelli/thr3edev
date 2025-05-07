@@ -37,20 +37,15 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium mb-8">
-                <span className="inline-block mb-4">Creamos tu landing page</span> <br />
-                <span className="text-[#0e62fe]">profesional</span> en{" "}
-                <Cover>solo 3 días</Cover>
+                <span className="inline-block mb-4">{t("hero.title")}</span> <br />
+                <span className="text-[#0e62fe]">profesional</span> {" "}
+                <Cover>{t("hero.highlight")}</Cover>
               </h1>
 
               <p
                 className={`text-lg md:text-xl mb-10 tracking-tight max-w-3xl mx-auto ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
               >
-                Diseño, desarrollo y hosting completo por{" "}
-                <span className="font-medium text-[#0e62fe]">
-                  $18,000 MXN.
-                </span>
-                {" "} Del concepto al lanzamiento en tres días, incluyendo
-                entrega del código fuente.
+                {t("hero.subtitle")}
               </p>
             </motion.div>
 
@@ -71,7 +66,7 @@ export default function Hero() {
                     onMouseEnter={() => setCursorVariant("sm")}
                     onMouseLeave={() => setCursorVariant("default")}
                   >
-                    Quiero mi landing page
+                    {t("hero.cta")}
                   </Button>
                 </DialogTrigger>
                 
@@ -91,7 +86,7 @@ export default function Hero() {
                 onMouseLeave={() => setCursorVariant("default")}
                 onClick={() => window.location.href = "#nuestro-proceso"}
               >
-                Nuestros servicios
+                {t("hero.services")}
               </Button>
             </motion.div>
           </div>
