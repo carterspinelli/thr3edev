@@ -118,13 +118,16 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
           </div>
         )}
         
-        {/* Contact Button - Desktop */}
+        {/* Desktop: Language Switcher and Contact Button */}
         {!isMobile && (
           <motion.div
+            className="flex items-center space-x-4"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 0.3 }}
           >
+            <LanguageSwitcher />
+            
             <Button
               variant="expandIcon"
               size="sm"
@@ -187,7 +190,16 @@ export default function Header({ onNavigate }: HeaderProps = {}) {
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: isMobileMenuOpen ? 0 : 10, opacity: isMobileMenuOpen ? 1 : 0 }}
-              transition={{ delay: 0.25, duration: 0.3 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+              className="flex justify-center my-2"
+            >
+              <LanguageSwitcher />
+            </motion.div>
+            
+            <motion.div
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: isMobileMenuOpen ? 0 : 10, opacity: isMobileMenuOpen ? 1 : 0 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
               className="w-full"
             >
               <Button

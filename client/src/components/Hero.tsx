@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ContactModal from "./ContactModal";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -17,6 +18,7 @@ export default function Hero() {
     useSetCursorVariant();
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const { t } = useTranslation();
 
   return (
     <>
