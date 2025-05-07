@@ -8,113 +8,149 @@ import { BetterCaptionCard } from "@/components/ui/bettercaption-card";
 import { useTranslation } from "react-i18next";
 
 // Project translations
-const getProjects = (t: any) => [
+const getProjects = (language: string) => [
   {
     title: "IBM DS8000",
     link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: "Sistema de almacenamiento empresarial de alta gama para IBM",
+    description: language === 'es' 
+      ? "Sistema de almacenamiento empresarial de alta gama para IBM" 
+      : "High-end enterprise storage system for IBM",
     thumbnail: "/images/ibm-ds8000.png"
   },
   {
     title: "IBM Copy Services Manager",
     link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: "Plataforma de gestión de servicios de almacenamiento para IBM",
+    description: language === 'es'
+      ? "Plataforma de gestión de servicios de almacenamiento para IBM"
+      : "Storage services management platform for IBM",
     thumbnail: "/images/ibm-csm.png"
   },
   {
     title: "BetterCaption",
     link: "https://carterspinelli-test-dev.com/",
-    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    description: language === 'es'
+      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
+      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
     thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Miscellaneous",
     link: "https://carterspinelli.com/miscellaneous",
-    description: "Colección personal de ideas, música y cosas que le gustan al autor",
+    description: language === 'es'
+      ? "Colección personal de ideas, música y cosas que le gustan al autor"
+      : "Personal collection of ideas, music and things the author likes",
     thumbnail: "/images/carter-spinelli.png"
   },
   {
     title: "IBM DS8000 Systems",
     link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: "Variante del sistema de almacenamiento empresarial para el sector financiero",
+    description: language === 'es'
+      ? "Variante del sistema de almacenamiento empresarial para el sector financiero"
+      : "Enterprise storage system variant for the financial sector",
     thumbnail: "/images/ibm-ds8000.png"
   },
   {
     title: "IBM Storage Solutions",
     link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: "Sitio especializado para servicios de recuperación de datos",
+    description: language === 'es'
+      ? "Sitio especializado para servicios de recuperación de datos"
+      : "Specialized site for data recovery services",
     thumbnail: "/images/ibm-csm.png"
   },
   {
     title: "BetterCaption",
     link: "https://carterspinelli-test-dev.com/",
-    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    description: language === 'es'
+      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
+      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
     thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Portfolio",
     link: "https://carterspinelli.com/miscellaneous",
-    description: "Proyecto personal con diseño minimalista orientado a contenido",
+    description: language === 'es'
+      ? "Proyecto personal con diseño minimalista orientado a contenido"
+      : "Personal project with a content-oriented minimalist design",
     thumbnail: "/images/carter-spinelli.png"
   },
   {
     title: "IBM Data Storage",
     link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: "Versión internacional de la plataforma DS8000",
+    description: language === 'es'
+      ? "Versión internacional de la plataforma DS8000"
+      : "International version of the DS8000 platform",
     thumbnail: "/images/ibm-ds8000.png"
   },
   {
     title: "IBM Copy Services Manager Pro",
     link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: "Versión avanzada con funcionalidades adicionales",
+    description: language === 'es'
+      ? "Versión avanzada con funcionalidades adicionales"
+      : "Advanced version with additional functionalities",
     thumbnail: "/images/ibm-csm.png"
   },
   {
     title: "BetterCaption",
     link: "https://carterspinelli-test-dev.com/",
-    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    description: language === 'es'
+      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
+      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
     thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Media",
     link: "https://carterspinelli.com/miscellaneous",
-    description: "Sección especializada en multimedia y contenido audiovisual",
+    description: language === 'es'
+      ? "Sección especializada en multimedia y contenido audiovisual"
+      : "Specialized section for multimedia and audiovisual content",
     thumbnail: "/images/carter-spinelli.png"
   },
   {
     title: "IBM Storage Hybrid Solutions",
     link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: "Soluciones de almacenamiento híbrido para empresas",
+    description: language === 'es'
+      ? "Soluciones de almacenamiento híbrido para empresas"
+      : "Hybrid storage solutions for businesses",
     thumbnail: "/images/ibm-ds8000.png"
   },
   {
     title: "IBM CSM Express",
     link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: "Versión simplificada para implementación rápida",
+    description: language === 'es'
+      ? "Versión simplificada para implementación rápida"
+      : "Simplified version for quick implementation",
     thumbnail: "/images/ibm-csm.png"
   },
   {
     title: "BetterCaption",
     link: "https://carterspinelli-test-dev.com/",
-    description: "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus",
+    description: language === 'es'
+      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
+      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
     thumbnail: "/images/bettercaption.png"
   },
   {
     title: "Carter Spinelli Projects",
     link: "https://carterspinelli.com/miscellaneous",
-    description: "Galería de proyectos creativos del autor",
+    description: language === 'es'
+      ? "Galería de proyectos creativos del autor"
+      : "Gallery of creative projects by the author",
     thumbnail: "/images/carter-spinelli.png"
   },
   {
     title: "IBM DS8000 Cloud Integration",
     link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: "Integración con servicios en la nube para empresas",
+    description: language === 'es'
+      ? "Integración con servicios en la nube para empresas"
+      : "Integration with cloud services for businesses",
     thumbnail: "/images/ibm-ds8000.png"
   },
   {
     title: "IBM Services Management",
     link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: "Plataforma para gestión integral de servicios",
+    description: language === 'es'
+      ? "Plataforma para gestión integral de servicios"
+      : "Platform for comprehensive service management",
     thumbnail: "/images/ibm-csm.png"
   }
 ];
@@ -150,7 +186,7 @@ export default function PortfolioPage() {
       </div>
       
       <div className="relative mt-16">
-        <HeroParallax projects={getProjects(t)} />
+        <HeroParallax projects={getProjects(i18n.language)} />
       </div>
       
       <Footer onNavigate={handleNavigation} />
