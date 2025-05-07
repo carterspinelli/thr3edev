@@ -58,8 +58,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (path.endsWith('.svg')) {
         res.setHeader('Content-Type', 'image/svg+xml');
       }
+      // Establecer cabeceras anti-caché específicamente para og-card.png
+      if (path.includes('og-card.png')) {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
+      }
     }
   }));
+  
+  // Ruta especial para og-image con un nombre único cada vez
+  app.get('/og-image-:timestamp.png', (req: Request, res: Response) => {
+    res.sendFile('og-card.png', { root: 'public/images' });
+  });
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
