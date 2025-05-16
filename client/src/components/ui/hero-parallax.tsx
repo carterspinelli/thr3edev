@@ -21,10 +21,29 @@ export const HeroParallax = ({
     description: string;
   }[];
 }) => {
-  // Ensure we have data for all rows, even with fewer items
-  const firstRow = projects.slice(0, 5);
-  const secondRow = projects.slice(5, 10);
-  const thirdRow = projects.slice(10, 15);
+  // Check if we're on a mobile device
+  const [isMobile, setIsMobile] = React.useState(false);
+  
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // For mobile, only use two rows with fewer projects per row for better visibility
+  // For desktop, maintain the three-row layout
+  const firstRow = isMobile ? projects.slice(0, 3) : projects.slice(0, 5);
+  const secondRow = isMobile ? projects.slice(3, 6) : projects.slice(5, 10);
+  const thirdRow = isMobile ? [] : projects.slice(10, 15); // Empty on mobile
   
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
@@ -59,30 +78,12 @@ export const HeroParallax = ({
     springConfig
   );
   
-  // Check if we're on a mobile device
-  const [isMobile, setIsMobile] = React.useState(false);
-  
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Check initially
-    checkMobile();
-    
-    // Add resize listener
-    window.addEventListener('resize', checkMobile);
-    
-    // Clean up
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
   return (
     <div
       ref={ref}
       className="relative py-20 md:py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       style={{ 
-        height: isMobile ? "200vh" : "300vh",
+        height: isMobile ? "150vh" : "300vh",
         position: "relative" // Ensure proper position for scroll calculation
       }}
     >
@@ -95,7 +96,7 @@ export const HeroParallax = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 mb-10 md:mb-20 overflow-visible">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-16 md:mb-20 overflow-visible">
           {firstRow.map((project) => (
             <ProjectCard
               project={project}
@@ -104,7 +105,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-10 md:mb-20 space-x-10 md:space-x-20 overflow-visible">
+        <motion.div className="flex flex-row mb-16 md:mb-20 space-x-4 md:space-x-20 overflow-visible">
           {secondRow.map((project) => (
             <ProjectCard
               project={project}
@@ -113,15 +114,17 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
-          {thirdRow.map((project) => (
-            <ProjectCard
-              project={project}
-              translate={translateX}
-              key={project.title}
-            />
-          ))}
-        </motion.div>
+        {!isMobile && (
+          <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
+            {thirdRow.map((project) => (
+              <ProjectCard
+                project={project}
+                translate={translateX}
+                key={project.title}
+              />
+            ))}
+          </motion.div>
+        )}
       </motion.div>
     </div>
   );
@@ -190,7 +193,7 @@ export const ProjectCard = ({
         y: -20,
       }}
       key={project.title}
-      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-64 w-72' : 'h-96 w-[30rem]'}`}
+      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-48 w-[130px] sm:h-56 sm:w-44' : 'h-96 w-[30rem]'}`}
       onMouseEnter={() => setCursorVariant("sm")}
       onMouseLeave={() => setCursorVariant("default")}
     >
@@ -214,13 +217,13 @@ export const ProjectCard = ({
       ></div>
       
       <div 
-        className={`absolute bottom-0 left-0 p-4 md:p-6 transition-opacity duration-300
+        className={`absolute bottom-0 left-0 p-2 md:p-6 transition-opacity duration-300
           ${isMobile ? 'opacity-100' : 'opacity-0 group-hover/product:opacity-100'}`}
       >
-        <h2 className="text-white text-lg md:text-xl font-bold mb-1 md:mb-2">
+        <h2 className="text-white text-sm md:text-xl font-bold mb-1 md:mb-2">
           {project.title}
         </h2>
-        <p className={`text-white ${isMobile ? 'text-xs line-clamp-2' : 'text-sm'} opacity-80`}>
+        <p className={`text-white ${isMobile ? 'text-[10px] line-clamp-2' : 'text-sm'} opacity-80`}>
           {project.description}
         </p>
       </div>
