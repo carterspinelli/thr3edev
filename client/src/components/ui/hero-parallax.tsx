@@ -95,30 +95,30 @@ export const HeroParallax = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 mb-10 md:mb-20 overflow-visible">
-          {firstRow.map((project) => (
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 mb-20 overflow-visible">
+          {firstRow.map((project, index) => (
             <ProjectCard
               project={project}
               translate={translateX}
-              key={project.title}
+              key={`${project.title}-${index}`}
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-10 md:mb-20 space-x-10 md:space-x-20 overflow-visible">
-          {secondRow.map((project) => (
+        <motion.div className="flex flex-row mb-20 space-x-16 overflow-visible">
+          {secondRow.map((project, index) => (
             <ProjectCard
               project={project}
               translate={translateXReverse}
-              key={project.title}
+              key={`${project.title}-${index}`}
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
-          {thirdRow.map((project) => (
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-16 overflow-visible">
+          {thirdRow.map((project, index) => (
             <ProjectCard
               project={project}
               translate={translateX}
-              key={project.title}
+              key={`${project.title}-${index}`}
             />
           ))}
         </motion.div>
