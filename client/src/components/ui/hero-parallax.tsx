@@ -10,7 +10,6 @@ import {
 import { useTheme } from "@/hooks/use-theme";
 import { useSetCursorVariant } from "@/components/ui/custom-cursor";
 import { useTranslation } from "react-i18next";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 export const HeroParallax = ({
   projects,
@@ -22,83 +21,7 @@ export const HeroParallax = ({
     description: string;
   }[];
 }) => {
-  const isMobile = useIsMobile();
-  
-  if (isMobile) {
-    return <MobilePortfolioDisplay projects={projects} />;
-  } else {
-    return <DesktopParallaxDisplay projects={projects} />;
-  }
-};
-
-// Mobile optimized portfolio view
-const MobilePortfolioDisplay = ({
-  projects
-}: {
-  projects: {
-    title: string;
-    link: string;
-    thumbnail: string;
-    description: string;
-  }[];
-}) => {
-  const { theme } = useTheme();
-  
-  return (
-    <div className="py-8">
-      <Header />
-      <div className="container mx-auto px-4 mt-6">
-        <div className="grid grid-cols-1 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={`${project.title}-${index}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
-            >
-              <div 
-                className="relative rounded-lg overflow-hidden shadow-lg h-[240px]"
-              >
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block h-full"
-                >
-                  <img
-                    src={project.thumbnail}
-                    className="object-cover object-center w-full h-full"
-                    alt={project.title}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
-                  <div className="absolute bottom-0 left-0 p-4">
-                    <h3 className="text-white text-lg font-semibold mb-1 line-clamp-1">{project.title}</h3>
-                    <p className="text-white text-xs opacity-90 line-clamp-2">{project.description}</p>
-                  </div>
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Desktop parallax display
-const DesktopParallaxDisplay = ({
-  projects
-}: {
-  projects: {
-    title: string;
-    link: string;
-    thumbnail: string;
-    description: string;
-  }[];
-}) => {
-  // Ensure we have data for all rows
+  // Ensure we have data for all rows, even with fewer items
   const firstRow = projects.slice(0, 5);
   const secondRow = projects.slice(5, 10);
   const thirdRow = projects.slice(10, 15);
@@ -136,13 +59,31 @@ const DesktopParallaxDisplay = ({
     springConfig
   );
   
+  // Check if we're on a mobile device
+  const [isMobile, setIsMobile] = React.useState(false);
+  
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
   return (
     <div
       ref={ref}
-      className="relative py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative py-20 md:py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       style={{ 
-        height: "300vh",
-        position: "relative"
+        height: isMobile ? "200vh" : "300vh",
+        position: "relative" // Ensure proper position for scroll calculation
       }}
     >
       <Header />
@@ -154,27 +95,27 @@ const DesktopParallaxDisplay = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20 overflow-visible">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 mb-10 md:mb-20 overflow-visible">
           {firstRow.map((project) => (
-            <DesktopProjectCard
+            <ProjectCard
               project={project}
               translate={translateX}
               key={project.title}
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20 overflow-visible">
+        <motion.div className="flex flex-row mb-10 md:mb-20 space-x-10 md:space-x-20 overflow-visible">
           {secondRow.map((project) => (
-            <DesktopProjectCard
+            <ProjectCard
               project={project}
               translate={translateXReverse}
               key={project.title}
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 overflow-visible">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
           {thirdRow.map((project) => (
-            <DesktopProjectCard
+            <ProjectCard
               project={project}
               translate={translateX}
               key={project.title}
@@ -189,10 +130,9 @@ const DesktopParallaxDisplay = ({
 export const Header = () => {
   const { theme } = useTheme();
   const { t, i18n } = useTranslation();
-  const isMobile = useIsMobile();
   
   return (
-    <div className={`max-w-7xl relative mx-auto ${isMobile ? 'py-10' : 'py-20 md:py-40'} px-4 w-full left-0 top-0`}>
+    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
       <h1 className={`text-2xl md:text-7xl font-bold ${theme === 'dark' ? 'text-white' : 'text-zinc-900'}`}>
         {i18n.language === 'es' ? (
           <>Nuestros <span className="text-[#0e62fe]">proyectos</span> <br /> más recientes</>
@@ -209,8 +149,7 @@ export const Header = () => {
   );
 };
 
-// Desktop project card with parallax effect
-const DesktopProjectCard = ({
+export const ProjectCard = ({
   project,
   translate,
 }: {
@@ -223,6 +162,24 @@ const DesktopProjectCard = ({
   translate: MotionValue<number>;
 }) => {
   const { setCursorVariant } = useSetCursorVariant();
+  const { theme } = useTheme();
+  const { t, i18n } = useTranslation();
+  const [isMobile, setIsMobile] = React.useState(false);
+  
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   return (
     <motion.div
@@ -233,7 +190,7 @@ const DesktopProjectCard = ({
         y: -20,
       }}
       key={project.title}
-      className="group/product relative flex-shrink-0 h-96 w-[30rem]"
+      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-64 w-72' : 'h-96 w-[30rem]'}`}
       onMouseEnter={() => setCursorVariant("sm")}
       onMouseLeave={() => setCursorVariant("default")}
     >
@@ -250,17 +207,20 @@ const DesktopProjectCard = ({
         />
       </a>
       
+      {/* Always show info on mobile, hover effect on desktop */}
       <div 
-        className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-90 bg-gradient-to-t from-black to-transparent pointer-events-none rounded-lg transition-opacity duration-300"
+        className={`absolute inset-0 h-full w-full bg-gradient-to-t from-black to-transparent pointer-events-none rounded-lg transition-opacity duration-300 
+          ${isMobile ? 'opacity-90' : 'opacity-0 group-hover/product:opacity-90'}`}
       ></div>
       
       <div 
-        className="absolute bottom-0 left-0 p-6 opacity-0 group-hover/product:opacity-100 transition-opacity duration-300"
+        className={`absolute bottom-0 left-0 p-4 md:p-6 transition-opacity duration-300
+          ${isMobile ? 'opacity-100' : 'opacity-0 group-hover/product:opacity-100'}`}
       >
-        <h2 className="text-white text-xl font-bold mb-2">
+        <h2 className="text-white text-lg md:text-xl font-bold mb-1 md:mb-2">
           {project.title}
         </h2>
-        <p className="text-white text-sm opacity-80">
+        <p className={`text-white ${isMobile ? 'text-xs line-clamp-2' : 'text-sm'} opacity-80`}>
           {project.description}
         </p>
       </div>
