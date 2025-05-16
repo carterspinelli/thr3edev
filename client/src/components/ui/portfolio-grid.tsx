@@ -23,40 +23,38 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className={`relative min-h-screen w-full ${theme === "dark" ? "bg-black" : "bg-gray-50"}`}>
-      {/* Shooting star background for dark mode */}
-      {theme === "dark" && (
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.15)_0%,rgba(0,0,0,0)_80%)]" />
-          <div className="stars absolute inset-0" />
-          
-          {/* Multiple shooting star layers with different colors and speeds */}
-          <ShootingStars
-            starColor="#0e62fe"
-            trailColor="#2EB9DF"
-            minSpeed={15}
-            maxSpeed={35}
-            minDelay={1000}
-            maxDelay={3000}
-          />
-          <ShootingStars
-            starColor="#0099FF"
-            trailColor="#00B8FF"
-            minSpeed={10}
-            maxSpeed={25}
-            minDelay={2000}
-            maxDelay={4000}
-          />
-          <ShootingStars
-            starColor="#00BFFF"
-            trailColor="#0e62fe"
-            minSpeed={20}
-            maxSpeed={40}
-            minDelay={1500}
-            maxDelay={3500}
-          />
-        </div>
-      )}
+    <div className={`relative min-h-screen w-full ${theme === "dark" ? "bg-black" : "bg-gray-900"}`}>
+      {/* Shooting star background for both modes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,98,254,0.15)_0%,rgba(0,0,0,0)_80%)]" />
+        <div className="stars absolute inset-0" />
+        
+        {/* Multiple shooting star layers with different colors and speeds */}
+        <ShootingStars
+          starColor="#0e62fe"
+          trailColor="#2EB9DF"
+          minSpeed={15}
+          maxSpeed={35}
+          minDelay={1000}
+          maxDelay={3000}
+        />
+        <ShootingStars
+          starColor="#0099FF"
+          trailColor="#00B8FF"
+          minSpeed={10}
+          maxSpeed={25}
+          minDelay={2000}
+          maxDelay={4000}
+        />
+        <ShootingStars
+          starColor="#00BFFF"
+          trailColor="#0e62fe"
+          minSpeed={20}
+          maxSpeed={40}
+          minDelay={1500}
+          maxDelay={3500}
+        />
+      </div>
 
       {/* Page header */}
       <div className="container mx-auto px-4 pt-32 pb-16 relative z-10">
@@ -66,14 +64,14 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className={`text-4xl md:text-5xl font-bold mb-6 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             {i18n.language === 'es' ? (
               <>Nuestros <span className="text-[#0e62fe]">proyectos</span> más recientes</>
             ) : (
               <>Our <span className="text-[#0e62fe]">latest</span> projects</>
             )}
           </h1>
-          <p className={`max-w-2xl mx-auto text-lg ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
+          <p className="max-w-2xl mx-auto text-lg text-gray-300">
             {i18n.language === 'es' ? 
               'Diseñamos experiencias web para empresas líderes que buscan destacar en el mercado digital. Cada proyecto es único y personalizado para satisfacer las necesidades específicas de nuestros clientes.' :
               'We design web experiences for leading companies looking to stand out in the digital market. Each project is unique and personalized to meet the specific needs of our clients.'}
@@ -97,9 +95,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block h-full overflow-hidden group rounded-xl ${
-                  theme === "dark" ? "bg-zinc-900" : "bg-white"
-                } shadow-lg transform transition-all duration-300`}
+                className="block h-full overflow-hidden group rounded-xl bg-zinc-900/80 shadow-lg transform transition-all duration-300"
               >
                 <div className="relative aspect-video overflow-hidden">
                   <img
