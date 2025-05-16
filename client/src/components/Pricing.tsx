@@ -34,7 +34,7 @@ export default function Pricing() {
         "Imágenes personalizadas",
         "Textos que comunican tu identidad con claridad",
         "Carga rápida (porque nadie quiere esperar)",
-        t("pricing.feature6"),
+        "Hosting por 1 año",
       ],
     },
   ];
