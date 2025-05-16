@@ -21,9 +21,11 @@ export const HeroParallax = ({
     description: string;
   }[];
 }) => {
+  // Ensure we have data for all rows, even with fewer items
   const firstRow = projects.slice(0, 5);
   const secondRow = projects.slice(5, 10);
   const thirdRow = projects.slice(10, 15);
+  
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -56,10 +58,33 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
   );
+  
+  // Check if we're on a mobile device
+  const [isMobile, setIsMobile] = React.useState(false);
+  
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative py-20 md:py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      style={{ 
+        height: isMobile ? "200vh" : "300vh",
+        position: "relative" // Ensure proper position for scroll calculation
+      }}
     >
       <Header />
       <motion.div
@@ -70,7 +95,7 @@ export const HeroParallax = ({
           opacity,
         }}
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 mb-10 md:mb-20 overflow-visible">
           {firstRow.map((project) => (
             <ProjectCard
               project={project}
@@ -79,7 +104,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
+        <motion.div className="flex flex-row mb-10 md:mb-20 space-x-10 md:space-x-20 overflow-visible">
           {secondRow.map((project) => (
             <ProjectCard
               project={project}
@@ -88,7 +113,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
           {thirdRow.map((project) => (
             <ProjectCard
               project={project}
@@ -139,6 +164,22 @@ export const ProjectCard = ({
   const { setCursorVariant } = useSetCursorVariant();
   const { theme } = useTheme();
   const { t, i18n } = useTranslation();
+  const [isMobile, setIsMobile] = React.useState(false);
+  
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check initially
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   return (
     <motion.div
@@ -149,13 +190,15 @@ export const ProjectCard = ({
         y: -20,
       }}
       key={project.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-64 w-72' : 'h-96 w-[30rem]'}`}
       onMouseEnter={() => setCursorVariant("sm")}
       onMouseLeave={() => setCursorVariant("default")}
     >
       <a
         href={project.link}
-        className="block group-hover/product:shadow-2xl"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block group-hover/product:shadow-2xl h-full"
       >
         <img
           src={project.thumbnail}
@@ -163,12 +206,21 @@ export const ProjectCard = ({
           alt={project.title}
         />
       </a>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-90 bg-gradient-to-t from-black to-transparent pointer-events-none rounded-lg transition-opacity duration-300"></div>
-      <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover/product:opacity-100 transition-opacity duration-300">
-        <h2 className="text-white text-xl font-bold mb-2">
+      
+      {/* Always show info on mobile, hover effect on desktop */}
+      <div 
+        className={`absolute inset-0 h-full w-full bg-gradient-to-t from-black to-transparent pointer-events-none rounded-lg transition-opacity duration-300 
+          ${isMobile ? 'opacity-90' : 'opacity-0 group-hover/product:opacity-90'}`}
+      ></div>
+      
+      <div 
+        className={`absolute bottom-0 left-0 p-4 md:p-6 transition-opacity duration-300
+          ${isMobile ? 'opacity-100' : 'opacity-0 group-hover/product:opacity-100'}`}
+      >
+        <h2 className="text-white text-lg md:text-xl font-bold mb-1 md:mb-2">
           {project.title}
         </h2>
-        <p className="text-white text-sm opacity-80">
+        <p className={`text-white ${isMobile ? 'text-xs line-clamp-2' : 'text-sm'} opacity-80`}>
           {project.description}
         </p>
       </div>
