@@ -103,7 +103,7 @@ export const HeroParallax = ({
         className="mt-4 md:mt-0"
       >
         {/* First row */}
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-5 md:space-x-10 mb-10 md:mb-32 overflow-visible">
+        <motion.div className="flex flex-row-reverse space-x-reverse mb-10 md:mb-24 overflow-visible">
           {firstRow.map((project, idx) => (
             <ProjectCard
               project={project}
@@ -114,7 +114,7 @@ export const HeroParallax = ({
         </motion.div>
         
         {/* Second row */}
-        <motion.div className="flex flex-row mb-10 md:mb-32 space-x-5 md:space-x-10 overflow-visible">
+        <motion.div className="flex flex-row mb-10 md:mb-24 overflow-visible">
           {secondRow.map((project, idx) => (
             <ProjectCard
               project={project}
@@ -126,7 +126,7 @@ export const HeroParallax = ({
         
         {/* Third row - only on desktop */}
         {!isMobile && (
-          <motion.div className="flex flex-row-reverse space-x-reverse space-x-5 md:space-x-10 overflow-visible">
+          <motion.div className="flex flex-row-reverse space-x-reverse overflow-visible">
             {thirdRow.map((project, idx) => (
               <ProjectCard
                 project={project}
@@ -203,7 +203,7 @@ export const ProjectCard = ({
       whileHover={{
         y: isMobile ? 0 : -20,
       }}
-      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-48 w-60' : 'h-96 w-[30rem] mx-4'}`}
+      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-48 w-60 mx-2' : 'h-96 w-[28rem] mx-6'}`}
       onMouseEnter={() => setCursorVariant("sm")}
       onMouseLeave={() => setCursorVariant("default")}
     >
