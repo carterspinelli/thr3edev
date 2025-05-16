@@ -47,14 +47,6 @@ const getProjects = (language: string) => [
       ? "Proyecto personal con diseño minimalista orientado a contenido"
       : "Personal project with a content-oriented minimalist design",
     thumbnail: "/images/carter-spinelli.png"
-  },
-  {
-    title: "ASVM Inc",
-    link: "https://asvm.com/",
-    description: language === 'es'
-      ? "Sitio corporativo para servicios de consultoría técnica especializada"
-      : "Corporate website for specialized technical consulting services",
-    thumbnail: "/images/asvm-screen.png"
   }
 ];
 
