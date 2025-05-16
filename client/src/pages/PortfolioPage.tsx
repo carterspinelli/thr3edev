@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-import { HeroParallax } from "@/components/ui/hero-parallax";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useTheme } from "@/hooks/use-theme";
 import { useLocation } from "wouter";
-import { BetterCaptionCard } from "@/components/ui/bettercaption-card";
 import { useTranslation } from "react-i18next";
+import { PortfolioGrid } from "@/components/ui/portfolio-grid";
 
-// Project translations
+// Project list for the portfolio grid
 const getProjects = (language: string) => [
   {
     title: "Vessel México",
@@ -16,6 +15,14 @@ const getProjects = (language: string) => [
       ? "Sitio web oficial para Vessel México, fabricante de herramientas de precisión desde 1916" 
       : "Official website for Vessel Mexico, manufacturer of precision tools since 1916",
     thumbnail: "/images/vessel-screen.png"
+  },
+  {
+    title: "BetterCaption",
+    link: "https://carterspinelli-test-dev.com/",
+    description: language === 'es'
+      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
+      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
+    thumbnail: "/images/bettercaption.png"
   },
   {
     title: "IBM DS8000",
@@ -34,19 +41,11 @@ const getProjects = (language: string) => [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "BetterCaption",
-    link: "https://carterspinelli-test-dev.com/",
-    description: language === 'es'
-      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
-      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
-    thumbnail: "/images/bettercaption.png"
-  },
-  {
-    title: "Carter Spinelli Miscellaneous",
+    title: "Carter Spinelli Portfolio",
     link: "https://carterspinelli.com/miscellaneous",
     description: language === 'es'
-      ? "Colección personal de ideas, música y cosas que le gustan al autor"
-      : "Personal collection of ideas, music and things the author likes",
+      ? "Proyecto personal con diseño minimalista orientado a contenido"
+      : "Personal project with a content-oriented minimalist design",
     thumbnail: "/images/carter-spinelli.png"
   },
   {
@@ -66,62 +65,6 @@ const getProjects = (language: string) => [
     thumbnail: "/images/ibm-csm.png"
   },
   {
-    title: "Vessel México",
-    link: "https://vesselmexico.com/",
-    description: language === 'es' 
-      ? "Sitio web oficial para Vessel México, fabricante de herramientas de precisión desde 1916" 
-      : "Official website for Vessel Mexico, manufacturer of precision tools since 1916",
-    thumbnail: "/images/vessel-screen.png"
-  },
-  {
-    title: "BetterCaption",
-    link: "https://carterspinelli-test-dev.com/",
-    description: language === 'es'
-      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
-      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
-    thumbnail: "/images/bettercaption.png"
-  },
-  {
-    title: "Carter Spinelli Portfolio",
-    link: "https://carterspinelli.com/miscellaneous",
-    description: language === 'es'
-      ? "Proyecto personal con diseño minimalista orientado a contenido"
-      : "Personal project with a content-oriented minimalist design",
-    thumbnail: "/images/carter-spinelli.png"
-  },
-  {
-    title: "IBM Data Storage",
-    link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: language === 'es'
-      ? "Versión internacional de la plataforma DS8000"
-      : "International version of the DS8000 platform",
-    thumbnail: "/images/ibm-ds8000.png"
-  },
-  {
-    title: "IBM Copy Services Manager Pro",
-    link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: language === 'es'
-      ? "Versión avanzada con funcionalidades adicionales"
-      : "Advanced version with additional functionalities",
-    thumbnail: "/images/ibm-csm.png"
-  },
-  {
-    title: "Vessel México",
-    link: "https://vesselmexico.com/",
-    description: language === 'es' 
-      ? "Sitio web oficial para Vessel México, fabricante de herramientas de precisión desde 1916" 
-      : "Official website for Vessel Mexico, manufacturer of precision tools since 1916",
-    thumbnail: "/images/vessel-screen.png"
-  },
-  {
-    title: "BetterCaption",
-    link: "https://carterspinelli-test-dev.com/",
-    description: language === 'es'
-      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
-      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
-    thumbnail: "/images/bettercaption.png"
-  },
-  {
     title: "Carter Spinelli Media",
     link: "https://carterspinelli.com/miscellaneous",
     description: language === 'es'
@@ -136,46 +79,6 @@ const getProjects = (language: string) => [
       ? "Soluciones de almacenamiento híbrido para empresas"
       : "Hybrid storage solutions for businesses",
     thumbnail: "/images/ibm-ds8000.png"
-  },
-  {
-    title: "IBM CSM Express",
-    link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: language === 'es'
-      ? "Versión simplificada para implementación rápida"
-      : "Simplified version for quick implementation",
-    thumbnail: "/images/ibm-csm.png"
-  },
-  {
-    title: "BetterCaption",
-    link: "https://carterspinelli-test-dev.com/",
-    description: language === 'es'
-      ? "Sitio web de documentación de muestra para una función ficticia. Sirve como ejemplo de un sitio de documentación técnica que construimos con Docusaurus"
-      : "Sample documentation website for a fictional feature. Serves as an example of a technical documentation site we built using Docusaurus",
-    thumbnail: "/images/bettercaption.png"
-  },
-  {
-    title: "Carter Spinelli Projects",
-    link: "https://carterspinelli.com/miscellaneous",
-    description: language === 'es'
-      ? "Galería de proyectos creativos del autor"
-      : "Gallery of creative projects by the author",
-    thumbnail: "/images/carter-spinelli.png"
-  },
-  {
-    title: "IBM DS8000 Cloud Integration",
-    link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: language === 'es'
-      ? "Integración con servicios en la nube para empresas"
-      : "Integration with cloud services for businesses",
-    thumbnail: "/images/ibm-ds8000.png"
-  },
-  {
-    title: "IBM Services Management",
-    link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: language === 'es'
-      ? "Plataforma para gestión integral de servicios"
-      : "Platform for comprehensive service management",
-    thumbnail: "/images/ibm-csm.png"
   }
 ];
 
@@ -200,6 +103,8 @@ export default function PortfolioPage() {
     } else if (path === "#nuestro-proceso") {
       // Navigate to the nuestro-proceso section on the home page
       setLocation('/#nuestro-proceso');
+    } else {
+      setLocation(path);
     }
   };
 
@@ -209,9 +114,7 @@ export default function PortfolioPage() {
         <Header onNavigate={handleNavigation} />
       </div>
       
-      <div className="relative mt-16">
-        <HeroParallax projects={getProjects(i18n.language)} />
-      </div>
+      <PortfolioGrid projects={getProjects(i18n.language)} />
       
       <Footer onNavigate={handleNavigation} />
     </div>
