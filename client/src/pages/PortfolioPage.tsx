@@ -66,6 +66,14 @@ const getProjects = (language: string) => [
     thumbnail: "/images/ibm-csm.png"
   },
   {
+    title: "Vessel México",
+    link: "https://vesselmexico.com/",
+    description: language === 'es' 
+      ? "Sitio web oficial para Vessel México, fabricante de herramientas de precisión desde 1916" 
+      : "Official website for Vessel Mexico, manufacturer of precision tools since 1916",
+    thumbnail: "/images/vessel-screen.png"
+  },
+  {
     title: "BetterCaption",
     link: "https://carterspinelli-test-dev.com/",
     description: language === 'es'
@@ -96,6 +104,14 @@ const getProjects = (language: string) => [
       ? "Versión avanzada con funcionalidades adicionales"
       : "Advanced version with additional functionalities",
     thumbnail: "/images/ibm-csm.png"
+  },
+  {
+    title: "Vessel México",
+    link: "https://vesselmexico.com/",
+    description: language === 'es' 
+      ? "Sitio web oficial para Vessel México, fabricante de herramientas de precisión desde 1916" 
+      : "Official website for Vessel Mexico, manufacturer of precision tools since 1916",
+    thumbnail: "/images/vessel-screen.png"
   },
   {
     title: "BetterCaption",
