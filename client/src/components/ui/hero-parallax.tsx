@@ -39,13 +39,11 @@ export const HeroParallax = ({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  // Display logic differs based on device
-  const desktopFirstRow = projects.slice(0, 5);
-  const desktopSecondRow = projects.slice(5, 10);
-  const desktopThirdRow = projects.slice(10, 15);
-  
-  // For mobile, we'll show a grid instead of the parallax effect
-  const mobileProjects = projects.slice(0, 9); // First 9 projects for mobile
+  // For mobile, only use two rows with fewer projects per row for better visibility
+  // For desktop, maintain the three-row layout
+  const firstRow = isMobile ? projects.slice(0, 3) : projects.slice(0, 5);
+  const secondRow = isMobile ? projects.slice(3, 6) : projects.slice(5, 10);
+  const thirdRow = isMobile ? [] : projects.slice(10, 15); // Empty on mobile
   
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
@@ -83,62 +81,51 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="relative py-10 md:py-40 antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative py-20 md:py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       style={{ 
-        height: isMobile ? "auto" : "300vh",
+        height: isMobile ? "150vh" : "300vh",
         position: "relative" // Ensure proper position for scroll calculation
       }}
     >
       <Header />
-      
-      {isMobile ? (
-        // Mobile grid layout - no parallax effect
-        <div className="container mx-auto px-4 pt-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-            {mobileProjects.map((project) => (
-              <MobileProjectCard key={project.title} project={project} />
-            ))}
-          </div>
-        </div>
-      ) : (
-        // Desktop parallax layout
-        <motion.div
-          style={{
-            rotateX,
-            rotateZ,
-            translateY,
-            opacity,
-          }}
-        >
-          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20 overflow-visible">
-            {desktopFirstRow.map((project) => (
-              <ProjectCard
-                project={project}
-                translate={translateX}
-                key={project.title}
-              />
-            ))}
-          </motion.div>
-          <motion.div className="flex flex-row mb-20 space-x-20 overflow-visible">
-            {desktopSecondRow.map((project) => (
-              <ProjectCard
-                project={project}
-                translate={translateXReverse}
-                key={project.title}
-              />
-            ))}
-          </motion.div>
-          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 overflow-visible">
-            {desktopThirdRow.map((project) => (
-              <ProjectCard
-                project={project}
-                translate={translateX}
-                key={project.title}
-              />
-            ))}
-          </motion.div>
+      <motion.div
+        style={{
+          rotateX,
+          rotateZ,
+          translateY,
+          opacity,
+        }}
+      >
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 md:space-x-20 mb-16 md:mb-20 overflow-visible">
+          {firstRow.map((project) => (
+            <ProjectCard
+              project={project}
+              translate={translateX}
+              key={project.title}
+            />
+          ))}
         </motion.div>
-      )}
+        <motion.div className="flex flex-row mb-16 md:mb-20 space-x-4 md:space-x-20 overflow-visible">
+          {secondRow.map((project) => (
+            <ProjectCard
+              project={project}
+              translate={translateXReverse}
+              key={project.title}
+            />
+          ))}
+        </motion.div>
+        {!isMobile && (
+          <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
+            {thirdRow.map((project) => (
+              <ProjectCard
+                project={project}
+                translate={translateX}
+                key={project.title}
+              />
+            ))}
+          </motion.div>
+        )}
+      </motion.div>
     </div>
   );
 };
@@ -162,46 +149,6 @@ export const Header = () => {
           'We design web experiences for leading companies looking to stand out in the digital market. Each project is unique and personalized to meet the specific needs of our clients.'}
       </p>
     </div>
-  );
-};
-
-// Mobile-optimized card component with simpler layout
-export const MobileProjectCard = ({
-  project,
-}: {
-  project: {
-    title: string;
-    link: string;
-    thumbnail: string;
-    description: string;
-  };
-}) => {
-  const { theme } = useTheme();
-  
-  return (
-    <motion.div
-      className="flex flex-col rounded-lg overflow-hidden shadow-md h-44"
-      whileHover={{ y: -5, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block h-full relative"
-      >
-        <img
-          src={project.thumbnail}
-          alt={project.title}
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-        <div className="absolute bottom-0 left-0 p-2 w-full">
-          <h3 className="text-white text-sm font-bold line-clamp-1">{project.title}</h3>
-          <p className="text-white text-[10px] opacity-80 line-clamp-2">{project.description}</p>
-        </div>
-      </a>
-    </motion.div>
   );
 };
 
