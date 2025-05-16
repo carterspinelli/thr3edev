@@ -107,7 +107,7 @@ export const es = {
   },
   pricing: {
     title: "Precios",
-    subtitle: "Beneficios incluidos:",
+    subtitle: "Beneficios incluidos",
     description: "Ofrecemos un precio fijo y transparente para tu landing page profesional.",
     price: "$18,000 MXN",
     features: "Características",
@@ -116,7 +116,7 @@ export const es = {
     feature3: "Formulario de contacto",
     feature4: "Optimización móvil",
     feature5: "Optimización SEO",
-    feature6: "Componentes interactivos",
+    feature6: "Hosting por 1 año",
     feature7: "Entrega en 3 días",
     feature8: "Código fuente incluido",
     cta: "Quiero mi landing page"
