@@ -26,10 +26,7 @@ export const HeroParallax = ({
   const secondRow = projects.slice(5, 10);
   const thirdRow = projects.slice(10, 15);
   
-  // Check if we're on a mobile device
-  const [isMobile, setIsMobile] = React.useState(false);
   const ref = React.useRef(null);
-  
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -37,7 +34,34 @@ export const HeroParallax = ({
 
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
-  // Check mobile on initial render and on resize
+  const translateX = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 1000]),
+    springConfig
+  );
+  const translateXReverse = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    springConfig
+  );
+  const rotateX = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
+    springConfig
+  );
+  const opacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+    springConfig
+  );
+  const rotateZ = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
+    springConfig
+  );
+  const translateY = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    springConfig
+  );
+  
+  // Check if we're on a mobile device
+  const [isMobile, setIsMobile] = React.useState(false);
+  
   React.useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -52,44 +76,13 @@ export const HeroParallax = ({
     // Clean up
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  // Create animations based on mobile or desktop
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, isMobile ? 300 : 1000]),
-    springConfig
-  );
-  
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, isMobile ? -300 : -1000]),
-    springConfig
-  );
-  
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 5 : 15, 0]),
-    springConfig
-  );
-  
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 5 : 20, 0]),
-    springConfig
-  );
-  
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], isMobile ? [-100, 20] : [-700, 500]),
-    springConfig
-  );
   
   return (
     <div
       ref={ref}
       className="relative py-20 md:py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       style={{ 
-        height: isMobile ? "100vh" : "300vh",
+        height: isMobile ? "160vh" : "300vh",
         position: "relative" // Ensure proper position for scroll calculation
       }}
     >
