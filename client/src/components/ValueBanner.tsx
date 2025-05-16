@@ -120,12 +120,12 @@ export default function ValueBanner() {
           <h2
             className={`text-3xl md:text-4xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-zinc-900"}`}
           >
-            {t("benefits.title")} <span className="text-[#0e62fe]">{t("benefits.subtitle")}</span>
+            Por qué <span className="text-[#0e62fe]">elegirnos</span>
           </h2>
           <p
             className={`text-lg max-w-2xl mx-auto ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}
           >
-            {t("benefits.description")}</p>
+            Lo hacemos simple</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
