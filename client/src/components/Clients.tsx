@@ -27,6 +27,11 @@ const clientLogos = [
     name: "Metamask",
     src: "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg",
   },
+  {
+    id: 5,
+    name: "Vessel México",
+    src: "/images/vessel-logo.png",
+  },
 ];
 
 export default function Clients() {
