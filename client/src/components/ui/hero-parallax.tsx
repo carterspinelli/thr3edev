@@ -82,7 +82,7 @@ export const HeroParallax = ({
       ref={ref}
       className="relative py-20 md:py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       style={{ 
-        height: isMobile ? "200vh" : "300vh",
+        height: isMobile ? "160vh" : "300vh",
         position: "relative" // Ensure proper position for scroll calculation
       }}
     >
@@ -100,7 +100,7 @@ export const HeroParallax = ({
             <ProjectCard
               project={project}
               translate={translateX}
-              key={project.title}
+              key={`first-${project.title}`}
             />
           ))}
         </motion.div>
@@ -109,19 +109,22 @@ export const HeroParallax = ({
             <ProjectCard
               project={project}
               translate={translateXReverse}
-              key={project.title}
+              key={`second-${project.title}`}
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
-          {thirdRow.map((project) => (
-            <ProjectCard
-              project={project}
-              translate={translateX}
-              key={project.title}
-            />
-          ))}
-        </motion.div>
+        {/* Only show third row on desktop */}
+        {!isMobile && (
+          <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
+            {thirdRow.map((project) => (
+              <ProjectCard
+                project={project}
+                translate={translateX}
+                key={`third-${project.title}`}
+              />
+            ))}
+          </motion.div>
+        )}
       </motion.div>
     </div>
   );
