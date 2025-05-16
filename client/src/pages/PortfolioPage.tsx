@@ -49,36 +49,12 @@ const getProjects = (language: string) => [
     thumbnail: "/images/carter-spinelli.png"
   },
   {
-    title: "IBM DS8000 Systems",
-    link: "https://www.ibm.com/mx-es/products/ds8000",
+    title: "ASVM Inc",
+    link: "https://asvm.com/",
     description: language === 'es'
-      ? "Variante del sistema de almacenamiento empresarial para el sector financiero"
-      : "Enterprise storage system variant for the financial sector",
-    thumbnail: "/images/ibm-ds8000.png"
-  },
-  {
-    title: "IBM Storage Solutions",
-    link: "https://www.ibm.com/es-es/products/copy-services-manager",
-    description: language === 'es'
-      ? "Sitio especializado para servicios de recuperación de datos"
-      : "Specialized site for data recovery services",
-    thumbnail: "/images/ibm-csm.png"
-  },
-  {
-    title: "Carter Spinelli Media",
-    link: "https://carterspinelli.com/miscellaneous",
-    description: language === 'es'
-      ? "Sección especializada en multimedia y contenido audiovisual"
-      : "Specialized section for multimedia and audiovisual content",
-    thumbnail: "/images/carter-spinelli.png"
-  },
-  {
-    title: "IBM Storage Hybrid Solutions",
-    link: "https://www.ibm.com/mx-es/products/ds8000",
-    description: language === 'es'
-      ? "Soluciones de almacenamiento híbrido para empresas"
-      : "Hybrid storage solutions for businesses",
-    thumbnail: "/images/ibm-ds8000.png"
+      ? "Sitio corporativo para servicios de consultoría técnica especializada"
+      : "Corporate website for specialized technical consulting services",
+    thumbnail: "/images/asvm-screen.png"
   }
 ];
 
