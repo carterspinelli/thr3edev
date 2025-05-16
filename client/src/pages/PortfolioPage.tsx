@@ -10,6 +10,14 @@ import { useTranslation } from "react-i18next";
 // Project translations
 const getProjects = (language: string) => [
   {
+    title: "Vessel México",
+    link: "https://vesselmexico.com/",
+    description: language === 'es' 
+      ? "Sitio web oficial para Vessel México, fabricante de herramientas de precisión desde 1916" 
+      : "Official website for Vessel Mexico, manufacturer of precision tools since 1916",
+    thumbnail: "/images/vessel-screen.png"
+  },
+  {
     title: "IBM DS8000",
     link: "https://www.ibm.com/mx-es/products/ds8000",
     description: language === 'es' 
