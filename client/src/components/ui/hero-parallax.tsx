@@ -34,31 +34,6 @@ export const HeroParallax = ({
 
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
-    springConfig
-  );
-  
   // Check if we're on a mobile device
   const [isMobile, setIsMobile] = React.useState(false);
   
@@ -77,12 +52,43 @@ export const HeroParallax = ({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
+  // Adjust motion values for mobile
+  const translateX = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, isMobile ? 200 : 1000]),
+    springConfig
+  );
+  
+  const translateXReverse = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, isMobile ? -200 : -1000]),
+    springConfig
+  );
+  
+  const rotateX = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 5 : 15, 0]),
+    springConfig
+  );
+  
+  const opacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [0.8, 1]),
+    springConfig
+  );
+  
+  const rotateZ = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? 5 : 20, 0]),
+    springConfig
+  );
+  
+  const translateY = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [isMobile ? -100 : -700, isMobile ? 50 : 500]),
+    springConfig
+  );
+  
   return (
     <div
       ref={ref}
-      className="relative py-20 md:py-40 overflow-hidden antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="relative py-20 md:py-40 overflow-visible antialiased flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       style={{ 
-        height: isMobile ? "160vh" : "300vh",
+        height: isMobile ? "200vh" : "300vh",
         position: "relative" // Ensure proper position for scroll calculation
       }}
     >
@@ -94,33 +100,38 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
+        className="mt-4 md:mt-0"
       >
+        {/* First row */}
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 mb-10 md:mb-20 overflow-visible">
-          {firstRow.map((project) => (
+          {firstRow.map((project, idx) => (
             <ProjectCard
               project={project}
               translate={translateX}
-              key={`first-${project.title}`}
+              key={`first-${project.title}-${idx}`}
             />
           ))}
         </motion.div>
+        
+        {/* Second row */}
         <motion.div className="flex flex-row mb-10 md:mb-20 space-x-10 md:space-x-20 overflow-visible">
-          {secondRow.map((project) => (
+          {secondRow.map((project, idx) => (
             <ProjectCard
               project={project}
               translate={translateXReverse}
-              key={`second-${project.title}`}
+              key={`second-${project.title}-${idx}`}
             />
           ))}
         </motion.div>
-        {/* Only show third row on desktop */}
+        
+        {/* Third row - only on desktop */}
         {!isMobile && (
           <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 md:space-x-20 overflow-visible">
-            {thirdRow.map((project) => (
+            {thirdRow.map((project, idx) => (
               <ProjectCard
                 project={project}
                 translate={translateX}
-                key={`third-${project.title}`}
+                key={`third-${project.title}-${idx}`}
               />
             ))}
           </motion.div>
@@ -190,10 +201,9 @@ export const ProjectCard = ({
         x: translate,
       }}
       whileHover={{
-        y: -20,
+        y: isMobile ? 0 : -20,
       }}
-      key={project.title}
-      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-64 w-72' : 'h-96 w-[30rem]'}`}
+      className={`group/product relative flex-shrink-0 ${isMobile ? 'h-48 w-60' : 'h-96 w-[30rem]'}`}
       onMouseEnter={() => setCursorVariant("sm")}
       onMouseLeave={() => setCursorVariant("default")}
     >
@@ -207,6 +217,7 @@ export const ProjectCard = ({
           src={project.thumbnail}
           className="object-cover object-center absolute h-full w-full inset-0 rounded-lg"
           alt={project.title}
+          loading="lazy"
         />
       </a>
       
@@ -217,13 +228,13 @@ export const ProjectCard = ({
       ></div>
       
       <div 
-        className={`absolute bottom-0 left-0 p-4 md:p-6 transition-opacity duration-300
+        className={`absolute bottom-0 left-0 p-3 md:p-6 transition-opacity duration-300
           ${isMobile ? 'opacity-100' : 'opacity-0 group-hover/product:opacity-100'}`}
       >
-        <h2 className="text-white text-lg md:text-xl font-bold mb-1 md:mb-2">
+        <h2 className="text-white text-sm md:text-xl font-bold mb-1">
           {project.title}
         </h2>
-        <p className={`text-white ${isMobile ? 'text-xs line-clamp-2' : 'text-sm'} opacity-80`}>
+        <p className={`text-white ${isMobile ? 'text-xs line-clamp-2' : 'text-sm'} opacity-90`}>
           {project.description}
         </p>
       </div>
