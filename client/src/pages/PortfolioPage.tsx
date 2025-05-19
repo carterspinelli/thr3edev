@@ -12,8 +12,8 @@ const getProjects = (language: string) => [
     title: "Vessel México",
     link: "https://vesselmexico.com/",
     description: language === 'es' 
-      ? "Sitio web oficial para Vessel México, fabricante de herramientas de precisión desde 1916" 
-      : "Official website for Vessel Mexico, manufacturer of precision tools since 1916",
+      ? "Sitio web oficial para Vessel México" 
+      : "Official website for Vessel Mexico",
     thumbnail: "/images/vessel-screen.png"
   },
   {
